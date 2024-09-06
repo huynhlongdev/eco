@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-product",
+      "settings": {
+      }
+    },
+    "product_infomation_AhdPgK": {
+      "type": "product-infomation",
+      "blocks": {
+        "text_crqKhC": {
+          "type": "text",
+          "settings": {
+            "text": "vgvgv"
+          }
+        },
+        "title_VeqV46": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price_NU7Ymx": {
+          "type": "price",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "text_crqKhC",
+        "title_VeqV46",
+        "price_NU7Ymx"
+      ],
+      "settings": {
+        "enable_sticky_info": true
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product_infomation_AhdPgK"
+  ]
+}

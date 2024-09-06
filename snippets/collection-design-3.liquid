@@ -1,0 +1,21 @@
+<div class="col-md-6 collection__item">
+  <div class="collection__single d-block overflow-hidden">
+    <a href="{{ collection.url }}" class="d-block relative" title="{{ collection.title }}">
+      {% if collection.image %}
+        <div class="relative d-block img-box mb-3 overflow-hidden">
+          <img
+            src="{{ collection.image | image_url : width: 500 }}"
+            height=""
+            width=""
+            class="img-fluid absolute top-0 left-0 w-100 h-100"
+            alt="{{ collection.title }}"
+          >
+        </div>
+      {% endif %}
+      <div class="collection__info absolute bottom-0 left-0 w-100 p-3 white-color">
+        <h6 class="card-title uppercase mb-1">{{ collection.title }}</h6>
+        <div class="count">{{ collection.all_products_count }} products</div>
+      </div>
+    </a>
+  </div>
+</div>

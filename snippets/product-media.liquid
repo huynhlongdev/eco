@@ -1,0 +1,17 @@
+
+{%- for media in product.media -%}
+    {% case media.media_type %}
+        {% when "image" %}
+                <img src="{{ media | image_url : width : 500 }}" height="" width="" alt="">
+        {% when "video" %}
+            {{ media | video_tag: controls: true, class: "abc" }}
+        {% when "external_video" %}
+            {{ media | external_video_tag }}
+        {% when "model" %}
+            {{ media |  model_viewer_tag }}
+            <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+        {% else %}
+            echo "Null"
+    {% endcase %}
+    
+{%- endfor -%}

@@ -1,0 +1,45 @@
+{
+  "sections": {
+    "privacy-policy": {
+      "type": "privacy-policy",
+      "blocks": {
+        "privacy_policy_Nq36Cq": {
+          "type": "privacy_policy",
+          "settings": {
+            "service_img": "shopify:\/\/shop_images\/Privacy-policy-1.webp",
+            "service_title": "There are many variations of passages even slightly",
+            "service_desc": "Model sentence structures, to generate lorem Ipsum a which looks reasonable",
+            "service_button": "Read more",
+            "service_url": ""
+          }
+        },
+        "privacy_policy_FXAMiE": {
+          "type": "privacy_policy",
+          "settings": {
+            "service_img": "shopify:\/\/shop_images\/Privacy-policy-2.webp",
+            "service_title": "There are many variations of passages even slightly",
+            "service_desc": "Model sentence structures, to generate lorem Ipsum a which looks reasonable",
+            "service_button": "Read more",
+            "service_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "privacy_policy_Nq36Cq",
+        "privacy_policy_FXAMiE"
+      ],
+      "settings": {
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "section_padding_top_lg": 60,
+        "section_padding_bottom_lg": 60,
+        "section_padding_top_xs": 40,
+        "section_padding_bottom_xs": 40,
+        "section_bg_color": "#F3F1F8"
+      }
+    }
+  },
+  "order": [
+    "privacy-policy"
+  ]
+}

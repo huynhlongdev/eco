@@ -1,0 +1,87 @@
+<div class="header-search absolute top-0 left-0 w-100 h-100 bg-white d-flex items-center" style="display:none">
+  <div class="search-modal__content mw-100  mx-auto relative">
+    <form action="{{ routes.search_url }}" method="get" class="search search-modal__form relative">
+      <input
+        id="search__input"
+        class="w-100 outline-none border-0"
+        autocomplete="off"
+        type="text"
+        name="q"
+        placeholder="Search"
+      >
+      <button class="search__button absolute outline-none p-0 border-0 bg-transparent">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11.9886" cy="10.9886" r="8.98856" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+          <path d="M18.2402 17.707L21.7643 21.2219" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </button>
+    </form>
+    <button
+      type="button"
+      class="modal__close-button absolute top-0 outline-none p-0 border-0 bg-transparent"
+      aria-label="Close"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        role="img"
+        width="20"
+        height="20"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 32 32"
+      >
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 30L30 2m0 28L2 2"></path></g>
+      </svg>
+    </button>
+  </div>
+</div>
+{% comment %} header-search {% endcomment %}
+ 
+<script>
+  // const closeButton = document.querySelector('.modal__close-button');
+  // const searchHeader = document.querySelector('.search-header');
+
+  // // close search model
+  // closeButton.addEventListener('click', function () {
+  //   document.querySelector('.header-search').classList.add('hidden');
+  // });
+
+  // // open search model
+  // searchHeader.addEventListener('click', function () {
+  //   document.querySelector('.header-search').classList.remove('hidden');
+  // });
+  window.addEventListener('load', function () {
+    jQuery(document).ready(function ($) {
+      // close model
+      $(document).on('click', '.modal__close-button', function () {
+        $(this).closest('header').find('.header-search').fadeOut();
+      });
+
+      // open model
+      $(document).on('click', '.search-header', function () {
+        $(this).closest('header').find('.header-search').fadeIn();
+      });
+    });
+  });
+</script>
+
+<style>
+  .search-modal__content{
+    width: 500px;
+  }
+  .search-modal__content .modal__close-button{
+    right: -55px;
+  }
+  #search__input{
+    border: 1px solid #e0e0e0;
+    padding: 0.5rem 1rem;
+  }
+  .search-modal__content .search__button {
+    right: 1rem;
+    top: 0.45rem;
+  }
+  .search-modal__content .modal__close-button {
+    right: -2.5rem;
+    top: .45rem;
+  }
+</style>

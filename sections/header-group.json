@@ -1,0 +1,91 @@
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement_bar_z7V46x": {
+      "type": "announcement-bar",
+      "blocks": {
+        "slide_7L4zXM": {
+          "type": "slide",
+          "settings": {
+            "text": "Text",
+            "link": ""
+          }
+        },
+        "slide_etkJnw": {
+          "type": "slide",
+          "settings": {
+            "text": "Text",
+            "link": ""
+          }
+        },
+        "slide_ECUzLe": {
+          "type": "slide",
+          "settings": {
+            "text": "Text",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_7L4zXM",
+        "slide_etkJnw",
+        "slide_ECUzLe"
+      ],
+      "settings": {
+        "text_color": "#ffffff",
+        "background_color": "#000000"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "dropdown_Di3VmQ": {
+          "type": "dropdown",
+          "settings": {
+            "text": "Shop",
+            "link": "shopify:\/\/collections",
+            "open_link": "_blank",
+            "menu": "dropw-1",
+            "id": 1,
+            "type_menu": "dropdown"
+          }
+        },
+        "dropdown_GXVaWt": {
+          "type": "dropdown",
+          "settings": {
+            "text": "Page",
+            "link": "#",
+            "open_link": "_self",
+            "menu": "main-menu",
+            "id": 1,
+            "type_menu": "dropdown"
+          }
+        },
+        "mega_ktEzXc": {
+          "type": "mega",
+          "settings": {
+            "text": "Element",
+            "link": "#",
+            "open_link": "_self",
+            "type_menu": "dropdown"
+          }
+        }
+      },
+      "block_order": [
+        "dropdown_Di3VmQ",
+        "dropdown_GXVaWt",
+        "mega_ktEzXc"
+      ],
+      "settings": {
+        "wishlist_link": "shopify:\/\/pages\/wishlist",
+        "navigation": "main-menu",
+        "logo_position": "middle-left"
+      }
+    }
+  },
+  "order": [
+    "announcement_bar_z7V46x",
+    "header"
+  ]
+}

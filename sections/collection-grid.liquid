@@ -1,0 +1,213 @@
+{{ 'collection-list.css' | asset_url | stylesheet_tag }}
+
+{% comment %}
+  'products_high', 'products_low' : all_products_count
+  when 'date', 'date_reversed': published_at
+
+  sort == 'products_high' or sort == 'date_reversed' or .sort == 'alphabetical_reversed'
+    assign collections = collections | reverse
+  endif
+{% endcomment %}
+
+{%- liquid
+  assign se = section.settings
+  assign headline = se.headline
+  assign align = se.align
+  assign align_mb = se.align_mb
+  assign design = se.design
+  assign limit = se.limit
+  assign show_pagination = 1
+-%}
+
+<div class="collection-list {{ design }}">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title {{ align }} {{ align_mb }}">
+          {% if headline.size > 0 %} {{ headline }} {% else %} {{ page_title }} {% endif %}
+        </h1>
+      </div>
+    </div>
+    {%- paginate collections by limit -%}
+      <div class="row">
+        {% for collection in collections %}
+          {% liquid
+            case design
+              when 'design-1'
+                render 'collection-design-1', se: se, collection: collection
+              when 'design-2'
+                render 'collection-design-2', se: se, collection: collection
+              when 'design-3'
+                render 'collection-design-3', se: se, collection: collection
+              else
+                render 'collection-design-1', se: se, collection: collection
+            endcase
+          %}
+        {% endfor %}
+      </div>
+
+      {% render 'pagination', paginate: paginate %}
+    {%- endpaginate -%}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Collection List",
+  "settings": [
+    {
+      "type": "number",
+      "id" : "limit",
+      "label": "Limit",
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "design",
+      "label": "Templates",
+      "options": [
+        {
+          "label": "Design 1",
+          "value": "design-1"
+        },
+        {
+          "label": "Design 2",
+          "value": "design-2"
+        },
+        {
+          "label": "Design 3",
+          "value": "design-3"
+        },
+      ],
+      "default": "design-1"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Align text on Desktop",
+      "options": [
+        {
+          "label": "Left",
+          "value": "text-md-left"
+        },
+        {
+          "label": "Center",
+          "value": "text-md-center"
+        },
+        {
+          "label": "Right",
+          "value": "text-md-right"
+        },
+      ],
+      "default": "text-md-center"
+    },
+    {
+      "type": "select",
+      "id": "align_mb",
+      "label": "Align text on Mobile",
+      "options": [
+        {
+          "label": "Left",
+          "value": "text-left"
+        },
+        {
+          "label": "Center",
+          "value": "text-center"
+        },
+        {
+          "label": "Right",
+          "value": "text-right"
+        },
+      ],
+      "default": "text-center"
+    },
+    {
+      "type": "text",
+      "id": "coll_btn",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_bottom_ip",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+  ],
+  "presets": [
+    {
+      "name": "Collection grid"
+    }
+  ]
+}
+{% endschema %}

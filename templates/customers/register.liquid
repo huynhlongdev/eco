@@ -1,0 +1,42 @@
+
+{{ "customer.css" |  asset_url |  stylesheet_tag }}
+<div class="customer">
+  <div id="container">
+	  <!-- Create Customer -->
+	  <div id="create-customer" class="mx-auto m-100">
+	    <div class="template_header">
+	      <h2 class="title text-center mb-4">Create Account</h2>
+	    </div>
+
+	    {% form 'create_customer' %}
+	      {{ form.errors | default_errors }}
+
+		  <div class="row ">
+
+			<div class="clearfix mb-3 col">
+				<input type="text" value="" name="customer[first_name]" id="first_name" class="form-control outline-none" placeholder="First name" size="30" />
+			</div>
+
+			<div class="clearfix mb-3 col">
+				<input type="text" value="" name="customer[last_name]" id="last_name" class="form-control outline-none" placeholder="Last name" size="30" />
+			</div>
+			</div>
+
+	      <div class="clearfix mb-3">
+	        <input type="email" value="" name="customer[email]" id="email" class="form-control outline-none" placeholder="Email" size="30" />
+	      </div>
+
+	      <div class="clearfix mb-3">
+	        <input type="password" value="" name="customer[password]" id="password" class="form-control password" placeholder="Password" size="30" />
+	      </div>
+
+	      <div class="action_bottom">
+	        <input class="btn w-100" type="submit" value="Create An Account" />
+			
+			Have an account <a href="{{ routes.account_login_url }}">Login here</a>
+	      </div>
+	    {% endform %}
+	  </div><!-- /#create-customer -->
+  </div>
+</div>
+

@@ -1,0 +1,93 @@
+{% style %}
+    #shopify-section-{{ section.id }}{
+      {% if section.settings.backgound_image %}
+      background-image: url({{ section.settings.backgound_image | image_url }});
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      {% endif %}
+      {% if section.settings.background_gradient != blank %}
+      background-image: {{section.settings.background_gradient}};
+      {% endif %}
+        padding-top: {{section.settings.padding_top}}px;
+        padding-bottom: {{section.settings.padding_bottom}}px;
+    }
+  #shopify-section-{{ section.id }} h1{
+        font-size: {{section.settings.font_size }}px;
+        font-family: {{ section.settings.heading_font.family }}
+  }
+        .
+{% endstyle %}
+
+<div class="page-title text-{{ section.settings.alignment }}">
+  <div class="container mx-auto">
+    {{ section.settings.heading_font }}
+
+    <h1>{{ section.settings.headline }}</h1>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page Title",
+  "class": "page-title",
+  "settings": [
+    {
+      "type": "header",
+      "content": "demo"
+    },
+    {
+      "type": "textarea",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Typography"
+    },
+    {
+      "type" : "number",
+      "id" : "font_size",
+      "label": "Font size",
+      "default": 48
+     },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "label": "Padding top",
+      "id": "padding_top",
+      "default": 120,
+      "min": 0,
+      "max": 300,
+      "step": 5
+    },
+    {
+      "type": "range",
+      "label": "Padding bottom",
+      "id": "padding_bottom",
+      "default": 120,
+      "min": 0,
+      "max": 300,
+      "step": 5
+    },
+    {
+      "type": "image_picker",
+      "id": "backgound_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color_background",
+      "label": "Background Gradient",
+      "id": "background_gradient"
+    }
+  ]
+}
+{% endschema %}

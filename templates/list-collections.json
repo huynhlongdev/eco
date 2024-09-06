@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+      }
+    },
+    "collection_grid_FryyQR": {
+      "type": "collection-grid",
+      "settings": {
+        "limit": 3,
+        "design": "design-1",
+        "headline": "Collections Design 1",
+        "align": "text-md-left",
+        "align_mb": "text-center",
+        "coll_btn": "Shop now"
+      }
+    },
+    "collection_grid_L8RnUa": {
+      "type": "collection-grid",
+      "settings": {
+        "limit": 3,
+        "design": "design-2",
+        "headline": "Collections Design 2",
+        "align": "text-md-center",
+        "align_mb": "text-center",
+        "coll_btn": "Shop now"
+      }
+    },
+    "collection_grid_n3WxCw": {
+      "type": "collection-grid",
+      "settings": {
+        "limit": 2,
+        "design": "design-3",
+        "headline": "Collections Design 3",
+        "align": "text-md-center",
+        "align_mb": "text-center",
+        "coll_btn": "Shop now"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "collection_grid_FryyQR",
+    "collection_grid_L8RnUa",
+    "collection_grid_n3WxCw"
+  ]
+}

@@ -1,0 +1,169 @@
+{%- liquid
+  assign show_quick_view = section.settings.show_quick_view
+  assign show_variant = section.settings.show_variant
+  assign show_vendor = section.settings.show_vendor
+  assign show_compare = false
+-%}
+
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
+{{ request.params }}
+
+<div class="container">
+  <div class="sort-filter">
+    {%- assign sort_default = collection.sort_by | default: collection.default_sort_by -%}
+    <select name="sort_by" id="sortby" class="sortby">
+      {% for sort in collection.sort_options %}
+        <option
+          value="{ sort.value }}"
+          {% if sort.value == sort_default %}
+            selected
+          {% endif %}
+        >
+          {{ sort.name }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+  {% comment %} end sort-filter {% endcomment %}
+
+  <div class="count">{{ collection.products_count }} items</div>
+
+  {% paginate collection.products by section.settings.per_page %}
+    <div class="product-grid grid grid-cols-{{ section.settings.columns_moblie }} px-3">
+      {% for product in collection.products %}
+        {%- render 'content-product',
+          product: product,
+          show_quick_view: show_quick_view,
+          show_compare: show_compare,
+          show_variant: show_variant,
+          show_vendor: show_vendor,
+          image_ratio: section.settings.image_ratio
+        -%}
+      {% endfor %}
+    </div>
+
+    {{- paginate | default_pagination }}
+  {% endpaginate %}
+</div>
+{% schema %}
+{
+  "name": "Product grid",
+  "settings": [
+    {
+      "type": "number",
+      "id": "per_page",
+      "label": "Product per page",
+      "default": 12,
+    },
+     {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns",
+      "default": "3",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "columns_moblie",
+      "label": "Columns Mobile",
+      "default": "1",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Product card"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        {
+          "label": "Portrait",
+          "value": "portrait"
+        },
+        {
+          "label": "Square",
+          "value": "square"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Vendor",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_view",
+      "label": "Show Quickview",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_variant",
+      "label": "Show Variant",
+      "default": true
+    },
+
+  ],
+  "presets": [
+    {
+      "name": "Product grid"
+    }
+  ]
+}
+{% endschema %}

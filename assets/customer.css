@@ -1,0 +1,29 @@
+.customer {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.box {
+  border: 1px solid #e9e9e9;
+  height: 100%;
+  padding: 2rem;
+}
+.title {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+#create-customer {
+  width: 500px;
+}
+
+[type="submit"] {
+  background: var(--blackish-blue);
+  color: #fff;
+  transition: all 0.3s;
+}
+
+[type="submit"]:hover {
+  background: var(--blue-deep);
+  color: #fff;
+}

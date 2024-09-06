@@ -1,0 +1,130 @@
+{%- liquid
+  assign a = 'demo'
+  if image_ratio == 'square'
+    assign ratio = 'pt-[120%]'
+  else
+    assign ratio = 'pt-[100%]'
+  endif
+-%}
+
+<div class="pro-item card-{{ image_ratio }}" data-handle="{{ product.handle }}" data-id="{{ product.id }}">
+  <div class="relative">
+
+    {%- if product.available == false -%}
+    <span id="{{ product.id }}" class="badge badge--bottom-left">
+      sold out
+    </span>
+    {%- elsif product.compare_at_price > product.price and product.available -%}
+    <span id="{{ product.id }}" class="badge badge--bottom-left">
+      sale
+    </span>
+    {%- endif -%}
+    <div class="thumbnail relative {{ratio}}">
+
+    
+      <img
+        srcset="
+          {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+          {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+          {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+          {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+          {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+          {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+          {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+        "
+        src="{{ product.featured_media | image_url: width: 533 }}"
+        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+        alt="{{ product.featured_media.alt | escape }}"
+        class="absolute top-0 left-0 h-full w-full object-cover"
+        loading="lazy"
+        width="{{ product.featured_media.width }}"
+        height="{{ product.featured_media.height }}"
+      >
+
+      <div class="button-group absolute top-0 left-0 w-full h-full bg-overlay">
+
+
+      <button  class="wishlist_button" data-id="{{ product.id }}">
+        <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" fill="none" width="24" height="24" />
+          <g>
+            <path
+              d="M16.5 4.5c2.206 0 4 1.794 4 4 0 4.67-5.543 8.94-8.5 11.023C9.043 17.44 3.5 13.17 3.5 8.5c0-2.206 1.794-4 4-4 1.298 0 2.522.638 3.273 1.706L12 7.953l1.227-1.746c.75-1.07 1.975-1.707 3.273-1.707m0-1.5c-1.862 0-3.505.928-4.5 2.344C11.005 3.928 9.362 3 7.5 3 4.462 3 2 5.462 2 8.5c0 5.72 6.5 10.438 10 12.85 3.5-2.412 10-7.13 10-12.85C22 5.462 19.538 3 16.5 3z" />
+      
+          </g>
+        </svg>
+      </button>
+
+      
+        {%- if show_quick_view -%}
+          <a
+            class="quick-view-button"
+            href="{{ product.url }}"
+            data-product-slug="{{ product.handle }}"
+            data-id="{{ product.id }}"
+            rel="nofollow"
+          >
+            {%- render 'icon-quickview' -%}
+          </a>
+        {%- endif -%}
+
+        {%- if show_compare -%}
+          <a
+            class="compare-button"
+            href="{{ product.url }}"
+            data-product-slug="{{ product.handle }}"
+            data-id="{{ product.id }}"
+            rel="nofollow"
+          >
+            {%- render 'icon-quickview' -%}
+          </a>
+        {%- endif -%}
+
+        {% if product.variants.size > 1 %}
+          <a
+            href="{{ product.url }}"
+            data-product-id="{{ product.id }}"
+            data-variant-id="{{ product.variants.first.id }}"
+            class="add_quick_shop"
+          >
+            Quick shop
+          </a>
+        {% else %}
+          <a
+            href="{{ product.url }}"
+            data-product-id="{{ product.id }}"
+            data-variant-id="{{ product.variants.first.id }}"
+            class="add_to_cart"
+          >
+          <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+            </path>
+          </svg>
+            Add to cart
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="card-meta">
+      {%- if show_vendor -%}
+        <div class="text-[#cfcece] capitalize py-2">
+          {{ product.vendor }}
+        </div>
+      {%- endif -%}
+      <h3>
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </h3>
+
+      {%- render 'price', product: product -%}
+
+      {%- liquid
+        if show_variant
+          render 'content-variants', product: product;
+        endif
+      -%}
+    </div>
+  </div>
+</div>

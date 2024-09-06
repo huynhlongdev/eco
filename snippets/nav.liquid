@@ -1,0 +1,6 @@
+{% assign menus = linklists[linkCurrent] %}
+<ul class="m-0 p-0 list-none">
+    {% for link in menus.links %}
+        <li><a href="{{ link.handle }}">{{ link.title }}</a></li>
+    {% endfor %}
+</ul>

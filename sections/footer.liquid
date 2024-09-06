@@ -1,0 +1,122 @@
+{%- liquid
+assign se = section.settings
+assign copyright = se.copyright
+assign blocks = section.blocks
+
+-%}
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      {% for block in blocks %}
+        {%-  liquid  
+          assign item = block.settings
+        -%}
+        {% case block.type %}
+
+        {% when "col1" %}
+          <div class="col-md-4">
+            {% if item.image %}
+              <div class="image mb-4">
+                {{ item.image | img_url | img_tag }}
+              </div>
+            {% endif %}
+            <div class="text">
+              {{ item.content }}
+            </div>
+          </div>
+
+        {% when "newsletter" %}
+          <div class="col-md-4">
+            {%  form "customer" %} 
+              <div class="field relative">
+                <input class="field__input" autocomplete="off" type="email" id="customer-email" name="customer[email]"
+                   placeholder="Email"
+                  >
+                <button type="submit">Submit</button>
+              </div>
+            {% endform %} 
+          </div>
+        {% when "link" %}
+          <div class="col-md-4">
+            <h3>{{ item.headline }}</h3>
+            {%  render 'nav', linkCurrent: block.settings.link_list  %}
+          </div>
+        
+
+        {% endcase %}
+
+      {% endfor %}
+    </div>
+  </div>
+  
+  {% if copyright %}
+    <div class="copyright pt-2">
+      <div class="container">
+        {{ copyright }}
+      </div>
+    </div>
+  {% endif %}
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+
+    {
+      "type": "richtext",
+      "id": "copyright",
+      "label": "Copyright"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "col1",
+      "name": "Column 1",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+        
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline"
+        },
+        {
+          "type": "link_list",
+          "id": "link_list",
+          "label": "Navigation"
+        }
+      ]
+    }
+  ]
+
+}
+{% endschema %}

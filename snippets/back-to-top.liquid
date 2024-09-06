@@ -1,0 +1,57 @@
+<a
+  href="javascript:void(0)"
+  id="top"
+  class="scroll d-flex align-items-center justify-content-center fixed opacity-0 visibility-hidden"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5004 7.629L8.00037 -1.39644e-07L0.500366 7.629L1.11086 8.25L8.00037 1.24199L14.8899 8.25L15.5004 7.629Z" fill="black"></path>
+  </svg>
+</a>
+<script>
+    document.getElementById('top').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+          document.getElementById('top').classList.add('active');
+      } else {
+          document.getElementById('top').classList.remove('active');
+      }
+  });
+</script>
+<style>
+  .scroll {
+    height: 35px;
+    width: 35px;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+  }
+  .scroll.active{
+    opacity: 1;
+     visibility: visible;
+  }
+  a.scroll:hover{
+
+  }
+  @media(max-width: 767px){
+      .scroll{
+          font-size: 12px;
+          height: 30px;
+          width: 30px;
+          right: 15px;
+          padding: 9px;
+      }
+  }
+</style>

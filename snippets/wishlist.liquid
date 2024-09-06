@@ -1,0 +1,18 @@
+<!-- snippet/wishlist.liquid -->
+<wish-list>
+    {% assign wishlist_handles = request.query.slug | split: ',' %}
+
+    {% for handle in wishlist_handles %}
+    {% assign product = all_products[handle] %}
+    {% if product %}
+    <div class="wishlist-item">
+        <h2>{{ product.title }}</h2>
+        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+        <p>{{ product.price | money }}</p>
+        <!-- Thêm các thông tin khác như link đến sản phẩm, mô tả ngắn, etc. -->
+    </div>
+    {% else %}
+    <p>Product not found: {{ handle }}</p>
+    {% endif %}
+    {% endfor %}
+</wish-list>

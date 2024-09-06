@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "contact_service_G8YUba": {
+      "type": "contact-service",
+      "blocks": {
+        "our_services_wLPVcb": {
+          "type": "our_services",
+          "settings": {
+            "ser_url": "",
+            "service_icon": "",
+            "service_title": "Phone number",
+            "service_description": "<p><a href=\"tel:123434\" title=\"tel:123434\">vdvdv<\/a><\/p><p><\/p><p>vdvdvdv<\/p>"
+          }
+        },
+        "our_services_E7HYCq": {
+          "type": "our_services",
+          "settings": {
+            "ser_url": "",
+            "service_icon": "",
+            "service_title": "Store address",
+            "service_description": ""
+          }
+        },
+        "our_services_MRBPaX": {
+          "type": "our_services",
+          "settings": {
+            "ser_url": "",
+            "service_icon": "",
+            "service_title": "Customer email",
+            "service_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "our_services_wLPVcb",
+        "our_services_E7HYCq",
+        "our_services_MRBPaX"
+      ],
+      "settings": {
+        "columns_lg": "3",
+        "our_ser_padding_top": 80,
+        "our_ser_padding_bottom": 80,
+        "our_ser_padding_top_ip": 35,
+        "our_ser_padding_bottom_ip": 35,
+        "our_ser_padding_top_xs": 35,
+        "our_ser_padding_bottom_xs": 35,
+        "our_ser_bgcolor": "#ffffff"
+      }
+    },
+    "heading_nYQPnT": {
+      "type": "heading",
+      "settings": {
+        "sub_headline": "demo",
+        "headline": "Fill out the form and we'll get back soon!",
+        "content": "<p>Lorem abc<\/p>"
+      }
+    },
+    "contact_form_ULezDf": {
+      "type": "contact-form",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "contact_service_G8YUba",
+    "heading_nYQPnT",
+    "contact_form_ULezDf"
+  ]
+}

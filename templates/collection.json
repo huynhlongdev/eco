@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+      }
+    },
+    "product_grid_7jMeHY": {
+      "type": "product-grid",
+      "settings": {
+        "per_page": 4,
+        "columns": "4",
+        "columns_moblie": "2",
+        "image_ratio": "square",
+        "show_vendor": true,
+        "show_quick_view": true,
+        "show_variant": true
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product_grid_7jMeHY"
+  ]
+}

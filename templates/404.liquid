@@ -1,0 +1,74 @@
+{% layout none %}
+
+<!doctype html>
+<html class="js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="shortcut icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+    </title>
+
+    {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+
+    {% style %}
+      :root{
+        --blue-light: #00a6fb;   /* Màu xanh dương nhạt */
+        --blue-medium: #0582ca;  /* Màu xanh dương trung bình */
+        --blue-dark: #006494;    /* Màu xanh dương đậm */
+        --blue-deep: #003554;    /* Màu xanh rất đậm, gần xanh đen */
+        --blackish-blue: #051923;/* Màu đen xanh */
+      }
+      .container{
+        width: {{ settings.container_width }}px;
+        max-width: {{ settings.container_width }}px;
+      }
+      .heading-404{
+        font-size: 180px;
+        font-weight: 700;
+        color: var(--blackish-blue);
+        text-shadow: -6px 0px var(--blue-dark);
+      }
+      .btn{
+        padding: 8px 24px;
+      }
+      .button-primary{
+        background: var(--blackish-blue);
+      }
+      .btn:hover {
+        background: var(--blue-dark);
+          color: #fff;
+      }
+      @media (max-width: 470px){
+        .heading-404 {
+            font-size: 140px;
+        }
+      }
+    {% endstyle %}
+  </head>
+
+  <body class="page-404">
+    <main class="content-for-layout d-flex flex-wrap items-center justify-center w-100 vh-100 ">
+      {{ content_for_layout }}
+
+      <div class="text-center">
+        <h1 class="heading-404">404</h1>
+
+        <div class="block">
+          <p>This page could not be found.</p>
+        </div>
+
+        <a href="{{ shop.url }}" class="btn button-primary text-white text-uppercase">Go to home</a>
+      </div>
+    </main>
+    <!-- content-for-layout -->
+  </body>
+</html>

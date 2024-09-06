@@ -1,0 +1,127 @@
+{% comment %} {{ 'contact-form.css' | asset_url | stylesheet_tag }} {% endcomment %}
+
+<div class="container">
+  {% form 'contact', id: 'ContactForm', class: 'ct-contact-form' %}
+    <!-- Name -->
+    <div class="field">
+      <input
+        class="field__input"
+        autocomplete="name"
+        type="text"
+        id="ContactForm-name"
+        name="contact[Name]"
+        value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+        placeholder="Name"
+        aria-required="true"
+      >
+      <label class="field__label" for="ContactForm-name">Name</label>
+    </div>
+
+    <div class="field field--with-error">
+      <input
+        autocomplete="email"
+        type="email"
+        id="ContactForm-email"
+        class="field__input"
+        name="contact[email]"
+        spellcheck="false"
+        autocapitalize="off"
+        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="ContactForm-email-error"
+        {% endif %}
+        placeholder="Email"
+      >
+      <label class="field__label" for="ContactForm-email">
+        Email
+        <span aria-hidden="true">*</span></label
+      >
+      {%- if form.errors contains 'email' -%}
+        <small class="contact__field-error" id="ContactForm-email-error">
+          <span class="visually-hidden">Error</span>
+          <span class="form__message">
+            {{- form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email -}}
+          </span>
+        </small>
+      {%- endif -%}
+    </div>
+
+    <!-- Phone -->
+    <div class="field">
+      <input
+        type="tel"
+        id="ContactForm-phone"
+        class="field__input"
+        autocomplete="tel"
+        name="contact[Phone]"
+        pattern="[0-9\-]*"
+        value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        placeholder="Phone"
+      >
+      <label class="field__label" for="ContactForm-phone">Phone</label>
+    </div>
+
+    <!-- Message -->
+    <div class="field">
+      <textarea
+        rows="10"
+        id="ContactForm-body"
+        class="text-area field__input"
+        name="contact[Comment]"
+        placeholder="Message"
+      >
+          {{- form.body -}}
+        </textarea>
+      <label class="form__label field__label" for="ContactForm-body"> Message </label>
+    </div>
+
+    <div class="contact__button">
+      <button type="submit" class="button">Send</button>
+    </div>
+  {% endform %}
+</div>
+
+{% style %}
+  .field {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  .ct-contact-form .field__label {
+    display: block;
+  }
+
+  .ct-contact-form .field__label {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 15px;
+    font-size: 12px;
+  }
+
+  .ct-contact-form input,
+  .ct-contact-form textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 30px 15px 6px;
+    outline: none;
+  }
+
+  .ct-contact-form textarea{
+    height: 150px;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Contact Form"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,65 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+      }
+    },
+    "contact_service_G8YUba": {
+      "type": "contact-service",
+      "blocks": {
+        "our_services_wLPVcb": {
+          "type": "our_services",
+          "settings": {
+            "ser_url": "",
+            "service_icon": "",
+            "service_title": "Phone numaber",
+            "service_description": ""
+          }
+        },
+        "our_services_E7HYCq": {
+          "type": "our_services",
+          "settings": {
+            "ser_url": "",
+            "service_icon": "",
+            "service_title": "Phone numaber",
+            "service_description": ""
+          }
+        },
+        "our_services_MRBPaX": {
+          "type": "our_services",
+          "settings": {
+            "ser_url": "",
+            "service_icon": "",
+            "service_title": "Phone numaber",
+            "service_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "our_services_wLPVcb",
+        "our_services_E7HYCq",
+        "our_services_MRBPaX"
+      ],
+      "settings": {
+        "our_ser_padding_top": 100,
+        "our_ser_padding_bottom": 0,
+        "our_ser_padding_top_ip": 35,
+        "our_ser_padding_bottom_ip": 35,
+        "our_ser_padding_top_xs": 35,
+        "our_ser_padding_bottom_xs": 35,
+        "our_ser_bgcolor": "#ffffff"
+      }
+    },
+    "contact_form_ULezDf": {
+      "type": "contact-form",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "contact_service_G8YUba",
+    "contact_form_ULezDf"
+  ]
+}

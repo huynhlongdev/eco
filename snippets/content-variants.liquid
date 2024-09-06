@@ -1,0 +1,47 @@
+{%- liquid
+  assign options = product.options_with_values
+-%}
+
+<div class="eco-product-variant">
+  {%- for option in options -%}
+    {%- liquid
+      assign swatch_count = option.values | map: 'swatch' | compact | size
+    -%}
+
+    {%- comment -%}
+      <!-- length: {{ swatch_count }} -->
+    {%- endcomment -%}
+
+    <!--
+      {%- if option.name contains 'Size' -%}
+        <div class="color-swatches flex gap-3">
+          {%- for value in option.values -%}
+            {% comment %} type: {{ value.swatch.color }} {% endcomment %}
+            <div
+              class="p-3 rounded-[4px]"
+              title="{{ value }}"
+            >
+              {{ value }}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif- %}
+    -->
+
+    {%- if option.name == 'Color' -%}
+      <div class="color-swatches flex gap-1 md:gap-3">
+        {%- for value in option.values -%}
+          {%- comment -%} type: {{ value.swatch.color }} {%- endcomment -%}
+
+          {%- if value.swatch.color -%}
+            <div
+              class="inline-block p-[2px] rounded-full border border-[#ccc] cursor-pointer"
+            >
+              <span class="size-2 md:size-4 block rounded-full bg-[var(--color)]" title="{{ value }}" style="--color: {{ value.swatch.color }}"></span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>

@@ -1,0 +1,335 @@
+{%- liquid
+  assign menu_selecter = section.settings.navigation
+  assign menus = linklists[menu_selecter]
+  assign mega = section.settings.navigation.handle | replace: 'mega-', '' | split: '-'
+-%}
+<header class="header relative">
+  <div class="container py-2">
+    <div class="d-flex items-center justify-between">
+      <div class="col-logo">
+        <a href="/">
+          {{ settings.logo | image_url: width: '100%' | image_tag: widths: '300, 400, 500' }}
+        </a>
+      </div>
+      <div class="col-menu d-flex">
+        <ul class="d-flex gap-5 m-0 p-0 list-unstyled">
+          {% for block in section.blocks %}
+            {% liquid
+              assign type = block.type
+              assign id = block.id
+              assign item = block.settings
+              assign label = item.text
+              assign link = item.link
+              assign open = item.open_link
+            %}
+            {%- case block.type -%}
+              {%- when 'mega' -%}
+                <li class="menu-item lv-1 menu-{{- type -}}">
+                  <a href="{{- link -}}" taget="{{ open }}">
+                    {{- label -}}
+                  </a>
+                </li>
+              {%- when 'dropdown' -%}
+                <li class="menu-item lv-1 menu-{{- type -}}">
+                  <a href="{{- link -}}" taget="{{ open }}">
+                    {{- label -}}
+                  </a>
+                  <ul class="sub-menu">
+                    {% for lv1 in linklists[item.menu].links %}
+                      <li>
+                        <a href="">{{ lv1.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% else %}
+                <li class="menu-item lv-1 menu-{{- type -}}">
+                  <a href="{{- link -}}" taget="{{ open }}">
+                    {{- label -}}
+                  </a>
+                </li>
+            {% endcase %}
+          {% endfor %}
+
+          {% for link in menus.links %}
+            <li
+              class="lv-1 menu-item page-{{ link.handle }} {%- if link.links.size > 0  -%} menu-has-child {%- endif -%}{% if link.current %} active text-[red]{% endif -%}"
+            >
+              <a href="{{ link.url }}" taget="{{ open }}">{{ link.title }}</a>
+              {%- if link.links.size > 0 -%}
+                <ul class="sub-menu dropdown">
+                  {%- for sublink in link.links -%}
+                    <li class="lv-2 {% if sublink.links.size > 0  -%} menu-has-child {%- endif -%} page-{{ sublink.handle }}">
+                      <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                      {%- if sublink.levels > 0 -%}
+                        <ul class="subsub-menu dropdown">
+                          {%- for subsublink in sublink.links -%}
+                            <li class="lv-3 {%- if subsublink.links.size > 0  -%} menu-has-child {%- endif -%}">
+                              <a href="{{ subsublink.url }}">{{ subsublink.title }}</a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="h-group d-flex items-center gap-3">
+          <span class="search-header">
+            {% render 'icon-search' %}
+          </span>
+          {% comment %} search-header {% endcomment %}
+
+          {% if shop.customer_accounts_enabled %}
+            <span class="user-header">
+              {% if customer %}
+                <p>Welcome, {{ customer.first_name }}!</p>
+                <ul>
+                  <li><a href="{{ routes.account_url }}">Profile</a></li>
+                  <li><a href="{{ routes.account_login_url }}">Logout</a></li>
+                </ul>
+              {% else %}
+                <a href="{{ routes.account_login_url }}">
+                  {% render 'icon-user' %}
+                </a>
+              {% endif %}
+            </span>
+            {% comment %} user-header {% endcomment %}
+          {% endif %}
+
+          <span class="wishlist-header mr-2">
+            <a href="{{ section.settings.wishlist_link }}" class="relative">
+              {% render 'icon-wishlist' %}
+              <span
+                class="wishlist-count count absolute rounded-circle bg-dark fs-1 text-white d-flex items-center justify-center"
+              ></span>
+            </a>
+          </span>
+          {% comment %} wishlist-header {% endcomment %}
+
+          <span class="cart-header">
+            <a href="{{ routes.cart_url }}" class="relative">
+              {% render 'icon-cart' %}
+              <span
+                class="cart-count count absolute rounded-circle bg-dark fs-1 text-white d-flex items-center justify-center"
+              >
+                {{- cart.item_count -}}
+              </span>
+            </a>
+          </span>
+          {% comment %} cart-header {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% render 'search-model' %}
+</header>
+
+<script>
+  let wishlist = localStorage.getItem('wishlist');
+  let count = wishlist ? wishlist.split(",").filter(Boolean).length : 0
+  document.querySelectorAll('.wishlist-count').forEach(function (element) {
+    element.innerHTML = count;
+  });
+</script>
+
+<style>
+  .header .count{
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    right: -12px;
+  }
+</style>
+
+{% schema %}
+{
+"name": "Header",
+"class": "section-header",
+"settings": [
+{
+"type": "url",
+"id": "wishlist_link",
+"label": "Wishlist link"
+},
+{
+"type": "link_list",
+"id": "navigation",
+"label": "Menu"
+},
+{
+"type": "select",
+"id": "logo_position",
+"options": [
+{
+"value": "top-left",
+"label": "bfdbfbsddvsdv"
+},
+{
+"value": "top-center",
+"label": "vsbbdavdv"
+},
+{
+"value": "middle-left",
+"label": "davdvdvv"
+},
+{
+"value": "middle-center",
+"label": "vdvdvav"
+}
+],
+"default": "middle-left",
+"label": "vdvdvdvdv"
+}
+],
+"blocks": [
+{
+"type": "default",
+"name": "Default",
+"settings": [
+{
+"type": "text",
+"id": "text",
+"label": "Label text"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "open_link",
+"options": [
+{
+"value": "_self",
+"label": "Current window"
+},
+{
+"value": "_blank",
+"label": "New window"
+}
+],
+"default": "_self",
+"label": "Open link in"
+},
+]
+},
+{
+"type": "dropdown",
+"name": "Dropdown",
+"settings": [
+{
+"type": "text",
+"id": "text",
+"label": "Label text"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "open_link",
+"options": [
+{
+"value": "_self",
+"label": "Current window"
+},
+{
+"value": "_blank",
+"label": "New window"
+}
+],
+"default": "_self",
+"label": "Open link in"
+},
+{
+"type": "link_list",
+"id": "menu",
+"label": "Add menu"
+},
+{
+"type": "range",
+"id": "id",
+"min": 1,
+"max": 16,
+"step": 1,
+"label": "ID",
+"unit": "#",
+"info": "ID connect mega menu.",
+"default": 1
+},
+{
+"type": "select",
+"id": "type_menu",
+"label": "Type",
+"options": [
+{
+"label": "Dropdown Menu",
+"value": "dropdown"
+},
+{
+"label": "Mega Menu",
+"value": "mega"
+}
+]
+}
+]
+},
+{
+"type": "mega",
+"name": "Mega",
+"settings": [
+{
+"type": "text",
+"id": "text",
+"label": "Label text"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "open_link",
+"options": [
+{
+"value": "_self",
+"label": "Current window"
+},
+{
+"value": "_blank",
+"label": "New window"
+}
+],
+"default": "_self",
+"label": "Open link in"
+},
+{
+"type": "select",
+"id": "type_menu",
+"label": "Type",
+"options": [
+{
+"label": "Dropdown Menu",
+"value": "dropdown"
+},
+{
+"label": "Mega Menu",
+"value": "mega"
+}
+]
+}
+]
+}
+]
+}
+{% endschema %}

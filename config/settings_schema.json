@@ -1,0 +1,139 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Eco",
+    "theme_version": "1.0.0",
+    "theme_author": "Shopify",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://support.shopify.com/"
+  },
+  {
+    "name": "Logo",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Desktop logo width",
+        "default": 100,
+        "min": 50,
+        "max": 300,
+        "step": 10
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Will be scaled down to 32 x 32px"
+      },
+      {
+        "type": "color_background",
+        "id": "background",
+        "label": "Background",
+        "default": "linear-gradient(#ffffff, #000000)"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "inline",
+        "default": "my <i>inline</i> <b>text</b>",
+        "label": "Inline rich text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "video",
+        "id": "video",
+        "label": "A Shopify-hosted video"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "collection_list",
+        "id": "collection_list",
+        "label": "Collections",
+        "limit": 8
+      },
+      {
+        "type": "text_alignment",
+        "id": "alignment",
+        "label": "Text alignment",
+        "default": "center"
+      },
+      {
+        "type": "select",
+        "id": "vertical_alignment",
+        "label": "Vertical alignment",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "middle",
+            "label": "Middle"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "middle"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "container_width",
+        "label": "Container Width",
+        "default": 1200,
+        "min": 750,
+        "max": 1920,
+        "step": 30
+      },
+      {
+        "type": "range",
+        "id": "container_spacing",
+        "label": "Space between template sections",
+        "default": 20,
+        "min": 0,
+        "max": 100,
+        "step": 4
+      }
+    ]
+  },
+  {
+    "name": "Product",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show vendor",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Mini Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_cart_drawer",
+        "label": "Show cart drawer",
+        "default": true
+      }
+    ]
+  }
+]

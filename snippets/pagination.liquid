@@ -1,0 +1,43 @@
+{%- if paginate.parts.size > 0 -%}
+  <div class="pagination justify-center mt-5 mb-5">
+    {%- if paginate.previous -%}
+      <a
+        href="{{ paginate.previous.url }}{{ anchor }}"
+        class="page next"
+      >
+        prev
+      </a>
+    {%- endif -%}
+
+    {%- for part in paginate.parts -%}
+      {%- if part.is_link -%}
+        <a
+          href="{{ part.url }}{{ anchor }}"
+          class="page"
+        >
+          {{- part.title -}}
+        </a>
+      {%- else -%}
+        {%- if part.title == paginate.current_page -%}
+          <span
+            class="page current"
+            aria-current="page"
+          >
+            {{- part.title -}}
+          </span>
+        {%- else -%}
+          <span class="page">{{ part.title }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if paginate.next -%}
+      <a
+        href="{{ paginate.next.url }}{{ anchor }}"
+        class="page prev"
+      >
+        next
+      </a>
+    {%- endif -%}
+  </div>
+{%- endif -%}

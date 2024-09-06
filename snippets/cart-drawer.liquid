@@ -1,0 +1,169 @@
+{{ 'cart-drawn.css' | asset_url | stylesheet_tag }}
+
+{%- if cart == empty -%}
+  <div class="cart-empty"></div>
+{% endif %}
+
+<div id="draw-cart" class="fixed top-0 left-0 w-100 100 d-block justify-content-end opacity-0 invisible">
+  <div class="drawer__wrap fixed top-0 right-0 w-100 h-100 flex-1 flex bg-white">
+    <span class="close_drawer absolute right-5 top-6 cursor-pointer z-10">
+      <svg class="at-icon" width="16" height="16" viewBox="0 0 384 512">
+        <path
+          d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z">
+        </path>
+      </svg>
+    </span>
+
+    {% if cart.item_count > 0 %}
+      <h4 class="cart-title relative text-capitalize mb-3">
+        Your cart (<span class="cart_count">{{ cart.item_count }}</span>)
+      </h4>
+
+      <div class="shipping bg-[#0000000a] text-center px-4 py-4">
+        {% assign free_shipping_threshold = 50000 %}
+        <!-- Mức tối thiểu để được miễn phí vận chuyển -->
+        {% assign cart_total = cart.total_price | divided_by: 1000 %}
+        <!-- Tổng giá trị giỏ hàng -->
+
+        <div class="shipping-info">
+          <svg class="w-5 h-auto mr-1 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M382.2,118.3h-66V81.6c0-7-5.5-12.7-12.3-12.7H12.3C5.5,68.8,0,74.5,0,81.6v301.6c0,7,5.5,12.7,12.3,12.7h41.2 c5.7,27.5,29.3,47.3,56.7,47.3c27.3,0,50.9-19.8,56.7-47.3H345c5.7,27.5,29.3,47.3,56.7,47.3c27.3,0,50.9-19.8,56.7-47.3h41.2 c6.8,0,12.3-5.7,12.3-12.7V252.6C512,178.6,453.8,118.3,382.2,118.3z M406,241c-16.1,0-29.2-13.6-29.2-30.2v-66.9h5.4 c53.3,0,98.9,42.5,104.6,97.2H406z M406,266.5h81.3v103.9h-28.8c-5.7-27.5-29.3-47.3-56.7-47.3c-27.3,0-50.9,19.8-56.7,47.3h-28.9 V143.8h36v66.9C352.1,241.5,376.3,266.5,406,266.5z M435.1,383.2c0,19-15,34.5-33.4,34.5s-33.4-15.5-33.4-34.5s15-34.5,33.4-34.5 S435.1,364.1,435.1,383.2z M291.5,313.8v56.7H167c-5.7-27.5-29.3-47.3-56.7-47.3c-27.3,0-50.9,19.8-56.7,47.3H24.6v-56.7H291.5z M110.2,348.6c18.4,0,33.4,15.5,33.4,34.5s-15,34.5-33.4,34.5s-33.4-15.5-33.4-34.5S91.8,348.6,110.2,348.6z M291.5,94.3v194H24.6 v-194H291.5z">
+            </path>
+          </svg>
+
+          {% if cart_total >= free_shipping_threshold %}
+            <span class="inline-block"><strong>Congratulations!</strong> You qualify for free shipping!</span>
+          {% else %}
+            {% assign amount_left = free_shipping_threshold | minus: cart_total %}
+            <span class="inline-block">Spent {{ amount_left | money }} more to get free shipping</span>
+          {% endif %}
+
+          <!-- Tính phần trăm tiến trình -->
+          {% assign progress = cart_total | times: 100 | divided_by: free_shipping_threshold %}
+          {% if progress > 100 %}
+            {% assign progress = 100 %}
+          {% endif %}
+
+          <div class="progress-container mt-3 relative overflow-hidden bg-gray-200">
+            <div class="absolute top-0 left-0 h-100" style="width: {{ progress }}%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <form action="{{ routers }}" method="post">
+        <div class="lp-drawer__main">
+          <div class="cart-list">
+            {% for item in cart.items %}
+              <div class="cart-item d-flex py-4">
+                <div class="cart-thumbnail w-[100px]">
+                  <a href="{{ item.url }}" class="relative block transition-all pt-[130%]">
+                    {% comment %} {{ item.image | image_url: width: 100 | image_tag }} {% endcomment %}
+                    <img
+                      src="{{item.image | image_url: width: 100 }}"
+                      alt="{{  item.title }}"
+                      lazy="loading"
+                      class="absolute top-0 left-0 w-full h-full object-cover"
+                    >
+                    <div class="loading top-[50%] left-[50%] absolute">
+                      {%- render 'icon-loading' -%}
+                    </div>
+                  </a>
+                </div>
+                <div class="cart-right-info flex-1 pl-4">
+                  <a href="{{ item.url }}" class="cart-title" title="{{  item.title }}">
+                    <h3>{{ item.title }}</h3>
+                  </a>
+
+                  <div class="price">
+                    {{ item.price | money }}
+                  </div>
+
+                  <div class="d-inline-flex aligin-items-center gap-4 mt-2">
+                    <div class="cquantity cart-item__quantity">
+                      <div class="cart-item__quantity-wrapper">
+                        <div
+                          class="cart-quantity border rounded-1 overflow-hidden d-inline-flex"
+                          data-variant-id="{{ item.variant_id }}"
+                        >
+                          <button
+                            type="button"
+                            class="qtyBtn minus text-center outline-none border-r size-7 align-items-center justify-content-center d-flex text-black"
+                            name="minus"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="quantity__input qty text-center outline-none text-sm size-7 align-items-center justify-content-center d-flex text-black"
+                            type="number"
+                            data-quantity-variant-id="{{ item.variant_id }}"
+                            name="updates[]"
+                            value="{{ item.quantity }}"
+                            min="1"
+                            step="1"
+                          >
+                          <button
+                            type="button"
+                            class="qtyBtn plus text-center outline-none border-l size-7 align-items-center justify-content-center d-flex text-black"
+                            name="plus"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="{{ item.url_to_remove }}" data-id="{{ item.key }}" class="cart-remove">
+                      {% render 'icon-remove' %}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="lp-drawer__footer">
+          <div class="lp-mini-cart-container">
+            <div class="bee-cart-total flex items-center justify-between">
+              <div class="bee-col-auto bee-col-item"><strong>Total:</strong></div>
+              <div data-cart-prices="" class="bee-col-auto bee-col-item bee-text-right">
+                <strong class="total-price">{{ cart.total_price | money }}</strong>
+              </div>
+            </div>
+            <div class="flex gap-2 justify-between mt-5">
+              <a href="{{ routes.cart_url }}" class="flex-1 px-4 py-3 text-sm text-center uppercase bg-[#86bbbf]"
+                >View cart</a
+              >
+              <a
+                href="{{ routes.cart_url }}"
+                class="flex-1 px-4 py-3 text-sm text-center uppercase bg-[#333] text-white"
+                >Checkout</a
+              >
+            </div>
+          </div>
+        </div>
+      </form>
+    {% else %}
+      <div class="cart-empty h-full w-full flex items-center justify-center flex-col gap-5">
+        <svg class="w-16 h-auto fill-[#e7e7e7]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+          <path
+            d="M251,51.9c-4.7-5.4-11.8-8.2-21.3-8.2H49.5L44.7,0.7H10.1C4.5,0.7,0,5.2,0,10.8s4.5,10.1,10.1,10.1h16.5l15.2,135.3 c1.1,11.2,9.8,32.2,34.5,32.2h127.9l0.1,0c9.1-0.2,27.2-6.9,31-30.4l20.3-89.1l0.1-0.8C256.1,66.6,256.9,58.7,251,51.9z M215.6,153.8l-0.1,0.7c-1.8,11.8-9.2,13.4-11.6,13.7H76.4c-5.4,0-9-1.9-11.6-6.1c-2.3-3.8-2.8-7.9-2.8-7.9L51.8,64h177.9 c4.2,0,5.8,1,6,1.2c0,0,0,0.1,0.1,0.2L215.6,153.8z">
+          </path>
+          <path
+            d="M83.4,198.2c-15.8,0-28.6,12.8-28.6,28.6c0,15.8,12.8,28.6,28.6,28.6s28.6-12.8,28.6-28.6C112,211,99.2,198.2,83.4,198.2z M83.4,237.1c-5.7,0-10.4-4.7-10.4-10.4s4.7-10.4,10.4-10.4c5.7,0,10.4,4.7,10.4,10.4S89.1,237.1,83.4,237.1z">
+          </path>
+          <path
+            d="M183,198.2c-15.8,0-28.6,12.8-28.6,28.6c0,15.8,12.8,28.6,28.6,28.6s28.6-12.8,28.6-28.6C211.5,211,198.7,198.2,183,198.2z M183,237.1c-5.7,0-10.4-4.7-10.4-10.4s4.7-10.4,10.4-10.4s10.4,4.7,10.4,10.4S188.7,237.1,183,237.1z">
+          </path>
+        </svg>
+
+        <p>No Products in the Cart</p>
+
+        <a
+          href="{{routes.collections_url}}/all"
+          class="text-white bg-blue-400 px-6 py-2 inline-flex hover:bg-blue-300 transition-all duration-300"
+          >Continue shopping</a
+        >
+      </div>
+    {% endif %}
+  </div>
+</div>

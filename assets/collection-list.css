@@ -1,0 +1,69 @@
+.collection-list a{
+  text-decoration: none
+}
+
+.collection-list img{
+  transition: .5s;
+  object-fit: cover;
+}
+
+.collection-list a:hover img{
+  transform: scale(1.1);
+}
+
+.collection-list.design-1 .img-box{
+  padding-top: 120%;
+}
+
+.collection-list.design-1 .collection__info{
+  color: var(--blackish-blue);
+}
+
+.collection-list.design-2 .img-box{
+  padding-top: 120%;
+}
+
+.collection-list.design-2 .card-title{
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+}
+
+.collection-list.design-2 .card-title span{
+  padding: 8px 24px;
+  background: rgb(255 255 255 / 80%);
+  color: var(--bs-dark);
+}
+
+.collection-list.design-3 .collection__info{
+  color: var(--blackish-blue);
+}
+
+.collection-list.design-3 .img-box{
+  padding-top: 120%;
+}
+
+.collection-list.design-3 .card-title{
+  font-size: 24px;
+}
+
+.pagination{
+  gap: 8px;
+}
+
+.pagination .page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  color: var(--blackish-blue);
+  transition: all .3s;
+}
+
+.pagination .current, .pagination .page:not(.current):hover {
+  border-color: var(--blue-dark);
+  color: var(--blue-dark);  
+}

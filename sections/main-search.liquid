@@ -1,0 +1,75 @@
+
+<div class="page-title text-{{ section.settings.alignment }}">
+  <div class="container mx-auto">
+    {{ section.settings.heading_font }}
+
+    <h1>{{ section.settings.headline }}</h1>
+
+    vdvnjdsjvjds
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page Title",
+  "class": "page-title",
+  "settings": [
+    {
+      "type": "header",
+      "content": "demo"
+    },
+    {
+      "type": "textarea",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Typography"
+    },
+    {
+      "type" : "number",
+      "id" : "font_size",
+      "label": "Font size",
+      "default": 48
+     },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "label": "Padding top",
+      "id": "padding_top",
+      "default": 120,
+      "min": 0,
+      "max": 300,
+      "step": 5
+    },
+    {
+      "type": "range",
+      "label": "Padding bottom",
+      "id": "padding_bottom",
+      "default": 120,
+      "min": 0,
+      "max": 300,
+      "step": 5
+    },
+    {
+      "type": "image_picker",
+      "id": "backgound_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color_background",
+      "label": "Background Gradient",
+      "id": "background_gradient"
+    }
+  ]
+}
+{% endschema %}

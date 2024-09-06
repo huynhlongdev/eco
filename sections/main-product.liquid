@@ -1,0 +1,65 @@
+{% if product %}
+  <div class="product">
+    <!-- Tên sản phẩm -->
+    <h1 class="product-title">{{ product.title }}</h1>
+
+    <!-- Hình ảnh sản phẩm -->
+    <div class="product-images">
+        {%- render 'product-media', product:product  -%}
+    </div>
+
+    <!-- Giá sản phẩm -->
+    <div class="product-price">
+      {% if product.compare_at_price > product.price %}
+        <span class="original-price">{{ product.compare_at_price | money }}</span>
+        <span class="sale-price">{{ product.price | money }}</span>
+      {% else %}
+        <span class="current-price">{{ product.price | money }}</span>
+      {% endif %}
+    </div>
+
+    <!-- Mô tả sản phẩm -->
+    <div class="product-description">
+      {{ product.description }}
+    </div>
+
+    <!-- Biến thể sản phẩm -->
+    {% if product.variants.size > 1 %}
+      <form method="post" action="/cart/add">
+        <label for="product-select">Choose an option:</label>
+        <select id="product-select" name="id">
+          {% for variant in product.variants %}
+            <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit">Add to Cart</button>
+      </form>
+    {% else %}
+      <form method="post" action="/cart/add">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+        <button type="submit">Add to Cart</button>
+      </form>
+    {% endif %}
+
+    <!-- Nút chia sẻ -->
+    <div class="product-share">
+      <p>Share:</p>
+      <a href="https://facebook.com/sharer/sharer.php?u={{ shop.url }}{{ product.url }}">Facebook</a>
+      <a href="https://twitter.com/intent/tweet?url={{ shop.url }}{{ product.url }}">Twitter</a>
+    </div>
+  </div>
+{% else %}
+  <p>Sorry, this product does not exist.</p>
+{% endif %}
+
+<script type="application/ld+json">
+  {{ product | structured_data }}
+</script>
+
+
+<script>
+  const product = {{ product | json }}
+
+  console.log('>product', product);
+  
+</script>

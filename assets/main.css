@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+}
+
+.icon {
+  width: 20px;
+  height: auto;
+}
+
+#admin-bar-iframe {
+  display: none !important;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dropdown {
+  display: none;
+}

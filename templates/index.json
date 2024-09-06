@@ -1,0 +1,44 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "headline": "Typography",
+        "font_size": 43,
+        "heading_font": "open_sans_n4",
+        "alignment": "center",
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "backgound_image": "shopify:\/\/shop_images\/kids-beanie.jpg",
+        "background_gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)"
+      }
+    },
+    "product_infomation_XXhzT7": {
+      "type": "product-infomation",
+      "blocks": {
+        "price_brCgL9": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "text_NnY3wV": {
+          "type": "text",
+          "settings": {
+            "text": "vdfvdfvfdvdfv"
+          }
+        }
+      },
+      "block_order": [
+        "price_brCgL9",
+        "text_NnY3wV"
+      ],
+      "settings": {
+        "enable_sticky_info": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_infomation_XXhzT7"
+  ]
+}

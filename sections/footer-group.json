@@ -1,0 +1,33 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "newsletter_nfTG8L": {
+          "type": "newsletter",
+          "settings": {
+            "headline": "Newsletter"
+          }
+        },
+        "link_Bf9kjb": {
+          "type": "link",
+          "settings": {
+            "link_list": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "newsletter_nfTG8L",
+        "link_Bf9kjb"
+      ],
+      "settings": {
+        "copyright": "<p>© 2024 All Rights Reserved<\/p>"
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
