@@ -1,0 +1,330 @@
+{%- liquid
+  assign show_quick_view = section.settings.show_quick_view
+  assign show_variant = section.settings.show_variant
+  assign show_vendor = section.settings.show_vendor
+  assign show_compare = false
+-%}
+
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
+{{ request.params }}
+
+<div class="container product-container">
+  {% include 'breadcrumb' %}
+
+  <div class="row">
+    <div class="col-lg-3">
+      {% render 'collection-sidebar', results: collection %}
+    </div>
+    <div class="col-lg-9">
+      <div class="sort-filter">
+        {%- assign sort_default = collection.sort_by | default: collection.default_sort_by -%}
+        <select name="sort_by" id="sortby" class="sortby">
+          {% for sort in collection.sort_options %}
+            <option
+              value="{{ sort.value }}"
+              {% if sort.value == sort_default %}
+                selected
+              {% endif %}
+            >
+              {{ sort.name }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      {% comment %} end sort-filter {% endcomment %}
+
+      <div class="count">Showing {{ section.settings.per_page }} of {{ collection.products_count }} products</div>
+
+      {% paginate collection.products by section.settings.per_page %}
+        <div class="product-grid grid grid-cols-{{ section.settings.columns_moblie }} px-3">
+          {% for product in collection.products %}
+            {%- render 'content-product',
+              product: product,
+              show_quick_view: show_quick_view,
+              show_compare: show_compare,
+              show_variant: show_variant,
+              show_vendor: show_vendor,
+              image_ratio: section.settings.image_ratio
+            -%}
+          {% endfor %}
+        </div>
+
+        {{- paginate | default_pagination }}
+      {% endpaginate %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Product Collection",
+  "settings": [
+    {
+      "type": "number",
+      "id": "per_page",
+      "label": "Product per page",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns",
+      "default": "3",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "columns_moblie",
+      "label": "Columns Mobile",
+      "default": "1",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "filter",
+      "label": "Filter",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        },
+        {
+          "value": "drawer",
+          "label": "Drawer"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "pagination",
+      "label": "Pagination",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "list",
+          "label": "List"
+        },
+        {
+          "value": "ajax",
+          "label": "Ajax"
+        }
+      ],
+      "default": "list"
+    },
+    {
+      "type": "header",
+      "content": "Product card"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        {
+          "label": "Portrait",
+          "value": "portrait"
+        },
+        {
+          "label": "Square",
+          "value": "square"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Vendor",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_view",
+      "label": "Show Quickview",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_variant",
+      "label": "Show Variant",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product grid"
+    }
+  ]
+}
+{% endschema %}
+
+{{ 'jquery.range-min.js' | asset_url | script_tag }}
+
+<script>
+  jQuery(document).ready(function ($) {
+    // Debounce function to limit frequent calls
+    function debounce(func, wait) {
+      let timeout;
+      return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+      };
+    }
+
+    // Handle form submission
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const searchParams = $(event.currentTarget).serialize();
+      renderPage(searchParams);
+    }
+
+    // Handle history change when using back/forward in browser
+    function handleHistoryChange(event) {
+      const searchParams = event.state ? event.state.searchParams : initialSearchParams;
+      if (searchParams !== previousSearchParams) {
+        renderPage(searchParams, false);
+      }
+    }
+
+    // Render page sections and update content
+    function renderPage(searchParams, updateURLHash = true) {
+      previousSearchParams = searchParams;
+
+      const sections = getSections();
+      sections.forEach(function (section) {
+        const url = `${window.location.pathname}?section_id=${section.section}&${searchParams}`;
+        const cachedSection = filterData.find((data) => data.url === url);
+
+        if (cachedSection) {
+          updatePageContent(cachedSection.html);
+        } else {
+          $.get(url, function (response) {
+            filterData.push({ html: response, url });
+            updatePageContent(response);
+          });
+        }
+      });
+
+      if (updateURLHash) {
+        updateURL(searchParams);
+      }
+    }
+
+    // Update page content with the new HTML
+    function updatePageContent(html) {
+      const $newHtml = $(html);
+      $('.product-container').html($newHtml.find('.product-container').html());
+
+      // Re-bind the event after content update
+      bindEvents();
+    }
+
+    // Get sections to update
+    function getSections() {
+      return [{ section: 'product-grid' }];
+    }
+
+    // Update the browser's URL without reloading the page
+    function updateURL(searchParams) {
+      const url = `${window.location.pathname}?${searchParams}`;
+      history.pushState({ searchParams }, '', url);
+    }
+
+    // Function to reset filters
+    function resetFilters() {
+      // Clear all inputs in the form
+      $('form')[0].reset();
+
+      const searchParams = $('form').serialize();
+
+      // Re-render the page with default params (this will reset the data)
+      renderPage(searchParams);
+    }
+
+    // Bind form input event with debounce
+    function bindEvents() {
+      $('form').on('input', debounce(handleFormSubmit, 300));
+
+      // Handle reset button click
+      $(document).on('click', '.facets__reset', function (e) {
+        e.preventDefault();
+        resetFilters();
+      });
+
+      // Bind wishlist button clicks using event delegation
+      $(document).on('click', '.wishlist-btn', function () {
+        toggleWishlist(this);
+      });
+    }
+
+    // Initial setup
+    const initialSearchParams = window.location.search;
+    let previousSearchParams = initialSearchParams;
+    let filterData = [];
+
+    // Initialize
+    bindEvents();
+  });
+</script>

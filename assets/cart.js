@@ -1,17 +1,11 @@
 jQuery(document).ready(function ($) {
-  const overflow = "overflow-hidden";
-  // Hàm mở ngăn kéo giỏ hàng
-  function openDrawerCart() {
-    $("#draw-cart").addClass("active");
-    $("html").addClass(overflow);
+  function openOffcanvas() {
+    var offcanvasElement = document.getElementById("offcanvasDrawer");
+    var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+    offcanvas.show();
   }
 
-  function closeDrawerCart() {
-    $("#draw-cart").removeClass("active");
-    $("html").removeClass(overflow);
-  }
-
-  // Hàm cập nhật nội dung ngăn kéo giỏ hàng
+  // update cart
   async function updateDrawerCart() {
     try {
       const response = await fetch(
@@ -21,12 +15,12 @@ jQuery(document).ready(function ($) {
       const tempDiv = document.createElement("div");
       tempDiv.innerHTML = html;
 
-      const newBox = tempDiv.querySelector(".lp-drawer__wrap").innerHTML;
+      const newBox = tempDiv.querySelector("#offcanvasDrawer").innerHTML;
       const count_cart = tempDiv.querySelector(".cart_count").innerText;
 
       document.querySelector(".cart-count").innerText = count_cart;
 
-      const drawerCart = document.querySelector(".lp-drawer__wrap");
+      const drawerCart = document.querySelector("#offcanvasDrawer");
       if (drawerCart) {
         drawerCart.innerHTML = newBox;
       }
@@ -78,6 +72,7 @@ jQuery(document).ready(function ($) {
         },
         body: JSON.stringify(formData),
       });
+
       await updateDrawerCart();
     } catch (error) {
       console.error("Error:", error);
@@ -118,14 +113,22 @@ jQuery(document).ready(function ($) {
     }
   }
 
-  // Xử lý sự kiện click vào nút "Add to Cart"
+  // handle add to cart
   $(document).on("click", "a.add_to_cart", async function (e) {
     e.preventDefault();
-    const variant_id = $(this).data("variant-id");
+    $(this).addClass("loading");
+
+    const variant_id = $(this).data("variant-id"); // Ensure this is returning a valid number
+    if (!variant_id) {
+      console.error("Invalid variant ID");
+      $(this).removeClass("loading");
+      return;
+    }
+
     let formData = {
       items: [
         {
-          id: variant_id,
+          id: Number(variant_id), // Convert to number if necessary
           quantity: 1,
         },
       ],
@@ -139,13 +142,23 @@ jQuery(document).ready(function ($) {
         },
         body: JSON.stringify(formData),
       });
-      await updateDrawerCart();
-      openDrawerCart();
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error adding to cart:", errorData);
+        throw new Error(errorData.message || "Failed to add item to cart.");
+      }
+
+      await updateDrawerCart(); // Make sure this function is working correctly
+      $(".add_to_cart").removeClass("loading");
+      openOffcanvas(); // Ensure this function exists and works properly
     } catch (error) {
+      $(".add_to_cart").removeClass("loading");
       console.error("Error:", error);
     }
   });
 
+  // change quantity
   $(document).on("click", ".qtyBtn", function () {
     const btn = $(this);
     const qtyInput = btn.closest(".cart-quantity").find(".qty");
@@ -164,20 +177,15 @@ jQuery(document).ready(function ($) {
     changeCart(id, qty);
   });
 
+  // remove item cart
   $(document).on("click", ".cart-remove", async function (e) {
     e.preventDefault();
     await removeDrawerCart($(this).data("id"));
   });
 
-  $(document).on("click", ".close_drawer", function (e) {
-    e.preventDefault();
-    closeDrawerCart();
-  });
-
+  // open mini cart
   $(document).on("click", ".cart-header a", function (e) {
     e.preventDefault();
-    openDrawerCart();
+    openOffcanvas();
   });
-
-  console.log(">>>cart.js");
 });

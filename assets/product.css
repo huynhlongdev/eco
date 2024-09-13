@@ -1,1 +1,203 @@
- 
+.thumbnail {
+  padding-top: 100%;
+}
+
+.thumbnail:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 25%);
+  z-index: 1;
+}
+
+.button-group {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-flow: column;
+  align-items: end;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.lp_btn {
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lp_btn svg {
+  width: 18px;
+  height: auto;
+}
+
+.lp_btn .animate-spin {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.lp_btn.loading svg:not(.animate-spin) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.lp_btn.loading .animate-spin {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lp_btn.is--added svg {
+  fill: #040404;
+}
+
+.badge {
+  position: absolute;
+  z-index: 1;
+  font-weight: 400;
+  background: red;
+  top: 1rem;
+  left: 1rem;
+}
+
+.shop-sidebar {
+  margin-top: 30px;
+  padding: 30px 0px 0px;
+  border-top: 1px solid #d2d2d2;
+}
+
+h6.title {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.facets-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.facets__reset {
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #7e7e7e;
+}
+
+.input-prefix-label {
+  color: #a4a4a4;
+  font-size: 14px;
+}
+
+.input-prefix-field {
+  text-align: center;
+  border: 1px solid #d2d2d2;
+  padding: 4px 8px;
+}
+
+.shop-sidebar [type="checkbox"] {
+  display: none;
+}
+
+.shop-sidebar label {
+  position: relative;
+  padding-left: 27px;
+  cursor: pointer;
+}
+
+span.checkbox {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 0 8px 0 0;
+  border: 1px solid rgba(51, 51, 51, 0.3);
+  background: #fff;
+  vertical-align: middle;
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+
+input:checked ~ span.checkbox {
+  color: #fff;
+  background-color: #333;
+}
+
+input:checked ~ span.checkbox:before {
+  content: " ";
+  display: block;
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  margin: 2px 0 0 2px;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-image: url(//vogal-demo.myshopify.com/cdn/shop/t/29/assets/check.svg?v=1248803…);
+  mask-image: url(//vogal-demo.myshopify.com/cdn/shop/t/29/assets/check.svg?v=1248803…);
+}
+
+input:disabled ~ span {
+  opacity: 0.6;
+  cursor: no-drop;
+}
+
+facet-remove {
+  display: inline-flex;
+}
+
+facet-remove a {
+  display: inline-flex;
+  background: #040404;
+  padding: 4px 8px;
+  color: #fff;
+  font-size: 14px;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+facet-remove svg {
+  width: 8px;
+  margin-left: 6px;
+}
+
+facet-remove path {
+  fill: #fff;
+}
+
+.slider-container .back-bar {
+  height: 3px;
+  position: relative;
+  background-color: #d4d4d4;
+}
+
+.slider-container .back-bar .selected-bar {
+  position: absolute;
+  height: 100%;
+  background-color: #333;
+}
+
+.slider-container .back-bar .pointer {
+  position: absolute;
+  top: -4px;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 2;
+  background-color: #333333;
+  border-radius: 50%;
+}

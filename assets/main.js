@@ -1,6 +1,8 @@
 console.log("main js");
 
 jQuery(document).ready(function ($) {
+  $('[data-toggle="tooltip"]').tooltip();
+
   $(".announcement-group").length > 0 &&
     $(".announcement-group").slick({
       arrows: false,
@@ -20,10 +22,13 @@ jQuery(document).ready(function ($) {
       });
 
       $(".wishlist_button").each(function () {
-        const id = $(this).data("id");
+        const id = String($(this).data("id"));
+
         if (wishlistArray.includes(id)) {
           $(this).addClass("is--added");
         }
+
+        $(this).attr("data-bs-original-title", "Available in Wishlist");
       });
     }
   }
@@ -31,6 +36,7 @@ jQuery(document).ready(function ($) {
 
   $(document).on("click", ".wishlist_button:not(.is--added)", function () {
     $(this).addClass("is--added");
+    $(this).addClass("loading");
     let id = $(this).data("id");
     id = "id:" + id;
 
@@ -48,8 +54,20 @@ jQuery(document).ready(function ($) {
     // Check if the item is already in the wishlist
     if (!wishlistArray.includes(id)) {
       wishlistArray.push(id);
+
+      $(".wishlist-count").text(wishlistArray.length);
       localStorage.setItem("wishlist", wishlistArray.join(","));
+
+      $(this).attr("data-bs-original-title", "Available in Wishlist");
     } else {
     }
+
+    setTimeout(function () {
+      $(".wishlist_button").removeClass("loading");
+    }, 1000);
+  });
+
+  $(document).on("click", ".wishlist_button.is--added", function () {
+    window.location.href = location.origin + "/pages/wishlist";
   });
 });

@@ -5,25 +5,60 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "newsletter_nfTG8L": {
-          "type": "newsletter",
+        "col1_7Djdy4": {
+          "type": "col1",
           "settings": {
-            "headline": "Newsletter"
+            "image": "shopify:\/\/shop_images\/renpho_120x_ed2172d2-db83-46c3-9dae-76a3d868f5c6.webp",
+            "content": "<p>Ut enim ad minim veniam, quis nostrud<br\/>exercitation laboris nisi ut aliquip ex ea<br\/>commodo consequat.Ut enim ad minim<br\/>veniam,quis nostrud exercitation<\/p>",
+            "column_lg": "4",
+            "column_sm": "3",
+            "column_xs": "1"
           }
         },
         "link_Bf9kjb": {
           "type": "link",
           "settings": {
-            "link_list": "footer"
+            "headline": "",
+            "link_list": "dropw-1",
+            "column_lg": "2",
+            "column_sm": "3",
+            "column_xs": "1"
+          }
+        },
+        "link_WfyarG": {
+          "type": "link",
+          "settings": {
+            "headline": "menu 2",
+            "link_list": "dropw-1",
+            "column_lg": "2",
+            "column_sm": "3",
+            "column_xs": "1"
+          }
+        },
+        "newsletter_nfTG8L": {
+          "type": "newsletter",
+          "settings": {
+            "headline": "Newsletter",
+            "column_lg": "4",
+            "column_sm": "3",
+            "column_xs": "1"
           }
         }
       },
       "block_order": [
-        "newsletter_nfTG8L",
-        "link_Bf9kjb"
+        "col1_7Djdy4",
+        "link_Bf9kjb",
+        "link_WfyarG",
+        "newsletter_nfTG8L"
       ],
       "settings": {
-        "copyright": "<p>© 2024 All Rights Reserved<\/p>"
+        "copyright": "<p>© 2024 All Rights Reserved<\/p>",
+        "our_ser_padding_top": 100,
+        "our_ser_padding_bottom": 0,
+        "our_ser_padding_top_ip": 80,
+        "our_ser_padding_bottom_ip": 0,
+        "our_ser_padding_top_xs": 60,
+        "our_ser_padding_bottom_xs": 0
       }
     }
   },

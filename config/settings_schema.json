@@ -7,6 +7,35 @@
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
   },
+   {
+    "name": "General",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_body",
+        "label": "Body background",
+        "default": "#f4f5f7"
+      },
+      {
+        "type": "color",
+        "id": "text_body",
+        "label": "Body text",
+        "default": "#777777"
+      },
+      {
+        "type": "color",
+        "id": "main_color",
+        "label": "Main color",
+        "default": "#222222"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary color",
+        "default": "#16bcdc"
+      }
+    ]
+  },
   {
     "name": "Logo",
     "settings": [
@@ -23,45 +52,6 @@
         "min": 50,
         "max": 300,
         "step": 10
-      },
-      {
-        "type": "image_picker",
-        "id": "favicon",
-        "label": "Favicon",
-        "info": "Will be scaled down to 32 x 32px"
-      },
-      {
-        "type": "color_background",
-        "id": "background",
-        "label": "Background",
-        "default": "linear-gradient(#ffffff, #000000)"
-      },
-      {
-        "type": "inline_richtext",
-        "id": "inline",
-        "default": "my <i>inline</i> <b>text</b>",
-        "label": "Inline rich text"
-      },
-      {
-        "type": "url",
-        "id": "button_link",
-        "label": "Button link"
-      },
-      {
-        "type": "video",
-        "id": "video",
-        "label": "A Shopify-hosted video"
-      },
-      {
-        "type": "collection",
-        "id": "collection",
-        "label": "Collection"
-      },
-      {
-        "type": "collection_list",
-        "id": "collection_list",
-        "label": "Collections",
-        "limit": 8
       },
       {
         "type": "text_alignment",
@@ -88,9 +78,51 @@
           }
         ],
         "default": "middle"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+      
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_header",
+        "label": "Header background",
+        "default": "#263c97"
+      },
+      {
+        "type": "color",
+        "id": "text_header",
+        "label": "Header text",
+        "default": "#ffffff"
       }
     ]
   },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_footer",
+        "label": "Footer background",
+        "default": "#1f2024"
+      },
+      {
+        "type": "color",
+        "id": "text_footer",
+        "label": "Footer color",
+        "default": "#ffffff"
+      }
+    ]
+  },
+  
   {
     "name": "Layout",
     "settings": [
@@ -112,6 +144,52 @@
         "max": 100,
         "step": 4
       }
+    ]
+  },
+  {
+    "name": "Collection",
+    "settings": [
+      {
+        "type": "select",
+        "id": "filter",
+        "label": "Filter",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          
+        ],
+        "default": "left"
+      },
+      {
+        "type": "select",
+        "id": "pagination",
+        "label": "Pagination",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "list",
+            "label": "List"
+          },
+          {
+            "value": "ajax",
+            "label": "Ajax"
+          }
+        ],
+        "default": "list"
+      },
     ]
   },
   {

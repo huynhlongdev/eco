@@ -105,7 +105,7 @@
             <a href="{{ section.settings.wishlist_link }}" class="relative">
               {% render 'icon-wishlist' %}
               <span
-                class="wishlist-count count absolute rounded-circle bg-dark fs-1 text-white d-flex items-center justify-center"
+                class="wishlist-count count absolute rounded-circle bg-dark text-white d-flex items-center justify-center"
               ></span>
             </a>
           </span>
@@ -115,7 +115,7 @@
             <a href="{{ routes.cart_url }}" class="relative">
               {% render 'icon-cart' %}
               <span
-                class="cart-count count absolute rounded-circle bg-dark fs-1 text-white d-flex items-center justify-center"
+                class="cart-count count absolute rounded-circle bg-dark text-white d-flex items-center justify-center"
               >
                 {{- cart.item_count -}}
               </span>
@@ -131,205 +131,216 @@
 
 <script>
   let wishlist = localStorage.getItem('wishlist');
-  let count = wishlist ? wishlist.split(",").filter(Boolean).length : 0
+  let count = wishlist ? wishlist.split(',').filter(Boolean).length : 0;
   document.querySelectorAll('.wishlist-count').forEach(function (element) {
     element.innerHTML = count;
   });
 </script>
 
 <style>
-  .header .count{
+  .header .count {
     font-size: 12px;
     width: 16px;
     height: 16px;
     top: 0;
     right: -12px;
   }
+
+.header {
+  background-color: var(--color-bg-header);
+  color: var(--color-text-header);
+}
+
+.header .icon  path{
+  stroke: var(--color-text-header);
+}
+  
+
 </style>
 
 {% schema %}
 {
-"name": "Header",
-"class": "section-header",
-"settings": [
-{
-"type": "url",
-"id": "wishlist_link",
-"label": "Wishlist link"
-},
-{
-"type": "link_list",
-"id": "navigation",
-"label": "Menu"
-},
-{
-"type": "select",
-"id": "logo_position",
-"options": [
-{
-"value": "top-left",
-"label": "bfdbfbsddvsdv"
-},
-{
-"value": "top-center",
-"label": "vsbbdavdv"
-},
-{
-"value": "middle-left",
-"label": "davdvdvv"
-},
-{
-"value": "middle-center",
-"label": "vdvdvav"
-}
-],
-"default": "middle-left",
-"label": "vdvdvdvdv"
-}
-],
-"blocks": [
-{
-"type": "default",
-"name": "Default",
-"settings": [
-{
-"type": "text",
-"id": "text",
-"label": "Label text"
-},
-{
-"type": "url",
-"id": "link",
-"label": "Link"
-},
-{
-"type": "select",
-"id": "open_link",
-"options": [
-{
-"value": "_self",
-"label": "Current window"
-},
-{
-"value": "_blank",
-"label": "New window"
-}
-],
-"default": "_self",
-"label": "Open link in"
-},
-]
-},
-{
-"type": "dropdown",
-"name": "Dropdown",
-"settings": [
-{
-"type": "text",
-"id": "text",
-"label": "Label text"
-},
-{
-"type": "url",
-"id": "link",
-"label": "Link"
-},
-{
-"type": "select",
-"id": "open_link",
-"options": [
-{
-"value": "_self",
-"label": "Current window"
-},
-{
-"value": "_blank",
-"label": "New window"
-}
-],
-"default": "_self",
-"label": "Open link in"
-},
-{
-"type": "link_list",
-"id": "menu",
-"label": "Add menu"
-},
-{
-"type": "range",
-"id": "id",
-"min": 1,
-"max": 16,
-"step": 1,
-"label": "ID",
-"unit": "#",
-"info": "ID connect mega menu.",
-"default": 1
-},
-{
-"type": "select",
-"id": "type_menu",
-"label": "Type",
-"options": [
-{
-"label": "Dropdown Menu",
-"value": "dropdown"
-},
-{
-"label": "Mega Menu",
-"value": "mega"
-}
-]
-}
-]
-},
-{
-"type": "mega",
-"name": "Mega",
-"settings": [
-{
-"type": "text",
-"id": "text",
-"label": "Label text"
-},
-{
-"type": "url",
-"id": "link",
-"label": "Link"
-},
-{
-"type": "select",
-"id": "open_link",
-"options": [
-{
-"value": "_self",
-"label": "Current window"
-},
-{
-"value": "_blank",
-"label": "New window"
-}
-],
-"default": "_self",
-"label": "Open link in"
-},
-{
-"type": "select",
-"id": "type_menu",
-"label": "Type",
-"options": [
-{
-"label": "Dropdown Menu",
-"value": "dropdown"
-},
-{
-"label": "Mega Menu",
-"value": "mega"
-}
-]
-}
-]
-}
-]
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "url",
+      "id": "wishlist_link",
+      "label": "Wishlist link"
+    },
+    {
+      "type": "link_list",
+      "id": "navigation",
+      "label": "Menu"
+    },
+    {
+      "type": "select",
+      "id": "logo_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "bfdbfbsddvsdv"
+        },
+        {
+          "value": "top-center",
+          "label": "vsbbdavdv"
+        },
+        {
+          "value": "middle-left",
+          "label": "davdvdvv"
+        },
+        {
+          "value": "middle-center",
+          "label": "vdvdvav"
+        }
+      ],
+      "default": "middle-left",
+      "label": "vdvdvdvdv"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "default",
+      "name": "Default",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Label text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "open_link",
+          "options": [
+            {
+              "value": "_self",
+              "label": "Current window"
+            },
+            {
+              "value": "_blank",
+              "label": "New window"
+            }
+          ],
+          "default": "_self",
+          "label": "Open link in"
+        }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "name": "Dropdown",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Label text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "open_link",
+          "options": [
+            {
+              "value": "_self",
+              "label": "Current window"
+            },
+            {
+              "value": "_blank",
+              "label": "New window"
+            }
+          ],
+          "default": "_self",
+          "label": "Open link in"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Add menu"
+        },
+        {
+          "type": "range",
+          "id": "id",
+          "min": 1,
+          "max": 16,
+          "step": 1,
+          "label": "ID",
+          "unit": "#",
+          "info": "ID connect mega menu.",
+          "default": 1
+        },
+        {
+          "type": "select",
+          "id": "type_menu",
+          "label": "Type",
+          "options": [
+            {
+              "label": "Dropdown Menu",
+              "value": "dropdown"
+            },
+            {
+              "label": "Mega Menu",
+              "value": "mega"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "mega",
+      "name": "Mega",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Label text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "open_link",
+          "options": [
+            {
+              "value": "_self",
+              "label": "Current window"
+            },
+            {
+              "value": "_blank",
+              "label": "New window"
+            }
+          ],
+          "default": "_self",
+          "label": "Open link in"
+        },
+        {
+          "type": "select",
+          "id": "type_menu",
+          "label": "Type",
+          "options": [
+            {
+              "label": "Dropdown Menu",
+              "value": "dropdown"
+            },
+            {
+              "label": "Mega Menu",
+              "value": "mega"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

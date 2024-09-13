@@ -26,17 +26,23 @@
 
     {{ content_for_header }}
 
-    {% comment %} <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> {% endcomment %}
+    {% comment %}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {% endcomment %}
     {% comment %} <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet"> {% endcomment %}
 
     {% style %}
-      :root{
-        --blue-light: #00a6fb;   /* Màu xanh dương nhạt */
-        --blue-medium: #0582ca;  /* Màu xanh dương trung bình */
-        --blue-dark: #006494;    /* Màu xanh dương đậm */
-        --blue-deep: #003554;    /* Màu xanh rất đậm, gần xanh đen */
-        --blackish-blue: #051923;/* Màu đen xanh */
+      :root {
+        --blue-light: #00a6fb; /* Màu xanh dương nhạt */
+        --blue-medium: #0582ca; /* Màu xanh dương trung bình */
+        --blue-dark: #006494; /* Màu xanh dương đậm */
+        --blue-deep: #003554; /* Màu xanh rất đậm, gần xanh đen */
+        --blackish-blue: #051923; /* Màu đen xanh */
+        --color-bg-boby: {{ settings.bg_body }};
+        --color-bg-header: {{ settings.bg_header }};
+        --color-text-header: {{ settings.text_header }};
+        --color-bg-footer: {{ settings.bg_footer }};
       }
     {% endstyle %}
 
@@ -134,36 +140,38 @@
     {{ 'cart.js' | asset_url | script_tag }}
 
     <script>
-    window.LPSettings = {
-      pleaseChooseOptions: `Please select some product options before adding this product to your cart.`,
-      addToCart: `Add to cart`,
-      selectOption: `Select options`,
-      quickShop: `Quick Shop`,
-      soldOut: `Out of stock`,
-      readMore: `Read more`,
-      preOrder: `Pre-order`,
-      preView: `View products`,
-      unavailable: `Unavailable`,
-      replace_qs_atc: `Replace item`,
-      replace_qs_pre: `Replace item`,
-      badgeNew: `New`,
-      badgeSale: `Sale`,
-      badgepreOrder: `Pre order`,
-      badgeSoldout: `Sold out`,
-      badgeSavePercent: `-[sale]%`,
-      badgeSaveFixed: `-[sale]`,
-      badgeSavePercent2: `SAVE [sale]%`,
-      badgeSaveFixed2: `SAVE [sale]`,
-      swatch_limit: `Show More Colors`,
-      swatch_limit_less: `Show Less Colors`,
-      compare: `Compare`,
-      added_text_cp: `Compare products`,
-      add_to_wishlist: `Add to Wishlist`,
-      remove_wishlist: `Remove Wishlist`,
-      browse_wishlist: `Browse Wishlist`,
-      order_dayNames: "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday",
-      order_monthNames: "January,February,March,April,May,June,July,August,September,October,November,December"
-    }
+      document.addEventListener('DOMContentLoaded', function () {});
+
+      window.LPSettings = {
+        pleaseChooseOptions: `Please select some product options before adding this product to your cart.`,
+        addToCart: `Add to cart`,
+        selectOption: `Select options`,
+        quickShop: `Quick Shop`,
+        soldOut: `Out of stock`,
+        readMore: `Read more`,
+        preOrder: `Pre-order`,
+        preView: `View products`,
+        unavailable: `Unavailable`,
+        replace_qs_atc: `Replace item`,
+        replace_qs_pre: `Replace item`,
+        badgeNew: `New`,
+        badgeSale: `Sale`,
+        badgepreOrder: `Pre order`,
+        badgeSoldout: `Sold out`,
+        badgeSavePercent: `-[sale]%`,
+        badgeSaveFixed: `-[sale]`,
+        badgeSavePercent2: `SAVE [sale]%`,
+        badgeSaveFixed2: `SAVE [sale]`,
+        swatch_limit: `Show More Colors`,
+        swatch_limit_less: `Show Less Colors`,
+        compare: `Compare`,
+        added_text_cp: `Compare products`,
+        add_to_wishlist: `Add to Wishlist`,
+        remove_wishlist: `Remove Wishlist`,
+        browse_wishlist: `Browse Wishlist`,
+        order_dayNames: 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
+        order_monthNames: 'January,February,March,April,May,June,July,August,September,October,November,December',
+      };
     </script>
   </body>
 </html>

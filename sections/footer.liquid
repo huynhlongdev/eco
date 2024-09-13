@@ -1,55 +1,85 @@
 {%- liquid
-assign se = section.settings
-assign copyright = se.copyright
-assign blocks = section.blocks
-
+  assign se = section.settings
+  assign copyright = se.copyright
+  assign blocks = section.blocks
 -%}
+
+<style>
+  .footer{
+    padding-top: {{ se.our_ser_padding_top }}px;
+    padding-bottom: {{ se.our_ser_padding_bottom  }}px;
+  }
+
+  @media (max-width: 991px){
+    .footer{
+      padding-top: {{ se.our_ser_padding_top_ip }}px;
+      padding-bottom: {{ se.our_ser_padding_bottom_ip  }}px;
+    }
+  }
+  @media (max-width: 767px){
+    .footer{
+      padding-top: {{ se.our_ser_padding_top_xs }}px;
+      padding-bottom: {{ se.our_ser_padding_bottom_xs  }}px;
+    }
+  }
+</style>
 
 <footer class="footer">
   <div class="container">
     <div class="row">
       {% for block in blocks %}
-        {%-  liquid  
+        {%- liquid
           assign item = block.settings
         -%}
-        {% case block.type %}
 
-        {% when "col1" %}
-          <div class="col-md-4">
-            {% if item.image %}
-              <div class="image mb-4">
-                {{ item.image | img_url | img_tag }}
-              </div>
-            {% endif %}
-            <div class="text">
-              {{ item.content }}
-            </div>
-          </div>
-
-        {% when "newsletter" %}
-          <div class="col-md-4">
-            {%  form "customer" %} 
-              <div class="field relative">
-                <input class="field__input" autocomplete="off" type="email" id="customer-email" name="customer[email]"
-                   placeholder="Email"
-                  >
-                <button type="submit">Submit</button>
-              </div>
-            {% endform %} 
-          </div>
-        {% when "link" %}
-          <div class="col-md-4">
-            <h3>{{ item.headline }}</h3>
-            {%  render 'nav', linkCurrent: block.settings.link_list  %}
-          </div>
-        
-
+        {% case item.column_xs %}
+          {% when '1' %}
+            {% assign column_xs = '12' %}
+          {% when '2' %}
+            {% assign column_xs = '6' %}
+          {% else %}
+            {% assign column_xs = item.column_xs %}
         {% endcase %}
 
+        {% case block.type %}
+          {% when 'col1' %}
+            <div class="col-lg-{{ item.column_lg }}  col-md-{{ item.column_sm }} col-{{ column_xs }}">
+              {% if item.image %}
+                <div class="image mb-4">
+                  {{ item.image | img_url | img_tag }}
+                </div>
+              {% endif %}
+              <div class="text">
+                {{ item.content }}
+              </div>
+            </div>
+
+          {% when 'newsletter' %}
+            <div class="col-lg-{{ item.column_lg }}  col-md-{{ item.column_sm }} col-{{ column_xs }}">
+              {% form 'customer' %}
+                <div class="field relative">
+                  <input
+                    class="field__input"
+                    autocomplete="off"
+                    type="email"
+                    id="customer-email"
+                    name="customer[email]"
+                    placeholder="Email"
+                  >
+                  <button type="submit">Submit</button>
+                </div>
+              {% endform %}
+            </div>
+          {% when 'link' %}
+            <div class="col-lg-{{ item.column_lg }} col-md-{{ item.column_sm }} col-{{ column_xs }}">
+              <h3>{{ item.headline }}</h3>
+              {% render 'nav', linkCurrent: block.settings.link_list %}
+            </div>
+        {% endcase %}
       {% endfor %}
     </div>
   </div>
-  
+
   {% if copyright %}
     <div class="copyright pt-2">
       <div class="container">
@@ -63,11 +93,82 @@ assign blocks = section.blocks
 {
   "name": "Footer",
   "settings": [
-
     {
       "type": "richtext",
       "id": "copyright",
       "label": "Copyright"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_bottom",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_bottom_ip",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "our_ser_padding_bottom_xs",
+      "label": "Section Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
     }
   ],
   "blocks": [
@@ -76,27 +177,211 @@ assign blocks = section.blocks
       "name": "Column 1",
       "settings": [
         {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Image"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         },
         {
           "type": "richtext",
           "id": "content",
           "label": "Content"
+        },
+        {
+          "type": "select",
+          "id": "column_lg",
+          "label": "Column Desktop",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "column_sm",
+          "label": "Column Tablet/ Ipad",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "column_xs",
+          "label": "Column Mobile",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            }
+          ]
         }
-        
       ]
     },
     {
       "type": "newsletter",
       "name": "Newsletter",
       "settings": [
-
         {
           "type": "text",
           "id": "headline",
           "label": "Headline"
+        },
+        {
+          "type": "select",
+          "id": "column_lg",
+          "label": "Column Desktop",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "column_sm",
+          "label": "Column Tablet/ Ipad",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "column_xs",
+          "label": "Column Mobile",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            }
+          ]
         }
       ]
     },
@@ -113,10 +398,102 @@ assign blocks = section.blocks
           "type": "link_list",
           "id": "link_list",
           "label": "Navigation"
+        },
+        {
+          "type": "select",
+          "id": "column_lg",
+          "label": "Column Desktop",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "column_sm",
+          "label": "Column Tablet/ Ipad",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "column_xs",
+          "label": "Column Mobile",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            }
+          ]
         }
       ]
     }
   ]
-
 }
 {% endschema %}

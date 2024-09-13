@@ -1,25 +1,19 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
+    "product_collection": {
+      "type": "product-collection",
       "settings": {
-      }
-    },
-    "product_grid_7jMeHY": {
-      "type": "product-grid",
-      "settings": {
-        "per_page": 4,
+        "per_page": 6,
         "columns": "4",
-        "columns_moblie": "2",
+        "columns_moblie": "4",
         "image_ratio": "square",
-        "show_vendor": true,
+        "show_vendor": false,
         "show_quick_view": true,
         "show_variant": true
       }
     }
   },
   "order": [
-    "banner",
-    "product_grid_7jMeHY"
+    "product_collection"
   ]
 }
