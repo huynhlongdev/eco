@@ -9,18 +9,26 @@
 {% else %}
   <div class="wishlist-empty text-center">
     <div class="mx-auto mb-6 text-center">
-      <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
-        <path
-          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-        </path>
-      </svg>
+      {%  render 'icon-wishlist' %}
     </div>
     
-    <h4 class="text-4xl mb-3">Wishlist is empty.</h4>
+    <h4 class="mb-3">Wishlist is empty.</h4>
     <p>You don't have any products in the wishlist yet.<br>
       You will find a lot of interesting products on our "Shop" page.</p>
 
-    <a href="{{ routes.all_products_collection_url }}" class="text-white bg-blue-400 mt-5 px-6 py-3 inline-flex hover:bg-blue-300 transition-all duration-300">Continue shopping</a>
+    <a href="{{ routes.all_products_collection_url }}" class="lp-btn mt-5 px-6 py-3 inline-flex">Continue shopping</a>
   </div>
 {% endif %}
+
+
+<style>
+  #wishlist-container{
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+  #wishlist-container .icon{
+    width: 60px;
+    margin: 0 auto 24px;
+  }
+  
+</style>

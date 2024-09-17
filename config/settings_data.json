@@ -1,19 +1,22 @@
 {
   "current": {
+    "secondary_color": "#56b2c4",
+    "btn_spacing_desktop": "10px 20px 10px 20px",
+    "btn_radius_desktop": "4px",
     "logo": "shopify:\/\/shop_images\/renpho_120x_ed2172d2-db83-46c3-9dae-76a3d868f5c6.webp",
     "logo_width": 130,
+    "alignment": "right",
+    "vertical_alignment": "middle",
     "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "container_width": 1140,
+    "container_spacing": 16,
+    "enable_cart_drawer": true,
     "background": "linear-gradient(90deg, rgba(207, 154, 154, 1), rgba(214, 105, 56, 1) 100%)",
     "button_link": "shopify:\/\/pages\/about-us",
     "collection": "shop",
     "collection_list": [
 
     ],
-    "alignment": "right",
-    "vertical_alignment": "bottom",
-    "container_width": 1140,
-    "container_spacing": 16,
-    "enable_cart_drawer": true,
     "content_for_index": [
 
     ]

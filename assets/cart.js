@@ -1,11 +1,16 @@
 jQuery(document).ready(function ($) {
+  // fix error
+  function fixError(error) {
+    window.open(`https://chatgpt.com/?q=${error}`);
+  }
+
+  // open drawwer cart
   function openOffcanvas() {
-    var offcanvasElement = document.getElementById("offcanvasDrawer");
-    var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+    var offcanvas = new bootstrap.Offcanvas($("#offcanvasDrawer")[0]);
     offcanvas.show();
   }
 
-  // update cart
+  // update cart content
   async function updateDrawerCart() {
     try {
       const response = await fetch(
@@ -25,111 +30,47 @@ jQuery(document).ready(function ($) {
         drawerCart.innerHTML = newBox;
       }
     } catch (error) {
-      console.error("Error updating cart:", error);
+      fixError(error);
     }
   }
 
-  async function removeDrawerCart(id) {
-    try {
-      const response = await fetch(
-        window.Shopify.routes.root + "cart/change.js",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id: id,
-            quantity: 0,
-          }),
-        }
-      );
+  // New remove & update card
+  async function handleChangeCart(id, qty, stt = "add") {
+    const quantity = stt === "remove" ? 0 : qty;
 
-      const data = await response.json();
-      await updateDrawerCart();
-    } catch (error) {
-      console.error("Error removing from cart:", error);
-    }
-  }
-
-  async function addToCart(obj) {
-    const variant_id = obj.id;
-    const qty = obj.qty;
-    let formData = {
-      items: [
-        {
-          id: variant_id,
-          quantity: qty,
-        },
-      ],
+    const object = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({ id, quantity }).toString(),
     };
 
     try {
-      const response = await fetch(window.Shopify.routes.root + "cart/add.js", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      await updateDrawerCart();
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
-
-  async function changeCart(id, qty) {
-    // document.getElementById("loading-indicator").classList.remove("hidden");
-
-    try {
       const response = await fetch(
         window.Shopify.routes.root + "cart/change.js",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            id: id,
-            quantity: qty,
-          }).toString(),
-        }
+        object
       );
-
-      if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
+      if (!response.ok) throw new Error("Failed to update cart");
+      $("body").removeClass("loading");
+      if (stt != "edit") {
+        await updateDrawerCart();
       }
-
-      const cart = await response.json();
-      await updateDrawerCart();
     } catch (error) {
-      console.error("Error updating cart:", error);
-
-      window.open(`https://chatgpt.com/?q=${error}`);
-    } finally {
-      // Hide loading indicator
-      // document.getElementById("loading-indicator").classList.add("hidden");
+      fixError(error);
     }
   }
 
-  // handle add to cart
-  $(document).on("click", "a.add_to_cart", async function (e) {
-    e.preventDefault();
+  // Handle add to cart
+  async function handleAddtoCart(id, quantity = 1) {
+    id = Number(id);
+    quantity = Number(quantity);
     $(this).addClass("loading");
-
-    const variant_id = $(this).data("variant-id"); // Ensure this is returning a valid number
-    if (!variant_id) {
-      console.error("Invalid variant ID");
-      $(this).removeClass("loading");
-      return;
-    }
-
     let formData = {
       items: [
         {
-          id: Number(variant_id), // Convert to number if necessary
-          quantity: 1,
+          id,
+          quantity,
         },
       ],
     };
@@ -149,41 +90,128 @@ jQuery(document).ready(function ($) {
         throw new Error(errorData.message || "Failed to add item to cart.");
       }
 
-      await updateDrawerCart(); // Make sure this function is working correctly
+      await updateDrawerCart();
       $(".add_to_cart").removeClass("loading");
-      openOffcanvas(); // Ensure this function exists and works properly
+      openOffcanvas();
     } catch (error) {
       $(".add_to_cart").removeClass("loading");
-      console.error("Error:", error);
+      fixError(error);
     }
+  }
+
+  // Get product model
+  async function ajaxEditCart(variant, url) {
+    try {
+      const response = await fetch(
+        url + "?view=ajax-edit-cart&variant=" + variant
+      );
+      const html = await response.text();
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = html;
+
+      const newBox = tempDiv.querySelector(
+        "#product-quick-edit-cart"
+      ).innerHTML;
+
+      document.querySelector(".quick-editcart-modal").innerHTML = newBox;
+
+      // open model
+      $.fancybox.open({
+        src: "#quick-editcart-modal",
+        type: "inline",
+      });
+    } catch (error) {
+      fixError(error);
+    }
+  }
+
+  // Edit mini cart item
+  $(document).on("click", "a.edit-cart", async function (e) {
+    e.preventDefault();
+
+    const id = $(this)
+      .closest(".cart-item")
+      .addClass("is-edit")
+      .data("variant-id");
+
+    const qty = 0;
+
+    const url = element.closest(".cart-item").find(".cart-title").attr("href");
+
+    await ajaxEditCart(id, url);
+  });
+
+  $(document).on("click", ".update-cart", async function (e) {
+    e.preventDefault();
+
+    const id = $(".js_sticky_sl").val();
+    const qty = parseInt($(".js_qty").val());
+
+    const id_old = $(".cart-item.is-edit").data("variant-id");
+
+    const res = handleChangeCart(id_old, 0, "remove");
+
+    await handleAddtoCart(Number(id), qty);
+  });
+
+  // handle add to cart
+  $(document).on("click", "a.add_to_cart", async function (e) {
+    e.preventDefault();
+    $(this).addClass("loading");
+
+    const id = $(this).data("variant-id");
+    if (!id) {
+      console.error("Invalid variant ID");
+      $(this).removeClass("loading");
+      return;
+    }
+
+    await handleAddtoCart(id, 1);
+  });
+
+  $(document).on("click", "a.add_quick_shop", async function (e) {
+    e.preventDefault();
+    $(this).addClass("loading");
+
+    const id = $(this).data("variant-id");
+    const url = $(this).attr("href");
+    if (!id) {
+      console.error("Invalid variant ID");
+      $(this).removeClass("loading");
+      return;
+    }
+
+    await ajaxEditCart(id, url);
   });
 
   // change quantity
   $(document).on("click", ".qtyBtn", function () {
-    const btn = $(this);
-    const qtyInput = btn.closest(".cart-quantity").find(".qty");
-    const id = btn.closest(".cart-quantity").data("variant-id");
-    let qty = parseInt(qtyInput.val());
+    const item = $(this).closest(".cart-item"),
+      qtyInput = item.find(".quantity__input"),
+      qty =
+        parseInt(qtyInput.val(), 10) +
+        ($(this).hasClass("minus") && qtyInput.val() > 1 ? -1 : 1);
 
-    if (btn.hasClass("minus")) {
-      if (qty > 1) {
-        qty = qty - 1;
-      }
-    } else {
-      qty = qty + 1;
-    }
-
-    qtyInput.val(qty);
-    changeCart(id, qty);
+    qtyInput.attr("value", qty).trigger("change");
   });
 
-  // remove item cart
+  // onchange
+  $(document).on("change", ".quantity__input", async function (e) {
+    const $this = $(this);
+    const id = $this.closest(".cart-item").data("variant-id");
+    let qty = parseInt($this.val(), 10);
+    $("body").addClass("loading");
+    await handleChangeCart(id, qty, "update");
+  });
+
+  // Remove item cart click
   $(document).on("click", ".cart-remove", async function (e) {
     e.preventDefault();
-    await removeDrawerCart($(this).data("id"));
+    $("body").addClass("loading");
+    await handleChangeCart($(this).data("id"), 0, "remove");
   });
 
-  // open mini cart
+  // open mini cart in header click
   $(document).on("click", ".cart-header a", function (e) {
     e.preventDefault();
     openOffcanvas();

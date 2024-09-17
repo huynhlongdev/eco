@@ -8,6 +8,12 @@
   .footer{
     padding-top: {{ se.our_ser_padding_top }}px;
     padding-bottom: {{ se.our_ser_padding_bottom  }}px;
+    background-color: {{ se.background_color }};
+    color: {{ se.text_color }}
+  }
+
+  footer .widget_title{
+    color: {{ se.title_color }}
   }
 
   @media (max-width: 991px){
@@ -43,37 +49,60 @@
 
         {% case block.type %}
           {% when 'col1' %}
-            <div class="col-lg-{{ item.column_lg }}  col-md-{{ item.column_sm }} col-{{ column_xs }}">
-              {% if item.image %}
-                <div class="image mb-4">
-                  {{ item.image | img_url | img_tag }}
+            <div class="col-lg-{{ item.column_lg }}  col-md-{{ item.column_sm }} col-{{ column_xs }} mb-5 mb-sm-0">
+              <div class="widget widget-info">
+                <div class="widget_title mb-4">
+                  <!-- {{ item.headline }} -->
                 </div>
-              {% endif %}
-              <div class="text">
-                {{ item.content }}
+                <div class="widget_content">
+                  {% if item.image %}
+                    <div class="image mb-4">
+                      {{ item.image | img_url | img_tag }}
+                    </div>
+                  {% endif %}
+                  <div class="text">
+                    {{ item.content }}
+                  </div>
+                </div>
               </div>
             </div>
 
           {% when 'newsletter' %}
-            <div class="col-lg-{{ item.column_lg }}  col-md-{{ item.column_sm }} col-{{ column_xs }}">
-              {% form 'customer' %}
-                <div class="field relative">
-                  <input
-                    class="field__input"
-                    autocomplete="off"
-                    type="email"
-                    id="customer-email"
-                    name="customer[email]"
-                    placeholder="Email"
-                  >
-                  <button type="submit">Submit</button>
+            <div class="col-lg-{{ item.column_lg }}  col-md-{{ item.column_sm }} col-{{ column_xs }} mb-5 mb-sm-0">
+              <div class="widget widget-newslette">
+                <div class="widget_title mb-4">
+                  {{ item.headline }}
                 </div>
-              {% endform %}
+                <div class="widget_content">
+                  <div class="mb-3">
+                    {{ item.content }}
+                  </div>
+                  {% form 'customer' %}
+                    <div class="field relative flex overflow-hidden bg-white">
+                      <input
+                        class="field__input input-text"
+                        autocomplete="off"
+                        type="email"
+                        id="customer-email"
+                        name="customer[email]"
+                        placeholder="Email"
+                      >
+                      <button type="submit" class="btn-submit">Submit</button>
+                    </div>
+                  {% endform %}
+                </div>
+              </div>
             </div>
           {% when 'link' %}
-            <div class="col-lg-{{ item.column_lg }} col-md-{{ item.column_sm }} col-{{ column_xs }}">
-              <h3>{{ item.headline }}</h3>
-              {% render 'nav', linkCurrent: block.settings.link_list %}
+            <div class="col-lg-{{ item.column_lg }} col-md-{{ item.column_sm }} col-{{ column_xs }} mb-5 mb-sm-0">
+              <div class="widget links">
+                <div class="widget_title mb-4">
+                  {{ item.headline }}
+                </div>
+                <div class="widget_content">
+                  {% render 'nav', linkCurrent: block.settings.link_list %}
+                </div>
+              </div>
             </div>
         {% endcase %}
       {% endfor %}
@@ -88,6 +117,8 @@
     </div>
   {% endif %}
 </footer>
+
+<div id="quick-editcart-modal" class="quick-editcart-modal" style="display:none"></div>
 
 {% schema %}
 {
@@ -169,6 +200,28 @@
       "step": 5,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Backgrounf Color",
+      "default": "#263c97"
     }
   ],
   "blocks": [
@@ -289,6 +342,11 @@
           "type": "text",
           "id": "headline",
           "label": "Headline"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content"
         },
         {
           "type": "select",

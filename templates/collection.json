@@ -6,10 +6,18 @@
         "per_page": 6,
         "columns": "4",
         "columns_moblie": "4",
+        "filter": "full",
+        "pagination": "list",
         "image_ratio": "square",
         "show_vendor": false,
         "show_quick_view": true,
-        "show_variant": true
+        "show_variant": true,
+        "our_ser_padding_top": 80,
+        "our_ser_padding_bottom": 80,
+        "our_ser_padding_top_ip": 80,
+        "our_ser_padding_bottom_ip": 80,
+        "our_ser_padding_top_xs": 60,
+        "our_ser_padding_bottom_xs": 60
       }
     }
   },

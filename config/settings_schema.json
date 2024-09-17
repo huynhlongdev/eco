@@ -7,7 +7,7 @@
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
   },
-   {
+  {
     "name": "General",
     "settings": [
       {
@@ -33,6 +33,114 @@
         "id": "secondary_color",
         "label": "Secondary color",
         "default": "#16bcdc"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== main"
+      },
+      {
+        "type": "color",
+        "id": "color_body_bg",
+        "label": "Body background color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "color_body_text",
+        "label": "Body Text Color",
+        "default": "#444"
+      },
+      {
+        "type": "color",
+        "id": "color_main",
+        "label": "Main color",
+        "default": "#1a1a1a"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary color",
+        "default": "#1a1a1a"
+      },
+      {
+        "type": "color",
+        "id": "color_link",
+        "label": "Link Color",
+        "default": "#343E45"
+      },
+      {
+        "type": "color",
+        "id": "color_link_hover",
+        "label": "Link Color (Hover)",
+        "default": "#343E45"
+      },
+      {
+        "type": "color",
+        "id": "color_scrollbar",
+        "label": "Color Scrollbar",
+        "default": "#1A73E8"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Color border",
+        "default": "#ebebeb"
+      }
+    ]
+  },
+  {
+    "name": "Button",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Style"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_text",
+        "label": "Color text button",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "color_btn",
+        "label": "Background button",
+        "default": "#263c97"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_text_hover",
+        "label": "Color (text button hover)",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_hover",
+        "label": "Background (button hover)",
+        "default": "#4ad295"
+      },
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "text",
+        "id": "btn_spacing_desktop",
+        "label": "Spacing (Desktop)",
+        "default": "10px 20px 10px 20px",
+        "info": "EX: top right bottom left"
+      },
+      {
+        "type": "text",
+        "id": "btn_radius_desktop",
+        "label": "Radius (Desktop)",
+        "default": "4px",
+        "info": "EX: top right bottom left"
       }
     ]
   },
@@ -85,7 +193,6 @@
         "label": "Favicon",
         "info": "Will be scaled down to 32 x 32px"
       }
-      
     ]
   },
   {
@@ -122,7 +229,6 @@
       }
     ]
   },
-  
   {
     "name": "Layout",
     "settings": [
@@ -165,8 +271,7 @@
           {
             "value": "drawer",
             "label": "Drawer"
-          },
-          
+          }
         ],
         "default": "left"
       },
@@ -189,7 +294,7 @@
           }
         ],
         "default": "list"
-      },
+      }
     ]
   },
   {

@@ -55,3 +55,62 @@ input::-webkit-inner-spin-button {
 .dropdown {
   display: none;
 }
+
+footer {
+  background-color: var(--color-bg-header);
+}
+
+footer .widget_title {
+  margin-top: 0;
+  padding: 0;
+  color: var(--white-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+footer .btn-submit {
+  border: none;
+  height: 50px;
+  cursor: pointer;
+  background: var(--color-btn);
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  text-transform: uppercase;
+  padding: 0 30px;
+}
+
+footer .input-text {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  border: none;
+  height: 50px;
+  background: none;
+  width: 100%;
+  padding: 0 20px;
+  color: var(--alo-color-text);
+  font-size: 14px;
+  -webkit-transition: all 0.24s linear 0ms;
+  -khtml-transition: all 0.24s linear 0ms;
+  -moz-transition: all 0.24s linear 0ms;
+  -ms-transition: all 0.24s linear 0ms;
+  -o-transition: all 0.24s linear 0ms;
+  transition: all 0.24s linear 0ms;
+}
+
+.lp-btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  padding: var(--btn-spacing);
+  border-radius: var(--btn-radius);
+  transition: 0.3s;
+}
+.lp-btn:hover {
+  background-color: var(--btn-bg-hover);
+  color: var(--btn-text-hover);
+}
