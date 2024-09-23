@@ -1,0 +1,301 @@
+{% if block.settings.variant_layout == 'option_full' %}
+  <div class="select-variant">
+    <select
+      name="id"
+      id="productSelect"
+      class="product-single__variants"
+    >
+      {% for variant in product.variants %}
+        <option
+          {% if variant == selected_variant %}
+            selected="selected"
+          {% endif %}
+          value="{{- variant.id -}}"
+        >
+          {{- variant.title -}}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  {% elsif block.settings.variant_layout == 'option_type' %}
+    <div>
+      {% unless product.has_only_default_variant %}
+        <variant-selector data-url="{{ product.url}}" data-section="{{ section.id }}">
+          {% for option in product.options_with_values %}
+          <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+          <div class="my-2">
+            <select name="options[{{ option.name | escape }}]" id="Option-{{ section.id }}-{{ forloop.index0 }}"
+              class="w-full border py-3 px-3">
+              {% for value in option.values %}
+              <option value="{{ value | escape }}" {% if option.selected_value == value %} selected="selected" {% endif %}>
+                {{ value }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          {% endfor %}
+        </variant-selector>
+      {% endunless %}
+      <script>
+        // $(document).ready(function () {
+        //   // Lắng nghe sự kiện thay đổi trên tất cả các select box
+        //   $(document).on('change', 'select', function () {
+        //     onVariantChange();
+        //   });
+
+        //   // Hàm xử lý khi thay đổi biến thể
+        //   function onVariantChange() {
+        //     const options = getSelectedOptions();
+        //     const currentVariant = getSelectedVariant(options);
+
+        //     if (currentVariant) {
+        //       console.log('>>>currentVariant change', currentVariant);
+        //       updateURL(currentVariant);
+        //       updateFormID(currentVariant);
+        //       updatePrice(currentVariant);
+        //     }
+        //   }
+
+        //   // Lấy các tùy chọn được chọn từ các select box
+        //   function getSelectedOptions() {
+        //     const options = $('select')
+        //       .map(function () {
+        //         return $(this).val();
+        //       })
+        //       .get();
+        //     console.log('getSelectedOptions',options);
+        //     return options;
+        //   }
+
+        //   // Lấy dữ liệu biến thể từ thẻ JSON
+        //   function getVariantJSON() {
+        //     const variantData = JSON.parse($('#variant-json[type="application/json"]').text());
+        //     return variantData;
+        //   }
+
+        //   // Tìm biến thể hiện tại dựa trên các tùy chọn đã chọn
+        //   function getSelectedVariant(options) {
+        //     const variantData = getVariantJSON();
+
+        //     const currentVariant = variantData.find(function (variant) {
+        //       const findings = variant.options
+        //         .map(function (option, index) {
+        //           return options[index] === option;
+        //         })
+        //         .every(Boolean);
+
+        //       return findings ? variant : null;
+        //     });
+
+        //     console.log(currentVariant);
+        //     return currentVariant;
+        //   }
+
+        //   // Cập nhật URL với biến thể hiện tại
+        //   function updateURL(currentVariant) {
+        //     if (!currentVariant) return;
+        //     const url = `${$('[data-url]').data('url')}?variant=${currentVariant.id}`;
+        //     window.history.replaceState({}, '', url);
+        //   }
+
+        //   // Cập nhật input trong form với ID của biến thể hiện tại
+        //   function updateFormID(currentVariant) {
+        //     const formInput = $("input[name='id']");
+        //     formInput.val(currentVariant.id).attr('value', currentVariant.id);
+        //   }
+
+        //   // Cập nhật giá khi biến thể thay đổi
+        //   function updatePrice(currentVariant) {
+        //     const sectionId = $('[data-section]').data('section');
+        //     const url = `${$('[data-url]').data('url')}?variant=${currentVariant.id}&section_id=${sectionId}`;
+
+        //     $.get(url, function (responseText) {
+        //       const id = `price-${sectionId}`;
+        //       const html = new DOMParser().parseFromString(responseText, 'text/html');
+
+        //       const oldPrice = $(`#${id}`);
+        //       const newPrice = $(html).find(`#${id}`);
+
+        //       if (oldPrice.length && newPrice.length) {
+        //         oldPrice.html(newPrice.html());
+        //       }
+        //     });
+        //   }
+        // });
+      </script>
+    </div>
+
+  {% else %}
+  <div class="swatch-variant">
+    {%- if product.variants.size >= 1 -%}
+      {% for option in product.options %}
+        {%- render 'swatch' with option, block: block, selected_variant: selected_variant -%}
+      {% endfor %}
+    {%- endif -%}
+  </div>
+
+ 
+
+{% endif %}
+
+
+{% unless product.has_only_default_variant %}
+{{ selected_variant }}
+<variant-selector data-url="{{ product.url}}" data-section="{{ section.id }}">
+  {% for option in product.options_with_values %}
+  <div class="my-2">
+    <label>{{ option.name }}</label>
+
+    <div id="Option-{{ section.id }}-{{ forloop.index0 }}" class="w-full">
+      {% for value in option.values %}
+      <div class="variant-element">
+        {% assign variant = product.variants | where: "option{{ forloop.index }}", value | first %}
+
+        {% comment %} {{ value.variant |  json }} {% endcomment %}
+
+        {% assign new_variant = value.variant %}
+
+        {% assign available = new_variant.available %}
+
+        {% if available %}
+          {% assign stock = new_variant.inventory_quantity %}
+          {% if stock > 0 %}
+          <span> (In stock: {{ stock }}) </span>
+          {% else %}
+          <span> (Out of stock) </span>
+          {% endif %}
+        {% endif %}
+
+        <input type="radio" id="{{ option.name | downcase }}-{{ value | downcase }}"
+          name="options[{{ option.name | escape }}]" value="{{ value | escape }}"
+          {% if option.selected_value == value %} checked="checked" {% endif %}>
+        <label for="{{ option.name | downcase }}-{{ value | downcase }}">
+          {{- value -}}
+        </label>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+  {% endfor %}
+</variant-selector>
+{% endunless %}
+
+
+
+<script type="text/javascript">
+
+  (function ($) {
+
+            // Hàm xử lý khi thay đổi biến thể
+    function onVariantChange(template = "type") {
+      let currentVariant;
+      if(template == 'full'){
+        const currentId = getVariantFull();
+        const variantData = getVariantJSON();
+         currentVariant = variantData.find(item => item.id == currentId);
+      }else{
+        const options = getSelectedOptions();
+        currentVariant = getSelectedVariant(options);
+      }
+
+      console.log('>>>change', currentVariant);
+    
+      if (currentVariant) {
+        const { id } = currentVariant
+        updatePrice(id);
+        updateURL(id);
+        updateFormID(id);
+      }
+    }
+
+    function getVariantFull(){
+      return $('#productSelect').val();
+    }
+
+    function getSelectedVariant(options) {
+      const variantData = getVariantJSON();
+
+      const currentVariant = variantData.find(function (variant) {
+        const findings = variant.options
+          .map(function (option, index) {
+            return options[index] === option;
+          })
+          .every(Boolean);
+
+        return findings ? variant : null;
+      });
+
+      console.log(currentVariant);
+      return currentVariant;
+    }
+
+    
+    function getSelectedOptions() {
+      const options = $('input:checked')
+        .map(function () {
+          return $(this).val();
+        })
+        .get();
+      console.log('getSelectedOptions',options);
+      return options;
+    }
+
+  
+    function getVariantJSON() {
+      const variantData = JSON.parse($('#variant-json[type="application/json"]').text());
+      return variantData;
+    }
+
+    function updateURL(currentVariant) {
+      if (!currentVariant) return;
+      const url = `${location.origin}${$('[data-url]').data('url')}?variant=${currentVariant}`;
+      window.history.replaceState({}, '', url);
+    }
+
+    function updateFormID(currentVariant) {
+      const formInput = $("input[name='id']");
+      formInput.val(currentVariant).attr('value', currentVariant);
+    }
+
+    function updatePrice(currentVariant) {
+      const sectionId = $('[data-section]').data('section');
+      const url = `${$('[data-url]').data('url')}?variant=${currentVariant}&section_id=${sectionId}`;
+
+      $.get(url, function (responseText) {
+        const id = `product-price`;
+        const html = new DOMParser().parseFromString(responseText, 'text/html');
+        const oldPrice = $(`.${id}`);
+        const newPrice = $(html).find(`.${id}`);
+
+        if (oldPrice.length && newPrice.length) {
+          oldPrice.html(newPrice.html());
+        }
+      });
+    }
+
+    $(document).on('change', '.swatch-variant input', function(){
+      onVariantChange()
+    } );
+    $(document).on('change', '#productSelect', function(e){
+      onVariantChange('full')
+    });
+
+  })(jQuery)
+
+
+
+
+
+
+  addEventListener('DOMContentLoaded', (event) => {
+    jQuery(function () {
+      jQuery('.swatch :radio').change(function () {
+        var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+        var optionValue = jQuery(this).val();
+        jQuery(this).closest('form').find('.single-option-selector').eq(optionIndex).val(optionValue).trigger('change');
+      });
+    });
+  });
+</script>

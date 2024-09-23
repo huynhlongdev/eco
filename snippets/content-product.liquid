@@ -5,16 +5,16 @@
   else
     assign ratio = 'pt-[100%]'
   endif
+
+  assign show_price = true
+  assign show_title = true
+  assign show_variant = true
 -%}
 
 <div class="pro-item card-{{ image_ratio }}" data-handle="{{ product.handle }}" data-id="{{ product.id }}">
   <div class="relative">
-    {%- if product.available == false -%}
-      <span id="{{ product.id }}" class="badge badge--bottom-left"> sold out </span>
-    {%- elsif product.compare_at_price > product.price and product.available -%}
-      <span id="{{ product.id }}" class="badge badge--bottom-left"> sale </span>
-    {%- endif -%}
-    <div class="thumbnail relative {{ratio}}">
+    {% render 'product-label', product: product %}
+    <div class="thumbnail relative mb-3 {{ratio}}">
       <img
         srcset="
           {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -115,7 +115,7 @@
           {{ product.vendor }}
         </div>
       {%- endif -%}
-      <h3>
+      <h3 class="pro_title">
         <a href="{{ product.url }}">{{ product.title }}</a>
       </h3>
 

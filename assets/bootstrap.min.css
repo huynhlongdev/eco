@@ -5980,9 +5980,19 @@ fieldset:disabled .btn {
 .opacity-0 {
   opacity: 0;
 }
-.opacity-1 {
+.opacity-25 {
+  opacity: 0.25;
+}
+.opacity-50 {
+  opacity: 0.25;
+}
+.opacity-75 {
+  opacity: 0.75;
+}
+.opacity-100 {
   opacity: 1;
 }
+
 .outline-none {
   outline: none;
 }
@@ -6771,13 +6781,13 @@ fieldset:disabled .btn {
 .text-decoration-line-through {
   text-decoration: line-through;
 }
-.text-lowercase {
+.lowercase {
   text-transform: lowercase;
 }
-.text-uppercase {
+.uppercase {
   text-transform: uppercase;
 }
-.text-capitalize {
+.capitalize {
   text-transform: capitalize;
 }
 .text-wrap {

@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
   // Tooltip
-  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-bs-toggle="tooltip"]').tooltip();
 
   // Header top
   $(".announcement-group").length > 0 &&

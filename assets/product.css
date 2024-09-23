@@ -1,16 +1,29 @@
+.breadcrumbs {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs .last {
+  color: var(--color-text-body, #777777);
+}
+
+.banner-section {
+  margin-bottom: 70px;
+}
+
 .thumbnail {
   padding-top: 100%;
 }
 
 .thumbnail:before {
-  content: "";
+  /* content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgb(0 0 0 / 25%);
-  z-index: 1;
+  z-index: 1; */
 }
 
 .button-group {
@@ -39,8 +52,12 @@
   cursor: pointer;
 }
 
+.lp_btn:hover {
+  background-color: white;
+}
+
 .lp_btn svg {
-  width: 18px;
+  width: 16px;
   height: auto;
 }
 
@@ -70,6 +87,10 @@
   background: red;
   top: 1rem;
   left: 1rem;
+}
+
+.label--sale {
+  background: var(--color-sale, #5aab19);
 }
 
 .shop-sidebar {
@@ -200,4 +221,93 @@ facet-remove path {
   z-index: 2;
   background-color: #333333;
   border-radius: 50%;
+}
+
+.lp-btn svg {
+  width: 16px;
+  height: auto;
+}
+
+.pro-item h3 {
+  font-size: 14px;
+}
+
+.pro_title {
+  font-size: 14px;
+}
+
+.compare {
+  color: var(--color-compare-price-product, #777777);
+  margin: unset;
+  text-decoration: line-through;
+  font-weight: 400;
+}
+
+.swatch-variant .variant-property {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.swatch {
+  margin-bottom: 24px;
+}
+
+.swatch[data-layout="format-color"].Size .swatch-element {
+  display: inline-flex;
+}
+
+.swatch[data-layout="format-color"].Size .swatch-element label {
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 2px 8px;
+  min-width: 30px;
+  text-align: center;
+  border: 1px solid #cdcdcd;
+}
+
+.swatch[data-layout="format-color"].Size .swatch-element input:checked ~ label {
+  border: 1px solid #000;
+}
+
+.swatch[data-layout="format-color"].Color .swatch-element label {
+  width: 28px;
+  height: 28px;
+  font-size: 0;
+  border: 3px solid #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: 1px solid #cdcdcd;
+}
+
+.swatch[data-layout="format-color"].Color
+  .swatch-element
+  input:checked
+  ~ label {
+  outline: 1px solid #000000;
+}
+
+.swatch[data-layout="format-color"] .swatch-element [type="radio"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+/* product detail */
+.product-title {
+  text-transform: none;
+  margin-top: 0px;
+  margin-bottom: 1rem;
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.product-price {
+  margin-bottom: 1rem;
+  font-size: 26px;
+  font-weight: 500;
 }

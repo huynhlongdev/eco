@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="banner-container relative">
+    <div class="banner-image">
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 1920 | image_tag }}
+      {% else %}
+        {{ collection.featured_image | image_url: width: 1920 | image_tag }}
+      {% endif %}
+    </div>
+    <div class="banner-content flex items-start justify-center flex-column h-100 absolute top-0 left-0 p-5 text-white">
+      <h1 class="banner-title mb-3 ">{{ collection.title }}</h1>
+      <div class="banner-desctiption">{{ collection.description }}</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner",
+  "class": "banner-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
+}
+{% endschema %}

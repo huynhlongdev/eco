@@ -168,6 +168,11 @@
       "save_amount_fixed_2_html": "SAVE {{ saved_amount }}"
     },
     "product": {
+      "label": {
+        "new": "New",
+        "sale": "-{{ percent }}%",
+        "hot": "Hot"
+      },
       "include_taxes": "Tax included.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping<\/a> calculated at checkout.",
       "from_price_html": "<span class=\"{{ class }}\">From<\/span> {{price_min}}",

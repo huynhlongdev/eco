@@ -1,41 +1,35 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-product",
+    "template_product_YXkAFW": {
+      "type": "template-product",
       "blocks": {
-        "title_yfF6K4": {
+        "title_67QdQg": {
           "type": "title",
           "settings": {
           }
         },
-        "price_W9BtMW": {
+        "price_A9d9Mc": {
           "type": "price",
           "settings": {
           }
         },
-        "varient_eaQ7pq": {
-          "type": "varient",
+        "variant_jn4kWJ": {
+          "type": "variant",
           "settings": {
+            "variant_layout": "color"
           }
         },
-        "text_jGz8xj": {
-          "type": "text",
-          "settings": {
-            "text": "demo test"
-          }
-        },
-        "share_89CH89": {
+        "share_ryR3gx": {
           "type": "share",
           "settings": {
           }
         }
       },
       "block_order": [
-        "title_yfF6K4",
-        "price_W9BtMW",
-        "varient_eaQ7pq",
-        "text_jGz8xj",
-        "share_89CH89"
+        "title_67QdQg",
+        "price_A9d9Mc",
+        "variant_jn4kWJ",
+        "share_ryR3gx"
       ],
       "settings": {
         "enable_sticky_info": true
@@ -43,6 +37,6 @@
     }
   },
   "order": [
-    "banner"
+    "template_product_YXkAFW"
   ]
 }

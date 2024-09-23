@@ -1,0 +1,94 @@
+
+{{selected_variant.id}}
+{% if swatch != blank %}
+  {%- liquid
+    assign found_option = false
+    assign is_color = false
+    assign option_index = 0
+    assign type = block.settings.variant_layout
+  -%}
+
+  {% for option in product.options %}
+    {% if option == swatch %}
+      {% assign found_option = true %}
+      {% assign option_index = forloop.index0 %}
+      
+      {% assign downcased_option = swatch | downcase %}
+      {% if downcased_option contains 'color'
+        or downcased_option contains 'colour'
+        or downcased_option contains 'colours'
+      %}
+        {% assign is_color = true %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% unless found_option %}
+  {% else %}
+    <div class="swatch clearfix {{ swatch }}" data-option-index="{{ option_index }}" data-layout="format-{{ block.settings.variant_layout }}">
+      <div class="swatch-label">
+          <strong>
+            <span>{{ swatch }}:</span>
+            <span class="data-value" id="data-value"></span>
+          </strong>
+      </div>
+      <div class="variant-wrap">
+        <div class="variant-property">
+          {%- liquid
+            assign values = ''
+          -%}
+          {% for variant in product.variants %}
+            {%- liquid
+              assign value = variant.options[option_index]
+            -%}
+            {% unless values contains value %}
+              {%- liquid
+                assign values = values | join: ','
+                assign values = values | append: ',' | append: value
+                assign values = values | split: ','
+                assign selected_variant = product.selected_or_first_available_variant
+              -%}
+             
+              <div
+                data-value="{{ value | escape }}"
+                data-id="{{ variant.id }}"
+                data-stocks="{{ variant.inventory_quantity }}"
+                class="swatch-element {% if is_color %} color{% endif %} {{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}"
+              >
+                <input
+                  id="swatch-{{ option_index }}-{{ value | handle }}"
+                  type="radio"
+                  name="option-{{ option_index }}"
+                  value="{{ value | escape }}"
+                  {% if selected_variant.id == variant.id %}
+                    checked
+                  {% endif %}
+                >
+                {%- if is_color -%}
+                  <label
+                    class="{{ swatch | downcase }} {{ value | handle }}"
+                    for="swatch-{{ option_index }}-{{ value | handle }}"
+                    style="{% if type == "image" and variant.image %}background-image: url({{ variant.image | image_url }});{% else %}background-color: {{ value | split: ' ' | last | handle }};{% endif %}"
+                    data-bs-toggle="tooltip"
+                    tabindex="0"
+                    data-bs-placement="top"
+                    title="{{ value | split: ' ' | last | handle | capitalize }}"
+                  >
+                    {{ value }}
+                  </label>
+                {%- else -%}
+                  <label
+                    for="swatch-{{ option_index }}-{{ value | handle }}"
+                    title="{{ value | split: ' ' | last | handle | capitalize }}"
+                  >
+                    {{ value | capitalize }}
+                  </label>
+                {%- endif -%}
+              </div>
+            {% endunless %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endunless %}
+{% endif %}

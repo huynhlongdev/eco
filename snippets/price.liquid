@@ -1,41 +1,18 @@
-{%- liquid
-  assign compare_at_price = product.compare_at_price
-  assign price = product.price | default: 1999
-  assign price_min = product.price_min
-  assign price_max = product.price_max
-  assign available = product.available | default: false
-  assign money_price = price | money
-  assign money_price_min = price_min | money
-  assign money_price_max = price_max | money
-  assign money_compare_at_price = compare_at_price | money
-  assign varies = product.price_varies
-  if settings.currency_code_enabled
-    assign money_price = price | money_with_currency
-    assign money_price_min = price_min | money_with_currency
-    assign money_price_max = price_max | money_with_currency
-    assign money_compare_at_price = compare_at_price | money_with_currency
-  endif
--%}
-
-<!-- {{ product | json }} -->
-
-{{ compare_at_price }}
--
-{{ product.compare_at_price_varies }}
-
-{%- unless product == null -%}
-  <div class="price">
-    {%- if varies -%}
-      <div class="amount">
-        <span>{{- money_price_min -}}</span>-<span>{{- money_price_max -}}</span>
-      </div>
+<div class="product-collection__price ">
+  {%- if product.price_varies -%}
+    <span class="price"
+      ><span>{{ product.price_min | money }} – {{ product.price_max | money }}</span></span
+    >
+  {%- else -%}
+    {%- if product.compare_at_price > product.price -%}
+      <span class="price price--sale">
+        <ins class="current">{{ product.price | money }}</ins>
+        <del class="compare">{{ product.compare_at_price | money }}</del>
+      </span>
     {%- else -%}
-      {%- if price != 0 -%}
-        <div class="amount">
-          <del>{{ money_price }}</del>
-          <ins>{{ money_price_max }}</ins>
-        </div>
-      {%- endif -%}
+      <span class="price"
+        ><ins>{{ product.price | money }}</ins></span
+      >
     {%- endif -%}
-  </div>
-{%- endunless -%}
+  {%- endif -%}
+</div>

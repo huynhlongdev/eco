@@ -1,0 +1,48 @@
+{%- assign show_label_sale = true -%}
+{%- assign show_label_new = strue -%}
+{%- assign show_label_hot = strue -%}
+
+{%- if product.available == false -%}
+  <span id="{{ product.id }}" class="badge badge--bottom-left"> sold out </span>
+{%- endif -%}
+
+{% if show_label_sale %}
+  {%- if product.compare_at_price > product.price and product.available -%}
+    {%- assign sale_percent = product.price
+      | times: 100
+      | divided_by: product.compare_at_price
+      | minus: 100
+      | times: -1
+    -%}
+    <div class="label label--sale badge">
+      {{ 'products.product.label.sale' | t: percent: sale_percent }}
+    </div>
+  {%- endif -%}
+{% endif %}
+
+{% comment %}
+  <!--------------------------------------------------->
+{% endcomment %}
+{% if show_label_hot %}
+  {% if product.tags contains 'label_host' %}
+    <div class="label label--hot">
+      {{ 'products.product.label.hot' | t }}
+    </div>
+  {% endif %}
+{% endif %}
+{% comment %}
+  <!--------------------------------------------------->
+{% endcomment %}
+
+{% assign date_published = product.published_at | date: '%s' %}
+{% assign date_now = 'now' | date: '%s' %}
+{% assign date_difference_in_seconds = date_now | minus: date_published %}
+{% assign date_difference_in_days = date_difference_in_seconds | divided_by: 86400 | round %}
+{% assign limit_day = 30 %}
+{% if date_difference_in_days <= limit_day %}
+  <div
+    class="{%- if show_label_sale and compare_at_price > price -%}d-none {% endif %} badge label--new"
+  >
+    {{ 'products.product.label.new' | t }}
+  </div>
+{% endif %}
