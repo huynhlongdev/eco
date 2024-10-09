@@ -3,41 +3,49 @@
   assign show_variant = section.settings.show_variant
   assign show_vendor = section.settings.show_vendor
   assign show_compare = false
+  assign columns_moblie = section.settings.columns_moblie
 -%}
 
-
-
-{{ request.params }}
-
 <div class="container product-container">
-  {% comment %} {% include 'breadcrumb' %} {% endcomment %}
-
   <div class="row">
     <div class="col-lg-3">
       {% render 'collection-sidebar', results: collection %}
     </div>
     <div class="col-lg-9">
-      <div class="sort-filter">
-        {%- assign sort_default = collection.sort_by | default: collection.default_sort_by -%}
-        <select name="sort_by" id="sortby" class="sortby">
-          {% for sort in collection.sort_options %}
-            <option
-              value="{{ sort.value }}"
-              {% if sort.value == sort_default %}
-                selected
-              {% endif %}
-            >
-              {{ sort.name }}
-            </option>
-          {% endfor %}
-        </select>
+      <div class="filter-top border bordrer-solid p-2 mb-4 rounded flex justify-between items-center ">
+        <div class="count">{{ collection.products_count }} products</div>
+
+        <div class="flex">
+          <div class="flex gap-4 items-center">
+            <button class="border-0" data-view="grid">
+              {% render 'icon-grid' %}
+            </button>
+            <button class="border-0" data-view="list">
+              {% render 'icon-list' %}
+            </button>
+          </div>
+          {% comment %} {%- assign sort_default = collection.sort_by | default: collection.default_sort_by -%} {% endcomment %}
+          {%- assign sort_default = collection.sort_by | default: 'best-selling' -%}
+          <form action="" id="FacetSortForm">
+            <select name="sort_by" id="sortby" class="sortby form-control w-auto border-0 px-3 py-2 cursor-pointer">
+              {% for sort in collection.sort_options %}
+                <option
+                  value="{{ sort.value }}"
+                  {% if sort.value == sort_default %}
+                    selected
+                  {% endif %}
+                >
+                  {{ sort.name }}
+                </option>
+              {% endfor %}
+            </select>
+          </form>
+        </div>
       </div>
       {% comment %} end sort-filter {% endcomment %}
 
-      <div class="count">{{ collection.products_count }} products</div>
-
       {% paginate collection.products by section.settings.per_page %}
-        <div class="product-grid grid grid-cols-{{ section.settings.columns_moblie }} gap-4">
+        <div class="product-grid grid grid-cols-4 gap-4">
           {% for product in collection.products %}
             {%- render 'content-product',
               product: product,
@@ -312,8 +320,13 @@
     // Handle form submission
     function handleFormSubmit(event) {
       event.preventDefault();
-      const searchParams = $(event.currentTarget).serialize();
-      renderPage(searchParams);
+
+      const searchParamsForm1 = $('#FacetFiltersForm').serialize();
+      const searchParamsForm2 = $('#FacetSortForm').serialize();
+
+      // Combine query strings, ensuring both are present
+      const combinedSearchParams = `${searchParamsForm1}&${searchParamsForm2}`;
+      renderPage(combinedSearchParams);
     }
 
     // Handle history change when using back/forward in browser
@@ -351,6 +364,7 @@
     // Update page content with the new HTML
     function updatePageContent(html) {
       const $newHtml = $(html);
+      // $('.product-grid').html($newHtml.find('.product-grid').html());
       $('.product-container').html($newHtml.find('.product-container').html());
 
       // Re-bind the event after content update
@@ -359,35 +373,82 @@
 
     // Get sections to update
     function getSections() {
-      return [{ section: 'product-grid' }];
+      return [{ section: 'product-collection' }];
     }
 
     // Update the browser's URL without reloading the page
     function updateURL(searchParams) {
-      const url = `${window.location.pathname}?${searchParams}`;
+      const url = `${window.location.pathname}${searchParams ? `?${searchParams}` : ''}`;
       history.pushState({ searchParams }, '', url);
     }
 
     // Function to reset filters
     function resetFilters() {
-      // Clear all inputs in the form
-      $('form')[0].reset();
+      $('#FacetFiltersForm')[0].reset();
+      $('#FacetSortForm')[0].reset();
 
-      const searchParams = $('form').serialize();
+      $('input[type="checkbox"]').prop('checked', false);
+      $('input[type="radio"]').prop('checked', false);
+      $('select').prop('selectedIndex', 0);
+
+      // Clear all inputs in the form
+      const searchParamsForm1 = $('#FacetFiltersForm').serialize();
+      const searchParamsForm2 = $('#FacetSortForm').serialize();
+
+      // Combine query strings, ensuring both are present
+        // Combine reset query strings (make sure to check if one is empty)
+      let combinedSearchParams = '';
+      if (searchParamsForm1 && searchParamsForm2) {
+        combinedSearchParams = `${searchParamsForm1}&${searchParamsForm2}`;
+      } else if (searchParamsForm1) {
+        combinedSearchParams = searchParamsForm1;
+      } else if (searchParamsForm2) {
+        combinedSearchParams = searchParamsForm2;
+      }
+
+      // If both are empty, render with empty params (default state)
+      if (!combinedSearchParams) {
+        combinedSearchParams = ''; // You can adjust this to match your default state
+      }
 
       // Re-render the page with default params (this will reset the data)
-      renderPage(searchParams);
+      renderPage(combinedSearchParams);
+    }
+
+    $(document).on('click', ".clear-all", function(e){
+      e.preventDefault();
+      resetFilters()
+      
+    })
+
+    function asyncWishlist() {
+      let wishlist = localStorage.getItem("wishlist");
+      if (wishlist === null) {
+        wishlist = "";
+      } else {
+        let wishlistArray = wishlist.split(",").filter(Boolean);
+
+        wishlistArray = wishlistArray.map((id) => {
+          return id.replace("id:", "");
+        });
+
+        $(".wishlist_button").each(function () {
+          const id = String($(this).data("id"));
+
+          if (wishlistArray.includes(id)) {
+            $(this).addClass("is--added");
+          }
+
+          $(this).attr("data-bs-original-title", "Available in Wishlist");
+        });
+      }
     }
 
     // Bind form input event with debounce
     function bindEvents() {
-      $('form').on('input', debounce(handleFormSubmit, 300));
+      $('#FacetFiltersForm, #FacetSortForm').on('input', debounce(handleFormSubmit, 300));
 
-      // Handle reset button click
-      $(document).on('click', '.facets__reset', function (e) {
-        e.preventDefault();
-        resetFilters();
-      });
+      asyncWishlist();
 
       // Bind wishlist button clicks using event delegation
       $(document).on('click', '.wishlist-btn', function () {

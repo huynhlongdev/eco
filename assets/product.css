@@ -35,7 +35,7 @@
   flex-flow: column;
   align-items: end;
   justify-content: flex-start;
-  gap: 12px;
+  gap: 6px;
 }
 
 .lp_btn {
@@ -93,16 +93,12 @@
   background: var(--color-sale, #5aab19);
 }
 
-.shop-sidebar {
-  margin-top: 30px;
-  padding: 30px 0px 0px;
-  border-top: 1px solid #d2d2d2;
-}
-
 h6.title {
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 14px;
 }
 
 .facets-header {
@@ -112,9 +108,9 @@ h6.title {
 }
 
 .facets__reset {
-  font-weight: 400;
-  font-size: 14px;
-  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 75%;
+  /* text-transform: uppercase; */
   color: #7e7e7e;
 }
 
@@ -127,52 +123,6 @@ h6.title {
   text-align: center;
   border: 1px solid #d2d2d2;
   padding: 4px 8px;
-}
-
-.shop-sidebar [type="checkbox"] {
-  display: none;
-}
-
-.shop-sidebar label {
-  position: relative;
-  padding-left: 27px;
-  cursor: pointer;
-}
-
-span.checkbox {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin: 0 8px 0 0;
-  border: 1px solid rgba(51, 51, 51, 0.3);
-  background: #fff;
-  vertical-align: middle;
-  position: absolute;
-  left: 0;
-  top: 4px;
-}
-
-input:checked ~ span.checkbox {
-  color: #fff;
-  background-color: #333;
-}
-
-input:checked ~ span.checkbox:before {
-  content: " ";
-  display: block;
-  background-color: #fff;
-  width: 10px;
-  height: 10px;
-  margin: 2px 0 0 2px;
-  -webkit-mask-size: cover;
-  mask-size: cover;
-  -webkit-mask-image: url(//vogal-demo.myshopify.com/cdn/shop/t/29/assets/check.svg?v=1248803…);
-  mask-image: url(//vogal-demo.myshopify.com/cdn/shop/t/29/assets/check.svg?v=1248803…);
-}
-
-input:disabled ~ span {
-  opacity: 0.6;
-  cursor: no-drop;
 }
 
 facet-remove {
@@ -253,11 +203,11 @@ facet-remove path {
   margin-bottom: 24px;
 }
 
-.swatch[data-layout="format-color"].Size .swatch-element {
+.swatch[data-layout="format-color"]:not(.Color) .swatch-element {
   display: inline-flex;
 }
 
-.swatch[data-layout="format-color"].Size .swatch-element label {
+.swatch[data-layout="format-color"]:not(.Color) .swatch-element label {
   border-radius: 4px;
   cursor: pointer;
   padding: 2px 8px;
@@ -266,7 +216,10 @@ facet-remove path {
   border: 1px solid #cdcdcd;
 }
 
-.swatch[data-layout="format-color"].Size .swatch-element input:checked ~ label {
+.swatch[data-layout="format-color"]:not(.Color)
+  .swatch-element
+  input:checked
+  ~ label {
   border: 1px solid #000;
 }
 
@@ -310,4 +263,90 @@ facet-remove path {
   margin-bottom: 1rem;
   font-size: 26px;
   font-weight: 500;
+}
+
+/* Collection */
+.filter-top {
+  border-color: var(--border-color);
+}
+
+.shop-sidebar {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.shop-sidebar li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.shop-sidebar [type="checkbox"] {
+  display: none;
+}
+
+.shop-sidebar label {
+  position: relative;
+  padding-left: 27px;
+  cursor: pointer;
+}
+
+.checkbox {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 8px 0 0;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background: #fff;
+  vertical-align: middle;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+input:checked ~ span.checkbox {
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
+}
+
+input:checked ~ span.checkbox:before {
+  content: " ";
+  display: block;
+  background-color: #fff;
+  width: 12px;
+  height: 12px;
+  margin: 2px 0 0 2px;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-image: url(icon-check.svg);
+  mask-image: url(icon-check.svg);
+}
+
+input:disabled ~ span {
+  opacity: 0.6;
+  cursor: no-drop;
+}
+
+.scrollbar {
+  overflow: auto;
+  max-height: 280px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+  background-color: #f5f5f5;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
 }

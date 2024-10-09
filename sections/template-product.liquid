@@ -1,113 +1,133 @@
 {% include 'product-res-variables' %}
 
-
-
-
-{{  }}
 <div class="container">
   {% if product %}
-    <div class="product" data-section="{{ section.id }}">
+    <div class="product" id="product-{{ section.id }}" data-section="{{ section.id }}">
       <div class="row">
         <div class="col-md-7">
-          <!-- Hình ảnh sản phẩm -->
           <div class="product-images">
             {%- render 'product-media', product: product -%}
           </div>
         </div>
+
         <div class="col-md-5">
-                          <form method="post" action="/cart/add" id="{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-              {%- when '@app' -%}
-                {% render block %}
-              {% when 'text' %}
-                {{ block.settings.text }}
-              {% when 'title' %}
-                <h1 class="product-title">{{ product.title }}</h1>
-              {% when 'price' %}
-                <div class="product-price">
-                  {%- if product.compare_at_price > price -%}
-                    <span class="price price--sale" data-js-product-price
-                      ><span id="product-price" class="current">{{ price | money }}</span>
-                      <span class="compare">{{ product.compare_at_price | money }}</span></span
-                    >
-                  {%- else -%}
-                    <span id="js-product-price" class="price" data-js-product-price>{{ price | money }}</span>
-                  {%- endif -%}
-                  {%- if product.compare_at_price > price -%}
-                    <p class="price-sale-details" data-js-product-price-sale-details>
-                      {%- assign price_save = product.compare_at_price | minus: price -%}
-                      {%- assign price_save_money = price_save | money -%}
-                      {%- assign price_save_procent = price
-                        | times: 100
-                        | divided_by: product.compare_at_price
-                        | minus: 100
-                        | times: -1
-                      -%}
-                    </p>
-                  {%- endif -%}
-                </div>
-
-              {% when 'quantity' %}
-                <div class="cquantity cart-item__quantity">
-                  <div class="cart-item__quantity-wrapper">
-                    <div class="cart-quantity border rounded-1 overflow-hidden d-inline-flex">
-                      <button type="button"
-                        class="qtyBtn minus text-center outline-none border-0 size-7 items-center justify-center d-flex text-black"
-                        name="minus">
-                        -
-                      </button>
-                      <input
-                        class="quantity__input qty text-center outline-none border-0 text-sm size-7 items-center justify-center d-flex text-black"
-                        type="number" name="updates[]" value="6" min="1" step="1">
-                      <button type="button"
-                        class="qtyBtn plus text-center outline-none border-0 border-l size-7 items-center justify-center d-flex text-black"
-                        name="plus">
-                        +
-                      </button>
-                    </div>
+          <form method="post" action="/cart/add" id="{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when '@app' -%}
+                  {% render block %}
+                {% when 'text' %}
+                  {{ block.settings.text }}
+                {% when 'title' %}
+                  <h1 class="product-title">{{ product.title }}</h1>
+                {% when 'price' %}
+                  <div class="product-price">
+                    {%- if product.compare_at_price > price -%}
+                      <span class="price price--sale" data-js-product-price
+                        ><span id="product-price" class="current">{{ price | money }}</span>
+                        <span class="compare">{{ product.compare_at_price | money }}</span></span
+                      >
+                    {%- else -%}
+                      <span id="js-product-price" class="price" data-js-product-price>{{ price | money }}</span>
+                    {%- endif -%}
+                    {%- if product.compare_at_price > price -%}
+                      <p class="price-sale-details" data-js-product-price-sale-details>
+                        {%- assign price_save = product.compare_at_price | minus: price -%}
+                        {%- assign price_save_money = price_save | money -%}
+                        {%- assign price_save_procent = price
+                          | times: 100
+                          | divided_by: product.compare_at_price
+                          | minus: 100
+                          | times: -1
+                        -%}
+                      </p>
+                    {%- endif -%}
                   </div>
-                </div>
-                <button type="submit" class="lp-btn overflow-hidden relative">
-                  Add to Cart
-                  {% render 'icon-loading' %}
-                </button>
 
-              {% when 'variant' %}
+                {% when 'quantity' %}
+                  <div class="flex gap-3 mb-4">
+                    {%- liquid
+                      assign selected = product.selected_variant
+                      assign available = selected.available
+                    -%}
+                    <div class="cquantity cart-item__quantity">
+                      <div class="cart-item__quantity-wrapper">
+                        <div class="cart-quantity border rounded-1 overflow-hidden d-inline-flex">
+                          <button
+                            type="button"
+                            class="qtyBtn minus text-center outline-none border-0 size-7 items-center justify-center d-flex text-black"
+                            name="minus"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="quantity__input qty text-center outline-none border-0 text-sm size-7 items-center justify-center d-flex text-black"
+                            type="number"
+                            name="updates[]"
+                            value="6"
+                            min="1"
+                            step="1"
+                          >
+                          <button
+                            type="button"
+                            class="qtyBtn plus text-center outline-none border-0 border-l size-7 items-center justify-center d-flex text-black"
+                            name="plus"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </div>
 
+                    <input type="text" name="properties[Advance]">
+                    <button
+                      type="submit"
+                      class="lp-btn flex-1 overflow-hidden border-0 relative{% if available == false %} disable{% endif %}"
+                    >
+                      Add to Cart
+                      {% render 'icon-loading' %}
+                    </button>
+                  </div>
+
+                {% when 'variant' %}
                   {% if product.variants.size > 1 %}
                     {% assign selected_variant = product.selected_or_first_available_variant %}
-                    {% render 'product-swatch-variant', selected_variant: selected_variant, product: product, block: block  %}
+                    {% render 'product-swatch-variant',
+                      selected_variant: selected_variant,
+                      product: product,
+                      block: block
+                    %}
                   {% endif %}
 
-              {% when 'share' %}
-                {% render 'share' %}
-            
-            {% endcase %}
-          {% endfor %}
+                {% when 'share' %}
+                  {% render 'share' %}
+              {% endcase %}
+            {% endfor %}
 
-          {% if product.variants.size > 1 %}
-          {% assign selected_variant = product.selected_or_first_available_variant %}
-          <input type="hidden" name="id" value="{{ selected_variant.id }}">
-          {% else %}
-          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-          {% endif %}
-          
+            {% if product.variants.size > 1 %}
+              {% assign selected_variant = product.selected_or_first_available_variant %}
+              <input type="hidden" name="id" value="{{ selected_variant.id }}">
+            {% else %}
+              <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+            {% endif %}
           </form>
 
           <script id="variant-json" type="application/json">
             {{ product.variants | json }}
           </script>
-
         </div>
       </div>
     </div>
   {% else %}
     <div>Sorry, this product does not exist.</div>
   {% endif %}
-
-
 </div>
+
+<style>
+  #product-{{ section.id }}{
+    padding: {{ section.settings.section_spacing }}
+  }
+</style>
 
 {% schema %}
 {
@@ -174,12 +194,18 @@
       "limit": 1
     },
     {
-      "type": "quantity",
-      "name": "Quantity",
-      "limit": 1
+    "type": "quantity",
+    "name": "Quantity",
+    "limit": 1
     }
   ],
   "settings": [
+    {
+      "type": "text",
+      "id": "section_spacing",
+      "label": "Spacing (Desktop)",
+      "info": "Top right bottom left"
+    },
     {
       "type": "checkbox",
       "id": "enable_sticky_info",

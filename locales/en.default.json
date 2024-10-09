@@ -514,7 +514,7 @@
     "addresses": {
       "title": "Addresses",
       "default": "Default",
-      "add_new": "Add a New Address",
+      "add_new": "Add new address",
       "edit_address": "Edit address",
       "first_name": "First Name",
       "last_name": "Last Name",

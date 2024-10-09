@@ -5,14 +5,14 @@
 -%}
 <header class="header relative">
   <div class="container py-2">
-    <div class="d-flex items-center justify-between">
+    <div class="flex items-center justify-between">
       <div class="col-logo">
         <a href="/">
           {{ settings.logo | image_url: width: '100%' | image_tag: widths: '300, 400, 500' }}
         </a>
       </div>
-      <div class="col-menu d-flex">
-        <ul class="d-flex gap-5 m-0 p-0 list-unstyled">
+      <div class="col-menu flex">
+        <ul class="flex gap-5 m-0 p-0 list-unstyled">
           {% for block in section.blocks %}
             {% liquid
               assign type = block.type
@@ -34,7 +34,7 @@
                   <a href="{{- link -}}" taget="{{ open }}">
                     {{- label -}}
                   </a>
-                  <ul class="sub-menu">
+                  <ul class="sub-menu absolute">
                     {% for lv1 in linklists[item.menu].links %}
                       <li>
                         <a href="">{{ lv1.title }}</a>
@@ -78,7 +78,7 @@
           {% endfor %}
         </ul>
 
-        <div class="h-group d-flex items-center gap-3">
+        <div class="h-group flex items-center gap-3">
           <span class="search-header">
             {% render 'icon-search' %}
           </span>
@@ -105,7 +105,7 @@
             <a href="{{ section.settings.wishlist_link }}" class="relative">
               {% render 'icon-wishlist' %}
               <span
-                class="wishlist-count count absolute rounded-circle bg-dark text-white d-flex items-center justify-center"
+                class="wishlist-count count absolute rounded-circle bg-dark text-white flex items-center justify-center"
               ></span>
             </a>
           </span>
@@ -115,7 +115,7 @@
             <a href="{{ routes.cart_url }}" class="relative">
               {% render 'icon-cart' %}
               <span
-                class="cart-count count absolute rounded-circle bg-dark text-white d-flex items-center justify-center"
+                class="cart-count count absolute rounded-circle bg-dark text-white flex items-center justify-center"
               >
                 {{- cart.item_count -}}
               </span>

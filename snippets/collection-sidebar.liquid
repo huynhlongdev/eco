@@ -11,12 +11,10 @@
 <div class="shop-sidebar-inner">
   <div class="shop-sidebar-wrap filter-sidebar">
     <button
-      class="close-filter-sidebar"
+      class="close-filter-sidebar border-0"
       type="button"
     >
-      <svg class="at-icon" width="24" viewBox="0 0 384 512">
-        <path d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z"></path>
-      </svg>
+      {% render 'icon-close', size: 24 %}
     </button>
 
     <div class="shop-sidebar sidebar-wedget shop-collection">
@@ -77,71 +75,53 @@
                     }}
                   {%- endif -%}
                 </span>
-                {% comment %}
-                  <span class="loading-spinner">
-                    <svg
-                      aria-hidden="true"
-                      focusable="false"
-                      role="presentation"
-                      class="spinner"
-                      viewBox="0 0 66 66"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                    </svg>
-                  </span>
-                {% endcomment %}
               </div>
-              <div class="active-filter active-facets-desktop">
-                <ul>
-                  <li>
-                    {%- for filter in results.filters -%}
-                      {%- for value in filter.active_values -%}
-                        <facet-remove>
-                          <a
-                            href="{{ value.url_to_remove }}"
-                            class="facets__button cursor-pointer"
-                          >
-                            {{ value.label | escape }}
-                            <svg width="8" viewBox="0 0 384 512">
-                              <path d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z"></path>
-                            </svg>
-                          </a>
-                        </facet-remove>
-                      {%- endfor -%}
-                      {% if filter.type == 'price_range' %}
-                        {%- if filter.min_value.value != null or filter.max_value.value != null -%}
-                          <facet-remove>
-                            <a
-                              href="{{ filter.url_to_remove }}"
-                              class="facets__button cursor-pointer"
-                            >
-                              {%- if filter.min_value.value -%}
-                                {{ filter.min_value.value | money }}
-                              {%- else -%}
-                                {{ 0 | money }}
-                              {%- endif -%}
-                              -
-                              {%- if filter.max_value.value -%}
-                                {{ filter.max_value.value | money }}
-                              {%- else -%}
-                                {{ filter.range_max | money }}
-                              {%- endif -%}
-                              <svg width="8" viewBox="0 0 384 512">
-                                <path d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z"></path>
-                              </svg>
-                            </a>
-                          </facet-remove>
-                        {%- endif -%}
-                      {% endif %}
-                    {%- endfor -%}
+              <div class="active-filter active-facets-desktop flex flex-wrap gap-2">
+                {%- for filter in results.filters -%}
+                  {%- for value in filter.active_values -%}
                     <facet-remove>
-                      <a href="{{ results_url }}" class="clear-all cursor-pointer">
-                        {{- 'collections.filter.clear_all' | t -}}
+                      <a
+                        href="{{ value.url_to_remove }}"
+                        class="facets__button cursor-pointer"
+                      >
+                        {{ value.label | escape }}
+                        <svg width="8" viewBox="0 0 384 512">
+                          <path d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z"></path>
+                        </svg>
                       </a>
                     </facet-remove>
-                  </li>
-                </ul>
+                  {%- endfor -%}
+                  {% if filter.type == 'price_range' %}
+                    {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+                      <facet-remove>
+                        <a
+                          href="{{ filter.url_to_remove }}"
+                          class="facets__button cursor-pointer uppercase"
+                        >
+                          {%- if filter.min_value.value -%}
+                            {{ filter.min_value.value | money }}
+                          {%- else -%}
+                            {{ 0 | money }}
+                          {%- endif -%}
+                          -
+                          {%- if filter.max_value.value -%}
+                            {{ filter.max_value.value | money }}
+                          {%- else -%}
+                            {{ filter.range_max | money }}
+                          {%- endif -%}
+                          <svg width="8" viewBox="0 0 384 512">
+                            <path d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z"></path>
+                          </svg>
+                        </a>
+                      </facet-remove>
+                    {%- endif -%}
+                  {% endif %}
+                {%- endfor -%}
+                <facet-remove>
+                  <a href="{{ results_url }}" class="clear-all cursor-pointer">
+                    {{- 'collections.filter.clear_all' | t -}}
+                  </a>
+                </facet-remove>
               </div>
             </div>
           {%- endunless -%}
@@ -165,7 +145,7 @@
                       {{- 'collections.filter.filters_selected' | t: count: filter.active_values.size -}}
                     </span>
                     <facet-reset>
-                      <a href="{{ filter.url_to_remove }}" class="facets__reset">
+                      <a href="{{ filter.url_to_remove }}" class="facets__reset uppercase">
                         {{- 'collections.filter.filter_reset' | t -}}
                       </a>
                     </facet-reset>
@@ -230,7 +210,7 @@
                       -%}
 
                       <input
-                        class="range-slider vfdvfvf"
+                        class="range-slider"
                         data-symbol="{{ cart.currency.symbol }}"
                         type="hidden"
                         value="0,{{ range_max | ceil }}"
@@ -239,7 +219,7 @@
 
                       {% comment %} price-range-group group-range {% endcomment %}
 
-                      <div class="price-input-group group-input d-flex justify-between">
+                      <div class="price-input-group group-input flex justify-between">
                         <div class="price-range-input input-prefix">
                           <span class="input-prefix-value">{{ cart.currency.symbol }}</span>
                           <label class="input-prefix-label">{{ 'collections.filter.price_filter_from' | t }}</label>
@@ -258,7 +238,7 @@
                           >
                         </div>
                         <span class="price-range-delimeter">-</span>
-                        <div class="price-range-input input-prefix">
+                        <div class="price-range-input input-prefix flex">
                           <span class="input-prefix-value">{{ cart.currency.symbol }}</span>
                           <label class="input-prefix-label">{{ 'collections.filter.price_filter_to' | t }}</label>
                           <input
@@ -288,11 +268,11 @@
                       $('.range-slider').jRange({
                         from: 0,
                         to: {{ range_max | ceil  }},
-                        step: 1,
+                        step: 1000,
                         format: '$%s',
-                        width: 235,
-                        showLabels: true,
-                        isRange: true,
+                        width: '100%',
+                        showLabels: false,
+                        isRange: false,
                         ondragend: function (value) {
                           var values = value.split(',');
                           if (minPrice != values[0]) {
@@ -305,7 +285,6 @@
                       });
                     }
 
-                    // Gọi hàm priceSlider khi trang được tải
                     priceSlider();
                   });
                 </script>

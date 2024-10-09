@@ -8,6 +8,7 @@
     "alignment": "right",
     "vertical_alignment": "middle",
     "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "bg_footer": "#56b2c4",
     "container_width": 1140,
     "container_spacing": 16,
     "enable_cart_drawer": true,

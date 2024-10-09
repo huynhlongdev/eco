@@ -1,0 +1,123 @@
+
+{% if product %}
+<div class="container">
+        <ul class="nav mb-5 justify-center">
+            {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {% comment %} {%- when '@app' -%}
+                    {% render block %} {% endcomment %}
+                {% when 'description' %}
+                    <li class="nav-item">
+                        <div class="nav-link active relative" id="tab_des_tab" data-bs-toggle="pill" data-bs-target="#tab_des"
+                            type="button" role="tab" aria-selected="true">Description</div>
+                    </li>
+                {% when 'additional_information' %}
+                    <li class="nav-item" role="presentation">
+                        <div class="nav-link relative" id="tab_infomation_tab" data-bs-toggle="pill"
+                            data-bs-target="#tab_infomation" type="button" role="tab" aria-selected="false">Additional Information</div>
+                    </li>
+                {% when 'shipping_return' %}
+                    <li class="nav-item" role="presentation">
+                        <div class="nav-link relative" id="tab_shiping_tab" data-bs-toggle="pill" data-bs-target="#tab_shiping"
+                            type="button" role="tab" aria-selected="false">Shipping & Return</div>
+                    </li>
+                {% when 'reviews' %}
+                    <li class="nav-item" role="presentation">
+                        <div class="nav-link relative" id="tab_review_tab" data-bs-toggle="pill" data-bs-target="#tab_review"
+                            type="button" role="tab" aria-selected="false">Reviews</div>
+                    </li>
+                {% endcase %}
+            {% endfor %}
+        </ul>
+
+        <div class="tab-content p-3">
+            {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {% when 'description' %}
+                        <div class="tab-pane fade show active" id="tab_des">
+                            {{ product.description }}
+                        </div>
+                    {% when 'additional_information' %}
+                        <div class="tab-pane fade" id="tab_infomation">
+                            {%- liquid
+                            assign richTextData = product.metafields.custom.additional_information | rick_text
+                            -%}
+                            {% for paragraph in richTextData.children %}
+                                {% for child in paragraph.children %}
+                                    {% if child.type == 'text' and child.value != "" %}
+                                        <p>{{ child.value }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    {% when 'shipping_return' %}
+                        <div class="tab-pane fade" id="tab_shiping">
+                            <h2>tab_shiping</h2>
+                            <p>Please check our more design @ <a target="_blank" href="https://codepen.io/Gaurav-Rana-the-reactor">Codepen</a>
+                            </p>
+                        </div>
+                    {% when 'reviews' %}
+                        <div class="tab-pane fade" id="tab_review">
+                            <h2>tab_review</h2>
+                            <p>Please check our more design @ <a target="_blank" href="https://codepen.io/Gaurav-Rana-the-reactor">Codepen</a>
+                            </p>
+                        </div>
+                {% endcase %}
+            {% endfor %}
+        </div>
+        </div>
+{% endif %}
+
+<script>
+     console.log('>>> product', {{ product | json }})
+</script>
+{% schema %}
+{
+    "name": "Product Tabs",
+    "blocks": [
+        {
+            "type": "@app"
+        },
+        {
+            "type": "description",
+            "name": "Description",
+            "limit": 1
+        },
+        {
+            "type": "additional_information",
+            "name": "Additional Information",
+            "limit": 1
+        },
+        {
+            "type": "shipping_return",
+            "name": "Shipping & Return",
+            "limit": 1
+        },
+        {
+            "type": "reviews",
+            "name": "Reviews",
+            "limit": 1
+        }
+    ],
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_spacing",
+            "label": "Spacing (Desktop)",
+            "info": "Top right bottom left"
+        }
+    ],
+    
+    "presets": [
+        {
+            "name": "Product Tabs",
+            "blocks": [
+                { "type": "description" },
+                { "type": "additional_information" },
+                { "type": "shipping_return" },
+                { "type": "reviews" }
+            ]
+        }
+    ]
+}
+{% endschema %}

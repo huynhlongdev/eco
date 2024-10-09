@@ -48,12 +48,12 @@
                 assign values = values | split: ','
                 assign selected_variant = product.selected_or_first_available_variant
               -%}
-             
+
               <div
                 data-value="{{ value | escape }}"
                 data-id="{{ variant.id }}"
                 data-stocks="{{ variant.inventory_quantity }}"
-                class="swatch-element {% if is_color %} color{% endif %} {{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}"
+                class="swatch-element{% if is_color %} color{% endif %} {{ value | handle }} {% if forloop.first %}first-variant{% endif %} {% if variant.available %}available{% else %}soldout{% endif %}"
               >
                 <input
                   id="swatch-{{ option_index }}-{{ value | handle }}"
