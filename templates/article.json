@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "article": {
+      "type": "template-article",
+      "blocks": {
+        "title_6jLQ7a": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "banner_yNLmYP": {
+          "type": "banner",
+          "settings": {
+          }
+        },
+        "content_wQYwyk": {
+          "type": "content",
+          "settings": {
+          }
+        },
+        "share_yhqE4p": {
+          "type": "share",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "title_6jLQ7a",
+        "banner_yNLmYP",
+        "content_wQYwyk",
+        "share_yhqE4p"
+      ],
+      "settings": {
+        "show_breadcrumb": true
+      }
+    }
+  },
+  "order": [
+    "article"
+  ]
+}

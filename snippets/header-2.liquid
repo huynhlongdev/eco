@@ -1,0 +1,77 @@
+<div class="header-top">
+  <div class="container">
+    <div class=" flex items-center justify-between">
+      <div class="col-logo">
+        <a href="/">
+          {{ settings.logo | image_url: width: '100%' | image_tag: widths: '300, 400, 500' }}
+        </a>
+      </div>
+
+      <div class="search-modal__content mw-100  mx-auto relative">
+        <form action="{{ routes.search_url }}" method="get" class="search search-modal__form relative">
+          <input
+            id="search__input"
+            class="w-100 outline-none border-0"
+            autocomplete="off"
+            type="text"
+            name="q"
+            placeholder="Search for products..."
+          >
+          <button class="search__button absolute outline-none p-0 border-0 bg-transparent">
+            {% render 'icon-search' %}
+            Search
+          </button>
+        </form>
+      </div>
+
+      <div class="col-menu flex">
+        <div class="h-group flex items-center gap-3">
+          {% if shop.customer_accounts_enabled %}
+            <span class="user-header">
+              {% if customer %}
+                <p>Welcome, {{ customer.first_name }}!</p>
+                <ul>
+                  <li><a href="{{ routes.account_url }}">Profile</a></li>
+                  <li><a href="{{ routes.account_login_url }}">Logout</a></li>
+                </ul>
+              {% else %}
+                <a href="{{ routes.account_login_url }}">
+                  {% render 'icon-user' %}
+                </a>
+              {% endif %}
+            </span>
+            {% comment %} user-header {% endcomment %}
+          {% endif %}
+
+          <span class="wishlist-header mr-2">
+            <a href="{{ section.settings.wishlist_link }}" class="relative">
+              {% render 'icon-wishlist' %}
+              <span
+                class="wishlist-count count absolute rounded-circle bg-dark text-white flex items-center justify-center"
+              ></span>
+            </a>
+          </span>
+          {% comment %} wishlist-header {% endcomment %}
+
+          <span class="cart-header {% if settings.enable_cart_drawer %} is-cart-drawer {% endif %}">
+            <a href="{{ routes.cart_url }}" class="relative">
+              {% render 'icon-cart' %}
+              <span
+                class="cart-count count absolute rounded-circle bg-dark text-white flex items-center justify-center"
+              >
+                {{- cart.item_count -}}
+              </span>
+            </a>
+          </span>
+          {% comment %} cart-header {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="header-navigation">
+  <div class="container">
+    {%  render 'navigation', se_blocks: se_blocks %}
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="header-search absolute top-0 left-0 w-100 h-100 bg-white d-flex items-center" style="display:none">
+<div class="header-search absolute top-0 left-0 w-100 h-100 bg-white flex items-center" style="display:none">
   <div class="search-modal__content mw-100  mx-auto relative">
     <form action="{{ routes.search_url }}" method="get" class="search search-modal__form relative">
       <input
@@ -30,7 +30,7 @@
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 32 32"
       >
-        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 30L30 2m0 28L2 2"></path></g>
+        <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 30L30 2m0 28L2 2"></path></g>
       </svg>
     </button>
   </div>
@@ -38,18 +38,6 @@
 {% comment %} header-search {% endcomment %}
  
 <script>
-  // const closeButton = document.querySelector('.modal__close-button');
-  // const searchHeader = document.querySelector('.search-header');
-
-  // // close search model
-  // closeButton.addEventListener('click', function () {
-  //   document.querySelector('.header-search').classList.add('hidden');
-  // });
-
-  // // open search model
-  // searchHeader.addEventListener('click', function () {
-  //   document.querySelector('.header-search').classList.remove('hidden');
-  // });
   window.addEventListener('load', function () {
     jQuery(document).ready(function ($) {
       // close model
@@ -65,23 +53,3 @@
   });
 </script>
 
-<style>
-  .search-modal__content{
-    width: 500px;
-  }
-  .search-modal__content .modal__close-button{
-    right: -55px;
-  }
-  #search__input{
-    border: 1px solid #e0e0e0;
-    padding: 0.5rem 1rem;
-  }
-  .search-modal__content .search__button {
-    right: 1rem;
-    top: 0.45rem;
-  }
-  .search-modal__content .modal__close-button {
-    right: -2.5rem;
-    top: .45rem;
-  }
-</style>

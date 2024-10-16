@@ -4,8 +4,9 @@
     "tailwindcss": "^3.4.10"
   },
   "scripts": {
-    "dev": "concurrently  -c \"auto\" \"npm:dev:*\"",
-    "dev:tailwind": "npx tailwindcss -i ./style.css -o ./assets/style.css --watch",
-    "dev:shopify": "shopify theme dev"
+    "dev": "concurrently -c \"auto\" \"npm:dev:*\"",
+    "dev:shopify": "shopify theme dev",
+    "deploy": "shopify theme push --publish --allow-live",
+    "watch": "concurrently -c \"auto\" \"npm run dev:shopify\" \"npm run deploy -- --watch\""
   }
 }

@@ -1,12 +1,12 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
+    "blog": {
+      "type": "template-blog",
       "settings": {
       }
     }
   },
   "order": [
-    "banner"
+    "blog"
   ]
 }

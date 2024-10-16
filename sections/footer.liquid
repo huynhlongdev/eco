@@ -51,13 +51,15 @@
           {% when 'col1' %}
             <div class="col-lg-{{ item.column_lg }}  col-md-{{ item.column_sm }} col-{{ column_xs }} mb-5 mb-sm-0">
               <div class="widget widget-info">
-                <div class="widget_title mb-4">
-                  <!-- {{ item.headline }} -->
-                </div>
+                {% if item.headline %}
+                  <div class="widget_title mb-4">
+                    {{ item.headline }}
+                  </div>
+                {% endif %}
                 <div class="widget_content">
                   {% if item.image %}
                     <div class="image mb-4">
-                      {{ item.image | img_url | img_tag }}
+                      {{ item.image | image_url: width: 200 | image_tag: loading: 'lazy' }}
                     </div>
                   {% endif %}
                   <div class="text">
@@ -70,9 +72,11 @@
           {% when 'newsletter' %}
             <div class="col-lg-{{ item.column_lg }}  col-md-{{ item.column_sm }} col-{{ column_xs }} mb-5 mb-sm-0">
               <div class="widget widget-newslette">
-                <div class="widget_title mb-4">
-                  {{ item.headline }}
-                </div>
+                {% if item.headline %}
+                  <div class="widget_title mb-4">
+                    {{ item.headline }}
+                  </div>
+                {% endif %}
                 <div class="widget_content">
                   <div class="mb-3">
                     {{ item.content }}
@@ -96,9 +100,11 @@
           {% when 'link' %}
             <div class="col-lg-{{ item.column_lg }} col-md-{{ item.column_sm }} col-{{ column_xs }} mb-5 mb-sm-0">
               <div class="widget links">
-                <div class="widget_title mb-4">
-                  {{ item.headline }}
-                </div>
+                {% if item.headline %}
+                  <div class="widget_title mb-4">
+                    {{ item.headline }}
+                  </div>
+                {% endif %}
                 <div class="widget_content">
                   {% render 'nav', linkCurrent: block.settings.link_list %}
                 </div>
@@ -111,7 +117,7 @@
 
   {% if copyright %}
     <div class="copyright pt-2">
-      <div class="container">
+      <div class="container text-center">
         {{ copyright }}
       </div>
     </div>

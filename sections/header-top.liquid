@@ -1,0 +1,132 @@
+{% if section.settings.home_page_only == false or template.name == 'index' %}
+  {% if section.settings.header_use_top_header %}
+    <style>
+      .header-top{
+        color: var(--text-color);
+        background: var(--bg-color);
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+      }
+    </style>
+
+    <div
+      class="header-top d-lg-block {% if section.settings.hide_top_header_mobile %}hidden{% endif %}"
+      style="--bg-color: {{ section.settings.background_color }}; --text-color: {{ section.settings.text_color }}"
+    >
+      <div class="container">
+        <div class="row">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'col-left' %}
+                <div class="col-md-6">
+                  <div class="text">{{ block.settings.text }}</div>
+                </div>
+              {% when 'col-right' %}
+                <div class="col-md-6">
+                  <ul class="flex items-center justify-end gap-5">
+                    {% assign menu_top = linklists[block.settings.menu_top] %}
+                    {% for link in menu_top.links %}
+                      <li
+                        class="lv-1 menu-item page-{{ link.handle }} {%- if link.links.size > 0  -%} menu-has-child {%- endif -%}{% if link.current %} active text-[red]{% endif -%}"
+                      >
+                        <a class="inline-block" href="{{ link.url }}" taget="{{ open }}">{{ link.title }}</a>
+                        {%- if link.links.size > 0 -%}
+                          <ul class="sub-menu dropdown">
+                            {%- for sublink in link.links -%}
+                              <li class="lv-2 {% if sublink.links.size > 0  -%} menu-has-child {%- endif -%} page-{{ sublink.handle }}">
+                                <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                                {%- if sublink.levels > 0 -%}
+                                  <ul class="subsub-menu dropdown">
+                                    {%- for subsublink in sublink.links -%}
+                                      <li class="lv-3 {%- if subsublink.links.size > 0  -%} menu-has-child {%- endif -%}">
+                                        <a href="{{ subsublink.url }}">{{ subsublink.title }}</a>
+                                      </li>
+                                    {% endfor %}
+                                  </ul>
+                                {%- endif -%}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% else %}
+
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Header Top",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "header_use_top_header",
+      "label": "Show top header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_top_header_mobile",
+      "label": "Hide header (mobile)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": "Home page only",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "col-left",
+      "name": "Left Columns",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "col-right",
+      "name": "Right columns",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu_top",
+          "label": "Menu top"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header Top"
+    }
+  ]
+}
+{% endschema %}

@@ -199,6 +199,26 @@
     "name": "Header",
     "settings": [
       {
+        "type": "select",
+        "id": "header_layout",
+        "label": "Header Layout",
+        "options": [
+          {
+            "value": "header-1",
+            "label": "Header (Layout 1)"
+          },
+          {
+            "value": "header-2",
+            "label": "Header (Layout 2)"
+          },
+          {
+            "value": "header-3",
+            "label": "Header (Layout 3)"
+          }
+        ],
+        "default": "header-1"
+      },
+      {
         "type": "color",
         "id": "bg_header",
         "label": "Header background",
@@ -238,7 +258,7 @@
         "label": "Filter",
         "options": [
           {
-            "value": "left", 
+            "value": "left",
             "label": "Left"
           },
           {
@@ -292,6 +312,12 @@
         "type": "checkbox",
         "id": "enable_cart_drawer",
         "label": "Show cart drawer",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_shiping_cart",
+        "label": "Show Shiping",
         "default": true
       }
     ]

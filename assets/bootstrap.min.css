@@ -6216,7 +6216,7 @@ fieldset:disabled .btn {
   transform: translateY(-50%);
 }
 .border {
-  border-width: 1px;
+  border: 1px solid;
 }
 
 .border-0 {

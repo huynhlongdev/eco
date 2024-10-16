@@ -1,6 +1,28 @@
-.customer {
-  padding-top: 120px;
-  padding-bottom: 120px;
+.main {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.header{
+  margin-bottom: 0 !important;
+}
+
+.account-sidebar{
+  
+}
+
+.account-container{
+  border-radius: .25rem;
+  border: 1px solid var(--border-color);
+}
+
+#admin_header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.address_table:not(:last-child){
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
 }
 
 .box {
@@ -9,8 +31,9 @@
   padding: 2rem;
 }
 .title {
-  font-weight: 500;
-  font-size: 24px;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0;
 }
 
 #create-customer {

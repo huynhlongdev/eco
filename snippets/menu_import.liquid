@@ -1,0 +1,38 @@
+{%- liquid
+  assign bid = search.terms
+  assign se_blocks = section.blocks
+  assign arr_id = se_blocks | map: 'id'
+  assign arr_id_size = arr_id | split: bid | first | split: ',' | size
+  assign block = se_blocks | where: 'id', bid | first
+  assign arrType = 'dropdown,simple,mega,mega_2'
+-%}
+
+[mega_menu]
+
+{%- for block in se_blocks offset: arr_id_size -%}
+  {%- if arrType contains block.type %}{% break %}{% endif -%}
+  {%- case block.type -%}
+    {%- when 'link' -%}
+      {%- assign llists = linklists[block.settings.menu].links -%}
+      {%- if llists.size == 0 -%}{% continue %}{%- endif -%}
+      <div id="bk_{{block.id}}" class="type_link menu-item col-lg-4 col-md-12 col-sm-12">
+        {%- if block.settings.tt_hd != blank %}
+          <h3>
+            <a href="{{ block.settings.url }}" class="heading" target="{{block.settings.open_link}}">
+              {{ block.settings.tt_hd }}
+            </a>
+          </h3>
+        {% endif -%}
+        <ul class="sub-column">
+          {%- for link in llists -%}
+            <li class="menu-item{% if link.active %} current{% endif %}">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {% else %}
+
+  {% endcase %}
+{% endfor %}
+[mega_menu]

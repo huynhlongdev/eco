@@ -26,9 +26,8 @@
 
     {{ content_for_header }}
 
-  
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap" rel="stylesheet">
 
@@ -61,7 +60,6 @@
 
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ 'product.css' | asset_url | stylesheet_tag }}
-
 
     <link rel="stylesheet" href="{{ 'main.css' | asset_url }}" type="text/css" onload="this.media='all'">
 
@@ -122,10 +120,14 @@
 
   <body class="">
     <!-- header -->
-    {% sections 'header-group' %}
+    {{ 'header.css' | asset_url | stylesheet_tag }}
+    <div class="header-wrapper">
+      {% section 'header-top' %}
+      {% section 'header' %}
+    </div>
     <!-- end header -->
 
-    <main class="content-for-layout">
+    <main class="main">
       {{ content_for_layout }}
     </main>
     <!-- content-for-layout -->
@@ -138,9 +140,11 @@
     {% render 'back-to-top' %}
     <!-- end back to top -->
 
-    <!-- start cart drawer -->
-    {% render 'cart-drawer' %}
-    <!-- end cart drawer -->
+    {% if settings.enable_cart_drawer %}
+      <!-- start cart drawer -->
+      {% render 'cart-drawer' %}
+      <!-- end cart drawer -->
+    {% endif %}
 
     {% comment %} fancybox {% endcomment %}
     {{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
@@ -164,33 +168,14 @@
 
       window.LPSettings = {
         pleaseChooseOptions: `Please select some product options before adding this product to your cart.`,
-        addToCart: `Add to cart`,
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
         selectOption: `Select options`,
         quickShop: `Quick Shop`,
-        soldOut: `Out of stock`,
-        readMore: `Read more`,
-        preOrder: `Pre-order`,
-        preView: `View products`,
-        unavailable: `Unavailable`,
-        replace_qs_atc: `Replace item`,
-        replace_qs_pre: `Replace item`,
-        badgeNew: `New`,
-        badgeSale: `Sale`,
-        badgepreOrder: `Pre order`,
-        badgeSoldout: `Sold out`,
-        badgeSavePercent: `-[sale]%`,
-        badgeSaveFixed: `-[sale]`,
-        badgeSavePercent2: `SAVE [sale]%`,
-        badgeSaveFixed2: `SAVE [sale]`,
-        swatch_limit: `Show More Colors`,
-        swatch_limit_less: `Show Less Colors`,
         compare: `Compare`,
         added_text_cp: `Compare products`,
         add_to_wishlist: `Add to Wishlist`,
         remove_wishlist: `Remove Wishlist`,
-        browse_wishlist: `Browse Wishlist`,
-        order_dayNames: 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
-        order_monthNames: 'January,February,March,April,May,June,July,August,September,October,November,December',
+        browse_wishlist: `Browse Wishlist`
       };
     </script>
   </body>

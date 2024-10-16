@@ -1,0 +1,69 @@
+<div class="container">
+  {% if section.settings.show_breadcrumb %}
+    {% render 'breadcrumb' %}
+  {% endif %}
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'banner' %}
+        {% if block.settings.banner != blank %}
+          {{ block.settings.banner | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+        {% else %}
+          {{ article.image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+        {% endif %}
+      {% when 'title' %}
+        <h1 class="article_title">{{ article.title }}</h1>
+      {% when 'content' %}
+        <div class="article_content">
+          {{ article.content }}
+        </div>
+      {% when 'share' %}
+        {% render 'share', link: article.url %}
+      {% else %}
+
+    {% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id" : "show_breadcrumb",
+      "label": "Show breadcrumb",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner",
+          "label": "Banner"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1,
+    },
+    {
+      "type": "content",
+      "name": "Content",
+      "limit": 1,
+    },
+    {
+      "type": "share",
+      "name": "Share",
+      "limit": 1,
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

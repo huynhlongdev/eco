@@ -2,6 +2,34 @@
   "type": "header",
   "name": "Header Group",
   "sections": {
+    "header_top_c93NQ8": {
+      "type": "header-top",
+      "blocks": {
+        "col_left_cy6Kqj": {
+          "type": "col-left",
+          "settings": {
+            "text": "<p>Need Help? +001 123 456 789<\/p>"
+          }
+        },
+        "col_right_fWJj6t": {
+          "type": "col-right",
+          "settings": {
+            "menu_top": "header-top"
+          }
+        }
+      },
+      "block_order": [
+        "col_left_cy6Kqj",
+        "col_right_fWJj6t"
+      ],
+      "settings": {
+        "header_use_top_header": true,
+        "hide_top_header_mobile": true,
+        "home_page_only": true,
+        "text_color": "#ffffff",
+        "background_color": "#1f2024"
+      }
+    },
     "header": {
       "type": "header",
       "blocks": {
@@ -11,7 +39,7 @@
             "text": "Shop",
             "link": "shopify:\/\/collections",
             "open_link": "_blank",
-            "menu": "dropw-1",
+            "menu": "main-menu",
             "id": 1,
             "type_menu": "dropdown"
           }
@@ -20,7 +48,7 @@
           "type": "dropdown",
           "settings": {
             "text": "Page",
-            "link": "#",
+            "link": "shopify:\/\/pages\/privacy-policy",
             "open_link": "_self",
             "menu": "main-menu",
             "id": 1,
@@ -31,16 +59,35 @@
           "type": "mega",
           "settings": {
             "text": "Element",
-            "link": "#",
+            "link": "shopify:\/\/pages\/collection-2",
+            "open_link": "_self"
+          }
+        },
+        "link_EPrVAz": {
+          "type": "link",
+          "settings": {
+            "tt_hd": "Shop 1",
+            "url": "",
             "open_link": "_self",
-            "type_menu": "dropdown"
+            "menu": "dropw-1"
+          }
+        },
+        "link_qCTbUp": {
+          "type": "link",
+          "settings": {
+            "tt_hd": "Shop 2",
+            "url": "#",
+            "open_link": "_self",
+            "menu": "header-top"
           }
         }
       },
       "block_order": [
         "dropdown_Di3VmQ",
         "dropdown_GXVaWt",
-        "mega_ktEzXc"
+        "mega_ktEzXc",
+        "link_EPrVAz",
+        "link_qCTbUp"
       ],
       "settings": {
         "wishlist_link": "shopify:\/\/pages\/wishlist",
@@ -50,6 +97,7 @@
     }
   },
   "order": [
+    "header_top_c93NQ8",
     "header"
   ]
 }

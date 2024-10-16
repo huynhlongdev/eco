@@ -212,7 +212,7 @@ jQuery(document).ready(function ($) {
   });
 
   // open mini cart in header click
-  $(document).on("click", ".cart-header a", function (e) {
+  $(document).on("click", ".is-cart-drawer a", function (e) {
     e.preventDefault();
     openOffcanvas();
   });

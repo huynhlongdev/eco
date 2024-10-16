@@ -2,7 +2,11 @@
   "general": {
     "breadcrumb": {
       "home": "Home"
-    }
+    },
+  },
+  "404" : {
+    "go_to_home" : "Go to home",
+    "message" : "This page could not be found"
   },
   "accessibility": {
     "skip_to_text": "Skip to content",

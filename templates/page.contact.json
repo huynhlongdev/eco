@@ -1,69 +1,78 @@
 {
   "sections": {
-    "contact_service_G8YUba": {
-      "type": "contact-service",
+    "maps_BKzYPj": {
+      "type": "maps",
       "blocks": {
-        "our_services_wLPVcb": {
-          "type": "our_services",
+        "location_eVYH4m": {
+          "type": "location",
           "settings": {
-            "ser_url": "",
-            "service_icon": "",
-            "service_title": "Phone number",
-            "service_description": "<p><a href=\"tel:123434\" title=\"tel:123434\">vdvdv<\/a><\/p><p><\/p><p>vdvdvdv<\/p>"
+            "title": "Enouvo Space",
+            "lat": "16.069919222694757",
+            "lng": "108.23425059970506"
           }
         },
-        "our_services_E7HYCq": {
-          "type": "our_services",
+        "location_m7yUgx": {
+          "type": "location",
           "settings": {
-            "ser_url": "",
-            "service_icon": "",
-            "service_title": "Store address",
-            "service_description": ""
+            "title": "Demo",
+            "lat": "16.06889578734947",
+            "lng": "108.23392685161483"
           }
         },
-        "our_services_MRBPaX": {
-          "type": "our_services",
+        "location_GXaNij": {
+          "type": "location",
           "settings": {
-            "ser_url": "",
-            "service_icon": "",
-            "service_title": "Customer email",
-            "service_description": ""
+            "title": "Enostar",
+            "lat": "16.069281118771492",
+            "lng": "108.23391260851251"
           }
         }
       },
       "block_order": [
-        "our_services_wLPVcb",
-        "our_services_E7HYCq",
-        "our_services_MRBPaX"
+        "location_eVYH4m",
+        "location_m7yUgx",
+        "location_GXaNij"
       ],
       "settings": {
-        "columns_lg": "3",
-        "our_ser_padding_top": 80,
-        "our_ser_padding_bottom": 80,
-        "our_ser_padding_top_ip": 35,
-        "our_ser_padding_bottom_ip": 35,
-        "our_ser_padding_top_xs": 35,
-        "our_ser_padding_bottom_xs": 35,
-        "our_ser_bgcolor": "#ffffff"
-      }
-    },
-    "heading_nYQPnT": {
-      "type": "heading",
-      "settings": {
-        "sub_headline": "demo",
-        "headline": "Fill out the form and we'll get back soon!",
-        "content": "<p>Lorem abc<\/p>"
+        "fullscreen": true,
+        "style": "Mapnik",
+        "show_location": true,
+        "icon": "shopify:\/\/shop_images\/reshot-icon-map-marker-5YM7UW46QA.svg",
+        "icon_size": 40,
+        "scroll": false,
+        "zoom": 17,
+        "show_radius": false,
+        "radius": 10,
+        "background_color": "#ff0000"
       }
     },
     "contact_form_ULezDf": {
       "type": "contact-form",
+      "blocks": {
+        "form_mJqJf7": {
+          "type": "form",
+          "settings": {
+          }
+        },
+        "infomation_X3hkyD": {
+          "type": "infomation",
+          "settings": {
+            "text": "Contact Information",
+            "content": "<p><strong>vdvdv<\/strong><\/p><p><em>vdvdvd<\/em><\/p><p>vdvdv<\/p><p>vdvd<\/p><p>vdvd<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "form_mJqJf7",
+        "infomation_X3hkyD"
+      ],
       "settings": {
+        "link": ""
       }
     }
   },
   "order": [
-    "contact_service_G8YUba",
-    "heading_nYQPnT",
+    "maps_BKzYPj",
     "contact_form_ULezDf"
   ]
 }

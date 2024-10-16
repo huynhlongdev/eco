@@ -2,10 +2,6 @@
 {%- assign show_label_new = strue -%}
 {%- assign show_label_hot = strue -%}
 
-{%- if product.available == false -%}
-  <span id="{{ product.id }}" class="badge badge--bottom-left"> sold out </span>
-{%- endif -%}
-
 {% if show_label_sale %}
   {%- if product.compare_at_price > product.price and product.available -%}
     {%- assign sale_percent = product.price
@@ -39,10 +35,14 @@
 {% assign date_difference_in_seconds = date_now | minus: date_published %}
 {% assign date_difference_in_days = date_difference_in_seconds | divided_by: 86400 | round %}
 {% assign limit_day = 30 %}
-{% if date_difference_in_days <= limit_day %}
+{% if date_difference_in_days <= limit_day and product.available != false %}
   <div
     class="{%- if show_label_sale and compare_at_price > price -%}d-none {% endif %} badge label--new"
   >
     {{ 'products.product.label.new' | t }}
   </div>
 {% endif %}
+
+{%- if product.available == false -%}
+  <span id="{{ product.id }}" class="badge badge--bottom-left">{{ 'products.product.sold_out' | t }}</span>
+{%- endif -%}

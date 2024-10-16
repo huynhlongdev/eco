@@ -1,0 +1,8 @@
+{%- liquid
+  layout none
+  capture html
+    section 'header'
+  endcapture
+  assign arr = html | split: '[mega_menu]'
+  echo arr[1]
+-%}
