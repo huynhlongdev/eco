@@ -1,19 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  /* background: #f4f5f7; */
 }
 
 .icon {
@@ -21,7 +11,7 @@ body {
   height: auto;
 }
 
-#admin-bar-iframe {
+#admin-bar-iframe, #preview-bar-iframe {
   display: none !important;
 }
 

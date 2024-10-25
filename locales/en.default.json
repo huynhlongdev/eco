@@ -2,11 +2,11 @@
   "general": {
     "breadcrumb": {
       "home": "Home"
-    },
+    }
   },
-  "404" : {
-    "go_to_home" : "Go to home",
-    "message" : "This page could not be found"
+  "404": {
+    "go_to_home": "Go to home",
+    "message": "This page could not be found"
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
@@ -685,5 +685,13 @@
     "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar.",
     "flicky_btn_prev": "Prev",
     "flicky_btn_next": "Next"
+  },
+  "contact": {
+    "information": {
+      "location": "Location store",
+      "work_time": "Work time",
+      "phone": "Phone Number",
+      "email": "Email Address"
+    }
   }
 }

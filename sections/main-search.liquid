@@ -1,74 +1,59 @@
+{%- liquid
+  assign arr_terms = search.terms |split:'product_type:'
+  assign search_terms = arr_terms[0] | strip 
+  assign search_terms_filter = search_terms |split:'*'
+  assign search_terms = search_terms_filter[0] | strip 
+  assign product_type = arr_terms[1] | strip
+-%}
 
 <div class="page-title text-{{ section.settings.alignment }}">
   <div class="container mx-auto">
-    {{ section.settings.heading_font }}
+   
+  {% comment %} {{ section.settings.heading_font }}
+    <h1>{{ section.settings.headline }}</h1> {% endcomment %}
 
-    <h1>{{ section.settings.headline }}</h1>
+    {% if search.results.size < 1 %}
+      <h1 class="h2">Your search for "" did not yield any results</h1>
+    {% else %}
+        {% for item in search.results %}
+          {{ item.object_type |  json }}
+        {% endfor %}
+    {% endif %}
 
-    vdvnjdsjvjds
+    
   </div>
 </div>
 
+<style>
+  #shopify-section-{{ section.id }}{
+    padding: {{section.settings.spacing}};
+  }
+  
+  @media(min-width: 992px){
+    #shopify-section-{{ section.id }}{
+      padding: {{section.settings.spacing_lg}};
+    }
+  }
+</style>
+
 {% schema %}
 {
-  "name": "Page Title",
+  "name": "Search result",
   "class": "page-title",
   "settings": [
     {
-      "type": "header",
-      "content": "demo"
+      "type": "text",
+      "id": "spacing_lg",
+      "label": "Spacing (Desktop / Laptop / tablet)",
+      "default": "70px 0 70px 0px",
+      "info": "Note: Top right bottom left. Docs [here](https://www.w3schools.com/css/css_padding.asp)"
     },
     {
-      "type": "textarea",
-      "id": "headline",
-      "label": "Headline",
-      "default": "Typography"
-    },
-    {
-      "type" : "number",
-      "id" : "font_size",
-      "label": "Font size",
-      "default": 48
-     },
-    {
-      "type": "font_picker",
-      "id": "heading_font",
-      "label": "Heading font",
-      "default": "helvetica_n4"
-    },
-    {
-      "type": "text_alignment",
-      "id": "alignment",
-      "label": "Text alignment",
-      "default": "center"
-    },
-    {
-      "type": "range",
-      "label": "Padding top",
-      "id": "padding_top",
-      "default": 120,
-      "min": 0,
-      "max": 300,
-      "step": 5
-    },
-    {
-      "type": "range",
-      "label": "Padding bottom",
-      "id": "padding_bottom",
-      "default": 120,
-      "min": 0,
-      "max": 300,
-      "step": 5
-    },
-    {
-      "type": "image_picker",
-      "id": "backgound_image",
-      "label": "Background Image"
-    },
-    {
-      "type": "color_background",
-      "label": "Background Gradient",
-      "id": "background_gradient"
+      "type": "text",
+      "id": "spacing",
+      "label": "Spacing (Mobile)",
+      "default": "60px 0 60px 0",
+      "info": "Note: Top right bottom left. Docs [here](https://www.w3schools.com/css/css_padding.asp)"
     }
   ]
 }

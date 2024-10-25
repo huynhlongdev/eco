@@ -7,17 +7,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="exampleModalLabel">Copylink</h4>
-        <button type="button" class="close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="close btn-close" data-bs-dismiss="modal" aria-label="Close"></div>
       </div>
       <div class="modal-body">
         <div class="bg-white p-3">
           <div class="flex gap-1">
             <div class="border p-2 overflow-hidden text-copy">
-              {{ shop.url }}{{ product.url }}
+              {{- shop.url -}}{{- product.url -}}
             </div>
-            <button class="flex items-center justify-center border btn-copy" data-url="{{ product.url }}" data-bs-toggle="popover" data-bs-placement="top" title="Copied">
-              {%  render 'icon-clipboard' %}
-            </button>
+            <div class="flex items-center justify-center border btn-copy cursor-pointer" data-url="{{- shop.url -}}{{- product.url -}}" data-bs-toggle="popover" data-bs-placement="top" title="Copied">
+              {%- render 'icon-clipboard' -%}
+            </div>
           </div>
           <div class="laber-social-sharing socials clearfix">
             <label>Share:</label>
@@ -120,16 +120,3 @@
       border-radius: 4px;
   }
 </style>
-
-<script>
-  const btnCopy = document.querySelector('.btn-copy');
-
-  btnCopy.addEventListener('click', function (e) {
-      const link = e.target.getAttribute('data-url'); // Get the link from the data attribute
-      navigator.clipboard.writeText(link).then(() => {
-          console.log('Link copied:', link);
-      }).catch(err => {
-          console.error('Error copying the link:', err);
-      });
-  });
-</script>

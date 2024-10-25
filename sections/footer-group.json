@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Footer",
@@ -8,7 +17,7 @@
         "col1_7Djdy4": {
           "type": "col1",
           "settings": {
-            "content": "<p>Ut enim ad minim veniam, quis nostrud<br\/>exercitation laboris nisi ut aliquip ex ea<br\/>commodo consequat.Ut enim ad minim<br\/>veniam,quis nostrud exercitation<\/p>",
+            "content": "<p>Ut enim ad minim veniam, quis nostrud<br/>exercitation laboris nisi ut aliquip ex ea<br/>commodo consequat.Ut enim ad minim<br/>veniam,quis nostrud exercitation</p>",
             "column_lg": "4",
             "column_sm": "3",
             "column_xs": "1"
@@ -52,7 +61,7 @@
         "newsletter_nfTG8L"
       ],
       "settings": {
-        "copyright": "<p>© 2024 All Rights Reserved<\/p>",
+        "copyright": "<p>© 2024 All Rights Reserved</p>",
         "our_ser_padding_top": 100,
         "our_ser_padding_bottom": 30,
         "our_ser_padding_top_ip": 80,

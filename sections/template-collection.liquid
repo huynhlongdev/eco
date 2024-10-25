@@ -16,18 +16,20 @@
   assign align_mb = se.align_mb
   assign design = se.design
   assign limit = se.limit
-  assign show_pagination = 1
+  assign show_pagination = section.settings.pagination
 -%}
 
 <div class="collection-list {{ design }}">
   <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1 class="page-title {{ align }} {{ align_mb }}">
-          {% if headline.size > 0 %} {{ headline }} {% else %} {{ page_title }} {% endif %}
-        </h1>
+    {% comment %}
+      <div class="row">
+        <div class="col">
+          <h1 class="page-title {{ align }} {{ align_mb }}">
+            {% if headline.size > 0 %} {{ headline }} {% else %} {{ page_title }} {% endif %}
+          </h1>
+        </div>
       </div>
-    </div>
+    {% endcomment %}
     {%- paginate collections by limit -%}
       <div class="row">
         {% for collection in collections %}
@@ -45,8 +47,9 @@
           %}
         {% endfor %}
       </div>
-
-      {% render 'pagination', paginate: paginate %}
+      {% if show_pagination == 'show' %}
+        {% render 'pagination', paginate: paginate %}
+      {% endif %}
     {%- endpaginate -%}
   </div>
 </div>
@@ -59,6 +62,22 @@
       "id" : "limit",
       "label": "Limit",
       "default": 3
+    },
+    {
+      "type": "select",
+      "id": "pagination",
+      "label": "Pagination",
+      "options": [
+        {
+          "value": "none",
+          "label": "Hide"
+        },
+        {
+          "value": "show",
+          "label": "Show"
+        }
+      ],
+      "default": "none"
     },
     {
       "type": "select",
@@ -130,79 +149,7 @@
       "id": "coll_btn",
       "label": "Button text",
       "default": "Shop now"
-    },
-    {
-      "type": "paragraph",
-      "content": "Desktop / Laptop / tablet"
-    },
-    {
-      "type": "range",
-      "id": "our_ser_padding_top",
-      "label": "Section Padding Top",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "px",
-      "default": 100
-    },
-    {
-      "type": "range",
-      "id": "our_ser_padding_bottom",
-      "label": "Section Padding bottom",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "paragraph",
-      "content": "Ipad pro / Ipad"
-    },
-    {
-      "type": "range",
-      "id": "our_ser_padding_top_ip",
-      "label": "Section Padding Top",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "px",
-      "default": 80
-    },
-    {
-      "type": "range",
-      "id": "our_ser_padding_bottom_ip",
-      "label": "Section Padding bottom",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "paragraph",
-      "content": "Mobile"
-    },
-    {
-      "type": "range",
-      "id": "our_ser_padding_top_xs",
-      "label": "Section Padding Top",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "px",
-      "default": 60
-    },
-    {
-      "type": "range",
-      "id": "our_ser_padding_bottom_xs",
-      "label": "Section Padding bottom",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "px",
-      "default": 0
-    },
+    }
   ],
   "presets": [
     {

@@ -1,26 +1,29 @@
-jQuery(document).ready(function ($) {
-  function asyncWishlist() {
-    let wishlist = localStorage.getItem("wishlist");
-    if (wishlist === null) {
-      wishlist = "";
-    } else {
-      let wishlistArray = wishlist.split(",").filter(Boolean);
+function asyncWishlist() {
+  let wishlist = localStorage.getItem("wishlist");
+  if (wishlist === null) {
+    wishlist = "";
+  } else {
+    let wishlistArray = wishlist.split(",").filter(Boolean);
 
-      wishlistArray = wishlistArray.map((id) => {
-        return id.replace("id:", "");
-      });
+    wishlistArray = wishlistArray.map((id) => {
+      return id.replace("id:", "");
+    });
 
-      $(".wishlist_button").each(function () {
-        const id = String($(this).data("id"));
+    $(".wishlist_button").each(function () {
+      const id = String($(this).data("id"));
 
-        if (wishlistArray.includes(id)) {
-          $(this).addClass("is--added");
-        }
+      if (wishlistArray.includes(id)) {
+        $(this).addClass("is--added");
+      }
 
-        $(this).attr("data-bs-original-title", "Available in Wishlist");
-      });
-    }
+      $(this).attr("title", "Available in Wishlist");
+      $(this).attr("data-bs-original-title", "Available in Wishlist");
+      tooltip();
+    });
   }
+}
+
+jQuery(document).ready(function ($) {
   asyncWishlist();
 
   $(document).on("click", ".wishlist_button:not(.is--added)", function () {

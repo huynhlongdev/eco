@@ -34,7 +34,7 @@
         "location_GXaNij"
       ],
       "settings": {
-        "fullscreen": true,
+        "fullscreen": false,
         "style": "Mapnik",
         "show_location": true,
         "icon": "shopify:\/\/shop_images\/reshot-icon-map-marker-5YM7UW46QA.svg",
@@ -43,7 +43,9 @@
         "zoom": 17,
         "show_radius": false,
         "radius": 10,
-        "background_color": "#ff0000"
+        "background_color": "#ff0000",
+        "spacing_lg": "40px 0  40px 0",
+        "spacing": "40px 0  30px 0"
       }
     },
     "contact_form_ULezDf": {
@@ -52,13 +54,19 @@
         "form_mJqJf7": {
           "type": "form",
           "settings": {
+            "text": "",
+            "content": ""
           }
         },
         "infomation_X3hkyD": {
           "type": "infomation",
           "settings": {
-            "text": "Contact Information",
-            "content": "<p><strong>vdvdv<\/strong><\/p><p><em>vdvdvd<\/em><\/p><p>vdvdv<\/p><p>vdvd<\/p><p>vdvd<\/p>"
+            "title": "CONTACT INFORMATION",
+            "content": "Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos pretium.",
+            "address": "Your email address will not be published. Required fields are marked *",
+            "work_time": "Monday – Friday: 9:00-20:00 <br> Saturady: 11:00 – 15:00",
+            "phone": "(+100) 666-456-7890",
+            "email": "aloshopify@alothemes.com"
           }
         }
       },
@@ -67,7 +75,8 @@
         "infomation_X3hkyD"
       ],
       "settings": {
-        "link": ""
+        "spacing_lg": "40px 0  80px 0",
+        "spacing": "30px 0  60px 0"
       }
     }
   },

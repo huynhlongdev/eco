@@ -6,13 +6,15 @@
   assign columns_moblie = section.settings.columns_moblie
 -%}
 
-<div class="container product-container">
+<div class="container product-container" data-id="{{ section.id }}">
   <div class="row">
     <div class="col-lg-3">
       {% render 'collection-sidebar', results: collection %}
     </div>
+    {% comment %} sidebar {% endcomment %}
+
     <div class="col-lg-9">
-      <div class="filter-top border bordrer-solid p-2 mb-4 rounded flex justify-between items-center ">
+      <div class="filter-top bg-white border bordrer-solid p-2 mb-4 rounded flex justify-between items-center ">
         <div class="count">{{ collection.products_count }} products</div>
 
         <div class="flex">
@@ -44,6 +46,38 @@
       </div>
       {% comment %} end sort-filter {% endcomment %}
 
+      <div class="filter-result flex items-center ">
+        {%- unless collection.filters == empty -%}
+          <div class="sidebar-filter">
+            <div class="active-filter active-facets-desktop flex flex-wrap gap-2">
+              {%- for filter in collection.filters -%}
+                {%- for value in filter.active_values -%}
+                  {%- assign has_active_filter = true -%}
+                  <facet-remove>
+                    <a href="{{ value.url_to_remove }}" class="facets__button cursor-pointer">
+                      {{ value.label | escape }}
+                      <svg width="8" viewBox="0 0 384 512">
+                        <path
+                          d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z">
+                        </path>
+                      </svg>
+                    </a>
+                  </facet-remove>
+                {%- endfor -%}
+              {%- endfor -%}
+
+              {%- if has_active_filter -%}
+                <facet-remove>
+                  <a href="{{ results_url }}" class="clear-all cursor-pointer">
+                    {{- 'collections.filter.clear_all' | t -}}
+                  </a>
+                </facet-remove>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endunless -%}
+      </div>
+
       {% paginate collection.products by section.settings.per_page %}
         <div class="product-grid grid grid-cols-4 gap-4">
           {% for product in collection.products %}
@@ -57,15 +91,38 @@
             -%}
           {% endfor %}
         </div>
+        {% comment %} product-grid {% endcomment %}
 
-        {{- paginate | default_pagination }}
+        {% if paginate.pages > 1 and section.settings.pagination and section.settings.pagination != 'none' %}
+          <div class="pagination justify-center text-center">
+            {% if section.settings.pagination == 'ajax' and paginate.pages > paginate.current_page %}
+              <button
+                class="btn-loadmore relative m-auto"
+                {% if paginate.pages <= paginate.current_page %}
+                  disable="disable"
+                {% endif %}
+                data-current="{{ paginate.current_page | plus : 1 }}"
+              >
+                Loadmore
+                {% render 'icon-loading', size: 18 %}
+              </button>
+            {% else %}
+              <div class="pagination flex items-center justify-center">
+                {% comment %} {{- paginate | default_pagination }} {% endcomment %}
+                {% render 'pagination', paginate: paginate %}
+              </div>
+            {% endif %}
+          </div>
+          {% comment %} pagination {% endcomment %}
+        {% endif %}
       {% endpaginate %}
     </div>
   </div>
 </div>
+
 {% schema %}
 {
-  "name": "Product Collection",
+  "name": "Product grid",
   "settings": [
     {
       "type": "number",
@@ -176,7 +233,7 @@
         },
         {
           "value": "ajax",
-          "label": "Ajax"
+          "label": "Load more"
         }
       ],
       "default": "list"
@@ -303,165 +360,3 @@
   ]
 }
 {% endschema %}
-
-{{ 'jquery.range-min.js' | asset_url | script_tag }}
-
-<script>
-  jQuery(document).ready(function ($) {
-    // Debounce function to limit frequent calls
-    function debounce(func, wait) {
-      let timeout;
-      return function (...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-      };
-    }
-
-    // Handle form submission
-    function handleFormSubmit(event) {
-      event.preventDefault();
-
-      const searchParamsForm1 = $('#FacetFiltersForm').serialize();
-      const searchParamsForm2 = $('#FacetSortForm').serialize();
-
-      // Combine query strings, ensuring both are present
-      const combinedSearchParams = `${searchParamsForm1}&${searchParamsForm2}`;
-      renderPage(combinedSearchParams);
-    }
-
-    // Handle history change when using back/forward in browser
-    function handleHistoryChange(event) {
-      const searchParams = event.state ? event.state.searchParams : initialSearchParams;
-      if (searchParams !== previousSearchParams) {
-        renderPage(searchParams, false);
-      }
-    }
-
-    // Render page sections and update content
-    function renderPage(searchParams, updateURLHash = true) {
-      previousSearchParams = searchParams;
-
-      const sections = getSections();
-      sections.forEach(function (section) {
-        const url = `${window.location.pathname}?section_id=${section.section}&${searchParams}`;
-        const cachedSection = filterData.find((data) => data.url === url);
-
-        if (cachedSection) {
-          updatePageContent(cachedSection.html);
-        } else {
-          $.get(url, function (response) {
-            filterData.push({ html: response, url });
-            updatePageContent(response);
-          });
-        }
-      });
-
-      if (updateURLHash) {
-        updateURL(searchParams);
-      }
-    }
-
-    // Update page content with the new HTML
-    function updatePageContent(html) {
-      const $newHtml = $(html);
-      // $('.product-grid').html($newHtml.find('.product-grid').html());
-      $('.product-container').html($newHtml.find('.product-container').html());
-
-      // Re-bind the event after content update
-      bindEvents();
-    }
-
-    // Get sections to update
-    function getSections() {
-      return [{ section: 'product-collection' }];
-    }
-
-    // Update the browser's URL without reloading the page
-    function updateURL(searchParams) {
-      const url = `${window.location.pathname}${searchParams ? `?${searchParams}` : ''}`;
-      history.pushState({ searchParams }, '', url);
-    }
-
-    // Function to reset filters
-    function resetFilters() {
-      $('#FacetFiltersForm')[0].reset();
-      $('#FacetSortForm')[0].reset();
-
-      $('input[type="checkbox"]').prop('checked', false);
-      $('input[type="radio"]').prop('checked', false);
-      $('select').prop('selectedIndex', 0);
-
-      // Clear all inputs in the form
-      const searchParamsForm1 = $('#FacetFiltersForm').serialize();
-      const searchParamsForm2 = $('#FacetSortForm').serialize();
-
-      // Combine query strings, ensuring both are present
-        // Combine reset query strings (make sure to check if one is empty)
-      let combinedSearchParams = '';
-      if (searchParamsForm1 && searchParamsForm2) {
-        combinedSearchParams = `${searchParamsForm1}&${searchParamsForm2}`;
-      } else if (searchParamsForm1) {
-        combinedSearchParams = searchParamsForm1;
-      } else if (searchParamsForm2) {
-        combinedSearchParams = searchParamsForm2;
-      }
-
-      // If both are empty, render with empty params (default state)
-      if (!combinedSearchParams) {
-        combinedSearchParams = ''; // You can adjust this to match your default state
-      }
-
-      // Re-render the page with default params (this will reset the data)
-      renderPage(combinedSearchParams);
-    }
-
-    $(document).on('click', ".clear-all", function(e){
-      e.preventDefault();
-      resetFilters()
-      
-    })
-
-    function asyncWishlist() {
-      let wishlist = localStorage.getItem("wishlist");
-      if (wishlist === null) {
-        wishlist = "";
-      } else {
-        let wishlistArray = wishlist.split(",").filter(Boolean);
-
-        wishlistArray = wishlistArray.map((id) => {
-          return id.replace("id:", "");
-        });
-
-        $(".wishlist_button").each(function () {
-          const id = String($(this).data("id"));
-
-          if (wishlistArray.includes(id)) {
-            $(this).addClass("is--added");
-          }
-
-          $(this).attr("data-bs-original-title", "Available in Wishlist");
-        });
-      }
-    }
-
-    // Bind form input event with debounce
-    function bindEvents() {
-      $('#FacetFiltersForm, #FacetSortForm').on('input', debounce(handleFormSubmit, 300));
-
-      asyncWishlist();
-
-      // Bind wishlist button clicks using event delegation
-      $(document).on('click', '.wishlist-btn', function () {
-        toggleWishlist(this);
-      });
-    }
-
-    // Initial setup
-    const initialSearchParams = window.location.search;
-    let previousSearchParams = initialSearchParams;
-    let filterData = [];
-
-    // Initialize
-    bindEvents();
-  });
-</script>

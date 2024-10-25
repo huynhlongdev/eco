@@ -19,14 +19,19 @@
 
 {% assign build_variant = 'all' %}
 {% assign show_title_variant = true %}
+
 {%- for i in (1..1) -%}
-  <div id="product-quick-edit-cart" class="js-quick-edit-cart" data-js-product>
+  <div id="product-quick-edit-cart" class="js-quick-edit-cart">
+    <script>
+      const product = {{product | json}}
+      console.log(product)
+    </script>
     <h3>Update product</h3>
     <div class="container product-item">
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-6">
           <div class="row">
-            <div class="col-auto sticky_atc_thumb" data-js-product-image>
+            <div class="col-auto sticky_atc_thumb">
               {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
               <img
                 data-image-lazy
@@ -40,7 +45,7 @@
             </div>
             <div class="col sticky_atc_info">
               <h2>{{ product.title }}</h2>
-              <div class="sticky_atc_price" data-js-product-price>
+              <div class="sticky_atc_price">
                 {%- if nav_up_size == 0 -%}
                   {% if cp_pr > cu_pr -%}
                     <span class="current">{{ cu_pr | money }}</span> <span class="compare">{{ cp_pr | money }}</span>
@@ -51,6 +56,40 @@
                   {% if cp_pr > cu_pr %}{{ cu_pr | money }}-{{ cp_pr | money }}{% else %}{{ cu_pr | money }}{% endif %}
                 {%- endif -%}
               </div>
+
+              <div class="cquantity cart-item__quantity">
+                <div class="cart-item__quantity-wrapper">
+                  <div
+                    class="cart-quantity border rounded-1 overflow-hidden inline-flex"
+                    data-variant-id="{{ product.variant_id }}"
+                  >
+                    <button
+                      type="button"
+                      class="qtyBtn minus text-center outline-none border-0 size-7 items-center justify-center d-flex text-black"
+                      name="minus"
+                    >
+                      -
+                    </button>
+                    <input
+                      class="quantity__input qty text-center outline-none border-0 text-sm size-7 items-center justify-center d-flex text-black"
+                      type="number"
+                      data-quantity-variant-id="{{ product.variant_id }}"
+                      name="updates[]"
+                      value="1"
+                      min="1"
+                      step="1"
+                    >
+                    <button
+                      type="button"
+                      class="qtyBtn plus text-center outline-none border-0 border-l size-7 items-center justify-center d-flex text-black"
+                      name="plus"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               <div data-product-quantity class="js-quantity quantity">
                 <a rel="nofollow" data-no-instant class="js_minus minus" href="#">
                   <svg
@@ -97,7 +136,7 @@
           {%- else -%}
             <div class="wrap_variant">
               <span class="popup_variant"><i class="icon-tune"></i></span>
-              {% include 'product-get-options' with options_type: 3 select_dropdown_position: 'top' options_show_title: true trigger: 'footbar' %}
+              {% render 'product-get-options' with options_type: 3 select_dropdown_position: 'top' options_show_title: true trigger: 'footbar' %}
             </div>
             <div class="select-sticky">
               <select name="id" class="js_sticky_sl" data-select-sticky_atc>
@@ -127,7 +166,7 @@
           data-placement="top"
           title="Update cart"
         >
-          {% render 'icon-loading' %}
+          {% render 'icon-loading', size: 14 %}
           Update
         </button>
       </div>

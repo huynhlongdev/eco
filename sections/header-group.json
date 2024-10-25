@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "Header Group",
@@ -8,7 +17,7 @@
         "col_left_cy6Kqj": {
           "type": "col-left",
           "settings": {
-            "text": "<p>Need Help? +001 123 456 789<\/p>"
+            "text": "<p>Need Help? +001 123 456 789</p>"
           }
         },
         "col_right_fWJj6t": {
@@ -37,29 +46,25 @@
           "type": "dropdown",
           "settings": {
             "text": "Shop",
-            "link": "shopify:\/\/collections",
+            "link": "shopify://collections",
             "open_link": "_blank",
-            "menu": "main-menu",
-            "id": 1,
-            "type_menu": "dropdown"
+            "menu": "main-menu"
           }
         },
         "dropdown_GXVaWt": {
           "type": "dropdown",
           "settings": {
             "text": "Page",
-            "link": "shopify:\/\/pages\/privacy-policy",
+            "link": "shopify://pages/privacy-policy",
             "open_link": "_self",
-            "menu": "main-menu",
-            "id": 1,
-            "type_menu": "dropdown"
+            "menu": "main-menu"
           }
         },
         "mega_ktEzXc": {
           "type": "mega",
           "settings": {
             "text": "Element",
-            "link": "shopify:\/\/pages\/collection-2",
+            "link": "shopify://pages/collection-2",
             "open_link": "_self"
           }
         },
@@ -90,7 +95,7 @@
         "link_qCTbUp"
       ],
       "settings": {
-        "wishlist_link": "shopify:\/\/pages\/wishlist",
+        "wishlist_link": "shopify://pages/wishlist",
         "navigation": "main-menu",
         "logo_position": "middle-left"
       }

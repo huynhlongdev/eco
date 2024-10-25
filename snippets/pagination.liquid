@@ -5,7 +5,7 @@
         href="{{ paginate.previous.url }}{{ anchor }}"
         class="page next"
       >
-        prev
+        {%  render 'icon-arrow-left' %}
       </a>
     {%- endif -%}
 
@@ -34,9 +34,9 @@
     {%- if paginate.next -%}
       <a
         href="{{ paginate.next.url }}{{ anchor }}"
-        class="page prev"
+        class="page next"
       >
-        next
+        {%  render 'icon-arrow-right' %}
       </a>
     {%- endif -%}
   </div>

@@ -17,6 +17,8 @@
   outline: none;
   transition: all 0.3s linear 0s;
   -webkit-transition: all 0.3s linear 0s;
+  outline: none !important;
+  background: none !important;
 }
 
 .btn-close:hover {
@@ -47,7 +49,6 @@
   white-space: normal;
   text-decoration: none;
   display: inline-block;
-  margin-bottom: 8px;
 }
 
 .cart-item:not(:last-child) {

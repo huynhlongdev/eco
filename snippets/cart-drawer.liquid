@@ -1,8 +1,6 @@
-{{ 'cart-drawn.css' | asset_url | stylesheet_tag }}
+{% layout none %}
 
-{%- if cart == empty -%}
-  <div class="cart-empty">Empty</div>
-{% endif %}
+{{ 'cart-drawn.css' | asset_url | stylesheet_tag }}
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDrawer">
   {%- liquid
@@ -14,16 +12,21 @@
   -%}
 
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-      Your cart (<span class="cart_count">{{ count }}</span>)
-    </h5>
-    <button type="button" class="btn-close outline-0 border-0" data-bs-dismiss="offcanvas" aria-label="Close">
-      {% render 'icon-close', size: 16 %}
+    <div class="offcanvas-title">
+      Your cart (<span class="cart_count">{{- count -}}</span>)
+    </div>
+    <button
+      type="button"
+      class="btn-close outline-0 border-0 bg-transparent"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    >
+      {%- render 'icon-close', size: 16 -%}
     </button>
   </div>
 
   {% if cart.item_count > 0 %}
-    <div class="offcanvas-body">
+    <div class="offcanvas-body p-0">
       {% if settings.enable_shiping_cart %}
         <div class="shipping bg-[#0000000a] text-center px-4 py-4">
           {% assign free_shipping_threshold = 50000 %}
@@ -59,7 +62,7 @@
       {% endif %}
 
       <form action="{{ routers }}" method="post">
-        <div class="lp-drawer__main">
+        <div class="lp-drawer__main p-4">
           <div class="cart-list">
             {% for item in cart.items %}
               <div class="cart-item flex py-4" data-variant-id="{{ item.variant_id }}">
@@ -73,7 +76,7 @@
                       class="absolute top-0 left-0 w-100 h-100 object-cover"
                     >
                     <div class="loading absolute">
-                      {%- render 'icon-loading' -%}
+                      {% comment %} {%- render 'icon-loading' -%} {% endcomment %}
                     </div>
                   </a>
                 </div>
@@ -155,7 +158,7 @@
             {% endfor %}
           </div>
         </div>
-        <div class="lp-drawer__footer">
+        <div class="lp-drawer__footer bg-white absolute bottom-0 left-0 p-4 w-100">
           <div class="lp-mini-cart-container">
             <div class="bee-cart-total flex items-center justify-between">
               <div class="bee-col-auto bee-col-item"><strong>Subtotal:</strong></div>
@@ -163,13 +166,13 @@
                 <strong class="total-price">{{ cart.total_price | money }}</strong>
               </div>
             </div>
-            <div class="flex gap-2 justify-between mt-5">
-              <a href="{{ routes.cart_url }}" class="flex-1 px-4 py-3 text-sm text-center uppercase btn-cart"
+            <div class="flex gap-2 justify-between mt-3">
+              <a href="{{ routes.cart_url }}" class="flex-1 px-4 py-2 text-sm text-center uppercase btn-cart"
                 >View cart</a
               >
               <a
                 href="{{ routes.root_url }}checkout"
-                class="flex-1 px-4 py-3 text-sm text-center uppercase btn-checkout"
+                class="flex-1 px-4 py-2 text-sm text-center uppercase btn-checkout"
                 >Checkout</a
               >
             </div>

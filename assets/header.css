@@ -25,6 +25,7 @@
   opacity: 0;
   visibility: hidden;
   border-radius: 4px;
+  z-index: 9999;
 }
 
 .sub-menu .sub-menu {
@@ -42,8 +43,13 @@
   padding-left: 1.5rem;
 }
 
-.header-wrapper p{
-  margin: 0
+.type_mega_2 > .mega-menu > li > a {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.header-wrapper p {
+  margin: 0;
 }
 
 header.header-1 .navigation > .menu-item > a {
@@ -71,16 +77,15 @@ header .h-group {
   stroke: var(--color-text-header);
 }
 
-.position-initial{
+.position-initial {
   position: initial;
 }
 
-.mega-menu{
+.mega-menu {
   width: 100%;
 }
 
-..mega-menu .sub-menu{
-  
+..mega-menu .sub-menu {
 }
 
 .search-modal__content {

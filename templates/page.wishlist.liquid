@@ -15,16 +15,23 @@
         const response = await fetch(
             window.Shopify.routes.root + "search/?section_id=wishlist&type=product&options[unavailable_products]=last&q=" + wishlistArray.join(' OR ')
         );
+
         const html = await response.text();
 
         const tempDiv = document.createElement("div");
+
         tempDiv.innerHTML = html;
 
         const newBox = tempDiv.querySelector("#shopify-section-wishlist").innerHTML;
 
         const drawerCart = document.querySelector("#wishlist-container");
+
         if (drawerCart) {
+
           drawerCart.innerHTML = newBox;
+
+          asyncWishlist();
+
         }
   });
 </script>

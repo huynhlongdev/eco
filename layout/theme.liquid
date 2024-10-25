@@ -26,44 +26,68 @@
 
     {{ content_for_header }}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap" rel="stylesheet">
-
-    {% style %}
-      :root {
-        --blue-light: #00a6fb; /* Màu xanh dương nhạt */
-        --blue-medium: #0582ca; /* Màu xanh dương trung bình */
-        --blue-dark: #006494; /* Màu xanh dương đậm */
-        --blue-deep: #003554; /* Màu xanh rất đậm, gần xanh đen */
-        --blackish-blue: #051923; /* Màu đen xanh */
-        --color-bg-boby: {{ settings.bg_body }};
-        --color-bg-header: {{ settings.bg_header }};
-        --color-text-header: {{ settings.text_header }};
-        --color-bg-footer: {{ settings.bg_footer }};
-
-
-        --btn-text: {{ settings.color_btn_text }};
-        --btn-bg: {{ settings.color_btn }};
-        --btn-text-hover: {{ settings.color_btn_text_hover }};
-        --btn-bg-hover: {{ settings.color_btn_hover }};
-        --btn-spacing: {{ settings.btn_spacing_desktop }};
-        --btn-radius: {{ settings.btn_radius_desktop }};
-
-        /* border */
-        --border-color: {{ settings.color_border }}
-      }
-    {% endstyle %}
-
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
-
+    {{ 'global.css' | asset_url | stylesheet_tag }}
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ 'product.css' | asset_url | stylesheet_tag }}
 
     <link rel="stylesheet" href="{{ 'main.css' | asset_url }}" type="text/css" onload="this.media='all'">
 
     {{ 'jquery.min.js' | asset_url | script_tag }}
+  </head>
+
+  <body class="">
+    <!-- header -->
+    {{ 'header.css' | asset_url | stylesheet_tag }}
+    <div class="header-wrapper">
+      {% section 'header-top' %}
+      {% section 'header' %}
+    </div>
+    <!-- end header -->
+
+    <main class="main">
+      {{ content_for_layout }}
+    </main>
+    <!-- content-for-layout -->
+
+    {% if template contains 'product' %}
+      {% section 'product-tab' %}
+      {% section 'related-product-carousel' %}
+    {% endif %}
+
+    <!-- footer -->
+    {% sections 'footer-group' %}
+    <!-- end footer -->
+
+    <!-- back to top -->
+    {% render 'back-to-top' %}
+    <!-- end back to top -->
+
+    {% if settings.enable_cart_drawer %}
+      <!-- start cart drawer -->
+      {% render 'cart-drawer' %}
+      <!-- end cart drawer -->
+    {% endif %}
+
+    {% comment %} fancybox {% endcomment %}
+    {{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'jquery.fancybox.min.js' | asset_url }}" defer></script>
+
+    {% comment %} bootstrap {% endcomment %}
+    <script src="{{ 'popper.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'bootstrap.min.js' | asset_url }}" defer></script>
+
+    {% comment %} main {% endcomment %}
+    <script src="{{ 'main.js' | asset_url }}" defer></script>
+
+    {% comment %} wishlist {% endcomment %}
+    <script src="{{ 'wishlist.js' | asset_url }}" defer></script>
+
+    {% comment %} cart {% endcomment %}
+    {{ 'cart.js' | asset_url | script_tag }}
+
+    {{ 'jquery.range-min.js' | asset_url | script_tag }}
+    {{ 'product.js' | asset_url | script_tag }}
 
     <script>
       const titleChanger = {
@@ -115,55 +139,6 @@
       };
 
       titleChanger.init();
-    </script>
-  </head>
-
-  <body class="">
-    <!-- header -->
-    {{ 'header.css' | asset_url | stylesheet_tag }}
-    <div class="header-wrapper">
-      {% section 'header-top' %}
-      {% section 'header' %}
-    </div>
-    <!-- end header -->
-
-    <main class="main">
-      {{ content_for_layout }}
-    </main>
-    <!-- content-for-layout -->
-
-    <!-- footer -->
-    {% sections 'footer-group' %}
-    <!-- end footer -->
-
-    <!-- back to top -->
-    {% render 'back-to-top' %}
-    <!-- end back to top -->
-
-    {% if settings.enable_cart_drawer %}
-      <!-- start cart drawer -->
-      {% render 'cart-drawer' %}
-      <!-- end cart drawer -->
-    {% endif %}
-
-    {% comment %} fancybox {% endcomment %}
-    {{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
-    <script src="{{ 'jquery.fancybox.min.js' | asset_url }}" defer></script>
-
-    {% comment %} bootstrap {% endcomment %}
-    <script src="{{ 'popper.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'bootstrap.min.js' | asset_url }}" defer></script>
-
-    {% comment %} main {% endcomment %}
-    <script src="{{ 'main.js' | asset_url }}" defer></script>
-
-    {% comment %} wishlist {% endcomment %}
-    <script src="{{ 'wishlist.js' | asset_url }}" defer></script>
-
-    {% comment %} cart {% endcomment %}
-    {{ 'cart.js' | asset_url | script_tag }}
-
-    <script>
       document.addEventListener('DOMContentLoaded', function () {});
 
       window.LPSettings = {

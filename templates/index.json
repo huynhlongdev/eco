@@ -1,20 +1,122 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
-      "type": "main-page",
+      "type": "template-home",
       "settings": {
-        "headline": "Typography",
-        "font_size": 43,
-        "heading_font": "open_sans_n4",
-        "alignment": "center",
-        "padding_top": 70,
-        "padding_bottom": 70,
-        "backgound_image": "shopify:\/\/shop_images\/kids-beanie.jpg",
-        "background_gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)"
+      }
+    },
+    "main_breadcrumb_hbFqWF": {
+      "type": "main-breadcrumb",
+      "settings": {
+      }
+    },
+    "home_product_MfXtTH": {
+      "type": "home-product",
+      "settings": {
+        "heading": "Hot Trending Products",
+        "collection": "top-trending",
+        "per_page": 12,
+        "columns": "3",
+        "columns_moblie": "1",
+        "filter": "left",
+        "pagination": "list",
+        "image_ratio": "square",
+        "show_vendor": true,
+        "show_quick_view": true,
+        "show_variant": true,
+        "our_ser_padding_top": 100,
+        "our_ser_padding_bottom": 0,
+        "our_ser_padding_top_ip": 80,
+        "our_ser_padding_bottom_ip": 0,
+        "our_ser_padding_top_xs": 60,
+        "our_ser_padding_bottom_xs": 0
+      }
+    },
+    "featured_product_YK8FC4": {
+      "type": "featured-product",
+      "settings": {
+        "heading": "Top Featured Products",
+        "collection": "",
+        "per_page": 12,
+        "columns": "3",
+        "columns_moblie": "1",
+        "filter": "left",
+        "pagination": "list",
+        "image_ratio": "square",
+        "show_vendor": true,
+        "show_quick_view": true,
+        "show_variant": true
+      }
+    },
+    "card_images_trrJN7": {
+      "type": "card-images",
+      "blocks": {
+        "card_fhp6bk": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1_5.webp",
+            "title": "Microsoft<br> Surface<br> Laptop 14",
+            "sub_title": "Sale up -30%",
+            "link": ""
+          }
+        },
+        "card_XhxtKM": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1_6.webp",
+            "title": "Microsoft Surface Laptop 14",
+            "sub_title": "Sale up -5%",
+            "link": ""
+          }
+        },
+        "card_tUzBAP": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1_7.webp",
+            "title": "Microsoft Surface Laptop 14",
+            "sub_title": "Sale up -15%",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_fhp6bk",
+        "card_XhxtKM",
+        "card_tUzBAP"
+      ],
+      "settings": {
+        "spacing_lg": "70px 0 70px 0",
+        "spacing": "60px 0 60px 0"
+      }
+    },
+    "template_collection_gbTfhg": {
+      "type": "template-collection",
+      "settings": {
+        "limit": 3,
+        "pagination": "none",
+        "design": "design-2",
+        "headline": "demo",
+        "align": "text-md-center",
+        "align_mb": "text-left",
+        "coll_btn": "Shop now"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "main_breadcrumb_hbFqWF",
+    "home_product_MfXtTH",
+    "featured_product_YK8FC4",
+    "card_images_trrJN7",
+    "template_collection_gbTfhg"
   ]
 }

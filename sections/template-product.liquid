@@ -1,12 +1,15 @@
 {% include 'product-res-variables' %}
 
+{{ 'slick.min.js' | asset_url | script_tag }}
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+
 <div class="container">
   {% if product %}
     <div class="product" id="product-{{ section.id }}" data-section="{{ section.id }}">
       <div class="row">
         <div class="col-md-7">
           <div class="product-images">
-            {%- render 'product-media', product: product -%}
+            {%- render 'product-media-gallery', product: product -%}
           </div>
         </div>
 
@@ -45,46 +48,50 @@
                   </div>
 
                 {% when 'quantity' %}
+                  {% comment %}
+                    <div class="custom flex gap-3 mb-4">
+                      <label for="">
+                        Advance
+                        <input type="text" name="properties[Advance]">
+                      </label>
+                    </div>
+                  {% endcomment %}
+
                   <div class="flex gap-3 mb-4">
                     {%- liquid
                       assign selected = product.selected_variant
                       assign available = selected.available
                     -%}
-                    <div class="cquantity cart-item__quantity">
-                      <div class="cart-item__quantity-wrapper">
-                        <div class="cart-quantity border rounded-1 overflow-hidden d-inline-flex">
-                          <button
-                            type="button"
-                            class="qtyBtn minus text-center outline-none border-0 size-7 items-center justify-center d-flex text-black"
-                            name="minus"
-                          >
-                            -
-                          </button>
-                          <input
-                            class="quantity__input qty text-center outline-none border-0 text-sm size-7 items-center justify-center d-flex text-black"
-                            type="number"
-                            name="updates[]"
-                            value="6"
-                            min="1"
-                            step="1"
-                          >
-                          <button
-                            type="button"
-                            class="qtyBtn plus text-center outline-none border-0 border-l size-7 items-center justify-center d-flex text-black"
-                            name="plus"
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
+                    <div class="qty-input inline-flex bg-white border m-0 justify-evenly items-center">
+                      <button
+                        class="inline-flex items-center relative justify-center text-center border-0 qty-count qty-count--minus"
+                        data-action="minus"
+                        type="button"
+                      >
+                        -
+                      </button>
+                      <input
+                        class="product-qty text-center inline-block items-center justify-center bg-transparent border-0"
+                        type="number"
+                        name="product-qty"
+                        min="0"
+                        max="10"
+                        value="1"
+                      >
+                      <button
+                        class="inline-flex items-center relative justify-center text-center border-0 qty-count qty-count--add"
+                        data-action="add"
+                        type="button"
+                      >
+                        +
+                      </button>
                     </div>
 
-                    <input type="text" name="properties[Advance]">
                     <button
                       type="submit"
-                      class="lp-btn flex-1 overflow-hidden border-0 relative{% if available == false %} disable{% endif %}"
+                      class="btn-add-cart flex items-center justify-center flex-1 overflow-hidden border-0 relative{% if available == false %} disable{% endif %}"
                     >
-                      Add to Cart
+                      Add to cart
                       {% render 'icon-loading' %}
                     </button>
                   </div>
@@ -112,11 +119,158 @@
             {% endif %}
           </form>
 
+          <div class="product-meta">
+            <div>
+              <div>
+                <span
+                  class="available {% if product.available %}  {% else %} d-none {% endif %}"
+                  id="pr-available"
+                >
+                  {{- 'products.product.available' | t -}}
+                </span>
+                <span
+                  class="unavailable {% if product.available %}d-none{% endif %}"
+                  id="pr-unavailable"
+                >
+                  {{ 'products.product.unavailable' | t -}}
+                </span>
+              </div>
+              <div>Vendor: {{ product.vendor | link_to_vendor }}</div>
+              <div>
+                Categories:
+                {%- if product.collections.size > 0 -%}
+                  {%- for collection in product.collections limit: 8 -%}
+                    <a class="collection_item" href="{{ collection.url }}">
+                      {{ collection.title -}}
+                      {%- if forloop.last != true %},{% endif %}
+                    </a>
+                    {%- if forloop.last != true %} {% endif %}
+                  {%- endfor -%}
+                {%- endif -%}
+              </div>
+
+              {% if product.tags %}
+                <div>
+                  Tags:
+                  {%- for tags in product.tags limit: 8 -%}
+                    <a
+                      href="{{ routes.root_url }}collections/all/{{ tags | replace: " ", "-"}}"
+                      title="{{ tags}}"
+                    >
+                      <span>
+                        {{- tags -}}
+                        {%- if forloop.last != true %},{% endif %}
+                      </span>
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+
           <script id="variant-json" type="application/json">
             {{ product.variants | json }}
           </script>
         </div>
       </div>
+    </div>
+
+    <div id="question" class="product-question" style="display:none">
+      {% form 'contact', id: 'ContactForm', class: 'ct-contact-form' %}
+        <!-- Name -->
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name"
+            name="contact[Name]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="Name"
+            aria-required="true"
+          >
+          <label class="field__label" for="ContactForm-name">Name</label>
+        </div>
+
+        <div class="field field--with-error">
+          <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="field__input"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true" aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="Email"
+          >
+          <label class="field__label" for="ContactForm-email">
+            Email
+            <span aria-hidden="true">*</span></label
+          >
+          {%- if form.errors contains 'email' -%}
+            <small class="contact__field-error" id="ContactForm-email-error">
+              <span class="visually-hidden">Error</span>
+              <span class="form__message">
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </span>
+            </small>
+          {%- endif -%}
+        </div>
+
+        <div class="field">
+          <input
+            type="text"
+            id="ContactForm-product"
+            class="field__input"
+            name="contact[product]"
+            value="{{ product.title }}"
+          >
+        </div>
+
+        <!-- Phone -->
+        <div class="field">
+          <input
+            type="tel"
+            id="ContactForm-phone"
+            class="field__input"
+            autocomplete="tel"
+            name="contact[Phone]"
+            pattern="[0-9\-]*"
+            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            placeholder="Phone"
+          >
+          <label class="field__label" for="ContactForm-phone">Phone</label>
+        </div>
+
+        <!-- Message -->
+        <div class="field">
+          <textarea
+            rows="10"
+            id="ContactForm-body"
+            class="text-area field__input"
+            name="contact[Comment]"
+            placeholder="Message"
+          >
+            {{- form.body -}}
+          </textarea>
+          <label class="form__label field__label" for="ContactForm-body"> Message </label>
+        </div>
+
+        <div class="contact__button">
+          <button
+            type="submit"
+            class="button inline-block border-0 outline-none uppercase text-center cursor-pointer"
+          >
+            Send
+          </button>
+        </div>
+      {% endform %}
     </div>
   {% else %}
     <div>Sorry, this product does not exist.</div>
@@ -133,9 +287,6 @@
 {
   "name": "Product Template",
   "blocks": [
-    {
-      "type": "@app"
-    },
     {
       "type": "text",
       "name": "Text demo",

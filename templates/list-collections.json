@@ -1,48 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
-      "settings": {
-      }
-    },
-    "collection_grid_FryyQR": {
-      "type": "collection-grid",
+    "template_collection": {
+      "type": "template-collection",
       "settings": {
         "limit": 3,
-        "design": "design-1",
-        "headline": "Collections Design 1",
-        "align": "text-md-left",
-        "align_mb": "text-center",
-        "coll_btn": "Shop now"
-      }
-    },
-    "collection_grid_L8RnUa": {
-      "type": "collection-grid",
-      "settings": {
-        "limit": 3,
+        "pagination": "none",
         "design": "design-2",
-        "headline": "Collections Design 2",
-        "align": "text-md-center",
-        "align_mb": "text-center",
-        "coll_btn": "Shop now"
-      }
-    },
-    "collection_grid_n3WxCw": {
-      "type": "collection-grid",
-      "settings": {
-        "limit": 2,
-        "design": "design-3",
-        "headline": "Collections Design 3",
+        "headline": "",
         "align": "text-md-center",
         "align_mb": "text-center",
         "coll_btn": "Shop now"
       }
     }
   },
-  "order": [
-    "banner",
-    "collection_grid_FryyQR",
-    "collection_grid_L8RnUa",
-    "collection_grid_n3WxCw"
-  ]
+  "order": ["template_collection"]
 }

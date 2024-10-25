@@ -1,40 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main_breadcrumb_9LhqVF": {
-      "type": "main-breadcrumb",
-      "settings": {
-      }
-    },
-    "banner_qMDtQj": {
-      "type": "banner",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/img_collection.webp"
-      }
-    },
-    "product_collection": {
+    "product_collection_tt3Wjj": {
       "type": "product-collection",
       "settings": {
-        "per_page": 16,
-        "columns": "4",
-        "columns_moblie": "4",
-        "filter": "full",
+        "per_page": 12,
+        "columns": "3",
+        "columns_moblie": "1",
+        "filter": "left",
         "pagination": "list",
         "image_ratio": "square",
-        "show_vendor": false,
+        "show_vendor": true,
         "show_quick_view": true,
         "show_variant": true,
-        "our_ser_padding_top": 80,
-        "our_ser_padding_bottom": 80,
+        "our_ser_padding_top": 100,
+        "our_ser_padding_bottom": 0,
         "our_ser_padding_top_ip": 80,
-        "our_ser_padding_bottom_ip": 80,
+        "our_ser_padding_bottom_ip": 0,
         "our_ser_padding_top_xs": 60,
-        "our_ser_padding_bottom_xs": 60
+        "our_ser_padding_bottom_xs": 0
       }
     }
   },
   "order": [
-    "main_breadcrumb_9LhqVF",
-    "banner_qMDtQj",
-    "product_collection"
+    "product_collection_tt3Wjj"
   ]
 }

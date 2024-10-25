@@ -6652,13 +6652,22 @@ fieldset:disabled .btn {
   padding: 0.5rem;
 }
 .p-3 {
-  padding: 1rem;
+  padding: 0.75rem;
 }
 .p-4 {
-  padding: 1.5rem;
+  padding: 1rem;
 }
 .p-5 {
-  padding: 3rem;
+  padding: 1.25rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-7 {
+  padding: 1.75rem;
+}
+.p-8 {
+  padding: 2rem;
 }
 .px-0 {
   padding-right: 0;
@@ -6697,12 +6706,12 @@ fieldset:disabled .btn {
   padding-bottom: 0.5rem;
 }
 .py-3 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 .py-4 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .py-5 {
   padding-top: 3rem;

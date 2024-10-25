@@ -1,116 +1,122 @@
-{% comment %} {{ 'contact-form.css' | asset_url | stylesheet_tag }} {% endcomment %}
 
-<div class="container">
-  <div class="row">
-    {% for block in section.blocks %}
+
+  <div class="container">
+    <div class="row">
+      {% for block in section.blocks %}
       {% case block.type %}
-        {% when 'infomation' %}
-          <div class="col-md-6">
-            <div class="">
-              <div class="">
-                {{ block.settings.text }}
-              </div>
-              <div class="content">
-                {{ block.settings.content }}
-              </div>
-            </div>
+      {% when 'infomation' %}
+      <div class="col-md-6">
+        <div class="contact-info">
+          {% if block.settings.title %}<h3>{{ block.settings.title }}</h3>{% endif %}
+          {% if block.settings.content %}<div class="content">{{ block.settings.content }}</div>{% endif %}
+          {% if block.settings.address %}
+          <div class="info-item">
+            <h2>{{ 'contact.information.location' | t }}</h2>
+            <p>{{ block.settings.address }}</p>
           </div>
-        {% when 'form' %}
-          <div class="col-md-6">
-            {% form 'contact', id: 'ContactForm', class: 'ct-contact-form' %}
-              <!-- Name -->
-              <div class="field">
-                <input
-                  class="field__input"
-                  autocomplete="name"
-                  type="text"
-                  id="ContactForm-name"
-                  name="contact[Name]"
-                  value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-                  placeholder="Name"
-                  aria-required="true"
-                >
-                <label class="field__label" for="ContactForm-name">Name</label>
-              </div>
-
-              <div class="field field--with-error">
-                <input
-                  autocomplete="email"
-                  type="email"
-                  id="ContactForm-email"
-                  class="field__input"
-                  name="contact[email]"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                  aria-required="true"
-                  {% if form.errors contains 'email' %}
-                    aria-invalid="true"
-                    aria-describedby="ContactForm-email-error"
-                  {% endif %}
-                  placeholder="Email"
-                >
-                <label class="field__label" for="ContactForm-email">
-                  Email
-                  <span aria-hidden="true">*</span></label
-                >
-                {%- if form.errors contains 'email' -%}
-                  <small class="contact__field-error" id="ContactForm-email-error">
-                    <span class="visually-hidden">Error</span>
-                    <span class="form__message">
-                      {{- form.errors.translated_fields.email | capitalize }}
-                      {{ form.errors.messages.email -}}
-                    </span>
-                  </small>
-                {%- endif -%}
-              </div>
-
-              <!-- Phone -->
-              <div class="field">
-                <input
-                  type="tel"
-                  id="ContactForm-phone"
-                  class="field__input"
-                  autocomplete="tel"
-                  name="contact[Phone]"
-                  pattern="[0-9\-]*"
-                  value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-                  placeholder="Phone"
-                >
-                <label class="field__label" for="ContactForm-phone">Phone</label>
-              </div>
-
-              <!-- Message -->
-              <div class="field">
-                <textarea
-                  rows="10"
-                  id="ContactForm-body"
-                  class="text-area field__input"
-                  name="contact[Comment]"
-                  placeholder="Message"
-                >
-          {{- form.body -}}
-        </textarea>
-                <label class="form__label field__label" for="ContactForm-body"> Message </label>
-              </div>
-
-              <div class="contact__button">
-                <button type="submit" class="button">Send</button>
-              </div>
-            {% endform %}
+        
+          {% endif %}
+          {% if block.settings.work_time %}
+          <div class="info-item">
+            <h2>{{ 'contact.information.work_time' | t }}</h2>
+            <p>{{ block.settings.work_time }}</p>
           </div>
-        {% else %}
-
+          {% endif %}
+          <div class="info-item">
+            <h2>{{ 'contact.information.phone' | t }}</h2>
+            <p>
+              <a class="phone" href="tel:{{shop.phone}}">{{shop.phone}}</a>
+              {% if block.settings.phone %}<a class="phone"
+                href="tel:{{ block.settings.phone }}">{{ block.settings.phone }}</a>{% endif %}
+            </p>
+          </div>
+          <div class="info-item">
+            <h2>{{ 'contact.information.email' | t }}</h2>
+            <p>
+              <a href="mailto:{{shop.email}}">{{shop.email}}</a>
+              {% if block.settings.email %}<a href="mailto:{{block.settings.email}}">{{block.settings.email}}</a>{% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% when 'form' %}
+      <div class="col-md-6">
+        {% form 'contact', id: 'ContactForm', class: 'ct-contact-form' %}
+        <!-- Name -->
+        <div class="field">
+          <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" name="contact[Name]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="Name"
+            aria-required="true">
+          <label class="field__label" for="ContactForm-name">Name</label>
+        </div>
+  
+        <div class="field field--with-error">
+          <input autocomplete="email" type="email" id="ContactForm-email" class="field__input" name="contact[email]"
+            spellcheck="false" autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true" {% if form.errors contains 'email' %} aria-invalid="true"
+            aria-describedby="ContactForm-email-error" {% endif %} placeholder="Email">
+          <label class="field__label" for="ContactForm-email">
+            Email
+            <span aria-hidden="true">*</span></label>
+          {%- if form.errors contains 'email' -%}
+          <small class="contact__field-error" id="ContactForm-email-error">
+            <span class="visually-hidden">Error</span>
+            <span class="form__message">
+              {{- form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email -}}
+            </span>
+          </small>
+          {%- endif -%}
+        </div>
+  
+        <!-- Phone -->
+        <div class="field">
+          <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[Phone]"
+            pattern="[0-9\-]*"
+            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            placeholder="Phone">
+          <label class="field__label" for="ContactForm-phone">Phone</label>
+        </div>
+  
+        <!-- Message -->
+        <div class="field">
+          <textarea rows="10" id="ContactForm-body" class="text-area field__input" name="contact[Comment]"
+            placeholder="Message">
+            {{- form.body -}}
+          </textarea>
+          <label class="form__label field__label" for="ContactForm-body"> Message </label>
+        </div>
+  
+        <div class="contact__button">
+          <button type="submit" class="button inline-block border-0 outline-none uppercase text-center text-white cursor-pointer">Send</button>
+        </div>
+        {% endform %}
+      </div>
+      {% else %}
+  
       {% endcase %}
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
-</div>
 
 {% style %}
+
+  #shopify-section-{{ section.id }}{
+    padding: {{section.settings.spacing}};
+  }
+  
+  @media(min-width: 992px){
+    #shopify-section-{{ section.id }}{
+      padding: {{section.settings.spacing_lg}};
+    }
+  }
+
   .field {
     position: relative;
     margin-bottom: 15px;
   }
+
   .ct-contact-form .field__label {
     display: block;
   }
@@ -134,27 +140,50 @@
   .ct-contact-form textarea{
     height: 150px;
   }
+
+.contact__button button{
+  outline: 0;
+  -webkit-transition: all .4s linear 0ms;
+  -khtml-transition: all .4s linear 0ms;
+  -moz-transition: all .4s linear 0ms;
+  -ms-transition: all .4s linear 0ms;
+  -o-transition: all .4s linear 0ms;
+  transition: all .4s linear 0ms;
+  padding: 0 20px;
+  border-radius: 10px;
+  max-width: 100%;
+  width: 100%;
+  min-width: 250px;
+  background: var(--blue-dark);
+  height: 50px;
+  color: #fff;
+}
+
 {% endstyle %}
 
 {% schema %}
 {
-  "name": "Contact Form",
+  "name": "Contact Template",
   "settings": [
     {
-      "type": "textarea",
-      "id": "link",
-      "label": "Link"
+      "type": "text",
+      "id": "spacing_lg",
+      "label": "Spacing (Desktop / Laptop / tablet)",
+      "default": "70px 0 0 70px",
+      "info": "Note: Top right bottom left. Docs [here](https://www.w3schools.com/css/css_padding.asp)"
+    },
+    {
+      "type": "text",
+      "id": "spacing",
+      "label": "Spacing (Mobile)",
+      "default": "60px 0 0 60px",
+      "info": "Note: Top right bottom left. Docs [here](https://www.w3schools.com/css/css_padding.asp)"
     }
   ],
   "blocks": [
     {
       "type": "form",
       "name": "Form",
-      "settings": []
-    },
-    {
-      "type": "infomation",
-      "name": "Infomation",
       "settings": [
         {
           "type": "text",
@@ -167,11 +196,52 @@
           "label": "Content"
         }
       ]
+    },
+    {
+      "type": "infomation",
+      "name": "Infomation",
+      "settings": [
+        {
+        "type": "text",
+        "id": "title",
+        "label": "Title contact",
+        "default":"CONTACT INFORMATION"
+        },
+        {
+        "type": "textarea",
+        "id": "content",
+        "label": "Content"
+        },
+        {
+        "type": "textarea",
+        "id": "address",
+        "label": "Address",
+        "default": "Your email address will not be published. Required fields are marked *"
+        },
+        {
+        "type": "textarea",
+        "id": "work_time",
+        "label": "Work time",
+        "default": "Monday – Friday: 9:00-20:00 <br> Saturady: 11:00 – 15:00"
+        },
+        {
+        "type": "text",
+        "id": "phone",
+        "label": "Phone number",
+        "default":"(+100) 666-456-7890"
+        },
+        {
+        "type": "text",
+        "id": "email",
+        "label": "Email",
+        "default":"aloshopify@alothemes.com"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Contact Form"
+      "name": "Contact Template"
     }
   ]
 }

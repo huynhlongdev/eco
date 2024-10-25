@@ -35,9 +35,9 @@
 
           {%- if value.swatch.color -%}
             <div
-              class="inline-block p-[2px] rounded-full border border-[#ccc] cursor-pointer"
+              class="inline-block border cursor-pointer"
             >
-              <span class="size-2 md:size-4 block rounded-full bg-[var(--color)]" title="{{ value }}" style="--color: {{ value.swatch.color }}"></span>
+              <span class="block" title="{{ value }}" style="--color: {{ value.swatch.color }}" data-bs-toggle="tooltip" data-bs-placement="top"></span>
             </div>
           {%- endif -%}
         {%- endfor -%}

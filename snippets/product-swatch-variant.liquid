@@ -63,7 +63,9 @@
           <input type="radio" id="{{ option.name | downcase }}-{{ value | downcase }}"
             name="options[{{ option.name | escape }}]" value="{{ value | escape }}"
             {% if option.selected_value == value %} checked="checked" {% endif %}>
-          <label for="{{ option.name | downcase }}-{{ value | downcase }}">
+          <label for="{{ option.name | downcase }}-{{ value | downcase }}" data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="{{ value | escape }}">
             {{- value -}}
           </label>
         </div>
@@ -79,7 +81,7 @@
 
   (function ($) {
 
-  console.log('>>> product', {{ product | json }})
+  // console.log('>>> product', {{ product | json }})
 
     function onVariantChange(template = "type") {
       let currentVariant;

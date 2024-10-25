@@ -1,0 +1,196 @@
+{%- liquid
+  assign collection = section.settings.collection
+  assign heading = section.settings.heading
+-%}
+
+<div class="container">
+  <div class="row">
+    {% if heading != blank %}
+      <h2>{{ heading | strip_html }}</h2>
+    {% endif %}
+
+    {% assign featured_products = collections.all.products | where: 'metafields.custom.featured.value', true %}
+
+    {{ featured_products }}
+
+    {% for product in collections.all.products %}
+      <h6>{{ product.title }}</h6>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Featured",
+  "class": "product-featured",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "number",
+      "id": "per_page",
+      "label": "Product per page",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns",
+      "default": "3",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "columns_moblie",
+      "label": "Columns Mobile",
+      "default": "1",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "filter",
+      "label": "Filter",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        },
+        {
+          "value": "drawer",
+          "label": "Drawer"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "pagination",
+      "label": "Pagination",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "list",
+          "label": "List"
+        },
+        {
+          "value": "ajax",
+          "label": "Load more"
+        }
+      ],
+      "default": "list"
+    },
+    {
+      "type": "header",
+      "content": "Product card"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        {
+          "label": "Portrait",
+          "value": "portrait"
+        },
+        {
+          "label": "Square",
+          "value": "square"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Vendor",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_view",
+      "label": "Show Quickview",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_variant",
+      "label": "Show Variant",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Featured"
+    }
+  ]
+}
+{% endschema %}
