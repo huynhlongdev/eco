@@ -380,7 +380,7 @@ if (!customElements.get("product-options")) {
       this.updateGallery($product, data);
       this.updateLinks($product, data);
       this.updateHistory($product, data);
-      theme.ProductImagesNavigation.switch($product, data);
+      theme.ProductImagesNavigation.switch($product, data);data 
       if (!data.dontUpdateVariantsSelect) {
         this.updateVariantsSelect($product, data);
       }
@@ -388,6 +388,7 @@ if (!customElements.get("product-options")) {
     updateOptions(data) {
       var self = this,
         $this = $(this);
+      console.log('updateOptions', updateOptions);
       $this.find(self.settings.optionSelector).removeClass("active");
       self.updatePossibleVariants($data);
       $.each(data.update_variant.options, function (i, k) {
