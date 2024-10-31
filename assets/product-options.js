@@ -281,6 +281,7 @@ if (!customElements.get("product-options")) {
       var self = this;
 
       console.log('self', self);
+      console.log('data', data);
       const selectedOptionOneVariants = data.json.variants.filter((variant) => {
         return (
           self.querySelector(
