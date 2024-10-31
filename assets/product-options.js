@@ -305,8 +305,10 @@ if (!customElements.get("product-options")) {
         });
       }
       const inputWrappers = [...self.querySelectorAll(".cms-option-item")];
+      console.log('inputWrappers', inputWrappers);
       inputWrappers.forEach((option, index) => {
         if (index === 0) return;
+        console.log('optionInputs', self.settings.optionSelector);
         const optionInputs = [
           ...option.querySelectorAll(self.settings.optionSelector),
         ];
