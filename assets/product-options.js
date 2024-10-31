@@ -308,7 +308,7 @@ if (!customElements.get("product-options")) {
       console.log('inputWrappers', inputWrappers);
       inputWrappers.forEach((option, index) => {
         if (index === 0) return;
-        console.log('optionInputs', self.settings.optionSelector);
+        console.log('optionInputs', option.querySelectorAll(self.settings.optionSelector));
         const optionInputs = [
           ...option.querySelectorAll(self.settings.optionSelector),
         ];
