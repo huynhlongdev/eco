@@ -1,46 +1,138 @@
 {
   "sections": {
-    "bd7a3f74-7d6b-4ffb-be8a-137fd5254eae": {
-      "type": "slideshow2",
+    "9db669ec-e36b-42f0-a69e-c98e639e4bf0": {
+      "type": "slideshow",
       "blocks": {
-        "template--21324546343230__bd7a3f74-7d6b-4ffb-be8a-137fd5254eae-img-1": {
+        "template--21324546343230__9db669ec-e36b-42f0-a69e-c98e639e4bf0-img-1": {
           "type": "img",
           "settings": {
-            "image_sl": "shopify:\/\/shop_images\/banner_1_3.png",
+            "image_sl": "shopify:\/\/shop_images\/banner_24_1.png",
+            "link_img": "",
+            "open_link": "_blank",
+            "cusotm-width": 50,
+            "h_position": "left",
+            "v_position": "middle",
+            "txt_align": "left"
+          }
+        },
+        "ec2df4d6-a9ba-4a9d-b3f9-f1b9cc97512f": {
+          "type": "subhd",
+          "settings": {
+            "title": "Quick Parcel Delivery, From $25",
+            "text_animate": "fadeInUp",
+            "text_time": 3.5,
+            "color": "#222",
+            "linear_gradient": "",
+            "fs_text": 24,
+            "fw_text": 400,
+            "lh_text": 24,
+            "ls_text": "0",
+            "text_transform": "capitalize",
+            "hide": false,
+            "first_mark": false,
+            "last_mark": true,
+            "custom_mark": "4",
+            "color_mark": "#92ac28",
+            "mobile_font_text": 18,
+            "mobile_fw_text": 400,
+            "mobile_lh_text": 24
+          }
+        },
+        "a37497ca-fff0-4888-9ed8-738f5f7027ef": {
+          "type": "space",
+          "settings": {
+            "hide_mobile": false,
+            "sp": 20,
+            "mobile_sp": 10
+          }
+        },
+        "defd90f0-1a0e-4d4c-a8a5-a94ad4fca11c": {
+          "type": "hd",
+          "settings": {
+            "hide": false,
+            "title": "Sale In Lookbook<br>\nMake You Happy",
+            "text_animate": "fadeInUp",
+            "text_time": 3.5,
+            "color": "#222222",
+            "linear_gradient": "",
+            "fs_text": 60,
+            "fw_text": 500,
+            "lh_text": 60,
+            "ls_text": "0",
+            "text_transform": "capitalize",
+            "first_mark": false,
+            "last_mark": false,
+            "custom_mark": "",
+            "color_mark": "",
+            "mobile_font_text": 40,
+            "mobile_fw_text": 400,
+            "mobile_lh_text": 40
+          }
+        },
+        "760fa0a8-b617-4b24-b8fa-34f7575cb6ff": {
+          "type": "space",
+          "settings": {
+            "hide_mobile": false,
+            "sp": 30,
+            "mobile_sp": 15
+          }
+        },
+        "ea26f02c-7f7e-4988-946f-30bd3306386f": {
+          "type": "btn",
+          "settings": {
+            "title": "Explore Now",
+            "text_animate": "fadeInUp",
+            "text_time": 3.5,
+            "btn_link": "#",
+            "cl_txt": "#ffffff",
+            "cl_txt_hover": "#ffffff",
+            "cl_bg": "#222222",
+            "cl_bg_hover": "#c7ab62",
+            "fs_text": 16,
+            "fw_text": 400,
+            "ls_text": 0,
+            "button_transform": "capitalize",
+            "br_button": 3,
+            "mobile_font_text": 16,
+            "mobile_fw_text": 400
+          }
+        },
+        "template--21324546343230__9db669ec-e36b-42f0-a69e-c98e639e4bf0-img-2": {
+          "type": "img",
+          "settings": {
+            "image_sl": "shopify:\/\/shop_images\/banner_24_2.png",
             "link_img": "#",
             "open_link": "_blank",
+            "cusotm-width": 50,
             "h_position": "left",
             "v_position": "middle",
-            "txt_align": "left",
-            "cl_overlay": "#111111",
-            "cl_opacity": 100
+            "txt_align": "left"
           }
         },
-        "a6235729-0758-4209-9bcd-d524721dc300": {
-          "type": "hd",
+        "c7b6a108-c386-4ab4-b8f5-9e643ae93355": {
+          "type": "subhd",
           "settings": {
-            "hide": false,
-            "title": "Gaming Headset<br>\nBrilliant Lighting Effect",
-            "text_animate": "fadeInDown",
-            "text_time": 2.5,
-            "color": "#ffffff",
+            "title": "Quick Parcel Delivery, From $25",
+            "text_animate": "fadeInUp",
+            "text_time": 3.5,
+            "color": "#222",
             "linear_gradient": "",
+            "fs_text": 24,
             "fw_text": 400,
-            "fs_text": 40,
-            "lh_text": 48,
+            "lh_text": 24,
             "ls_text": "0",
-            "font_style": "normal",
-            "text_transform": "none",
+            "text_transform": "capitalize",
+            "hide": false,
             "first_mark": false,
-            "last_mark": false,
-            "custom_mark": "",
-            "color_mark": "",
+            "last_mark": true,
+            "custom_mark": "4",
+            "color_mark": "#92ac28",
+            "mobile_font_text": 18,
             "mobile_fw_text": 400,
-            "mobile_lh_text": 38,
-            "mobile_font_text": 30
+            "mobile_lh_text": 24
           }
         },
-        "be13fc86-fdd4-4a39-8134-edb412c0883c": {
+        "7a9b46f0-64fe-45f2-9a86-5fae8728cc73": {
           "type": "space",
           "settings": {
             "hide_mobile": false,
@@ -48,189 +140,93 @@
             "mobile_sp": 10
           }
         },
-        "f95328d2-4593-41f2-aa87-caa8b372205f": {
-          "type": "txt",
+        "c7c219ca-5b2f-4db8-a2dd-53ad9be2a2b1": {
+          "type": "hd",
           "settings": {
-            "title": "Wireless Connection With TV, Computer, Laptop...",
-            "text_animate": "fadeInDown",
-            "text_time": 2.5,
-            "color": "#ffffff",
-            "fw_text": 400,
-            "fs_text": 18,
-            "lh_text": 18,
-            "ls_text": 0,
             "hide": false,
-            "hide_mobile": false,
+            "title": "Houseplant<br>\nThe Perfect Choise!",
+            "text_animate": "fadeInUp",
+            "text_time": 3.5,
+            "color": "#222222",
+            "linear_gradient": "",
+            "fs_text": 60,
+            "fw_text": 500,
+            "lh_text": 60,
+            "ls_text": "0",
+            "text_transform": "capitalize",
+            "first_mark": false,
+            "last_mark": false,
+            "custom_mark": "",
+            "color_mark": "",
+            "mobile_font_text": 40,
             "mobile_fw_text": 400,
-            "mobile_lh_text": 18,
-            "mobile_font_text": 14
+            "mobile_lh_text": 30
           }
         },
-        "27e66c82-1829-4044-a5ba-3132101e4a6d": {
+        "12b18f5b-d591-4d44-95d7-9489d09b76c9": {
           "type": "space",
           "settings": {
             "hide_mobile": false,
-            "sp": 60,
-            "mobile_sp": 30
+            "sp": 30,
+            "mobile_sp": 15
           }
         },
-        "c6274f80-62c4-40a4-9cac-73c7e06159b3": {
+        "f80b98db-7e64-4ac4-8501-a41cafaf6280": {
           "type": "btn",
           "settings": {
-            "title": "Discover Now",
-            "text_animate": "fadeInDown",
-            "text_time": 2.5,
+            "title": "Explore Now",
+            "text_animate": "fadeInUp",
+            "text_time": 3.5,
             "btn_link": "#",
             "cl_txt": "#ffffff",
             "cl_txt_hover": "#ffffff",
-            "cl_bg": "#111111",
-            "cl_bg_hover": "#f26460",
-            "fs_text": 13,
+            "cl_bg": "#222222",
+            "cl_bg_hover": "#c7ab62",
+            "fs_text": 16,
             "fw_text": 400,
-            "button_transform": "uppercase",
-            "br_button": 3,
-            "mg": "0px 0px 0px 0px",
-            "pd": "15px 32px 15px 32px",
             "ls_text": 0,
-            "mobile_fw_text": 400,
-            "mobile_font_text": 13,
-            "mobile_mg": "0px 0px 0px 0px",
-            "mobile_pd": "15px 32px 10px 32px"
+            "button_transform": "capitalize",
+            "br_button": 3,
+            "mobile_font_text": 16,
+            "mobile_fw_text": 400
           }
         },
-        "template--21324546343230__bd7a3f74-7d6b-4ffb-be8a-137fd5254eae-img-2": {
+        "e6440a21-227a-4cc8-bec6-bb690747cdcf": {
           "type": "img",
           "settings": {
-            "image_sl": "shopify:\/\/shop_images\/banner_1_1.png",
-            "link_img": "",
+            "image_sl": "shopify:\/\/shop_images\/banner_24_3.png",
+            "link_img": "#",
             "open_link": "_blank",
+            "cusotm-width": 50,
             "h_position": "left",
             "v_position": "middle",
-            "txt_align": "left",
-            "cl_overlay": "#111111",
-            "cl_opacity": 100
+            "txt_align": "left"
           }
         },
-        "257f987e-b4cd-4b28-a14d-ff7caa6175df": {
-          "type": "hd",
+        "6f8b3f09-fb0b-4073-88f6-6df30fbb66fc": {
+          "type": "subhd",
           "settings": {
-            "hide": false,
-            "title": "Sport Edition<br>\nRed Special Edition",
-            "text_animate": "fadeInUp",
-            "text_time": 2.5,
-            "color": "#ffffff",
+            "title": "Quick Parcel Delivery, From $25",
+            "text_animate": "fadeInDown",
+            "text_time": 3.5,
+            "color": "#111",
             "linear_gradient": "",
+            "fs_text": 24,
             "fw_text": 400,
-            "fs_text": 40,
-            "lh_text": 48,
+            "lh_text": 24,
             "ls_text": "0",
-            "font_style": "normal",
-            "text_transform": "none",
-            "first_mark": false,
-            "last_mark": false,
-            "custom_mark": "",
-            "color_mark": "",
-            "mobile_fw_text": 400,
-            "mobile_lh_text": 38,
-            "mobile_font_text": 20
-          }
-        },
-        "8e23f747-d7c1-4d2e-83da-9973255a5227": {
-          "type": "space",
-          "settings": {
-            "hide_mobile": false,
-            "sp": 15,
-            "mobile_sp": 10
-          }
-        },
-        "53578376-ec19-4f8a-ab2d-2dcca6a5a465": {
-          "type": "txt",
-          "settings": {
-            "title": "Wireless Connection With TV, Computer, Laptop...",
-            "text_animate": "fadeInUp",
-            "text_time": 2.5,
-            "color": "#ffffff",
-            "fw_text": 400,
-            "fs_text": 18,
-            "lh_text": 18,
-            "ls_text": 0,
+            "text_transform": "capitalize",
             "hide": false,
-            "hide_mobile": false,
-            "mobile_fw_text": 400,
-            "mobile_lh_text": 18,
-            "mobile_font_text": 14
-          }
-        },
-        "97b9f5ad-5b85-48ee-aa98-7e4bc446695a": {
-          "type": "space",
-          "settings": {
-            "hide_mobile": false,
-            "sp": 60,
-            "mobile_sp": 30
-          }
-        },
-        "1e2df80f-ba8a-4f2a-9f90-83d486bc98e0": {
-          "type": "btn",
-          "settings": {
-            "title": "Discover Now",
-            "text_animate": "fadeInUp",
-            "text_time": 2.5,
-            "btn_link": "",
-            "cl_txt": "#ffffff",
-            "cl_txt_hover": "#ffffff",
-            "cl_bg": "#111111",
-            "cl_bg_hover": "#f26460",
-            "fs_text": 13,
-            "fw_text": 400,
-            "button_transform": "uppercase",
-            "br_button": 3,
-            "mg": "0px 0px 0px 0px",
-            "pd": "15px 32px 15px 32px",
-            "ls_text": 0,
-            "mobile_fw_text": 400,
-            "mobile_font_text": 13,
-            "mobile_mg": "0px 0px 0px 0px",
-            "mobile_pd": "15px 32px 10px 32px"
-          }
-        },
-        "a15c3fa2-bd40-420a-8b4b-6a92dd6ee530": {
-          "type": "img",
-          "settings": {
-            "image_sl": "shopify:\/\/shop_images\/banner_1_3.png",
-            "link_img": "",
-            "open_link": "_blank",
-            "h_position": "left",
-            "v_position": "middle",
-            "txt_align": "left",
-            "cl_overlay": "#111111",
-            "cl_opacity": 100
-          }
-        },
-        "f124092e-baa4-4350-a53f-f794f90dca50": {
-          "type": "hd",
-          "settings": {
-            "hide": false,
-            "title": "Sport Edition<br>\nBest Choice Of Your",
-            "text_animate": "slideInLeft",
-            "text_time": 2.5,
-            "color": "#ffffff",
-            "linear_gradient": "",
-            "fw_text": 400,
-            "fs_text": 40,
-            "lh_text": 48,
-            "ls_text": "0",
-            "font_style": "normal",
-            "text_transform": "none",
             "first_mark": false,
-            "last_mark": false,
-            "custom_mark": "",
-            "color_mark": "",
+            "last_mark": true,
+            "custom_mark": "4",
+            "color_mark": "#92ac28",
+            "mobile_font_text": 18,
             "mobile_fw_text": 400,
-            "mobile_lh_text": 38,
-            "mobile_font_text": 30
+            "mobile_lh_text": 24
           }
         },
-        "98ffab82-00b4-48e5-849d-83602a0653be": {
+        "f10c8da3-1faf-45b3-a238-9c916b8f0ed2": {
           "type": "space",
           "settings": {
             "hide_mobile": false,
@@ -238,83 +234,85 @@
             "mobile_sp": 10
           }
         },
-        "1cb660aa-bce5-4c1a-86dd-dd8bd703e50b": {
-          "type": "txt",
+        "f6ff90e2-e602-436d-a667-9eb263578d9e": {
+          "type": "hd",
           "settings": {
-            "title": "Wireless Connection With TV, Computer, Laptop...",
-            "text_animate": "none",
-            "text_time": 2.5,
-            "color": "#ffffff",
-            "fw_text": 400,
-            "fs_text": 18,
-            "lh_text": 18,
-            "ls_text": 0,
             "hide": false,
-            "hide_mobile": false,
+            "title": "Hanging Plants<br>\nUp To 45% Discount!",
+            "text_animate": "fadeInDown",
+            "text_time": 3.5,
+            "color": "#222222",
+            "linear_gradient": "",
+            "fs_text": 60,
+            "fw_text": 500,
+            "lh_text": 60,
+            "ls_text": "0",
+            "text_transform": "capitalize",
+            "first_mark": false,
+            "last_mark": false,
+            "custom_mark": "",
+            "color_mark": "",
+            "mobile_font_text": 40,
             "mobile_fw_text": 400,
-            "mobile_lh_text": 18,
-            "mobile_font_text": 14
+            "mobile_lh_text": 40
           }
         },
-        "7430e44e-fdea-494d-8785-437c45086b86": {
+        "8c669eb7-dc69-42d6-9bd4-60439b0deb37": {
           "type": "space",
           "settings": {
             "hide_mobile": false,
-            "sp": 60,
-            "mobile_sp": 30
+            "sp": 35,
+            "mobile_sp": 15
           }
         },
-        "021d7e92-c99f-4fd1-809e-88e55a3d1486": {
+        "2f951bc9-a298-403d-a42a-74afd7dd3942": {
           "type": "btn",
           "settings": {
-            "title": "Discover Now",
-            "text_animate": "none",
-            "text_time": 2.5,
+            "title": "Explore Now",
+            "text_animate": "fadeInDown",
+            "text_time": 3.5,
             "btn_link": "#",
             "cl_txt": "#ffffff",
             "cl_txt_hover": "#ffffff",
-            "cl_bg": "#111111",
-            "cl_bg_hover": "#f26460",
-            "fs_text": 13,
+            "cl_bg": "#222222",
+            "cl_bg_hover": "#c7ab62",
+            "fs_text": 16,
             "fw_text": 400,
-            "button_transform": "uppercase",
-            "br_button": 3,
-            "mg": "0px 0px 0px 0px",
-            "pd": "15px 32px 15px 32px",
             "ls_text": 0,
-            "mobile_fw_text": 600,
-            "mobile_font_text": 13,
-            "mobile_mg": "0px 0px 0px 0px",
-            "mobile_pd": "15px 32px 10px 32px"
+            "button_transform": "capitalize",
+            "br_button": 3,
+            "mobile_font_text": 16,
+            "mobile_fw_text": 400
           }
         }
       },
       "block_order": [
-        "template--21324546343230__bd7a3f74-7d6b-4ffb-be8a-137fd5254eae-img-1",
-        "a6235729-0758-4209-9bcd-d524721dc300",
-        "be13fc86-fdd4-4a39-8134-edb412c0883c",
-        "f95328d2-4593-41f2-aa87-caa8b372205f",
-        "27e66c82-1829-4044-a5ba-3132101e4a6d",
-        "c6274f80-62c4-40a4-9cac-73c7e06159b3",
-        "template--21324546343230__bd7a3f74-7d6b-4ffb-be8a-137fd5254eae-img-2",
-        "257f987e-b4cd-4b28-a14d-ff7caa6175df",
-        "8e23f747-d7c1-4d2e-83da-9973255a5227",
-        "53578376-ec19-4f8a-ab2d-2dcca6a5a465",
-        "97b9f5ad-5b85-48ee-aa98-7e4bc446695a",
-        "1e2df80f-ba8a-4f2a-9f90-83d486bc98e0",
-        "a15c3fa2-bd40-420a-8b4b-6a92dd6ee530",
-        "f124092e-baa4-4350-a53f-f794f90dca50",
-        "98ffab82-00b4-48e5-849d-83602a0653be",
-        "1cb660aa-bce5-4c1a-86dd-dd8bd703e50b",
-        "7430e44e-fdea-494d-8785-437c45086b86",
-        "021d7e92-c99f-4fd1-809e-88e55a3d1486"
+        "template--21324546343230__9db669ec-e36b-42f0-a69e-c98e639e4bf0-img-1",
+        "ec2df4d6-a9ba-4a9d-b3f9-f1b9cc97512f",
+        "a37497ca-fff0-4888-9ed8-738f5f7027ef",
+        "defd90f0-1a0e-4d4c-a8a5-a94ad4fca11c",
+        "760fa0a8-b617-4b24-b8fa-34f7575cb6ff",
+        "ea26f02c-7f7e-4988-946f-30bd3306386f",
+        "template--21324546343230__9db669ec-e36b-42f0-a69e-c98e639e4bf0-img-2",
+        "c7b6a108-c386-4ab4-b8f5-9e643ae93355",
+        "7a9b46f0-64fe-45f2-9a86-5fae8728cc73",
+        "c7c219ca-5b2f-4db8-a2dd-53ad9be2a2b1",
+        "12b18f5b-d591-4d44-95d7-9489d09b76c9",
+        "f80b98db-7e64-4ac4-8501-a41cafaf6280",
+        "e6440a21-227a-4cc8-bec6-bb690747cdcf",
+        "6f8b3f09-fb0b-4073-88f6-6df30fbb66fc",
+        "f10c8da3-1faf-45b3-a238-9c916b8f0ed2",
+        "f6ff90e2-e602-436d-a667-9eb263578d9e",
+        "8c669eb7-dc69-42d6-9bd4-60439b0deb37",
+        "2f951bc9-a298-403d-a42a-74afd7dd3942"
       ],
       "settings": {
         "hidden": false,
-        "h_des": "420px",
-        "h_tb": "420px",
-        "h_mb": "350px",
-        "b_radius": 20,
+        "full-screen": false,
+        "h_des": "720px",
+        "h_tb": "600px",
+        "h_mb": "450px",
+        "border": 0,
         "use-slider": true,
         "slides-To-Scroll": 1,
         "visible": 1,
@@ -329,7 +327,7 @@
         "rows": 1,
         "autoplay": true,
         "speed": "300",
-        "autoplay-Speed": "6000",
+        "autoplay-Speed": "3000",
         "arrows": true,
         "fade": false,
         "fade_zoom": false,
@@ -339,105 +337,108 @@
         "infinite": false,
         "padding": 0,
         "vertical": false,
-        "banner-width": 40,
-        "item_gap": 20,
-        "use_banner_statick": true,
-        "image_1": "shopify:\/\/shop_images\/1_1.png",
-        "link_img_1": "",
-        "content_1": "<h4>Canyon <br>\nStar Raider,<\/h4>\n<p>Headphone & Audio<\/p>",
-        "image_2": "shopify:\/\/shop_images\/1_2.png",
-        "link_img_2": "",
-        "content_2": "<h4>Phone \n <br>\nGalaxy S20<\/h4>\n<p>Cellphone & Tablets<\/p>",
-        "image_3": "shopify:\/\/shop_images\/1_3.png",
-        "link_img_3": "",
-        "content_3": "<h4>Galaxy <br>Buds Plus<\/h4><p>Wireless Earbuds<\/p>",
-        "image_4": "shopify:\/\/shop_images\/1_4.png",
-        "link_img_4": "",
-        "content_4": "<h4>Chair <br>Swoon Lounge,<\/h4><p>Decor & Furniture<\/p>",
-        "layout": "container",
-        "cl_bg": "#f6f7f9",
-        "mg": "",
-        "pd": "30px,,60px,",
-        "mg_mb": "",
-        "pd_mb": "20px,,20px,"
+        "position_dots": "center",
+        "style_dots": "default",
+        "custom_width": false,
+        "container_width": 1800,
+        "layout": "full-width",
+        "cl_bg": "#ffffff",
+        "mg": ",,80px,",
+        "pd": "",
+        "mg_mb": ",,40px,",
+        "pd_mb": ""
       }
     },
-    "574adbaf-6e05-4837-8111-0b00659cc363": {
+    "182e6935-a48a-4b80-8b07-e15aa9792b8f": {
       "type": "collection-carousel-product",
       "blocks": {
-        "c3e58468-b719-437f-af97-dd75a2e49f35": {
+        "cc9c51a7-1b1a-4926-a20f-ecdb5fe873df": {
           "type": "product",
           "settings": {
-            "product": "proenza-schouler-white-label-24"
+            "product": "rojo-congo-philodendron"
           }
         },
-        "073f1c1a-b9ff-4c13-8a29-b6e546a568a5": {
+        "a25cde26-622d-4305-a8ef-775183ed0bc3": {
           "type": "product",
           "settings": {
-            "product": "proenza-schouler-white-label-23"
+            "product": "devils-ivy"
           }
         },
-        "d1929bbe-3dc3-40d6-b2fb-023190b836ae": {
+        "878a8a40-46c4-4ce6-9351-59ca9796de02": {
           "type": "product",
           "settings": {
-            "product": "proenza-schouler-white-label-25"
+            "product": "yucca"
           }
         },
-        "feefb4d2-9e84-49ce-9ace-3c99e8111cbc": {
+        "2aef2ddb-d299-4f49-aa49-f12744540e7e": {
           "type": "product",
           "settings": {
-            "product": "proenza-schouler-white-label-22"
+            "product": "umbrella-tree"
           }
         },
-        "35bbc70c-b210-46b7-becf-c0d46ab2cc61": {
+        "d3c7dc0e-8377-4c48-9851-7eec3fb2e39e": {
           "type": "product",
           "settings": {
-            "product": "proenza-schouler-white-label-19"
+            "product": "fiddle-leaf-fig"
           }
         },
-        "7b000cf8-7b1e-4c13-bb02-b716298ab4db": {
+        "78a1e3a4-c34e-4419-adbc-34bd85963831": {
           "type": "product",
           "settings": {
-            "product": "apple-iphone-13-mini-128gb-pink-unlocked"
+            "product": "zz-plant"
           }
         },
-        "3510c775-e22f-417c-a0ac-d16321daa3b1": {
+        "5aab99bc-da6c-401f-925e-33ec27c38e1e": {
           "type": "product",
           "settings": {
-            "product": "proenza-schouler-white-label-20"
+            "product": "monstera"
           }
         },
-        "c54e2546-81ce-48a8-ace9-f00aa4f68bec": {
+        "1bd64bb3-8197-4aa9-81b8-6f2826a457c6": {
           "type": "product",
           "settings": {
-            "product": "proenza-schouler-white-label-17"
+            "product": "cornstalk-dracaena"
+          }
+        },
+        "114612c1-7979-4b5a-b682-e9c4906b7006": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "ace46ac0-aa7a-4a35-9dcf-139bf4efa4fa": {
+          "type": "product",
+          "settings": {
+            "product": ""
           }
         }
       },
       "block_order": [
-        "c3e58468-b719-437f-af97-dd75a2e49f35",
-        "073f1c1a-b9ff-4c13-8a29-b6e546a568a5",
-        "d1929bbe-3dc3-40d6-b2fb-023190b836ae",
-        "feefb4d2-9e84-49ce-9ace-3c99e8111cbc",
-        "35bbc70c-b210-46b7-becf-c0d46ab2cc61",
-        "7b000cf8-7b1e-4c13-bb02-b716298ab4db",
-        "3510c775-e22f-417c-a0ac-d16321daa3b1",
-        "c54e2546-81ce-48a8-ace9-f00aa4f68bec"
+        "cc9c51a7-1b1a-4926-a20f-ecdb5fe873df",
+        "a25cde26-622d-4305-a8ef-775183ed0bc3",
+        "878a8a40-46c4-4ce6-9351-59ca9796de02",
+        "2aef2ddb-d299-4f49-aa49-f12744540e7e",
+        "d3c7dc0e-8377-4c48-9851-7eec3fb2e39e",
+        "78a1e3a4-c34e-4419-adbc-34bd85963831",
+        "5aab99bc-da6c-401f-925e-33ec27c38e1e",
+        "1bd64bb3-8197-4aa9-81b8-6f2826a457c6",
+        "114612c1-7979-4b5a-b682-e9c4906b7006",
+        "ace46ac0-aa7a-4a35-9dcf-139bf4efa4fa"
       ],
       "settings": {
-        "title": "Hot Trending Products",
-        "text_size": "small",
+        "title": "New Arrivals",
+        "text_size": "medium",
         "text_transform": "capitalize",
         "display_type": "selected",
-        "collection": "phones-accessories",
+        "collection": "all-fashion",
         "use-all-product": true,
-        "max_count": 8,
+        "max_count": 10,
         "use-slider": true,
         "slides-To-Scroll": 1,
-        "visible": 7,
-        "widescreen": 7,
-        "desktop": 6,
-        "laptop": 5,
+        "visible": 5,
+        "widescreen": 5,
+        "desktop": 4,
+        "laptop": 4,
         "notebook": 4,
         "tablet": 3,
         "landscape": 2,
@@ -456,96 +457,165 @@
         "padding": 10,
         "vertical": false,
         "layout_des": false,
-        "cl_bg": "#f6f7f9",
-        "use_lines": false,
-        "cl_line": "#e5e8ec",
-        "mg": ",,,",
-        "pd": ",,100px,",
-        "mg_mb": ",,,",
-        "pd_mb": ",,50px,"
+        "custom_width": true,
+        "container_width": 1800,
+        "cl_bg": "#ffffff",
+        "mg": "",
+        "pd": ",,60px,",
+        "mg_mb": "",
+        "pd_mb": ",,30px,"
       }
     },
-    "19a8ee4d-f090-4899-b3c8-4f79aecb2162": {
-      "type": "collection-list-slider",
+    "79417091-7f3f-43bb-b035-db1e4988e824": {
+      "type": "Image-grid",
       "blocks": {
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-1": {
-          "type": "collection",
+        "template--21324546343230__79417091-7f3f-43bb-b035-db1e4988e824-image-1": {
+          "type": "image",
           "settings": {
-            "collection": "decor-furniture",
-            "image": "shopify:\/\/shop_images\/cate_1_1.png",
-            "title": "Decor  & Furniture"
+            "image": "shopify:\/\/shop_images\/24_1.png",
+            "label": "mid- season",
+            "cl_label": "#92ac28",
+            "cl_span_label": "#d90a2c",
+            "title": "Hodies For Her",
+            "cl_title": "#222222",
+            "content": "Availbale online and in-store",
+            "cl_content": "#444444",
+            "link": "Shop now",
+            "btn_link": "shopify:\/\/collections\/womens",
+            "open_link": "_blank",
+            "cl_link": "#222222",
+            "cl_link_hover": "#c7ab62",
+            "bg_link": "#222222",
+            "bg_link_hover": "#c7ab62",
+            "btn_style": "link",
+            "h_position": "left",
+            "v_position": "top",
+            "txt_align": "left",
+            "mg_bottom": 20
           }
         },
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-2": {
-          "type": "collection",
+        "template--21324546343230__79417091-7f3f-43bb-b035-db1e4988e824-image-2": {
+          "type": "image",
           "settings": {
-            "collection": "phones-accessories",
-            "image": "shopify:\/\/shop_images\/cate_1_2.png",
-            "title": "Smart Phones"
+            "image": "shopify:\/\/shop_images\/24_2.png",
+            "label": "Top Trending",
+            "cl_label": "#ffffff",
+            "cl_span_label": "#ea0d42",
+            "title": "Succulent Metal<br> Upto 30%",
+            "cl_title": "#ffffff",
+            "content": "",
+            "cl_content": "#444444",
+            "link": "Shop now",
+            "btn_link": "shopify:\/\/collections\/accessories",
+            "open_link": "_blank",
+            "cl_link": "#ffffff",
+            "cl_link_hover": "#ffffff",
+            "bg_link": "#ffffff",
+            "bg_link_hover": "#222222",
+            "btn_style": "link",
+            "h_position": "left",
+            "v_position": "top",
+            "txt_align": "left",
+            "mg_bottom": 20
           }
         },
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-3": {
-          "type": "collection",
+        "template--21324546343230__79417091-7f3f-43bb-b035-db1e4988e824-image-3": {
+          "type": "image",
           "settings": {
-            "collection": "clothing-apparel",
-            "image": "shopify:\/\/shop_images\/cate_1_3.png",
-            "title": "Fashion & Clothing"
+            "image": "shopify:\/\/shop_images\/24_3.png",
+            "label": "Spring 2024",
+            "cl_label": "#ffffff",
+            "cl_span_label": "#ea0d42",
+            "title": "Top Wall<br>Planters",
+            "cl_title": "#ffffff",
+            "content": "",
+            "cl_content": "#222222",
+            "link": "Shop now",
+            "btn_link": "",
+            "open_link": "_blank",
+            "cl_link": "#ffffff",
+            "cl_link_hover": "#ffffff",
+            "bg_link": "#ffffff",
+            "bg_link_hover": "#222222",
+            "btn_style": "link",
+            "h_position": "left",
+            "v_position": "top",
+            "txt_align": "left",
+            "mg_bottom": 20
           }
         },
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-4": {
-          "type": "collection",
+        "template--21324546343230__79417091-7f3f-43bb-b035-db1e4988e824-image-4": {
+          "type": "image",
           "settings": {
-            "collection": "kitchen-tableware",
-            "image": "shopify:\/\/shop_images\/cate_1_4.png",
-            "title": "Home Kitchen"
-          }
-        },
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-5": {
-          "type": "collection",
-          "settings": {
-            "collection": "sport-outdoo",
-            "image": "shopify:\/\/shop_images\/cate_1_5.png",
-            "title": "Camera & Photo"
-          }
-        },
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-6": {
-          "type": "collection",
-          "settings": {
-            "collection": "consumer-electrics",
-            "image": "shopify:\/\/shop_images\/cate_1_6.png",
-            "title": "Speaker & Audio"
+            "image": "shopify:\/\/shop_images\/24_4.png",
+            "label": "mid- season",
+            "cl_label": "#92ac28",
+            "cl_span_label": "#ea0d42",
+            "title": "The Elliot Modular<br>  Planters",
+            "cl_title": "#222222",
+            "content": "",
+            "cl_content": "#444444",
+            "link": "Shop now",
+            "btn_link": "shopify:\/\/collections\/all-fashion",
+            "open_link": "_blank",
+            "cl_link": "#222222",
+            "cl_link_hover": "#c7ab62",
+            "bg_link": "#ffffff",
+            "bg_link_hover": "#222222",
+            "btn_style": "link",
+            "h_position": "left",
+            "v_position": "top",
+            "txt_align": "left",
+            "mg_bottom": 20
           }
         }
       },
       "block_order": [
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-1",
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-2",
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-3",
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-4",
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-5",
-        "template--21324546343230__19a8ee4d-f090-4899-b3c8-4f79aecb2162-collection-6"
+        "template--21324546343230__79417091-7f3f-43bb-b035-db1e4988e824-image-1",
+        "template--21324546343230__79417091-7f3f-43bb-b035-db1e4988e824-image-2",
+        "template--21324546343230__79417091-7f3f-43bb-b035-db1e4988e824-image-3",
+        "template--21324546343230__79417091-7f3f-43bb-b035-db1e4988e824-image-4"
       ],
       "settings": {
-        "title": "Popular Categories",
-        "text_size": "small",
+        "hide_mobile": true,
+        "title": "",
+        "text_size": "medium",
+        "text_transform": "none",
+        "gap": 10,
+        "border": 0,
+        "layout": false,
+        "custom_width": true,
+        "container_width": 1800,
+        "cl_bg": "#ffffff",
+        "mg": ",,60px,",
+        "pd": "",
+        "mg_mb": ",,20px,",
+        "pd_mb": ""
+      }
+    },
+    "71159fae-6fa7-4584-b030-12c5587accdf": {
+      "type": "collection-carousel-product",
+      "settings": {
+        "title": "Top Trending",
+        "text_size": "medium",
         "text_transform": "capitalize",
-        "border": 20,
-        "num_p_qty": true,
-        "use_eq_height": true,
-        "image_ratio": "ratio2_1",
+        "display_type": "coll",
+        "collection": "all-plants",
+        "use-all-product": true,
+        "max_count": 10,
         "use-slider": true,
         "slides-To-Scroll": 1,
-        "visible": 6,
-        "widescreen": 6,
-        "desktop": 5,
+        "visible": 5,
+        "widescreen": 5,
+        "desktop": 4,
         "laptop": 4,
         "notebook": 3,
         "tablet": 3,
         "landscape": 2,
         "portrait": 2,
         "mobile": 1,
-        "rows": 1,
-        "autoplay": false,
+        "rows": 2,
+        "autoplay": true,
         "speed": "300",
         "autoplay-Speed": "3000",
         "arrows": true,
@@ -556,516 +626,151 @@
         "infinite": false,
         "padding": 10,
         "vertical": false,
-        "layout": false,
-        "cl_bg": "#f4f5f7",
-        "use_lines": false,
-        "cl_line": "#ffffff",
-        "mg": ",,60px,",
+        "layout_des": false,
+        "custom_width": true,
+        "container_width": 1810,
+        "cl_bg": "#ffffff",
+        "mg": ",,80px,",
         "pd": "",
-        "mg_mb": ",,30px,",
+        "mg_mb": ",,40px,",
         "pd_mb": ""
       }
     },
-    "59cfa509-425c-40b3-a543-c8ea25ac5733": {
-      "type": "product-countdown",
+    "7c84c02f-3785-41ea-80f2-84c73f9f7738": {
+      "type": "Image-with-text-overlay",
       "blocks": {
-        "5c66b6d8-21e2-4465-89cc-de2561750bed": {
-          "type": "product",
-          "settings": {
-            "product": "proenza-schouler-white-label-22",
-            "total": 100,
-            "available": 15
-          }
-        },
-        "884ef348-ec33-4841-81f7-a54d9be38d6e": {
-          "type": "product",
-          "settings": {
-            "product": "proenza-schouler-white-label-20",
-            "total": 100,
-            "available": 50
-          }
-        }
-      },
-      "block_order": [
-        "5c66b6d8-21e2-4465-89cc-de2561750bed",
-        "884ef348-ec33-4841-81f7-a54d9be38d6e"
-      ],
-      "settings": {
-        "title": "Top Deals Of The Day",
-        "text_size": "small",
-        "text_transform": "none",
-        "show_stock_bar": true,
-        "status_bg": "#ebebeb",
-        "sold_bg": "#cc1414",
-        "show_countdown": true,
-        "title_count_down": "Hurry up! Offer ends in:",
-        "year_count_down": "yyyy",
-        "month_count_down": "mm",
-        "day_count_down": "dd",
-        "bg_text_countdown": "#cc1414",
-        "cl_number_countdown": "#ffffff",
-        "use-slider": true,
-        "slides-To-Scroll": 1,
-        "visible": 2,
-        "widescreen": 2,
-        "desktop": 2,
-        "laptop": 2,
-        "notebook": 2,
-        "tablet": 2,
-        "landscape": 1,
-        "portrait": 1,
-        "mobile": 1,
-        "rows": 1,
-        "autoplay": false,
-        "speed": "300",
-        "autoplay-Speed": "3000",
-        "arrows": true,
-        "fade": false,
-        "center-Mode": false,
-        "adaptive-Height": false,
-        "dots": false,
-        "infinite": false,
-        "padding": 10,
-        "vertical": false,
-        "layout": "container",
-        "cl_bg": "#f2f2f6",
-        "mg": ",,60px,",
-        "pd": "",
-        "mg_mb": ",,30px,",
-        "pd_mb": ""
-      }
-    },
-    "71afa739-8f8f-48b7-851b-1bf058048075": {
-      "type": "Image-cards",
-      "blocks": {
-        "template--18299509342493__71afa739-8f8f-48b7-851b-1bf058048075-1683192322f8428d20-0": {
+        "template--21324546343230__7c84c02f-3785-41ea-80f2-84c73f9f7738-banner_img-1": {
           "type": "banner_img",
           "settings": {
-            "image_sl": "shopify:\/\/shop_images\/1_5.png",
-            "col": "33%",
+            "image_sl": "shopify:\/\/shop_images\/24_5.png",
             "link_img": "#",
             "open_link": "_blank",
             "hidden_content": false,
-            "h_position": "left",
-            "v_position": "middle",
-            "txt_align": "left",
-            "mb_mobile": 30
+            "h_position": "center",
+            "v_position": "top",
+            "txt_align": "center"
           }
         },
-        "b3d174c8-e3ed-4a67-bbf0-b839d800e7e5": {
-          "type": "subhd",
+        "87ac8831-86c2-4cbd-9711-75223e70fba3": {
+          "type": "label",
           "settings": {
-            "hide": false,
-            "title": "Microsoft <br>\nSurface Laptop 14”",
-            "color": "#ffffff",
+            "title": "up to 50% off",
+            "cl_txt": "#ffffff",
+            "cl_bg": "#92ac28",
+            "fs_text": 13,
             "fw_text": 400,
-            "fs_text": 24,
-            "lh_text": 30,
+            "button_transform": "uppercase",
             "ls_text": "0",
-            "text_transform": "capitalize",
-            "first_mark": false,
-            "last_mark": false,
-            "custom_mark": "",
-            "color_mark": "",
-            "mg_bottom": 20,
-            "mobile_font_text": 20,
+            "pd": "0 15px",
+            "mg_bottom": 10,
+            "mobile_fw_text": 400,
+            "mobile_font_text": 13,
             "mobile_mg_bottom": 10
           }
         },
-        "a6d0a460-8c4e-4819-a61f-3d316d60b020": {
-          "type": "subhd",
-          "settings": {
-            "hide": false,
-            "title": "Up To -30%",
-            "color": "#ffffff",
-            "fw_text": 400,
-            "fs_text": 18,
-            "lh_text": 0,
-            "ls_text": "0",
-            "text_transform": "capitalize",
-            "first_mark": false,
-            "last_mark": false,
-            "custom_mark": "",
-            "color_mark": "",
-            "mg_bottom": 0,
-            "mobile_font_text": 16,
-            "mobile_mg_bottom": 0
-          }
-        },
-        "template--18299509342493__71afa739-8f8f-48b7-851b-1bf058048075-1683192322f8428d20-1": {
-          "type": "banner_img",
-          "settings": {
-            "image_sl": "shopify:\/\/shop_images\/1_6.png",
-            "col": "33%",
-            "link_img": "#",
-            "open_link": "_blank",
-            "hidden_content": false,
-            "h_position": "left",
-            "v_position": "middle",
-            "txt_align": "left",
-            "mb_mobile": 30
-          }
-        },
-        "9a81229f-128d-4a6c-a23e-2901b8e525b1": {
-          "type": "subhd",
-          "settings": {
-            "hide": false,
-            "title": "Cameras <br>\nBest Sport Edition",
-            "color": "#ffffff",
-            "fw_text": 400,
-            "fs_text": 24,
-            "lh_text": 30,
-            "ls_text": "0",
-            "text_transform": "capitalize",
-            "first_mark": false,
-            "last_mark": false,
-            "custom_mark": "",
-            "color_mark": "",
-            "mg_bottom": 20,
-            "mobile_font_text": 20,
-            "mobile_mg_bottom": 10
-          }
-        },
-        "0c9856e2-13a3-400c-a965-ad02ff5e9f1f": {
-          "type": "subhd",
-          "settings": {
-            "hide": false,
-            "title": "Up To -20%",
-            "color": "#ffffff",
-            "fw_text": 400,
-            "fs_text": 18,
-            "lh_text": 0,
-            "ls_text": "",
-            "text_transform": "capitalize",
-            "first_mark": false,
-            "last_mark": false,
-            "custom_mark": "",
-            "color_mark": "",
-            "mg_bottom": 0,
-            "mobile_font_text": 16,
-            "mobile_mg_bottom": 0
-          }
-        },
-        "62db61a0-b67e-4f5e-9219-f55eb9f40dfa": {
-          "type": "banner_img",
-          "settings": {
-            "image_sl": "shopify:\/\/shop_images\/1_7.png",
-            "col": "33%",
-            "link_img": "#",
-            "open_link": "_blank",
-            "hidden_content": false,
-            "h_position": "left",
-            "v_position": "middle",
-            "txt_align": "left",
-            "mb_mobile": 30
-          }
-        },
-        "17c315c4-9cb6-42e9-9214-4fcbb883c1c3": {
+        "7cacba19-d26e-4b2a-be18-5f63662ef789": {
           "type": "hd",
           "settings": {
             "hide": false,
-            "title": "Sneaker <br>\nNike Air Max 90",
-            "color": "#ffffff",
+            "title": "Bring Nature In Your Home",
+            "color": "#222222",
             "fw_text": 400,
-            "fs_text": 24,
-            "lh_text": 30,
+            "fs_text": 60,
+            "lh_text": 80,
             "ls_text": "0",
             "text_transform": "capitalize",
             "first_mark": false,
             "last_mark": false,
             "custom_mark": "",
             "color_mark": "",
-            "mg_bottom": 20,
-            "mobile_font_text": 20,
+            "mg_bottom": 15,
+            "mobile_font_text": 40,
             "mobile_mg_bottom": 10
           }
         },
-        "8de5a149-f4f9-4ba6-a80c-538ab1cfb828": {
-          "type": "subhd",
+        "1f31f4ba-b4a8-4126-bec0-04258d4bb150": {
+          "type": "txt",
           "settings": {
-            "hide": false,
-            "title": "Up To -60%",
-            "color": "#ffffff",
+            "title": "Holiday shopping with 3% back rewards.<br>\nOffer expires 12\/31\/2021",
+            "color": "#111111",
             "fw_text": 400,
             "fs_text": 18,
             "lh_text": 0,
-            "ls_text": "0",
-            "text_transform": "capitalize",
-            "first_mark": false,
-            "last_mark": false,
-            "custom_mark": "",
-            "color_mark": "",
+            "text_transform": "none",
+            "ls_text": 0,
             "mg_bottom": 0,
-            "mobile_font_text": 16,
+            "hide": false,
+            "mobile_font_text": 14,
             "mobile_mg_bottom": 0
+          }
+        },
+        "5b1bdbd5-b229-4a0c-9e3b-ccafb2de1ef9": {
+          "type": "btn",
+          "disabled": true,
+          "settings": {
+            "title": "Explore Now",
+            "btn_link": "#",
+            "open_link": "_blank",
+            "cl_txt": "#222222",
+            "cl_txt_hover": "#222222",
+            "fs_text": 16,
+            "fw_text": 400,
+            "border": 3,
+            "button_transform": "capitalize",
+            "btn_style": "link",
+            "mobile_font_text": 13
           }
         }
       },
       "block_order": [
-        "template--18299509342493__71afa739-8f8f-48b7-851b-1bf058048075-1683192322f8428d20-0",
-        "b3d174c8-e3ed-4a67-bbf0-b839d800e7e5",
-        "a6d0a460-8c4e-4819-a61f-3d316d60b020",
-        "template--18299509342493__71afa739-8f8f-48b7-851b-1bf058048075-1683192322f8428d20-1",
-        "9a81229f-128d-4a6c-a23e-2901b8e525b1",
-        "0c9856e2-13a3-400c-a965-ad02ff5e9f1f",
-        "62db61a0-b67e-4f5e-9219-f55eb9f40dfa",
-        "17c315c4-9cb6-42e9-9214-4fcbb883c1c3",
-        "8de5a149-f4f9-4ba6-a80c-538ab1cfb828"
+        "template--21324546343230__7c84c02f-3785-41ea-80f2-84c73f9f7738-banner_img-1",
+        "87ac8831-86c2-4cbd-9711-75223e70fba3",
+        "7cacba19-d26e-4b2a-be18-5f63662ef789",
+        "1f31f4ba-b4a8-4126-bec0-04258d4bb150",
+        "5b1bdbd5-b229-4a0c-9e3b-ccafb2de1ef9"
       ],
       "settings": {
         "hidden": false,
-        "h_des": "200px",
-        "h_tb": "200px",
-        "h_mb": "200px",
-        "gap": 10,
-        "gap-mobile": 10,
-        "border": 15,
-        "full_width": false,
-        "cl_bg": "#f2f2f6",
-        "show_border": false,
-        "cl_line": "#e5e8ec",
-        "mg": ",,30px,",
+        "h_des": "760px",
+        "h_tb": "500px",
+        "h_mb": "400px",
+        "border": 3,
+        "full_width": true,
+        "custom_width": false,
+        "container_width": 1800,
+        "cl_bg": "",
+        "mg": ",,80px,",
         "pd": "",
-        "mg_mb": ",,0,",
+        "mg_mb": ",,40px,",
         "pd_mb": ""
       }
     },
-    "c3c650ad-a431-488f-9e1d-72f63d7bd21d": {
-      "type": "collection-carousel-product2",
-      "blocks": {
-        "a00cf794-4eda-4035-8ad9-40a6a46f17b9": {
-          "type": "featured",
-          "settings": {
-            "product_list": [
-              "proenza-schouler-white-label-24",
-              "proenza-schouler-white-label-23",
-              "proenza-schouler-white-label-25"
-            ],
-            "col": "42%",
-            "use-slider": true,
-            "slides-To-Scroll": 1,
-            "visible": 1,
-            "widescreen": 1,
-            "desktop": 1,
-            "laptop": 1,
-            "notebook": 1,
-            "tablet": 1,
-            "landscape": 1,
-            "portrait": 1,
-            "mobile": 1,
-            "rows": 1,
-            "autoplay": true,
-            "speed": "300",
-            "autoplay-Speed": "3000",
-            "arrows": true,
-            "fade": false,
-            "center-Mode": false,
-            "adaptive-Height": false,
-            "dots": false,
-            "infinite": false,
-            "padding": 10,
-            "vertical": false
-          }
-        },
-        "4d9f7fa5-a24d-4700-ace9-d56a60ddc691": {
-          "type": "products_list",
-          "settings": {
-            "product_list": [
-              "proenza-schouler-white-label-22",
-              "apple-iphone-13-mini-128gb-pink-unlocked",
-              "proenza-schouler-white-label-20",
-              "apple-watch-aluminum-case-pride-edition",
-              "proenza-schouler-white-label-8",
-              "proenza-schouler-white-label-6"
-            ],
-            "col": "58%",
-            "use-slider": true,
-            "slides-To-Scroll": 1,
-            "visible": 3,
-            "widescreen": 3,
-            "desktop": 3,
-            "laptop": 2,
-            "notebook": 2,
-            "tablet": 2,
-            "landscape": 2,
-            "portrait": 1,
-            "mobile": 1,
-            "rows": 2,
-            "autoplay": true,
-            "speed": "300",
-            "autoplay-Speed": "3000",
-            "arrows": true,
-            "fade": false,
-            "center-Mode": false,
-            "adaptive-Height": false,
-            "dots": false,
-            "infinite": false,
-            "padding": 10,
-            "vertical": false
-          }
-        }
-      },
-      "block_order": [
-        "a00cf794-4eda-4035-8ad9-40a6a46f17b9",
-        "4d9f7fa5-a24d-4700-ace9-d56a60ddc691"
-      ],
+    "2f399b88-d4b1-42e5-afa6-99135e10ab05": {
+      "type": "featured_blog",
       "settings": {
-        "title": "Top Featured Products",
-        "text_size": "small",
-        "text_transform": "none",
-        "layout_des": false,
-        "cl_bg": "#f4f5f7",
-        "mg": ",,60px,",
-        "pd": "",
-        "mg_mb": ",,30px,",
-        "pd_mb": ""
-      }
-    },
-    "7b45d0bc-c546-4669-8dec-13737a16f9ff": {
-      "type": "text-horizontal-running",
-      "blocks": {
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-2": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-3": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-4": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-5": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-6": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-7": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-8": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-9": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-10": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-11": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        },
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-12": {
-          "type": "text",
-          "settings": {
-            "text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 384 512\">\n\t\t\t\t<path d=\"M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z\"><\/path>\n\t\t\t<\/svg> Special offer: enjoy 3 months of shopify for $1\/month",
-            "url": "",
-            "open_link": "_blank"
-          }
-        }
-      },
-      "block_order": [
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-1",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-2",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-3",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-4",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-5",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-6",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-7",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-8",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-9",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-10",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-11",
-        "template--21324546343230__7b45d0bc-c546-4669-8dec-13737a16f9ff-text-12"
-      ],
-      "settings": {
-        "healing_speed": 20,
-        "layout": false,
-        "cl_bg": "#263c97",
-        "cl_text": "#ffffff",
-        "mg": ",,60px,",
-        "pd": "",
-        "mg_mb": ",,30px,",
-        "pd_mb": ""
-      }
-    },
-    "9131145a-27bb-4f61-81d5-931f352bc40b": {
-      "type": "collection-carousel-product",
-      "settings": {
-        "title": "Recommended For You",
-        "text_size": "small",
-        "text_transform": "none",
-        "display_type": "coll",
-        "collection": "phones-accessories",
-        "use-all-product": true,
-        "max_count": 8,
+        "title": "From The Blog",
+        "text_size": "medium",
+        "text_transform": "capitalize",
+        "blog": "plants",
+        "use-all-post": true,
+        "br_radius": 0,
+        "show-cate-blog": true,
+        "show-post-info": true,
+        "show-name-blog": true,
+        "show-description": false,
+        "show-read_more": true,
+        "use_eq_height": true,
+        "image_ratio": "ratio4_3",
         "use-slider": true,
         "slides-To-Scroll": 1,
-        "visible": 7,
-        "widescreen": 7,
-        "desktop": 6,
-        "laptop": 5,
-        "notebook": 4,
-        "tablet": 3,
+        "visible": 3,
+        "widescreen": 3,
+        "desktop": 3,
+        "laptop": 3,
+        "notebook": 3,
+        "tablet": 2,
         "landscape": 2,
-        "portrait": 2,
+        "portrait": 1,
         "mobile": 1,
         "rows": 1,
         "autoplay": true,
@@ -1079,41 +784,129 @@
         "infinite": false,
         "padding": 10,
         "vertical": false,
-        "layout_des": false,
-        "cl_bg": "#f2f2f6",
-        "use_lines": false,
-        "cl_line": "#ffffff",
-        "mg": ",,60px,",
+        "layout": "container",
+        "cl_bg": "#ffffff",
+        "mg": ",,80px,",
         "pd": "",
-        "mg_mb": ",,30px,",
+        "mg_mb": ",,40px,",
         "pd_mb": ""
       }
     },
-    "e29c411d-dba9-4699-9d19-9c098b0f7253": {
-      "type": "featured_blog",
+    "65bc9f5f-0663-4689-9a0a-a3b27651455e": {
+      "type": "testimonials",
+      "blocks": {
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-1": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/testimonial1.jpg",
+            "content": "<p>We've recently updated our entire product portfolio to give customers and partners the best products with the newest <\/p><p>technology. Come see our expanded award-winning product line.”<\/p>",
+            "title": "Jason K. Manato",
+            "address": "Ceo & Co",
+            "rating": 5
+          }
+        },
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-2": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/testimonial2.jpg",
+            "content": "<p>We've recently updated our entire product portfolio to give customers and partners the best products with the newest <\/p><p>technology. Come see our expanded award-winning product line.”<\/p>",
+            "title": "Jason K. Manato",
+            "address": "Ceo & Co",
+            "rating": 5
+          }
+        },
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-3": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/testimonial3.jpg",
+            "content": "<p>We've recently updated our entire product portfolio to give customers and partners the best products with the newest <\/p><p>technology. Come see our expanded award-winning product line.”<\/p>",
+            "title": "Jason K. Manato",
+            "address": "Ceo & Co",
+            "rating": 5
+          }
+        },
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-4": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "content": "<p>We've recently updated our entire product portfolio to give customers and partners the best products with the newest <\/p><p>technology. Come see our expanded award-winning product line.”<\/p>",
+            "title": "Jason K. Manato",
+            "address": "Ceo & Co",
+            "rating": 5
+          }
+        },
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-5": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "content": "<p>We've recently updated our entire product portfolio to give customers and partners the best products with the newest <\/p><p>technology. Come see our expanded award-winning product line.”<\/p>",
+            "title": "Jason K. Manato",
+            "address": "Ceo & Co",
+            "rating": 5
+          }
+        },
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-6": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "content": "<p>We've recently updated our entire product portfolio to give customers and partners the best products with the newest <\/p><p>technology. Come see our expanded award-winning product line.”<\/p>",
+            "title": "Jason K. Manato",
+            "address": "Ceo & Co",
+            "rating": 5
+          }
+        },
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-7": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "content": "<p>We've recently updated our entire product portfolio to give customers and partners the best products with the newest <\/p><p>technology. Come see our expanded award-winning product line.”<\/p>",
+            "title": "Jason K. Manato",
+            "address": "Ceo & Co",
+            "rating": 5
+          }
+        },
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-8": {
+          "type": "quote",
+          "disabled": true,
+          "settings": {
+            "content": "<p>We've recently updated our entire product portfolio to give customers and partners the best products with the newest <\/p><p>technology. Come see our expanded award-winning product line.”<\/p>",
+            "title": "Jason K. Manato",
+            "address": "Ceo & Co",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-1",
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-2",
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-3",
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-4",
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-5",
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-6",
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-7",
+        "template--21324546343230__65bc9f5f-0663-4689-9a0a-a3b27651455e-quote-8"
+      ],
       "settings": {
-        "title": "From Our Blog",
-        "text_size": "small",
+        "title": "What Client Says",
+        "subtitle": "",
+        "content": "",
+        "text_size": "medium",
         "text_transform": "capitalize",
-        "blog": "technology",
-        "use-all-post": true,
-        "br_radius": 15,
-        "show-cate-blog": true,
-        "show-post-info": true,
-        "show-name-blog": true,
-        "show-description": true,
-        "show-read_more": true,
-        "use_eq_height": true,
-        "image_ratio": "ratio3_2",
+        "show_text_bottom": false,
+        "text_bottom": "<p>Trusted customers are our happiness. Contact us.<\/p><p><\/p>",
+        "hidden": false,
+        "layout": "container",
+        "width_c": 100,
+        "style": "style1",
         "use-slider": true,
         "slides-To-Scroll": 1,
-        "visible": 6,
-        "widescreen": 6,
-        "desktop": 5,
-        "laptop": 4,
-        "notebook": 3,
-        "tablet": 2,
-        "landscape": 2,
+        "visible": 1,
+        "widescreen": 1,
+        "desktop": 1,
+        "laptop": 1,
+        "notebook": 1,
+        "tablet": 1,
+        "landscape": 1,
         "portrait": 1,
         "mobile": 1,
         "rows": 1,
@@ -1124,17 +917,93 @@
         "fade": false,
         "center-Mode": false,
         "adaptive-Height": false,
-        "dots": false,
+        "dots": true,
         "infinite": false,
         "padding": 10,
         "vertical": false,
+        "cl_bg": "#f8f5ec",
+        "mg": ",,,",
+        "pd": "80px,,80px,",
+        "mg_mb": ",,,",
+        "pd_mb": "40px,,40px,"
+      }
+    },
+    "160b467d-3a6c-4d8c-a727-4a68377c1093": {
+      "type": "benefit",
+      "blocks": {
+        "bd57c022-b131-4651-a388-c06ed8dfaf02": {
+          "type": "shipping",
+          "settings": {
+            "icon": "fa fa-truck",
+            "icon_svg": "<!--?xml version=\"1.0\" encoding=\"iso-8859-1\"?-->\n<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\n<svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<path d=\"M506.955,1.314c-3.119-1.78-6.955-1.75-10.045,0.078L313.656,109.756c-4.754,2.811-6.329,8.943-3.518,13.697\n\t\t\tc2.81,4.753,8.942,6.328,13.697,3.518l131.482-77.749L210.411,303.335L88.603,266.069l158.965-94\n\t\t\tc4.754-2.812,6.329-8.944,3.518-13.698c-2.81-4.753-8.943-6.33-13.697-3.518L58.91,260.392c-3.41,2.017-5.309,5.856-4.84,9.791\n\t\t\ts3.216,7.221,7.004,8.38l145.469,44.504L270.72,439.88c0.067,0.121,0.136,0.223,0.207,0.314c1.071,1.786,2.676,3.245,4.678,4.087\n\t\t\tc1.253,0.527,2.57,0.784,3.878,0.784c2.563,0,5.086-0.986,6.991-2.849l73.794-72.12l138.806,42.466\n\t\t\tc0.96,0.293,1.945,0.438,2.925,0.438c2.116,0,4.206-0.672,5.948-1.961C510.496,409.153,512,406.17,512,403V10\n\t\t\tC512,6.409,510.074,3.093,506.955,1.314z M271.265,329.23c-1.158,1.673-1.779,3.659-1.779,5.694v61.171l-43.823-79.765\n\t\t\tl193.921-201.21L271.265,329.23z M289.486,411.309v-62.867l48.99,14.988L289.486,411.309z M492,389.483l-196.499-60.116\n\t\t\tL492,45.704V389.483z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M164.423,347.577c-3.906-3.905-10.236-3.905-14.143,0l-93.352,93.352c-3.905,3.905-3.905,10.237,0,14.143\n\t\t\tC58.882,457.024,61.441,458,64,458s5.118-0.976,7.071-2.929l93.352-93.352C168.328,357.815,168.328,351.483,164.423,347.577z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M40.071,471.928c-3.906-3.903-10.236-3.903-14.142,0.001l-23,23c-3.905,3.905-3.905,10.237,0,14.143\n\t\t\tC4.882,511.024,7.441,512,10,512s5.118-0.977,7.071-2.929l23-23C43.976,482.166,43.976,475.834,40.071,471.928z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M142.649,494.34c-1.859-1.86-4.439-2.93-7.069-2.93c-2.641,0-5.21,1.07-7.07,2.93c-1.86,1.86-2.93,4.43-2.93,7.07\n\t\t\tc0,2.63,1.069,5.21,2.93,7.07c1.86,1.86,4.44,2.93,7.07,2.93s5.21-1.07,7.069-2.93c1.86-1.86,2.931-4.44,2.931-7.07\n\t\t\tC145.58,498.77,144.51,496.2,142.649,494.34z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M217.051,419.935c-3.903-3.905-10.233-3.905-14.142,0l-49.446,49.445c-3.905,3.905-3.905,10.237,0,14.142\n\t\t\tc1.953,1.953,4.512,2.929,7.071,2.929s5.118-0.977,7.071-2.929l49.446-49.445C220.956,430.172,220.956,423.84,217.051,419.935z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M387.704,416.139c-3.906-3.904-10.236-3.904-14.142,0l-49.58,49.58c-3.905,3.905-3.905,10.237,0,14.143\n\t\t\tc1.953,1.952,4.512,2.929,7.071,2.929s5.118-0.977,7.071-2.929l49.58-49.58C391.609,426.377,391.609,420.045,387.704,416.139z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M283.5,136.31c-1.86-1.86-4.44-2.93-7.07-2.93s-5.21,1.07-7.07,2.93c-1.859,1.86-2.93,4.44-2.93,7.08\n\t\t\tc0,2.63,1.07,5.2,2.93,7.06c1.86,1.87,4.44,2.93,7.07,2.93s5.21-1.06,7.07-2.93c1.859-1.86,2.93-4.43,2.93-7.06\n\t\t\tC286.43,140.75,285.36,138.17,283.5,136.31z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<\/svg>",
+            "title": "Free Delivery",
+            "text": "For all orders over $120"
+          }
+        },
+        "0b3e8f58-4226-4d1f-bea9-60d44bdd340f": {
+          "type": "shipping",
+          "settings": {
+            "icon": "fa fa-truck",
+            "icon_svg": "<svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<path d=\"M481.28,81.92H30.72C13.783,81.92,0,95.703,0,112.64v286.72c0,16.937,13.783,30.72,30.72,30.72h450.56\n\t\t\tc16.937,0,30.72-13.783,30.72-30.72V112.64C512,95.703,498.217,81.92,481.28,81.92z M491.52,399.36\n\t\t\tc0,5.632-4.608,10.24-10.24,10.24H30.72c-5.652,0-10.24-4.608-10.24-10.24V112.64c0-5.653,4.588-10.24,10.24-10.24h450.56\n\t\t\tc5.632,0,10.24,4.587,10.24,10.24V399.36z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<rect x=\"10.24\" y=\"174.08\" width=\"491.52\" height=\"40.96\"><\/rect>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M501.76,163.84H10.24C4.588,163.84,0,168.427,0,174.08v40.96c0,5.653,4.588,10.24,10.24,10.24h491.52\n\t\t\tc5.652,0,10.24-4.587,10.24-10.24v-40.96C512,168.427,507.412,163.84,501.76,163.84z M491.52,204.8H20.48v-20.48h471.04V204.8z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M276.48,286.72H92.16c-5.652,0-10.24,4.588-10.24,10.24c0,5.652,4.588,10.24,10.24,10.24h184.32\n\t\t\tc5.652,0,10.24-4.588,10.24-10.24C286.72,291.307,282.132,286.72,276.48,286.72z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M194.56,327.68H92.16c-5.652,0-10.24,4.588-10.24,10.24s4.588,10.24,10.24,10.24h102.4c5.652,0,10.24-4.588,10.24-10.24\n\t\t\tS200.212,327.68,194.56,327.68z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<\/svg>",
+            "title": "Safe Payment",
+            "text": "100% secure payment"
+          }
+        },
+        "c8aca7a4-6699-4251-8a7d-190c705995d1": {
+          "type": "shipping",
+          "settings": {
+            "icon": "fa fa-truck",
+            "icon_svg": "<svg id=\"Capa_1\" enable-background=\"new 0 0 512 512\" height=\"42\" viewbox=\"0 0 512 512\" width=\"42\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><g><path d=\"m469.437 172.421h-65.238v-58.01c0-28.347-22.981-51.408-51.229-51.408h-24.8c-4.143 0-7.5 3.358-7.5 7.5s3.357 7.5 7.5 7.5h24.799c19.977 0 36.229 16.333 36.229 36.408v177.031c0 20.076-16.253 36.408-36.229 36.408h-177.77c-1.502 0-2.969.451-4.211 1.293l-87.718 59.516c-1.616 1.098-3.006.452-3.69-.031-.565-.397-1.823-1.541-1.302-3.565l12.315-47.844c.577-2.246.084-4.632-1.336-6.465-1.421-1.833-3.609-2.905-5.928-2.905h-32.1c-19.978 0-36.23-16.333-36.23-36.408v-82.083c0-4.142-3.357-7.5-7.5-7.5s-7.5 3.358-7.5 7.5v82.083c0 28.347 22.981 51.408 51.23 51.408h22.425l-9.904 38.474c-1.92 7.46.904 15.143 7.195 19.57 3.177 2.236 6.836 3.356 10.499 3.356 3.56 0 7.123-1.058 10.247-3.178l85.811-58.223h7.45v14.211c0 23.548 19.095 42.707 42.564 42.707h37.141c4.143 0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-37.141c-15.199 0-27.564-12.429-27.564-27.707v-14.209h153.016c28.248 0 51.229-23.062 51.229-51.408v-104.021h65.238c15.198 0 27.563 12.429 27.563 27.707v141.934c0 15.277-12.365 27.707-27.563 27.707h-25.735c-2.318 0-4.507 1.072-5.928 2.905-1.42 1.832-1.913 4.218-1.336 6.464l9.871 38.368c.062.238.205.795-.458 1.262-.633.444-1.062.152-1.269.012l-70.326-47.717c-1.242-.843-2.709-1.294-4.211-1.294h-75.931c-4.143 0-7.5 3.358-7.5 7.5s3.357 7.5 7.5 7.5h73.626l68.421 46.424c2.759 1.872 5.905 2.806 9.049 2.806 3.237 0 6.472-.991 9.278-2.968 5.554-3.912 8.043-10.692 6.346-17.269l-7.459-28.993h16.063c23.47 0 42.563-19.158 42.563-42.707v-141.935c.001-23.548-19.093-42.706-42.562-42.706z\"><\/path><path d=\"m7.5 187.252c4.143 0 7.5-3.358 7.5-7.5v-65.342c0-20.076 16.253-36.408 36.23-36.408h246.341c4.143 0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-246.341c-28.249 0-51.23 23.062-51.23 51.409v65.342c0 4.142 3.357 7.499 7.5 7.499z\"><\/path><\/g><\/svg>",
+            "title": "24\/7 Help Center",
+            "text": "Dedicated 24\/7 support"
+          }
+        },
+        "28ff347c-8aee-41e8-bf45-8098213c54a4": {
+          "type": "shipping",
+          "disabled": true,
+          "settings": {
+            "icon": "fa fa-truck",
+            "icon_svg": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<g>\n\t\t\t<path d=\"M448,309.333c-20.827,0-64,11.598-85.885,17.885c-2.904-30.609-42.125-41.444-82.656-49.677\n\t\t\t\tc-18.5-3.75-32.271-10.385-45.583-16.813c-16.417-7.917-31.917-15.396-52.542-15.396c-23.618,0-45.142,4.831-57.288,8.173\n\t\t\t\tc-3.211-11.172-12.32-20.177-24.421-22.59L12.75,213.542c-3.104-0.625-6.375,0.188-8.854,2.208C1.438,217.781,0,220.802,0,224\n\t\t\t\tv170.667c0,5.896,4.771,10.667,10.667,10.667H77.5c13.172,0,24.397-8.379,29.223-20.142C130.625,396.586,241.081,448,288,448\n\t\t\t\tc41.375,0,126.563-41.875,182.917-69.583c14.688-7.219,26.833-13.198,34.708-16.646C509.5,360.063,512,356.229,512,352\n\t\t\t\tC512,326.875,485.688,309.333,448,309.333z M103.917,263.802L88.063,374.844C87.313,380.063,82.771,384,77.5,384H21.333V237.01\n\t\t\t\tl74.125,14.823C101,252.948,104.729,258.198,103.917,263.802z M461.5,359.271c-51.271,25.208-137.083,67.396-173.5,67.396\n\t\t\t\tc-38.792,0-140.688-45.427-176.667-62.927c-0.04-0.02-0.085-0.013-0.125-0.031l12.551-87.904\n\t\t\t\tc7.772-2.431,31.518-9.138,57.574-9.138c15.75,0,27.896,5.865,43.292,13.281c13.813,6.667,29.479,14.219,50.583,18.51\n\t\t\t\tc46.354,9.396,66.125,19.031,66.125,32.208c0,2.604-0.792,4.208-2.813,5.719c-6.771,5.073-33.271,13.594-132.813-15.948\n\t\t\t\tc-5.688-1.646-11.583,1.552-13.271,7.198c-1.667,5.646,1.542,11.583,7.188,13.26c49.146,14.563,86.708,21.823,113.333,21.823\n\t\t\t\tc17.354,0,30.083-3.083,38.313-9.24c0.708-0.529,1.227-1.176,1.871-1.745c0.671-0.074,1.331,0.004,2.004-0.203\n\t\t\t\tC374,345.729,427.438,330.667,448,330.667c17.396,0,35.708,5.281,41.083,15.208C481.646,349.375,472.25,354,461.5,359.271z\"><\/path>\n\t\t\t<path d=\"M330.667,256c28.938,0,54.883-17.047,67.118-42.982c39.694-1.676,71.548-34.253,71.548-74.352\n\t\t\t\tc0-41.167-33.5-74.667-74.667-74.667c-29.81,0-55.401,17.684-67.362,43.007C287.725,108.807,256,141.318,256,181.333\n\t\t\t\tC256,222.5,289.5,256,330.667,256z M394.667,85.333c29.417,0,53.333,23.927,53.333,53.333S424.083,192,394.667,192\n\t\t\t\ts-53.333-23.927-53.333-53.333S365.25,85.333,394.667,85.333z M320.965,129.118c-0.41,3.16-0.965,6.279-0.965,9.548\n\t\t\t\tc0,5.432,0.655,10.702,1.762,15.807C320.743,156.109,320,157.93,320,160v42.667c0,5.896,4.771,10.667,10.667,10.667\n\t\t\t\tc5.896,0,10.667-4.771,10.667-10.667v-11.91c9.108,9.324,20.699,16.031,33.612,19.596c-9.674,14.858-26.158,24.314-44.279,24.314\n\t\t\t\tc-29.417,0-53.333-23.927-53.333-53.333C277.333,155.423,295.936,133.832,320.965,129.118z\"><\/path>\n\t\t\t<path d=\"M394.667,170.667c5.896,0,10.667-4.771,10.667-10.667v-42.667c0-5.896-4.771-10.667-10.667-10.667\n\t\t\t\tS384,111.438,384,117.333V160C384,165.896,388.771,170.667,394.667,170.667z\"><\/path>\n\t\t<\/g>\n\t<\/g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<\/svg>",
+            "title": "Shop With Confidence",
+            "text": "If goods have problems"
+          }
+        },
+        "2be3a985-80a6-4f9e-8049-3d4f32ef8cdb": {
+          "type": "shipping",
+          "disabled": true,
+          "settings": {
+            "icon": "fa fa-truck",
+            "icon_svg": "<svg height=\"42\" viewbox=\"0 -84 512.00002 512\" width=\"42\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"m467.746094 0h-423.496094c-24.398438 0-44.25 19.851562-44.25 44.253906v255.191406c0 24.402344 19.851562 44.253907 44.25 44.253907h423.496094c24.402344 0 44.253906-19.851563 44.253906-44.253907v-255.191406c0-24.402344-19.851562-44.253906-44.253906-44.253906zm29.046875 299.445312c0 16.015626-13.03125 29.046876-29.046875 29.046876h-423.496094c-16.011719 0-29.042969-13.03125-29.042969-29.046876v-255.191406c0-16.015625 13.03125-29.046875 29.042969-29.046875h423.496094c16.015625 0 29.046875 13.03125 29.046875 29.046875zm0 0\"><\/path><path d=\"m227.613281 60.832031h-176.410156c-4.199219 0-7.605469 3.402344-7.605469 7.605469v18.246094c0 4.199218 3.40625 7.601562 7.605469 7.601562s7.605469-3.402344 7.605469-7.601562v-10.644532h161.203125v185.539063h-161.203125v-144.476563c0-4.199218-3.40625-7.605468-7.605469-7.605468s-7.605469 3.40625-7.605469 7.605468v152.078126c0 4.199218 3.40625 7.605468 7.605469 7.605468h176.410156c4.199219 0 7.605469-3.40625 7.605469-7.605468v-200.742188c0-4.203125-3.40625-7.605469-7.605469-7.605469zm0 0\"><\/path><path d=\"m462.832031 78.464844h-190.605469c-4.199218 0-7.605468 3.40625-7.605468 7.605468 0 4.199219 3.40625 7.601563 7.605468 7.601563h190.605469c4.199219 0 7.601563-3.402344 7.601563-7.601563 0-4.199218-3.402344-7.605468-7.601563-7.605468zm0 0\"><\/path><path d=\"m462.832031 133.625h-42.582031c-4.199219 0-7.601562 3.402344-7.601562 7.601562 0 4.199219 3.402343 7.605469 7.601562 7.605469h42.582031c4.199219 0 7.601563-3.40625 7.601563-7.605469 0-4.199218-3.402344-7.601562-7.601563-7.601562zm0 0\"><\/path><path d=\"m272.226562 148.832031h117.605469c4.199219 0 7.605469-3.40625 7.605469-7.605469 0-4.199218-3.40625-7.601562-7.605469-7.601562h-117.605469c-4.199218 0-7.605468 3.402344-7.605468 7.601562 0 4.199219 3.40625 7.605469 7.605468 7.605469zm0 0\"><\/path><path d=\"m462.832031 188.785156h-190.605469c-4.199218 0-7.605468 3.402344-7.605468 7.601563s3.40625 7.605469 7.605468 7.605469h190.605469c4.199219 0 7.601563-3.40625 7.601563-7.605469s-3.402344-7.601563-7.601563-7.601563zm0 0\"><\/path><path d=\"m375.640625 243.945312h-103.414063c-4.199218 0-7.605468 3.402344-7.605468 7.601563s3.40625 7.605469 7.605468 7.605469h103.414063c4.199219 0 7.601563-3.40625 7.601563-7.605469s-3.402344-7.601563-7.601563-7.601563zm0 0\"><\/path><path d=\"m86.179688 244.847656c0 4.199219 3.40625 7.601563 7.605468 7.601563 4.199219 0 7.605469-3.402344 7.605469-7.601563 0-20.964844 17.054687-38.019531 38.019531-38.019531s38.019532 17.054687 38.019532 38.019531c0 4.199219 3.402343 7.601563 7.601562 7.601563s7.605469-3.402344 7.605469-7.601563c0-19.34375-10.371094-36.304687-25.84375-45.625 15.472656-9.320312 25.84375-26.28125 25.84375-45.625 0-29.347656-23.878907-53.226562-53.226563-53.226562-29.351562 0-53.230468 23.878906-53.230468 53.226562 0 19.34375 10.375 36.304688 25.847656 45.625-15.472656 9.320313-25.847656 26.28125-25.847656 45.625zm15.210937-91.25c0-20.964844 17.054687-38.019531 38.019531-38.019531s38.019532 17.054687 38.019532 38.019531-17.054688 38.019532-38.019532 38.019532-38.019531-17.054688-38.019531-38.019532zm0 0\"><\/path><\/svg>",
+            "title": "Friendly Services",
+            "text": "30 day satisfaction guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "bd57c022-b131-4651-a388-c06ed8dfaf02",
+        "0b3e8f58-4226-4d1f-bea9-60d44bdd340f",
+        "c8aca7a4-6699-4251-8a7d-190c705995d1",
+        "28ff347c-8aee-41e8-bf45-8098213c54a4",
+        "2be3a985-80a6-4f9e-8049-3d4f32ef8cdb"
+      ],
+      "settings": {
+        "hidden": false,
+        "br_radius": 15,
+        "source": "3",
+        "style": "vertical",
+        "col_pr": "4",
+        "col_pr_tb": "4",
+        "col_pr_mb": "6",
         "layout": "container",
-        "cl_bg": "#f4f5f7",
-        "cl_border": "#ffffff",
-        "mg": ",,60px,",
-        "pd": "",
-        "mg_mb": ",,30px,",
-        "pd_mb": ""
+        "cl_bg": "#ffffff",
+        "cl_icon": "#222222",
+        "cl_heading": "#222222",
+        "cl_text": "#444444",
+        "cl_border": "#e5e5e5",
+        "mg": ",,,",
+        "pd": "80px,,80px,",
+        "mg_mb": ",,,",
+        "pd_mb": "40px,,40px,"
       }
     },
     "5052f17b-16c8-45fc-a760-5a6ce3342235": {
@@ -1143,7 +1012,7 @@
         "template--21324546343230__5052f17b-16c8-45fc-a760-5a6ce3342235-brand-1": {
           "type": "brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/brand_1_1.png",
+            "image": "shopify:\/\/shop_images\/brand_19_1.png",
             "url": "#",
             "open_link": "_blank"
           }
@@ -1151,7 +1020,7 @@
         "template--21324546343230__5052f17b-16c8-45fc-a760-5a6ce3342235-brand-2": {
           "type": "brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/brand_1_2.png",
+            "image": "shopify:\/\/shop_images\/brand_19_2.png",
             "url": "#",
             "open_link": "_blank"
           }
@@ -1159,7 +1028,7 @@
         "template--21324546343230__5052f17b-16c8-45fc-a760-5a6ce3342235-brand-3": {
           "type": "brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/brand_1_3.png",
+            "image": "shopify:\/\/shop_images\/brand_19_3.png",
             "url": "#",
             "open_link": "_blank"
           }
@@ -1167,7 +1036,7 @@
         "template--21324546343230__5052f17b-16c8-45fc-a760-5a6ce3342235-brand-4": {
           "type": "brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/brand_1_4.png",
+            "image": "shopify:\/\/shop_images\/brand_19_4.png",
             "url": "#",
             "open_link": "_blank"
           }
@@ -1175,7 +1044,7 @@
         "template--21324546343230__5052f17b-16c8-45fc-a760-5a6ce3342235-brand-5": {
           "type": "brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/brand_1_5.png",
+            "image": "shopify:\/\/shop_images\/brand_19_5.png",
             "url": "#",
             "open_link": "_blank"
           }
@@ -1183,7 +1052,7 @@
         "template--21324546343230__5052f17b-16c8-45fc-a760-5a6ce3342235-brand-6": {
           "type": "brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/brand_1_6.png",
+            "image": "shopify:\/\/shop_images\/brand_19_6.png",
             "url": "#",
             "open_link": "_blank"
           }
@@ -1191,7 +1060,7 @@
         "045222c8-5c0f-4d33-a679-9cfb836ab674": {
           "type": "brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/brand_1_1.png",
+            "image": "shopify:\/\/shop_images\/brand_19_1.png",
             "url": "#",
             "open_link": "_blank"
           }
@@ -1207,7 +1076,6 @@
         "045222c8-5c0f-4d33-a679-9cfb836ab674"
       ],
       "settings": {
-        "show_border_top": false,
         "use-slider": true,
         "slides-To-Scroll": 1,
         "visible": 7,
@@ -1233,94 +1101,180 @@
         "vertical": false,
         "show_view_all": false,
         "layout": false,
-        "border": 15,
+        "border": 3,
         "use_eq_height": false,
         "image_ratio": "ratio2_1",
-        "cl_bg": "#f4f5f7",
-        "mg": ",,60px,",
-        "pd": "",
-        "mg_mb": ",,30px,",
-        "pd_mb": ""
+        "cl_bg": "#ffffff",
+        "cl_border": "#e5e5e5",
+        "mg": ",,80px,",
+        "pd": "80px,,80px,",
+        "mg_mb": ",,,",
+        "pd_mb": "40px,,40px,"
       }
     },
-    "d0ba855a-e236-4ab7-929a-45d5fe956c54": {
-      "type": "benefit",
+    "6c4e3727-9136-40be-b0f8-87f266dfdc8c": {
+      "type": "instagram-image-slider",
       "blocks": {
-        "73295955-3f96-4cd2-a676-bbbf88b1da9e": {
-          "type": "shipping",
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-1": {
+          "type": "img",
           "settings": {
-            "icon": "fa fa-truck",
-            "icon_svg": "<svg id=\"outline\" height=\"42\" viewbox=\"0 0 48 48\" width=\"42\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"m41.211 37.288a4.112 4.112 0 1 1 4.109-4.112 4.114 4.114 0 0 1 -4.109 4.112zm0-6.724a2.612 2.612 0 1 0 2.609 2.612 2.613 2.613 0 0 0 -2.609-2.612z\"><\/path><path d=\"m19.542 37.288a4.112 4.112 0 1 1 4.108-4.112 4.115 4.115 0 0 1 -4.108 4.112zm0-6.724a2.612 2.612 0 1 0 2.608 2.612 2.614 2.614 0 0 0 -2.608-2.612z\"><\/path><path d=\"m46.621 33.926h-2.051a.75.75 0 0 1 0-1.5h1.839v-3.977a3.16 3.16 0 0 0 -.4-1.536l-4.06-7.279a.4.4 0 0 0 -.349-.205h-5.533v13h1.786a.75.75 0 0 1 0 1.5h-2.536a.75.75 0 0 1 -.75-.75v-14.5a.75.75 0 0 1 .75-.75h6.283a1.9 1.9 0 0 1 1.66.974l4.059 7.28a4.662 4.662 0 0 1 .589 2.266v4.19a1.289 1.289 0 0 1 -1.287 1.287z\"><\/path><path d=\"m16.183 33.926h-7.191a.75.75 0 0 1 -.75-.75v-5.768a.75.75 0 0 1 1.5 0v5.018h6.441a.75.75 0 0 1 0 1.5z\"><\/path><path d=\"m8.992 24.747a.75.75 0 0 1 -.75-.75v-5.036a.75.75 0 0 1 1.5 0v5.039a.75.75 0 0 1 -.75.747z\"><\/path><path d=\"m35.317 33.926h-12.417a.75.75 0 0 1 0-1.5h11.667v-19.621h-24.825v3.089a.75.75 0 0 1 -1.5 0v-3.227a1.364 1.364 0 0 1 1.363-1.362h25.1a1.364 1.364 0 0 1 1.362 1.362v20.509a.75.75 0 0 1 -.75.75z\"><\/path><path d=\"m11.957 28.158h-9.519a.75.75 0 0 1 0-1.5h9.519a.75.75 0 0 1 0 1.5z\"><\/path><path d=\"m19.542 24.747h-13.283a.75.75 0 0 1 0-1.5h13.283a.75.75 0 0 1 0 1.5z\"><\/path><path d=\"m5.846 20.787h-5.187a.75.75 0 1 1 0-1.5h5.187a.75.75 0 0 1 0 1.5z\"><\/path><path d=\"m14.163 16.644h-9.156a.75.75 0 1 1 0-1.5h9.156a.75.75 0 0 1 0 1.5z\"><\/path><\/svg>",
-            "title": "Free Delivery",
-            "text": "For all orders over $120"
+            "image": "shopify:\/\/shop_images\/instagram_19_1.png",
+            "url": ""
           }
         },
-        "b6a8b6bd-b3a6-4329-832b-7a4589bc8c04": {
-          "type": "shipping",
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-2": {
+          "type": "img",
           "settings": {
-            "icon": "fa fa-truck",
-            "icon_svg": "<!--?xml version=\"1.0\" encoding=\"iso-8859-1\"?-->\n<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\n<svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<path d=\"M481.28,81.92H30.72C13.783,81.92,0,95.703,0,112.64v286.72c0,16.937,13.783,30.72,30.72,30.72h450.56\n\t\t\tc16.937,0,30.72-13.783,30.72-30.72V112.64C512,95.703,498.217,81.92,481.28,81.92z M491.52,399.36\n\t\t\tc0,5.632-4.608,10.24-10.24,10.24H30.72c-5.652,0-10.24-4.608-10.24-10.24V112.64c0-5.653,4.588-10.24,10.24-10.24h450.56\n\t\t\tc5.632,0,10.24,4.587,10.24,10.24V399.36z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<rect x=\"10.24\" y=\"174.08\" width=\"491.52\" height=\"40.96\"><\/rect>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M501.76,163.84H10.24C4.588,163.84,0,168.427,0,174.08v40.96c0,5.653,4.588,10.24,10.24,10.24h491.52\n\t\t\tc5.652,0,10.24-4.587,10.24-10.24v-40.96C512,168.427,507.412,163.84,501.76,163.84z M491.52,204.8H20.48v-20.48h471.04V204.8z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M276.48,286.72H92.16c-5.652,0-10.24,4.588-10.24,10.24c0,5.652,4.588,10.24,10.24,10.24h184.32\n\t\t\tc5.652,0,10.24-4.588,10.24-10.24C286.72,291.307,282.132,286.72,276.48,286.72z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n\t<g>\n\t\t<path d=\"M194.56,327.68H92.16c-5.652,0-10.24,4.588-10.24,10.24s4.588,10.24,10.24,10.24h102.4c5.652,0,10.24-4.588,10.24-10.24\n\t\t\tS200.212,327.68,194.56,327.68z\"><\/path>\n\t<\/g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<\/svg>",
-            "title": "Safe Payment",
-            "text": "100% secure payment"
+            "image": "shopify:\/\/shop_images\/instagram_19_2.png",
+            "url": ""
           }
         },
-        "60eadd53-0c74-48e7-a6f6-00b7dd83d3a0": {
-          "type": "shipping",
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-3": {
+          "type": "img",
           "settings": {
-            "icon": "fa fa-truck",
-            "icon_svg": "<svg id=\"Layer_1\" enable-background=\"new 0 0 64 64\" height=\"42\" viewbox=\"0 0 64 64\" width=\"42\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><g fill=\"rgb(0,0,0)\"><path d=\"m58.13 5.4h-26.55c-3.23 0-5.87 2.66-5.87 5.92v7.87h-18.75c-3.84 0-6.96 3.15-6.96 7.02v18.97c0 3.58 2.66 6.54 6.09 6.97l.27 5.19c.02.56.38 1.03.91 1.2.14.05.28.07.41.07.35 0 .68-.14.93-.39l7.65-6.01h23.11c3.84 0 6.96-3.15 6.96-7.03v-12.4h4.11l6.22 4.89c.24.23.55.36.88.36.13 0 .27-.02.41-.07.5-.17.84-.61.86-1.13l.21-4.12c2.82-.43 4.99-2.89 4.99-5.86v-15.53c-.01-3.27-2.64-5.92-5.88-5.92zm-18.75 44.86h-23.45c-.22 0-.43.07-.6.21l-7.09 5.57-.25-4.86c-.03-.52-.51-.92-1.03-.92-2.77 0-5.02-2.28-5.02-5.09v-18.96c0-2.8 2.25-5.08 5.02-5.08h32.42c2.77 0 5.02 2.28 5.02 5.08v5.59.01s0 .01 0 .01v13.35c-.01 2.81-2.26 5.09-5.02 5.09zm22.68-23.4c0 2.2-1.76 3.99-3.98 3.99-.52 0-.94.4-.97.92l-.19 3.65-5.55-4.36c-.17-.13-.38-.21-.6-.21h-4.45v-4.64c0-3.87-3.12-7.02-6.96-7.02h-11.71v-7.87c0-2.2 1.76-3.99 3.93-3.99h26.55c2.17 0 3.93 1.79 3.93 3.99z\"><\/path><path d=\"m33.89 28.58h-21.45c-.54 0-.97.43-.97.97s.43.97.97.97h21.46c.54 0 .97-.43.97-.97-.01-.54-.44-.97-.98-.97z\"><\/path><path d=\"m33.89 40.87h-21.45c-.54 0-.97.43-.97.97s.43.97.97.97h21.46c.54 0 .97-.43.97-.97s-.44-.97-.98-.97z\"><\/path><path d=\"m33.89 34.72h-21.45c-.54 0-.97.43-.97.97s.43.97.97.97h21.46c.54 0 .97-.43.97-.97-.01-.53-.44-.97-.98-.97z\"><\/path><\/g><\/svg>",
-            "title": "24\/7 Help Center",
-            "text": "Dedicated 24\/7 support"
+            "image": "shopify:\/\/shop_images\/instagram_19_3.png",
+            "url": ""
           }
         },
-        "9c29d511-faaf-4397-ac89-573fbc35fd34": {
-          "type": "shipping",
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-4": {
+          "type": "img",
           "settings": {
-            "icon": "fa fa-truck",
-            "icon_svg": "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\n<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<g>\n\t\t\t<path d=\"M448,309.333c-20.827,0-64,11.598-85.885,17.885c-2.904-30.609-42.125-41.444-82.656-49.677\n\t\t\t\tc-18.5-3.75-32.271-10.385-45.583-16.813c-16.417-7.917-31.917-15.396-52.542-15.396c-23.618,0-45.142,4.831-57.288,8.173\n\t\t\t\tc-3.211-11.172-12.32-20.177-24.421-22.59L12.75,213.542c-3.104-0.625-6.375,0.188-8.854,2.208C1.438,217.781,0,220.802,0,224\n\t\t\t\tv170.667c0,5.896,4.771,10.667,10.667,10.667H77.5c13.172,0,24.397-8.379,29.223-20.142C130.625,396.586,241.081,448,288,448\n\t\t\t\tc41.375,0,126.563-41.875,182.917-69.583c14.688-7.219,26.833-13.198,34.708-16.646C509.5,360.063,512,356.229,512,352\n\t\t\t\tC512,326.875,485.688,309.333,448,309.333z M103.917,263.802L88.063,374.844C87.313,380.063,82.771,384,77.5,384H21.333V237.01\n\t\t\t\tl74.125,14.823C101,252.948,104.729,258.198,103.917,263.802z M461.5,359.271c-51.271,25.208-137.083,67.396-173.5,67.396\n\t\t\t\tc-38.792,0-140.688-45.427-176.667-62.927c-0.04-0.02-0.085-0.013-0.125-0.031l12.551-87.904\n\t\t\t\tc7.772-2.431,31.518-9.138,57.574-9.138c15.75,0,27.896,5.865,43.292,13.281c13.813,6.667,29.479,14.219,50.583,18.51\n\t\t\t\tc46.354,9.396,66.125,19.031,66.125,32.208c0,2.604-0.792,4.208-2.813,5.719c-6.771,5.073-33.271,13.594-132.813-15.948\n\t\t\t\tc-5.688-1.646-11.583,1.552-13.271,7.198c-1.667,5.646,1.542,11.583,7.188,13.26c49.146,14.563,86.708,21.823,113.333,21.823\n\t\t\t\tc17.354,0,30.083-3.083,38.313-9.24c0.708-0.529,1.227-1.176,1.871-1.745c0.671-0.074,1.331,0.004,2.004-0.203\n\t\t\t\tC374,345.729,427.438,330.667,448,330.667c17.396,0,35.708,5.281,41.083,15.208C481.646,349.375,472.25,354,461.5,359.271z\"><\/path>\n\t\t\t<path d=\"M330.667,256c28.938,0,54.883-17.047,67.118-42.982c39.694-1.676,71.548-34.253,71.548-74.352\n\t\t\t\tc0-41.167-33.5-74.667-74.667-74.667c-29.81,0-55.401,17.684-67.362,43.007C287.725,108.807,256,141.318,256,181.333\n\t\t\t\tC256,222.5,289.5,256,330.667,256z M394.667,85.333c29.417,0,53.333,23.927,53.333,53.333S424.083,192,394.667,192\n\t\t\t\ts-53.333-23.927-53.333-53.333S365.25,85.333,394.667,85.333z M320.965,129.118c-0.41,3.16-0.965,6.279-0.965,9.548\n\t\t\t\tc0,5.432,0.655,10.702,1.762,15.807C320.743,156.109,320,157.93,320,160v42.667c0,5.896,4.771,10.667,10.667,10.667\n\t\t\t\tc5.896,0,10.667-4.771,10.667-10.667v-11.91c9.108,9.324,20.699,16.031,33.612,19.596c-9.674,14.858-26.158,24.314-44.279,24.314\n\t\t\t\tc-29.417,0-53.333-23.927-53.333-53.333C277.333,155.423,295.936,133.832,320.965,129.118z\"><\/path>\n\t\t\t<path d=\"M394.667,170.667c5.896,0,10.667-4.771,10.667-10.667v-42.667c0-5.896-4.771-10.667-10.667-10.667\n\t\t\t\tS384,111.438,384,117.333V160C384,165.896,388.771,170.667,394.667,170.667z\"><\/path>\n\t\t<\/g>\n\t<\/g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<g>\n<\/g>\n<\/svg>",
-            "title": "Shop With Confidence",
-            "text": "If goods have problems"
+            "image": "shopify:\/\/shop_images\/instagram_19_4.png",
+            "url": ""
+          }
+        },
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-5": {
+          "type": "img",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/instagram_19_5.png",
+            "url": ""
+          }
+        },
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-6": {
+          "type": "img",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6.jpg",
+            "url": ""
+          }
+        },
+        "75be8d40-77a0-483a-a643-f353b29f1ff4": {
+          "type": "img",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7.jpg",
+            "url": ""
+          }
+        },
+        "f874fd7e-33e8-4872-92fd-f6c6cada95d1": {
+          "type": "img",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8.jpg",
+            "url": ""
+          }
+        },
+        "60f3a387-ee1d-4551-8b7e-1d25434bc3a5": {
+          "type": "img",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/9.jpg",
+            "url": ""
+          }
+        },
+        "1de9e2d8-2508-401c-a1f9-80c1c5b71f06": {
+          "type": "img",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/10.jpg",
+            "url": ""
           }
         }
       },
       "block_order": [
-        "73295955-3f96-4cd2-a676-bbbf88b1da9e",
-        "b6a8b6bd-b3a6-4329-832b-7a4589bc8c04",
-        "60eadd53-0c74-48e7-a6f6-00b7dd83d3a0",
-        "9c29d511-faaf-4397-ac89-573fbc35fd34"
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-1",
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-2",
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-3",
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-4",
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-5",
+        "template--21324546343230__6c4e3727-9136-40be-b0f8-87f266dfdc8c-img-6",
+        "75be8d40-77a0-483a-a643-f353b29f1ff4",
+        "f874fd7e-33e8-4872-92fd-f6c6cada95d1",
+        "60f3a387-ee1d-4551-8b7e-1d25434bc3a5",
+        "1de9e2d8-2508-401c-a1f9-80c1c5b71f06"
       ],
       "settings": {
-        "hidden": false,
-        "source": "3",
-        "style": "horizontal",
-        "col_pr": "3",
-        "col_pr_tb": "6",
-        "col_pr_mb": "6",
+        "title": "@ Morata! Follow Us On Instagram",
+        "content": "",
+        "text_size": "medium",
+        "text_transform": "capitalize",
+        "border": 0,
+        "use-slider": true,
+        "slides-To-Scroll": 1,
+        "visible": 5,
+        "widescreen": 5,
+        "desktop": 5,
+        "laptop": 4,
+        "notebook": 4,
+        "tablet": 4,
+        "landscape": 3,
+        "portrait": 2,
+        "mobile": 1,
+        "rows": 1,
+        "autoplay": true,
+        "speed": "300",
+        "autoplay-Speed": "3000",
+        "arrows": true,
+        "fade": false,
+        "center-Mode": false,
+        "adaptive-Height": false,
+        "dots": false,
+        "infinite": false,
+        "padding": 10,
+        "vertical": false,
         "layout": "container",
-        "cl_bg": "#1f2024",
-        "cl_icon": "#16bcdc",
-        "cl_heading": "#ffffff",
-        "cl_text": "#777777",
-        "show_border": true,
-        "cl_border": "#313135",
-        "mg": "...",
+        "cl_bg": "#ffffff",
+        "mg": ",,,",
         "pd": "",
-        "mg_mb": "",
+        "mg_mb": ",,,",
         "pd_mb": ""
+      }
+    },
+    "9ff9908e-40bc-4a68-93f9-10b0f925f67f": {
+      "type": "newsletter",
+      "settings": {
+        "width_c": 50,
+        "title": "Let’s Stay in Touch",
+        "cl_title": "#222222",
+        "subtitle": "",
+        "cl_subtitle": "#444444",
+        "content": "Subscirbe to the Ohey mailing list to receive updates on new <br>\narrivals, special offers and other discount information",
+        "cl_content": "#444444",
+        "text_size": "medium",
+        "text_transform": "capitalize",
+        "position": "center",
+        "layout": "container",
+        "design": "design-1",
+        "cl_bg": "#ffffff",
+        "cl_border": "#e5e5e5",
+        "mg": ",,,",
+        "pd": "80px,,80px,",
+        "mg_mb": "",
+        "pd_mb": "40px,,40px,"
       }
     }
   },
   "order": [
-    "bd7a3f74-7d6b-4ffb-be8a-137fd5254eae",
-    "574adbaf-6e05-4837-8111-0b00659cc363",
-    "19a8ee4d-f090-4899-b3c8-4f79aecb2162",
-    "59cfa509-425c-40b3-a543-c8ea25ac5733",
-    "71afa739-8f8f-48b7-851b-1bf058048075",
-    "c3c650ad-a431-488f-9e1d-72f63d7bd21d",
-    "7b45d0bc-c546-4669-8dec-13737a16f9ff",
-    "9131145a-27bb-4f61-81d5-931f352bc40b",
-    "e29c411d-dba9-4699-9d19-9c098b0f7253",
+    "9db669ec-e36b-42f0-a69e-c98e639e4bf0",
+    "182e6935-a48a-4b80-8b07-e15aa9792b8f",
+    "79417091-7f3f-43bb-b035-db1e4988e824",
+    "71159fae-6fa7-4584-b030-12c5587accdf",
+    "7c84c02f-3785-41ea-80f2-84c73f9f7738",
+    "2f399b88-d4b1-42e5-afa6-99135e10ab05",
+    "65bc9f5f-0663-4689-9a0a-a3b27651455e",
+    "160b467d-3a6c-4d8c-a727-4a68377c1093",
     "5052f17b-16c8-45fc-a760-5a6ce3342235",
-    "d0ba855a-e236-4ab7-929a-45d5fe956c54"
+    "6c4e3727-9136-40be-b0f8-87f266dfdc8c",
+    "9ff9908e-40bc-4a68-93f9-10b0f925f67f"
   ]
 }

@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Morata home1",
+    "theme_name": "Morata home24",
     "theme_author": "Alothemes",
     "theme_version": "2.0.0",
     "theme_documentation_url": "https:\/\/shopifydocs.alothemes.com\/uminex",
@@ -281,26 +281,17 @@
       {
         "type": "range",
         "id": "logo_max_width",
-        "label": {
-          "da": "Tilpasset logobredde",
-          "de": "Logobreite",
-          "en": "Custom logo width",
-          "es": "Ancho del logo personalizado",
-          "fi": "Mukautetun logon leveys",
-          "fr": "Largeur personnalisée du logo",
-          "hi": "कस्टम लोगो की चौड़ाई",
-          "it": "Larghezza logo personalizzato",
-          "ja": "ロゴの幅をカスタマイズする",
-          "ko": "사용자 지정 로고 폭",
-          "nb": "Tilpasset logobredde",
-          "nl": "Aangepaste logo-breedte",
-          "pt-BR": "Largura do logotipo personalizado",
-          "pt-PT": "Largura de logótipo personalizada",
-          "sv": "Anpassad logotypsbredd",
-          "th": "ความกว้างของโลโก้แบบกำหนดเอง",
-          "zh-CN": "自定义 logo 宽度",
-          "zh-TW": "自訂商標寬度"
-        },
+        "label": "Custom logo width",
+        "min": 50,
+        "max": 250,
+        "step": 5,
+        "unit": "px",
+        "default": 115
+      },
+      {
+        "type": "range",
+        "id": "logo_max_width_mobile",
+        "label": "Custom logo width (mobile)",
         "min": 50,
         "max": 250,
         "step": 5,
@@ -1041,7 +1032,7 @@
         "type": "checkbox",
         "id": "product_collection_show_label_hot",
         "label": "Show label 'Hot'",
-        "info": "In product tags you can enter (label_host)",
+        "info": "In product tags you can enter (host)",
         "default": false
       },
       {

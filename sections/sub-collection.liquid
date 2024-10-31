@@ -40,8 +40,6 @@
      endcase 
   endif
 %}
-  
-{%- for i in (1..1) -%}  
 <section id="laber_{{sid}}" class="wow animate--slide-in">
   <div class="container {%if layout %}full-width{%endif%}" >   
     <div class="collection_featured ">
@@ -94,7 +92,7 @@
               
                     </div> 
                     <div class="collection-name">
-                     <p>{{ 'homepage.onboarding.all_collection' | t }}</p> 
+                     {{ 'homepage.onboarding.all_collection' | t }}
                     </div>
                  </a>
                   </div>
@@ -114,9 +112,6 @@
   </div>  
 </section>
 {%- render 'section_style' -%} 
-{%- endfor -%}
-
-
 {%- schema -%}
   {
     "name": "Sub Collection",

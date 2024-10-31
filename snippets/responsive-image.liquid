@@ -5,6 +5,7 @@
   {% assign ratio = aspect_ratio | default:image.aspect_ratio %}
     --ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;
 {%- endcapture -%}
+
 <div data-image-id="{{ image.id }}" class="alo-image overflow-hidden alo-border-radius ratio {{ image_class }}" style=" --alo-border-radius:{{ border }}px; {{ style | strip | strip_newlines }}">
   {% if url %}<a class="block h-full " href="{{url}}" target="{{open_link}}" title="" aria-label="link">{%- endif %}
   {{

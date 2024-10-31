@@ -91,11 +91,11 @@
           "type": "quantity_button",
           "settings": {
             "icon_button_cart": "",
-            "border": 30,
+            "border": 3,
             "qt_show_quantity": true,
             "qt_show_cart": true,
             "show_popup": true,
-            "product_terms_conditions_page_content": "",
+            "product_terms_conditions_page_content": "terms-and-conditions",
             "qt_buy_it_now": true,
             "btn_affiliate": "Buy On Themeforest",
             "qt_show_compare": true,
@@ -105,11 +105,11 @@
             "color_text_cart": "#ffffff",
             "bg_add_to_cart": "#222222",
             "color_text_cart_hover": "#ffffff",
-            "bg_add_to_cart_hv": "#16bcdc",
+            "bg_add_to_cart_hv": "#92ac28",
             "color_text_buy_now": "#ffffff",
             "bg_buy_it_now": "#222222",
             "color_text_buy_now_hover": "#ffffff",
-            "bg_buy_it_now_hv": "#16bcdc"
+            "bg_buy_it_now_hv": "#92ac28"
           }
         },
         "d2caabfb-7c33-47ff-b309-cfca9d0d9b98": {
@@ -184,9 +184,10 @@
       "settings": {
         "products-before-after": true,
         "cl_bg": "#ffffff",
+        "cl_border": "#ffffff",
         "mg": "0,0,100px,0",
-        "pd": "40px,40px,40px,40px",
-        "bd": 15,
+        "pd": ",,,",
+        "bd": 3,
         "mg_mb": ",,50px,",
         "pd_mb": ",,,"
       }
@@ -317,10 +318,10 @@
         "show_border": false,
         "cl_line": "#f2f2f6",
         "mg": "0,0,100px,0",
-        "pd": "40px,40px,40px,40px",
+        "pd": "",
         "bd": 15,
         "mg_mb": "0,0,50px,0",
-        "pd_mb": "10px,10px,10px,10px"
+        "pd_mb": ""
       }
     }
   },

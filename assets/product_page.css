@@ -100,11 +100,12 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-      gap: 10px;
+  gap:10px;
 }
 .details-info .star-rating .product-page-info__visitors {
       margin-left: 10px;
 }
+
 .details-info .alo_sold-product .alo_flash-sold {
   display: flex;
   align-items: center;
@@ -572,9 +573,6 @@
   position: relative;
   margin-bottom: 25px;
 }
-.details-info .cms-option-item .title-options {
-  color:var(--color-main);
-}
 .details-info .cms-option-item:last-child {
   margin-bottom: 0;
 }
@@ -600,7 +598,7 @@
   margin-right: 5px;
 }
 .details-info .cms-option-item label {
-  cursor: pointer;
+  margin-bottom: 10px;
   display: block;
   font-weight: 500;
   font-size: 14px;
@@ -1283,15 +1281,15 @@
 .cms-wrap-main-slider.grid_1_column div[data-slide-main] {
   grid-template-columns: repeat(1, minmax(0, 1fr));
   display: grid;
-  gap: 10px;
+  gap: var(--alo-gap);
 }
 .cms-wrap-main-slider.grid_2_column .full-item,
 .cms-wrap-main-slider.grid_1_column .full-item {
   display: block;
   overflow: hidden;
   line-height: 1;
-  border: 1px solid #f2f2f2;
-  background-color: #f2f2f2;
+  border: 1px solid var(--color-border);
+  background-color: #fff;
   -webkit-transition: all 240ms linear 0ms;
   -khtml-transition: all 240ms linear 0ms;
   -moz-transition: all 240ms linear 0ms;
@@ -1306,7 +1304,7 @@
 .cms-wrap-main-slider.grid_2_column div[data-slide-main] {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   display: grid;
-  gap: 10px;
+  gap: var(--alo-gap);
 }
 .box-prod {
   display: flex;

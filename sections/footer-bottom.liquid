@@ -1,3 +1,4 @@
+{%- if section.settings.hidden %}{% break %}{% endif -%}
 {% render 'footer-bottom' %}
 {%- render 'section_style' -%} 
 {%- schema -%}
@@ -159,6 +160,7 @@
       {
         "type": "menu",
         "name": "Menu",
+        "limit": 1,
         "settings": [
           {
             "type": "link_list",
@@ -259,6 +261,7 @@
       {
         "type": "payment_svg",
         "name": "payment SVG",
+        "limit": 1,
         "settings": [
           {
             "type": "text",
@@ -359,6 +362,7 @@
       {
         "type": "payment_img",
         "name": "Payment Img",
+        "limit": 1,
         "settings": [
           {
             "type": "text",
@@ -468,6 +472,7 @@
       {
       "type": "socia",
       "name": "Socia",
+      "limit": 1,  
       "settings": [
           {
             "type": "select",
@@ -565,6 +570,7 @@
       {
       "type": "policy",
       "name": "Policy links",
+      "limit": 1,  
       "settings": [
           {
           "type": "paragraph",
@@ -580,6 +586,118 @@
             "type": "color",
             "id": "cl_link_hover",
             "label": "Color Link (hover)",
+            "default": "#fff"
+          },
+          {
+            "type": "select",
+            "id": "pos_block",
+            "default": "flex-start",
+            "options": [
+              
+             {
+                "value": "flex-start",
+                "label": "Left"
+             },
+            {
+                "value": "center",
+                "label": "Center"
+             },
+             {
+                "value": "flex-end",
+                "label": "Right"
+              }
+            ],
+            "label": "Position"
+          },
+          {
+        "type": "select",
+        "id": "col",
+        "default": "33%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        },
+        {
+             "type": "range",
+             "id": "mb",
+             "label": "Margin bottom",
+             "min": 0,
+             "max": 100,
+             "step": 5,
+             "unit": "px",
+             "default": 0
+          }
+      ]
+      },
+      {
+      "type": "lang_curr",
+      "name": "Language and currency",
+      "limit": 1,  
+      "settings": [
+          {
+                "type": "checkbox",
+                "id": "header_use_currency",
+                "label": "Display currency on top bar",
+                "default": true
+              },
+              {
+                "type": "checkbox",
+                "id": "header_use_language",
+                "label": "Display language on top bar",
+                "default": true
+              },
+              {
+                "type": "checkbox",
+                "id": "show_flag",
+                "label": "Show Flag Image",
+                "default": true
+              },
+        {
+            "type": "color",
+            "id": "cl_link",
+            "label": "Color",
+            "default": "#fff"
+          },
+          {
+            "type": "color",
+            "id": "cl_link_hover",
+            "label": "Color (hover)",
             "default": "#fff"
           },
           {

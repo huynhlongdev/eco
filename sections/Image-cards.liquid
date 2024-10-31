@@ -13,11 +13,10 @@
 {%- assign full_width = section.settings.full_width -%}
 {%- for i in (1..1) -%}  
 {%- if section.settings.hidden %}{% break %}{% endif -%}
-<section id="laber_{{sid}}" class="wow animate--slide-in banner_size_{{se_size}} cat_space_{{section.settings.cat_space}}">
+<section id="laber_{{sid}}" class="wow animate--slide-in banner_size_{{se_size}} cat_space_{{section.settings.cat_space}}" style="{% if section.settings.custom_width %}--alo-container-width:{{section.settings.container_width}}px;{% endif %} --alo-gap:{{ section.settings.gap }}px; --alo-gap-mobile:{{ section.settings.gap-mobile }}px;">
   <div class="container {% if full_width %}full-width{% endif %}">  
     	{% if img_size > 0 %} 
     	<div class="image-col row">
-          {% assign alo-count = 1 %} 
             {%- for block in arr_blocks_img -%}
                 {% if block.type == 'banner_img' %}
                     {% assign image = block.settings.image_sl %}
@@ -45,7 +44,7 @@
                     {% endcase %}
           			{% assign hidden_content = block.settings.hidden_content %}
           			
-                    <div id="laber_{{block.id}}" class="post-item scroll-trigger wow animate--slide-in banner-card laber_banner w-full {{ block_width }} sm:mb-{{ block.settings.mb_mobile}}" style="--alo-gap:{{ section.settings.gap }}px; --alo-gap-mobile:{{ section.settings.gap-mobile }}px;  --animation-order:{{ alo-count }};">
+                    <div id="laber_{{block.id}}" class="scroll-trigger wow animate--slide-in banner-card laber_banner w-full {{ block_width }} sm:mb-{{ block.settings.mb_mobile}}" style="--animation-order:{{ alo-count }};">
                         <div class="content-item">
                           <div  class="images-card overflow-hidden w-full h-full alo-border-radius" style="--alo-border-radius:{{ section.settings.border }}px; --alo-height-pc:{{ h_des }}; --alo-height-tb:{{ h_tb }};--alo-height-mb:{{ h_mb }}" {{ block.shopify_attributes }}>
                           {% if image != blank %} 
@@ -53,12 +52,13 @@
                           {% else %}
                             <div class="image-card__img absolute inset-0 w-full h-full" style="--aspect-ratio: 3;">
                                 {% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}  
-                                {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full object-cover' }}
+                                {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-full h-full object-cover' }}
                             </div>
                           {% endif %}
                           
                             <div class="banner_text_{{block.id}} events-none absolute inset-0" {%if hidden_content %}style="display:none;"{%endif%}>
                             <div class="{% if img_size == 1%} container{%endif%} flex  banner_text h_{{block.settings.h_position}} v_{{block.settings.v_position}} text_{{block.settings.txt_align}}">
+                            
                             <div class="content_banner">
                                   {% for block in section_blocks offset:index %}
                                   {% assign index = index|plus:1 %}                          		
@@ -92,23 +92,21 @@
                                               <p  {{ block.shopify_attributes }}>{{block.settings.title}}</p> 
                                           </div>
                                       {% when 'btn' %}
-                              				
                                             {%- if  block.settings.title != blank -%}
-                                              <a id="b_{{block.id}}"  class="buttons" href="{{block.settings.btn_link}}" target="{{block.settings.open_link}}" style="--alo-border-radius:{{ block.settings.border }}px;"
-                                                 {{ block.shopify_attributes }}>{{block.settings.title}} {{block.settings.icon_button}}</a>
+                                              <a id="b_{{block.id}}"  class="{{ block.settings.btn_style }}" href="{{block.settings.btn_link}}" target="{{block.settings.open_link}}"
+                                                 {{ block.shopify_attributes }} style="--alo-border-radius:{{ block.settings.border }}px;">{{block.settings.title}} {{block.settings.icon_button}}</a>
                                           {%- endif -%}
                               
                                       {% when 'label' %}
                                       {%- if  block.settings.title != blank -%}
                                       <div id="b_{{block.id}}" class="label" {{ block.shopify_attributes }}>
-                                        <span><span>{{block.settings.title}}</span></span>
+                                        <span>{{block.settings.title}}</span>
                                       </div>	
                                       {%- endif -%}
                               
                                   {% else %} 
                                   {%- break -%}
                                   {%- endcase -%}
-                                   {% assign alo-count = alo-count | plus: 1 %} 
                                   {%- endfor -%}
                             </div>
                             </div>
@@ -123,136 +121,10 @@
     	{%endif%}
     	
   </div>
-      {% if section.settings.show_border %}
-    <div class="sm:d-none pt-60 {%if layout_des%}full-width{% else %}container{%endif%}"><div class="line alo-background-color" style="--alo-background-color:{{ section.settings.cl_line }};"></div></div>
-  {% endif %}
 </section>
 {%- render 'section_style' -%}
+{%- render 'config-content-image', blocks:section_blocks -%}
 {%- endfor -%}
-
-
-{%- capture banner-style -%}
-
-	{%- if section_blocks.size > 0 %}
-      {%- for block in section_blocks -%}
-        {%- assign id = block.id -%}
-        {%- assign type = block.type -%}
-        {%- case type -%} 
-			{% when 'hd' %}
-			.type_banner .laber_banner .banner_text h3#b_{{id}}{
-				margin-bottom:{{block.settings.mg_bottom}}px;
-                text-transform:{{block.settings.text_transform}}; 
-                letter-spacing:{{block.settings.ls_text}}; 
-                {% if block.settings.lh_text >0 %}line-height:{{block.settings.lh_text}}px; {% endif %} 
-                font-size:{{block.settings.fs_text}}px; 
-                color:{{block.settings.color}}; 
-                font-weight:{{block.settings.fw_text}};
-				
-			}
-            .type_banner .laber_banner .banner_text h3#b_{{id}} span.first ,
-            .type_banner .laber_banner .banner_text h3#b_{{id}} span.marked,
-            .type_banner .laber_banner .banner_text h3#b_{{id}} span.last {
-              color:{{block.settings.color_mark}}; 
-            }
-            @media (max-width: 1024px) {
-				.type_banner .laber_banner .banner_text h3#b_{{id}}{
-					font-size:{{block.settings.mobile_font_text}}px;
-					margin-bottom:{{block.settings.mobile_mg_bottom}}px;
-				}
-          	}
-			{% when 'subhd' %}
-			.type_banner .laber_banner .banner_text h5#b_{{id}}{
-				margin-bottom:{{block.settings.mg_bottom}}px;
-				text-transform:{{block.settings.text_transform}}; 
-				letter-spacing:{{block.settings.ls_text}};
-				{% if block.settings.lh_text >0 %}line-height:{{block.settings.lh_text}}px; {% endif %} 
-				font-size:{{block.settings.fs_text}}px; 
-				color:{{block.settings.color}}; 
-				font-weight:{{block.settings.fw_text}};
-			}
-            .type_banner .laber_banner .banner_text h5#b_{{id}} span.first ,
-            .type_banner .laber_banner .banner_text h5#b_{{id}} span.marked,
-            .type_banner .laber_banner .banner_text h5#b_{{id}} span.last {
-              color:{{block.settings.color_mark}}; 
-            }
-			@media (max-width: 1024px) {
-				.type_banner .laber_banner .banner_text h5#b_{{id}}{
-					font-size:{{block.settings.mobile_font_text}}px;
-					margin-bottom:{{block.settings.mobile_mg_bottom}}px;
-				}
-          	}
-            {% when 'txt' %}
-              .type_banner .laber_banner .banner_text div#b_{{id}} p{
-                  margin-bottom:{{block.settings.mg_bottom}}px; 
-                  letter-spacing:{{block.settings.ls_text}}; 
-				  text-transform:{{block.settings.text_transform}}; 
-                  {% if block.settings.lh_text >0 %}line-height:{{block.settings.lh_text}}px; {% endif %} 
-                  font-size:{{block.settings.fs_text}}px; 
-                  color:{{block.settings.color}}; 
-                  font-weight:{{block.settings.fw_text}};
-              }
-              @media (max-width: 1024px) {
-                  .type_banner .laber_banner .banner_text div#b_{{id}} p{
-                      font-size:{{block.settings.mobile_font_text}}px;
-                      margin-bottom:{{block.settings.mobile_mg_bottom}}px;
-                  }
-              }
-              {% when 'label' %}
-			  .type_banner .laber_banner .banner_text div#b_{{id}}.label{
-					margin-bottom:{{block.settings.mg_bottom}}px;
-				}
-              .type_banner .laber_banner .banner_text div#b_{{id}}.label > span{
-                background-color: {{block.settings.cl_bg}}; 
-                color:{{block.settings.cl_txt}}; 
-                font-size:{{block.settings.fs_text}}px; 
-                font-weight:{{block.settings.fw_text}};
-                text-transform:{{block.settings.button_transform}};
-                moz-transition: all .4s ease-in-out;
-                -o-transition: all .4s ease-in-out;
-                -webkit-transition: all .4s ease-in-out;
-                transition: all .4s ease-in-out;
-                display: inline-block;
-                padding:{{block.settings.pd}};
-                height: 25px;
-                line-height: 25px;
-				border-radius: 2px;
-              } 
-            @media (max-width: 1024px) {
-            .type_banner .laber_banner .banner_text div#b_{{id}}.label{
-            	margin-bottom:{{block.settings.mobile_mg_bottom}}px;
-            }
-            }
-            {% when 'btn' %}
-              .type_banner .laber_banner .banner_text #b_{{id}}.buttons{
-                  color:{{block.settings.cl_txt}}; 
-                  font-size:{{block.settings.fs_text}}px; 
-                  font-weight:{{block.settings.fw_text}};
-                  text-transform:{{block.settings.button_transform}};
-				  background-color:{{block.settings.bg_txt}}; 
-                  height: 40px;
-                  min-width: 180px;
-                  border-radius: var(--alo-border-radius);
-                  justify-content: center;
-              }	
-              .type_banner .laber_banner .banner_text #b_{{id}}.buttons:hover{
-                    color:{{block.settings.cl_txt_hover}}; 
-					background-color:{{block.settings.bg_txt_hover}}; 
-              }
-            @media (max-width: 1024px) {
-              .type_banner .laber_banner .banner_text #b_{{id}}.buttons{
-                font-size:{{block.settings.mobile_font_text}}px;
-				margin:{{block.settings.mobile_mg}};
-				padding:{{block.settings.mobile_pd}};
-              }
-            }	
-        {%endcase%}
-      {%- endfor -%}
-	{%- endif -%}
-{%- endcapture -%}
-
-{% style%}
-{{ banner-style | strip_newlines | remove:"  "}}
-{% endstyle%}
 
 {%- schema -%}
   {
@@ -294,6 +166,22 @@
         "type": "header",
         "content": "== Setting PC"
       },
+      {
+          "type": "checkbox",
+          "id": "custom_width",
+          "label":"Custom width",
+          "default": false
+        },
+        {
+            "type": "range",  
+            "id": "container_width",  
+            "label": "Container width",
+            "min": 1200,
+            "max": 1900,
+            "step": 10,
+            "unit": "px",
+            "default": 1200 
+        },
       {	
         "type": "range",
         "id": "gap",
@@ -336,19 +224,6 @@
       "label": "Background color",
       "default": "#fff"
       },
-	  
-	  {	
-        "type": "checkbox",
-        "id": "show_border",
-        "label": "Show Border",
-        "default": false 
-      },
-     {
-        "type": "color",
-        "id": "cl_line",
-        "label": "Color line",
-        "default": "#fff"
-      },     
       {
         "type": "text",
         "id": "mg",
@@ -1075,7 +950,7 @@
             }
 
           ]
-      }/*,
+      },
 		{
         "type": "btn",
         "name": "Button",
@@ -1116,31 +991,9 @@
             },
             {
               "type": "color",
-              "id": "bg_txt",
-              "label": "Background",
-              "default": "#222"
-            },
-            {
-              "type": "color",
               "id": "cl_txt_hover",
               "label": "Text color hover",
               "default": "#fff"
-            },
-            {
-              "type": "color",
-              "id": "bg_txt_hover",
-              "label": "Background hover",
-              "default": "#222"
-            },
-            {
-              "type": "range",
-              "id": "border",
-              "min": 0,
-              "max": 50,
-              "step": 0.5,
-              "label": "Border",
-              "unit": "px",
-              "default": 15
             },
             {
               "type": "range",
@@ -1186,6 +1039,32 @@
               "label": "Text transform:"
             },
             {
+              "type": "select",
+              "id": "btn_style",
+              "default": "link",
+              "options": [
+               {
+                  "value": "link",
+                  "label": "Link"
+               },
+               {
+                  "value": "btn",
+                  "label": "Buttons"
+                }
+              ],
+              "label": "Design style:"
+            },
+            {
+              "type": "range",
+              "id": "border",
+              "min": 0,
+              "max": 50,
+              "step": 1,
+              "unit": "px",
+              "label": "Border radius",
+              "default": 0
+            },
+            {
             "type": "header",
             "content": "== mobile Settings"
             },
@@ -1201,7 +1080,7 @@
             }
 			
           ]
-      }*/
+      }
 	],
     "presets": [
       {

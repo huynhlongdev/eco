@@ -12,7 +12,6 @@
   position: relative;
 }
 .vertical_menu:before{
-  content: "";
   background: var(--color-secondary);
   height:2px;
   position:absolute;
@@ -34,7 +33,6 @@
   opacity:1;
 }
 .vertical_menu:after {
-  content: "";
   background-color: var(--color-border-menu);
   height: 20px;
   width: 1px;
@@ -52,12 +50,14 @@
   align-items: center;
   height: 55px;
   cursor: pointer;
-  width: 300px;
+  width: 270px;
   gap: 10px;
-  position:relative;
+  position: relative;
+  padding: 0 15px 0 0;
+  border-radius: 0;
 }
 .vertical_menu .title_vertical_menu:after {
-  content: "";
+  content:'';
   height: 16px;
   display: block;
   width: 1px;
@@ -73,7 +73,7 @@
   color: var(--color-link-menu);
   max-width: 100%;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 18px;
   margin: 0;
   text-transform: uppercase;
@@ -132,13 +132,14 @@
   transform: scale(1);
 }
 .with_vertical_menu .list-vertical_menu {
-  width: 285px;
+  width: 300px;
   background: #fff;
   position: relative;
   flex: 0 0 auto;
   z-index:1;
-  border-radius: 5px;
+  border-radius: var(--alo-border-radius);
   padding: 20px 0;
+  border: 2px solid var(--color-secondary);
 }
 .list-vertical_menu .menu-item-has-children>a:after {
     content: "\e951";
@@ -205,11 +206,11 @@
   top: 0;
   left: 100%;
   background: #fff;
-  padding: 30px;
+  padding: 25px 15px;
   visibility: hidden;
   display: block;
   opacity: 0;
-  border-radius:5px;
+  border-radius:var(--alo-border-radius);
   box-shadow: 0 0 30px #487bb726;
   border-left: 1px solid #E5E8EC;
   -webkit-transform: translate(20px,0);
@@ -296,7 +297,8 @@ visibility: visible;
 
 
 .list-vertical_menu .subverticalmenu .row{
-	align-items: flex-start;
+  align-items: flex-start;
+  border: none !important;
 }
 .list-vertical_menu .subverticalmenu .menu-item{}
 .list-vertical_menu .subverticalmenu .menu-item h3.menu2{
@@ -391,9 +393,10 @@ visibility: visible;
 }
 .vertical_menu_beside_search .vertical_menu h4{
   width: auto;
-  height: 45px;
+  height: 50px;
+  background: transparent;
 }
-.vertical_menu_beside_search .vertical_menu:after{display:none;}
+.vertical_menu_beside_search .title_vertical_menu:after{display:none;}
 .vertical_menu_beside_search .aloSearch {
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
@@ -406,13 +409,15 @@ visibility: visible;
   fill:var(--color-icon-header);
 }
 .vertical_menu_beside_search .vertical_menu .list-vertical_menu {
-  top: 50px;
-  width: 300px;
+  top: 55px;
+  width: 280px;
   -webkit-transform: translate(-50%, 0);
   -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   left: 50%;
-  border-radius: 5px;
+  border-radius: var(--alo-border-radius);
+  border: none;
+  box-shadow: 0 0 30px #487bb726;
 }
 .vertical_menu_beside_search .vertical_menu .list-vertical_menu:before{
   content: "";

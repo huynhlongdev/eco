@@ -43,15 +43,15 @@
 <section id="laber_{{sid}}" class="cat_size_{{se_size}}">
   
   <div class="container {%if layout == 'full-width' %}{{layout}}{%endif%}" >   
-  <div class="collection_featured">
+  <div class="collection_featured content_section">
         {% if section.settings.title != blank %}
           <div class="wrap_title {{ section.settings.text_size }}">
             <div class="h3 section-title alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</div>  
           </div>
         {% endif %}
-    <div class="collection-list-featured">
+    <div class="collection-list-featured ">
     {% include 'grid-slider', settings:section.settings %} 
-    <div class="content_section slick-carousel ">
+    <div class="slick-carousel ">
     <div class="grid-slider js_carousel collection-slider" {{gridSlider}}
       data-mobile="{{ mobile }}"
       data-portrait="{{ portrait }}"
@@ -89,14 +89,14 @@
                           {% endif %}
                           <div class="image-card__img overflow-hidden alo-border-radius ratio" style="--alo-border-radius:{{ section.settings.border }}px;--ratio-percent: {{ ratio }}%;">
                             {% capture current %}{% cycle 1, 2, 3, 4 %}{% endcapture %}
-                             {{ 'product-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                             {{ 'collection-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
                           </div>
                       {%- endif -%}
                      </div>
                      
                      <h3>
                          
-                     <a title="{{sblock.title}}" class="col-name" href="{{ collection.url | default:'/admin/collections' }}" target="{{sblock.open_link}}">
+                     <a title="{{sblock.title}}" class="col-name" href="{{ collection.url | default:'/admin/collections' }}" target="{{sblock.open_link}}" aria-label="link">
                        {{sblock.title}}
                       {% if section.settings.show_n_p  %}
                        <span class="cat_grid_item__count ">
@@ -105,6 +105,18 @@
                       {% endif %}
                      </a>
                      </h3>
+                     {%- assign menu = block.settings.sub_collection -%}
+                      {%- if menu != blank -%}
+                        <ul class="sub_collection">
+                          {%- for link in linklists[menu].links -%}
+                           <li class="sub-item">
+                             <a href="{{ link.url }}" aria-label="link">
+                                {{ link.title | split: '[' | first }}
+                             </a>
+                            </li>
+                           {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
                   </li>
                
               </ul>
@@ -121,6 +133,9 @@
       {% endif %}
       </div>
     </div>
+    {% if section.settings.use-all-collection %}
+        <div class="bn_button viewall text-center"><a href="/collections">{{'sections.collection_list.all_collection' |t}} <i class="icon-chevron-right"></i></a></div>
+    {% endif %}
   </div>                          
   </div>
 </section>
@@ -192,15 +207,21 @@
       "label": "Show Number Products",
       "default": false
       },
+      {
+      "type": "checkbox",
+      "id": "use-all-collection",
+      "label": "All Collection",
+      "default": false
+    },
       {  
         "type": "range",  
         "id": "border",  
         "label": "Border",
         "min": 0,
-        "max": 200,
-        "step": 5,
+        "max": 50,
+        "step":1,
         "unit": "px",
-        "default": 10 
+        "default": 3 
       },    
       {
         "type": "header",

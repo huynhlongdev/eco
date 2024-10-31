@@ -38,11 +38,10 @@
   endif
   
 %}
-{% if section.settings.show_border_top %}<div class="line"></div>{% endif %}
-<section id="laber_{{sid}}" style="--alo-border-radius:{{ section.settings.border }}px;">   
+<section id="laber_{{sid}}" class="section-content" style="--alo-border-radius:{{ section.settings.border }}px;--color-border:{{ section.settings.cl_border }};">   
 <div class=" {%if section.settings.layout %}full-width{% else %}container{% endif %}">
 <div class="products-arrivals ">
-  <div class="section-content">
+
   {% include 'grid-slider', settings:section.settings %} 
     <div class="content_section slick-carousel">
       <div class="grid-slider js_carousel" {{gridSlider}}   
@@ -105,7 +104,6 @@
       {% endif %}
     </div>
   </div>
-</div>
   </div>
 </section>
 {%- render 'section_style' -%} 
@@ -120,12 +118,6 @@
 	  {
         "type": "header",
         "content": "== Design Options"
-      },
-      {	
-          "type": "checkbox",
-          "id": "show_border_top",
-          "label": "Show border top",
-          "default": false
       },
       
       {
@@ -413,6 +405,12 @@
         "type": "color",
         "id": "cl_bg",
         "label": "Background color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "cl_border",
+        "label": "Border color",
         "default": "#fff"
       },
 	  {

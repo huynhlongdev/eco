@@ -1,18 +1,18 @@
 {
   "current": {
-    "home_keywords": "Morata theme, Fastest, Ajax Shop, Minimal, Lazyload",
-    "shop_author": "Morata theme",
+    "home_keywords": "Uminex theme, Fastest, Ajax Shop, Minimal, Lazyload",
+    "shop_author": "Uminex theme",
     "rtl": false,
     "show_button_rtl": false,
     "show_load_page": false,
-    "cusotm_width": 1730,
+    "cusotm_width": 1410,
     "gap": 10,
     "gap_mobile": 5,
     "border": 3,
     "select_header": "1",
-    "use_vertical_menu": true,
+    "use_vertical_menu": false,
     "title_vertical": "Shop By Department",
-    "vertical_menu_position": "1",
+    "vertical_menu_position": "3",
     "select_footer": "1",
     "show_policy_terms_of_service_page": true,
     "privacy_policy_page_content": "privacy-policy",
@@ -20,10 +20,11 @@
     "show_all_categories": false,
     "show_key_word": true,
     "key_word": "Vegetables,Meat,Drink Juice",
-    "logo": "shopify:\/\/shop_images\/logo.png",
-    "logo_page": "shopify:\/\/shop_images\/logo.png",
-    "logo_page_mobile": "shopify:\/\/shop_images\/logo.png",
-    "logo_max_width": 150,
+    "logo": "shopify:\/\/shop_images\/logo-23.png",
+    "logo_page": "shopify:\/\/shop_images\/logo-23.png",
+    "logo_page_mobile": "shopify:\/\/shop_images\/logo-23.png",
+    "logo_max_width": 120,
+    "logo_max_width_mobile": 100,
     "ajaxcart_enabled": true,
     "ajaxcart_after": "sidebar_cart",
     "product_gift": "gift-wrap",
@@ -32,44 +33,45 @@
     "custom_color_free_shipping": true,
     "bg_free_shipping": "#f2f2f6",
     "bg_free_shipping_progress": "#ea0d42",
-    "color_body_bg": "#f4f5f7",
+    "color_body_bg": "#ffffff",
     "color_body_text": "#777777",
     "color_main": "#222222",
-    "color_secondary": "#16bcdc",
+    "color_secondary": "#92ac28",
     "color_link": "#222222",
-    "color_link_hover": "#16bcdc",
+    "color_link_hover": "#92ac28",
     "color_scrollbar": "#222222",
-    "color_link_menu": "#ffffff",
+    "color_border": "#ebebeb",
+    "color_link_menu": "#222222",
     "color_menu_heading": "#222222",
-    "color_link_menu_sub": "#888888",
-    "color_link_menu_hover": "#16bcdc",
-    "color_name_product": "#0068c9",
-    "color_name_product_hover": "#ea0d42",
-    "color_star_product": "#ffb800",
+    "color_link_menu_sub": "#999999",
+    "color_link_menu_hover": "#92ac28",
+    "color_name_product": "#222222",
+    "color_name_product_hover": "#92ac28",
+    "color_star_product": "#ff9300",
     "color_compare_price_product": "#777777",
-    "color_price_product": "#222222",
-    "color_price_current_product": "#cc1414",
+    "color_price_product": "#333e48",
+    "color_price_current_product": "#222222",
     "color_cart_product": "#222222",
     "color_out_product": "#1e882f",
-    "color_btn_product": "#515d66",
+    "color_btn_product": "#222222",
     "color_btn_product_hover": "#ffffff",
-    "bg_btn_product": "#f5f5f5",
-    "bg_btn_product_hover": "#16bcdc",
+    "bg_btn_product": "#ffffff",
+    "bg_btn_product_hover": "#92ac28",
     "color_label_hot": "#cc1414",
-    "color_label_new": "#16bcdc",
-    "color_label_sale": "#5aab19",
+    "color_label_new": "#00badb",
+    "color_label_sale": "#92ac28",
     "color_label_in": "#1e882f",
     "color_label_out": "#cc1414",
     "color_btn_text": "#ffffff",
     "color_btn": "#222222",
     "color_border_btn": "#222222",
     "color_btn_text_hover": "#ffffff",
-    "color_btn_hover": "#16bcdc",
-    "color_border_btn_hover": "#16bcdc",
+    "color_btn_hover": "#92ac28",
+    "color_border_btn_hover": "#92ac28",
     "cl_btn_p_n": "#ffffff",
     "bg_btn_p_n": "#222222",
     "cl_btn_p_n_hover": "#ffffff",
-    "bg_btn_p_n_hover": "#16bcdc",
+    "bg_btn_p_n_hover": "#92ac28",
     "bd_google_font": "Rubik",
     "link_google_font": "<link rel=\"preconnect\" href=\"https:\/\/fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https:\/\/fonts.gstatic.com\" crossorigin=\"\">\n<link href=\"https:\/\/fonts.googleapis.com\/css2?family=Rubik:wght@300;400;500;600;800;900&amp;display=swap\" rel=\"stylesheet\">",
     "bd_font_size": 14,
@@ -81,6 +83,7 @@
     "h6_font_weight": 500,
     "product_page_layout": "container",
     "show_product_sidebar": false,
+    "product_info_layout": "left",
     "product_info_show_arrows": false,
     "product_info_show_btn_fullscreen": true,
     "product_info_enable_zoom": true,
@@ -93,15 +96,15 @@
     "product_page_design": "thumb_left",
     "nb_thumb": 7,
     "sticky_atc": true,
-    "content_style_product": "left",
+    "content_style_product": "center",
     "product_collection_show_label_new": true,
     "product_collection_show_label_hot": true,
     "product_page_new_product": "9999",
-    "image_border_product": 15,
+    "image_border_product": 3,
     "use_eq_height_product": true,
     "image_ratio_product": "ratio1_1",
     "product_collection_show_title": true,
-    "product_text_transform_title": "none",
+    "product_text_transform_title": "capitalize",
     "product_collection_show_label_in_stock": false,
     "product_collection_show_reviews": true,
     "product_collection_hide_reviews_counter": false,
@@ -155,7 +158,7 @@
     "footer_social_pinterest_enable": true,
     "footer_social_pinterest_link": "",
     "footer_social_pinterest_text": "Pinterest",
-    "footer_social_tumblr_enable": true,
+    "footer_social_tumblr_enable": false,
     "social_tumblr_link": "",
     "footer_social_tumblr_text": "Tumblr",
     "footer_social_snapchat_enable": true,
@@ -175,8 +178,7 @@
     "mobile_css": ".custom-css{padding: 10px;}",
     "favicon": "shopify:\/\/shop_images\/favicon.png",
     "favicon_apple": "shopify:\/\/shop_images\/favicon.png",
-    "checkout_header_image": "shopify:\/\/shop_images\/bg_breadcrum_blog.jpg",
-    "checkout_logo_image": "shopify:\/\/shop_images\/Logo_fb7c7c58-1b8f-455e-8b97-56d607743b37.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo-23.png",
     "checkout_logo_position": "left",
     "checkout_logo_size": "small",
     "checkout_body_background_image": "",
@@ -568,7 +570,7 @@
         "type": "cross-sell-popup",
         "settings": {
           "use_cross_sell_popup": true,
-          "collection_id": "phones-accessories",
+          "collection_id": "all-makeup",
           "limit": 10,
           "index": true,
           "product": false,
@@ -664,22 +666,23 @@
         "settings": {
           "hidden": false,
           "title": "Recently viewed products",
-          "text_size": "small",
+          "content": "Find the top most popular items in Morata best sellers.",
+          "text_size": "medium",
           "text_transform": "capitalize",
           "limit": 10,
           "use-slider": true,
           "slides-To-Scroll": 1,
-          "visible": 7,
-          "widescreen": 7,
-          "desktop": 6,
-          "laptop": 5,
+          "visible": 4,
+          "widescreen": 4,
+          "desktop": 4,
+          "laptop": 4,
           "notebook": 4,
           "tablet": 3,
           "landscape": 2,
           "portrait": 2,
           "mobile": 1,
           "rows": 1,
-          "autoplay": true,
+          "autoplay": false,
           "speed": "300",
           "autoplay-Speed": "3000",
           "arrows": true,
@@ -688,7 +691,7 @@
           "adaptive-Height": false,
           "dots": false,
           "infinite": false,
-          "padding": 11,
+          "padding": 10,
           "vertical": false,
           "layout": "container",
           "cl_bg": "rgba(0,0,0,0)",
@@ -727,15 +730,15 @@
       "promotion-product-popup": {
         "type": "promotion-product-popup",
         "settings": {
-          "use_promotion": true,
+          "use_promotion": false,
           "title": "top picks for you",
           "text_size": "small",
           "text_transform": "capitalize",
           "product_list": [
-            "proenza-schouler-white-label-24",
-            "proenza-schouler-white-label-23",
-            "proenza-schouler-white-label-25",
-            "origin-lounge-chair"
+            "foundations-concealers",
+            "foundations-concealers-1",
+            "foundations-concealers-2",
+            "foundations-concealers-3"
           ],
           "btn_link": "\/collections\/all",
           "use-slider": true,
@@ -748,9 +751,9 @@
           "tablet": 3,
           "landscape": 2,
           "portrait": 2,
-          "mobile": 2,
+          "mobile": 1,
           "rows": 1,
-          "autoplay": false,
+          "autoplay": true,
           "speed": "300",
           "autoplay-Speed": "3000",
           "arrows": true,
@@ -887,15 +890,16 @@
         "settings": {
           "hidden": false,
           "title": "Related Products",
-          "text_size": "small",
+          "content": "Find the top most popular items in Morata best sellers.",
+          "text_size": "medium",
           "text_transform": "capitalize",
           "max_count": 15,
           "use-slider": true,
           "slides-To-Scroll": 1,
-          "visible": 7,
-          "widescreen": 7,
-          "desktop": 6,
-          "laptop": 5,
+          "visible": 4,
+          "widescreen": 4,
+          "desktop": 4,
+          "laptop": 4,
           "notebook": 4,
           "tablet": 3,
           "landscape": 2,
@@ -984,15 +988,40 @@
       "top-header": {
         "type": "top-header",
         "blocks": {
+          "403aae08-a22b-4816-8ca6-535e824b3775": {
+            "type": "top_header_3",
+            "disabled": true,
+            "settings": {
+              "hide_mobile": true,
+              "menu_topbar": "",
+              "header_use_social": true,
+              "type_social": "1",
+              "text_align": "topbar-left",
+              "col": "50%"
+            }
+          },
+          "369424e2-a8b0-4b17-b4bc-bd0390d272ee": {
+            "type": "contac_header",
+            "settings": {
+              "hide_mobile": true,
+              "show_phone": true,
+              "show_email": true,
+              "text_align": "topbar-left",
+              "col": "50%"
+            }
+          },
           "4af54431-fa84-424c-b39d-ab98c975cc38": {
             "type": "lang_curr",
             "settings": {
+              "hide_mobile": false,
+              "menu_topbar": "",
               "header_use_currency": true,
               "header_use_language": true,
               "show_flag": true,
               "show_phone": true,
               "text_phone": "Need Help? +001 123 456 789",
-              "text_align": "topbar-left",
+              "cl_phone": "#92ac28",
+              "text_align": "topbar-right",
               "col": "50%"
             }
           },
@@ -1000,59 +1029,52 @@
             "type": "message",
             "disabled": true,
             "settings": {
-              "message_text": "Sign up for 10% off your first order:",
-              "text_link": "Sign Up",
+              "hide_mobile": true,
+              "message_text": "Express delivery and free returns within 30 days",
+              "text_link": "See details",
               "btn_link": "#",
               "open_link": "_blank",
-              "text_align": "topbar-center",
-              "col": "33%",
+              "text_align": "topbar-left",
+              "col": "50%",
               "color_link": "#ffffff",
-              "color_link_hover": "#df0e0e"
-            }
-          },
-          "403aae08-a22b-4816-8ca6-535e824b3775": {
-            "type": "top_header_3",
-            "settings": {
-              "menu_topbar": "menu-top",
-              "header_use_social": false,
-              "type_social": "2",
-              "text_align": "topbar-right",
-              "col": "50%"
+              "color_link_hover": "#16bcdc"
             }
           }
         },
         "block_order": [
+          "403aae08-a22b-4816-8ca6-535e824b3775",
+          "369424e2-a8b0-4b17-b4bc-bd0390d272ee",
           "4af54431-fa84-424c-b39d-ab98c975cc38",
-          "33b63695-e95e-42b4-9b51-1247e8ed2e6f",
-          "403aae08-a22b-4816-8ca6-535e824b3775"
+          "33b63695-e95e-42b4-9b51-1247e8ed2e6f"
         ],
         "settings": {
           "header_use_top_header": true,
-          "hide_top_header_mobile": true,
+          "hide_top_header_mobile": false,
           "home_page_only": false,
-          "custom_width": false,
+          "custom_width": true,
           "container_width": 1800,
           "layout": "container",
-          "bg_top_header": "#263c97",
-          "cl_border_top": "#3b50a3",
+          "bg_top_header": "#222222",
+          "cl_border_top": "#393939",
           "cl_text": "#ffffff",
-          "cl_text_h": "#fcbe00"
+          "cl_text_h": "#92ac28"
         }
       },
       "breadcrumb": {
         "type": "breadcrumb",
         "settings": {
           "show_title_page": false,
+          "cl_title": "#222",
           "h_position": "left",
           "v_position": "middle",
           "txt_align": "left",
           "bg": "#ffffff",
-          "cl_border": "#ebebeb",
+          "cl_border": "#e5e5e5",
           "b_height": 60,
-          "mg_bottom": 40,
+          "mg_bottom": 30,
           "mobile_bg": "#ffffff",
           "mobile_ht": 50,
-          "mobile_mg_bottom": 20
+          "mobile_mg_bottom": 30
         }
       },
       "benefit": {
@@ -1120,7 +1142,6 @@
           "col_pr_mb": "6",
           "layout": "container",
           "cl_bg": "#f1f5f6",
-          "show_border": true,
           "mg": "",
           "pd": "35px,0,35px",
           "mg_mb": "",
@@ -1266,11 +1287,11 @@
       "header1": {
         "type": "header1",
         "blocks": {
-          "56f215e8-e033-46a2-8e94-91f5fe1b1152": {
+          "87c3a75e-dede-4717-9792-46ff9a25f0ca": {
             "type": "mega",
             "settings": {
               "title": "Home",
-              "url": "",
+              "url": "\/",
               "open_link": "_self",
               "icon": "",
               "cus_cl": false,
@@ -1279,18 +1300,18 @@
               "lb_cl": "",
               "pos_rel": true,
               "wid": "cus",
-              "cus_wid": 500,
+              "cus_wid": 450,
               "bg": "#ffffff"
             }
           },
-          "6f4e4b71-6db6-4e84-8af3-6e74e231c457": {
+          "fbf5fe72-e9dc-43bd-b3a7-2d286e9c6b41": {
             "type": "link2",
             "settings": {
               "col": "6",
-              "menu": "home-page"
+              "menu": "home-column-1"
             }
           },
-          "80e7da7d-b7b8-4deb-a6ee-1295b46c0657": {
+          "eca75a0a-6cde-4831-8ab1-e9afedae2350": {
             "type": "link2",
             "settings": {
               "col": "6",
@@ -1337,7 +1358,7 @@
           "eb4b8b78-e314-4cbd-bfd9-fa78f1dbb8d9": {
             "type": "link",
             "settings": {
-              "tt_hd": "Collection Layout",
+              "tt_hd": "Product Layout",
               "url": "#",
               "open_link": "_self",
               "menu": "product-layout",
@@ -1347,9 +1368,9 @@
           "d549a5e3-6ea0-4959-8cd7-14b46c1fa870": {
             "type": "banner",
             "settings": {
-              "image": "shopify:\/\/shop_images\/products_4_7.jpg",
-              "title": "Laptop & Ipad",
-              "url": "shopify:\/\/collections\/laptop-ipad",
+              "image": "shopify:\/\/shop_images\/12_CornstalkDracaena_4.jpg",
+              "title": "Plants & Accessories",
+              "url": "shopify:\/\/collections\/plants-accessories",
               "open_link": "_self",
               "col": "3"
             }
@@ -1358,7 +1379,7 @@
             "type": "mega",
             "settings": {
               "title": "Product",
-              "url": "\/collections\/all",
+              "url": "shopify:\/\/collections\/all-plants",
               "open_link": "_self",
               "icon": "",
               "cus_cl": false,
@@ -1382,28 +1403,28 @@
             "type": "link2",
             "settings": {
               "col": "3",
-              "menu": "product-layout-1"
+              "menu": "product-layout"
             }
           },
           "79f322d8-d36a-4fc7-a97b-de35a91442c8": {
             "type": "cat",
             "settings": {
-              "image": "shopify:\/\/shop_images\/products_2_4.jpg",
+              "image": "shopify:\/\/shop_images\/07_UmbrellaTree_4.jpg",
               "cat_design": "1",
               "hoverz": true,
-              "collection": "vintage-leather-bag",
-              "title": "",
+              "collection": "sale-in-lookbook",
+              "title": "Sale In Lookbook",
               "col": "3"
             }
           },
           "ca137f59-9acb-47fe-a6a5-a6fead24d524": {
             "type": "cat",
             "settings": {
-              "image": "shopify:\/\/shop_images\/products_4_7.jpg",
+              "image": "shopify:\/\/shop_images\/09_Yucca_4.jpg",
               "cat_design": "1",
               "hoverz": true,
-              "collection": "kid-leather-bag",
-              "title": "",
+              "collection": "make-you-happy",
+              "title": "Make You Happy",
               "col": "3"
             }
           },
@@ -1431,7 +1452,7 @@
             "type": "dropdown",
             "settings": {
               "title": "Blog",
-              "url": "shopify:\/\/blogs\/technology",
+              "url": "shopify:\/\/blogs\/plants",
               "open_link": "_self",
               "menu": "blog",
               "icon": "",
@@ -1470,9 +1491,9 @@
           }
         },
         "block_order": [
-          "56f215e8-e033-46a2-8e94-91f5fe1b1152",
-          "6f4e4b71-6db6-4e84-8af3-6e74e231c457",
-          "80e7da7d-b7b8-4deb-a6ee-1295b46c0657",
+          "87c3a75e-dede-4717-9792-46ff9a25f0ca",
+          "fbf5fe72-e9dc-43bd-b3a7-2d286e9c6b41",
+          "eca75a0a-6cde-4831-8ab1-e9afedae2350",
           "2edb69f1-946f-44fb-9516-b508ad1dbadc",
           "cc1ec0f5-91e2-4b61-a17b-8821a0fb0b57",
           "e3ad527e-3670-40a3-b827-3adcc2c529d4",
@@ -1490,26 +1511,27 @@
           "49f03b2d-2086-45b8-a76f-e35c204976da"
         ],
         "settings": {
-          "header_design": "logo-left_2l",
+          "header_design": "logo-left-menu-center",
           "sticky_top": false,
-          "Background_header": "#263c97",
-          "bg_header_sticky": "#263c97",
-          "custom_width": false,
+          "Background_header": "#ffffff",
+          "custom_width": true,
           "container_width": 1800,
           "layout": "container",
           "header_use_search_home": true,
-          "style_search": "3",
-          "cl_bd_search": "rgba(0,0,0,0)",
+          "hide_search_mobile": false,
+          "style_search": "1",
+          "cl_bd_search": "#ebebeb",
           "header_use_cart_home": true,
           "header_use_wishlist_home": true,
           "header_use_compare_home": false,
           "header_use_account": true,
-          "color_icon": "#ffffff",
-          "color_count": "#16bcdc",
+          "color_icon": "#222222",
+          "color_count": "#92ac28",
           "enable_icon_menu": false,
-          "cl_bg_menu": "#263c97",
-          "cl_border_menu": "#3b50a3",
-          "custom_html": "<p><a href=\"#\" title=\"Sale\">Sale $20 Off Your First Order.<\/a><\/p>"
+          "cl_bg_menu": "#ffffff",
+          "bg_header_sticky": "#ffffff",
+          "cl_border_menu": "#f1f1f1",
+          "custom_html": ""
         }
       },
       "vertical_menu": {
@@ -1874,26 +1896,39 @@
           "mobile_menu-0": {
             "type": "menu_mb",
             "settings": {
-              "title": "Home",
+              "title": "Home column 1",
               "url": "\/",
               "open_link": "_self",
-              "menu": "home-page",
+              "menu": "home-column-1",
               "show_icon": false,
               "icon": "<i class=\"las la-campground\"><\/i>",
               "lb": "",
               "lb_cl": "#fafafa"
             }
           },
+          "b089b9be-2445-4d10-96a3-ff53660318d2": {
+            "type": "menu_mb",
+            "settings": {
+              "title": "Home column 2",
+              "url": "",
+              "open_link": "_self",
+              "menu": "home-column-2",
+              "show_icon": false,
+              "icon": "<i class=\"las la-campground\"><\/i>",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
           "mobile_menu-1": {
             "type": "menu_mb",
             "settings": {
-              "title": "Shop",
+              "title": "Product Categories",
               "url": "shopify:\/\/collections\/all-furniture",
               "open_link": "_self",
               "menu": "product-categories",
               "show_icon": false,
               "icon": "<i class=\"fas fa-yin-yang\"><\/i>",
-              "lb": "New",
+              "lb": "",
               "lb_cl": "#d93939"
             }
           },
@@ -1954,6 +1989,7 @@
           },
           "2709ff91-c156-4bf3-a87f-748dbfc96c74": {
             "type": "language_currency",
+            "disabled": true,
             "settings": {
               "show_flag": false
             }
@@ -1964,6 +2000,7 @@
           "mobile_menu-7",
           "bee752b1-a35e-44f7-9cb2-f71448a728eb",
           "mobile_menu-0",
+          "b089b9be-2445-4d10-96a3-ff53660318d2",
           "mobile_menu-1",
           "mobile_menu-2",
           "mobile_menu-3",
@@ -2157,8 +2194,7 @@
       "promotion-newsletter-popup": {
         "type": "promotion-newsletter-popup",
         "settings": {
-          "use_newsletter_popup": true,
-          "bg_newsletter": "shopify:\/\/shop_images\/bg_newsletterpopup.jpg",
+          "use_newsletter_popup": false,
           "bg_color": "#ffffff",
           "title_newslette": "Our Newsletter",
           "subtitle_newslette": "SIGN UP FOR OUR NEWSLETTER & PROMOTIONS !",
@@ -2178,47 +2214,44 @@
         "blocks": {
           "0acdf3d5-9c21-481a-b5c1-f04f5d89c1a2": {
             "type": "message",
-            "disabled": true,
             "settings": {
-              "bg_top_header": "#ffb800",
-              "cl_bd_top_bar": "#ffb800",
-              "cl_text": "#222222",
-              "show_close_btn": true,
-              "title_close_btn": "",
               "message_text": "Summer discount on all fruit and free delivery nationwide -",
               "text_link": "Sale 40% Off!",
               "btn_link": "shopify:\/\/collections\/fresh-vegetables",
               "open_link": "_blank",
               "text_align": "topbar-center",
-              "col": "12",
               "color_link": "#212529",
               "bg_color_link": "rgba(0,0,0,0)",
               "color_link_hover": "#1e882f",
               "bg_color_link_hover": "rgba(0,0,0,0)"
             }
           },
-          "text_horizontal_running_z7Rrga": {
-            "type": "text-horizontal-running",
+          "32ab0666-a8a0-4987-a82a-8d6869b17775": {
+            "type": "banner",
+            "disabled": true,
             "settings": {
-              "healing_speed": 30,
-              "limit": 10,
-              "text": "Special offer: enjoy 3 months of shopify for $1\/month",
-              "url": "",
-              "open_link": "_blank",
-              "bg": "#ffb800",
-              "color_text": "#222222"
+              "h_des": "170px",
+              "h_tb": "100px",
+              "h_mb": "80px",
+              "link_img": "#",
+              "open_link": "_blank"
             }
           }
         },
         "block_order": [
           "0acdf3d5-9c21-481a-b5c1-f04f5d89c1a2",
-          "text_horizontal_running_z7Rrga"
+          "32ab0666-a8a0-4987-a82a-8d6869b17775"
         ],
         "settings": {
           "header_use_top_header": false,
           "hide_top_header_mobile": false,
           "home_page_only": false,
-          "layout": "container"
+          "show_close_btn": true,
+          "title_close_btn": "Close",
+          "layout": "container",
+          "bg_top_header": "#f2f2f6",
+          "cl_bd_top_bar": "#f2f2f6",
+          "cl_text": "#212529"
         }
       },
       "banner": {
@@ -2662,76 +2695,76 @@
       "product_sidebar": {
         "type": "product_sidebar",
         "blocks": {
+          "a2265fc2-06b3-43b2-818a-330f652cfdbe": {
+            "type": "menu",
+            "settings": {
+              "title_categories": "Product Categories",
+              "menu": "product-categories",
+              "mb": 30
+            }
+          },
           "d413021c-808d-4a95-a1b8-f4ab49e66693": {
             "type": "benefit",
+            "disabled": true,
             "settings": {
               "source": "3",
               "show_benefit_1": true,
               "icon": "icon-codesandbox",
-              "text_svg": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M3.16992 7.43994L11.9999 12.5499L20.7699 7.46991\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M12 21.61V12.54\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M9.9306 2.48L4.59061 5.45003C3.38061 6.12003 2.39062 7.80001 2.39062 9.18001V14.83C2.39062 16.21 3.38061 17.89 4.59061 18.56L9.9306 21.53C11.0706 22.16 12.9406 22.16 14.0806 21.53L19.4206 18.56C20.6306 17.89 21.6206 16.21 21.6206 14.83V9.18001C21.6206 7.80001 20.6306 6.12003 19.4206 5.45003L14.0806 2.48C12.9306 1.84 11.0706 1.84 9.9306 2.48Z\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M16.9998 13.2401V9.58014L7.50977 4.1001\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
-              "title": "Free shipping apply to all <br>orders over $90",
+              "text_svg": "<!--?xml version=\"1.0\" encoding=\"utf-8\"?-->\n<!-- Generated by IcoMoon.io -->\n\n<svg version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"42\" height=\"42\" viewbox=\"0 0 20 20\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n<path fill=\"#000000\" d=\"M13.5 9c-1.378 0-2.5-1.122-2.5-2.5s1.122-2.5 2.5-2.5 2.5 1.122 2.5 2.5-1.122 2.5-2.5 2.5zM13.5 5c-0.827 0-1.5 0.673-1.5 1.5s0.673 1.5 1.5 1.5 1.5-0.673 1.5-1.5-0.673-1.5-1.5-1.5z\"><\/path>\n<path fill=\"#000000\" d=\"M0.5 20c-0.13 0-0.258-0.051-0.354-0.146-0.137-0.137-0.183-0.342-0.116-0.524 1.539-4.231 3.157-6.377 4.808-6.377 0.545 0 1.054 0.234 1.515 0.694 0.728 0.728 0.754 1.453 0.648 1.933-0.334 1.508-2.464 2.985-6.33 4.391-0.056 0.020-0.114 0.030-0.171 0.030zM4.839 13.952c-0.495 0-1.078 0.434-1.685 1.255-0.597 0.807-1.197 1.957-1.788 3.427 1.335-0.537 2.408-1.082 3.199-1.625 1.067-0.733 1.383-1.3 1.46-1.646s-0.047-0.677-0.379-1.009c-0.27-0.27-0.534-0.401-0.808-0.401z\"><\/path>\n<path fill=\"#000000\" d=\"M19.5 0c-2.595 0-4.907 0.44-6.874 1.308-1.621 0.716-3.009 1.72-4.126 2.986-0.208 0.236-0.401 0.475-0.58 0.715-0.862 0.057-1.744 0.4-2.624 1.020-0.745 0.524-1.493 1.25-2.225 2.157-1.23 1.524-1.986 3.027-2.018 3.090-0.109 0.219-0.044 0.485 0.154 0.628 0.088 0.064 0.191 0.095 0.293 0.095 0.128 0 0.256-0.049 0.353-0.145 0.005-0.005 0.483-0.475 1.298-0.936 0.672-0.38 1.708-0.827 2.961-0.906 0.317 0.811 1.224 1.781 1.659 2.216s1.405 1.342 2.216 1.659c-0.079 1.253-0.526 2.289-0.906 2.961-0.462 0.816-0.931 1.293-0.935 1.297-0.173 0.173-0.195 0.447-0.052 0.646 0.097 0.134 0.249 0.208 0.406 0.208 0.076 0 0.152-0.017 0.223-0.053 0.063-0.032 1.566-0.788 3.090-2.018 0.907-0.732 1.633-1.48 2.157-2.225 0.62-0.881 0.962-1.762 1.020-2.624 0.239-0.178 0.478-0.371 0.715-0.58 1.266-1.117 2.27-2.505 2.986-4.126 0.868-1.966 1.308-4.279 1.308-6.874v-0.5h-0.5zM3.107 9.808c0.953-1.383 2.41-3.098 4.052-3.637-0.649 1.137-0.985 2.181-1.106 2.843-1.159 0.071-2.158 0.408-2.946 0.794zM10.193 16.89c0.386-0.788 0.723-1.786 0.793-2.944 0.661-0.121 1.706-0.457 2.842-1.105-0.54 1.639-2.254 3.096-3.636 4.049zM15.044 10.75c-2.080 1.835-4.234 2.25-4.544 2.25-0.002 0-0.207-0.004-0.759-0.393-0.385-0.271-0.834-0.657-1.262-1.085s-0.814-0.877-1.085-1.262c-0.389-0.552-0.393-0.757-0.393-0.759 0-0.31 0.415-2.464 2.25-4.544 2.196-2.488 5.557-3.849 9.744-3.95-0.101 4.187-1.461 7.548-3.95 9.744z\"><\/path>\n<\/svg>",
+              "title": "Free Shipping",
+              "content": "Free Shipping On All Order",
               "show_benefit_2": true,
               "icon2": "icon-shield",
-              "text_svg2": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M10.4902 2.23006L5.50016 4.11006C4.35016 4.54006 3.41016 5.90006 3.41016 7.12006V14.5501C3.41016 15.7301 4.19016 17.2801 5.14016 17.9901L9.44016 21.2001C10.8502 22.2601 13.1702 22.2601 14.5802 21.2001L18.8802 17.9901C19.8302 17.2801 20.6102 15.7301 20.6102 14.5501V7.12006C20.6102 5.89006 19.6702 4.53006 18.5202 4.10006L13.5302 2.23006C12.6802 1.92006 11.3202 1.92006 10.4902 2.23006Z\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M9.05078 11.8702L10.6608 13.4802L14.9608 9.18018\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
-              "title2": "Guaranteed 100% Organic <br>from nature farms",
+              "text_svg2": "<!--?xml version=\"1.0\" encoding=\"utf-8\"?-->\n<!-- Generated by IcoMoon.io -->\n\n<svg version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"42\" height=\"42\" viewbox=\"0 0 20 20\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n<path fill=\"#000000\" d=\"M19.854 8.646c-0.195-0.195-0.512-0.195-0.707 0l-1.149 1.149c-0.051-2.060-0.878-3.99-2.341-5.452-1.511-1.511-3.52-2.343-5.657-2.343-2.974 0-5.686 1.635-7.077 4.266-0.129 0.244-0.036 0.547 0.208 0.676s0.547 0.036 0.676-0.208c1.217-2.303 3.59-3.734 6.193-3.734 3.789 0 6.885 3.027 6.997 6.789l-1.143-1.143c-0.195-0.195-0.512-0.195-0.707 0s-0.195 0.512 0 0.707l2 2c0.098 0.098 0.226 0.146 0.354 0.146s0.256-0.049 0.354-0.146l2-2c0.195-0.195 0.195-0.512 0-0.707z\"><\/path>\n<path fill=\"#000000\" d=\"M16.869 13.058c-0.244-0.129-0.547-0.036-0.676 0.208-1.217 2.303-3.59 3.734-6.193 3.734-3.789 0-6.885-3.027-6.997-6.789l1.143 1.143c0.098 0.098 0.226 0.146 0.354 0.146s0.256-0.049 0.354-0.146c0.195-0.195 0.195-0.512 0-0.707l-2-2c-0.195-0.195-0.512-0.195-0.707 0l-2 2c-0.195 0.195-0.195 0.512 0 0.707s0.512 0.195 0.707 0l1.149-1.149c0.051 2.060 0.878 3.99 2.341 5.452 1.511 1.511 3.52 2.343 5.657 2.343 2.974 0 5.686-1.635 7.077-4.266 0.129-0.244 0.036-0.547-0.208-0.676z\"><\/path>\n<\/svg>",
+              "title2": "Money  Guarantee",
+              "content2": "30 Day Money Back Guarantee",
               "show_benefit_3": true,
               "icon3": "icon-check-circle",
-              "text_svg3": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M8.38086 12.0001L10.7909 14.4201L15.6209 9.58008\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M10.7509 2.44982C11.4409 1.85982 12.5709 1.85982 13.2709 2.44982L14.8509 3.80982C15.1509 4.06982 15.7109 4.27982 16.1109 4.27982H17.8109C18.8709 4.27982 19.7409 5.14982 19.7409 6.20982V7.90982C19.7409 8.29982 19.9509 8.86982 20.2109 9.16982L21.5709 10.7498C22.1609 11.4398 22.1609 12.5698 21.5709 13.2698L20.2109 14.8498C19.9509 15.1498 19.7409 15.7098 19.7409 16.1098V17.8098C19.7409 18.8698 18.8709 19.7398 17.8109 19.7398H16.1109C15.7209 19.7398 15.1509 19.9498 14.8509 20.2098L13.2709 21.5698C12.5809 22.1598 11.4509 22.1598 10.7509 21.5698L9.17086 20.2098C8.87086 19.9498 8.31086 19.7398 7.91086 19.7398H6.18086C5.12086 19.7398 4.25086 18.8698 4.25086 17.8098V16.0998C4.25086 15.7098 4.04086 15.1498 3.79086 14.8498L2.44086 13.2598C1.86086 12.5698 1.86086 11.4498 2.44086 10.7598L3.79086 9.16982C4.04086 8.86982 4.25086 8.30982 4.25086 7.91982V6.19982C4.25086 5.13982 5.12086 4.26982 6.18086 4.26982H7.91086C8.30086 4.26982 8.87086 4.05982 9.17086 3.79982L10.7509 2.44982Z\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
-              "title3": "60 days returns if you change <br>your mind"
+              "text_svg3": "<!--?xml version=\"1.0\" encoding=\"utf-8\"?-->\n<!-- Generated by IcoMoon.io -->\n\n<svg version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"42\" height=\"42\" viewbox=\"0 0 20 20\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n<path fill=\"#000000\" d=\"M18.5 18h-11c-0.827 0-1.5-0.673-1.5-1.5 0-0.048 0.011-1.19 0.924-2.315 0.525-0.646 1.241-1.158 2.128-1.522 1.071-0.44 2.4-0.662 3.948-0.662s2.876 0.223 3.948 0.662c0.887 0.364 1.603 0.876 2.128 1.522 0.914 1.125 0.924 2.267 0.924 2.315 0 0.827-0.673 1.5-1.5 1.5zM7 16.503c0.001 0.275 0.225 0.497 0.5 0.497h11c0.275 0 0.499-0.223 0.5-0.497-0.001-0.035-0.032-0.895-0.739-1.734-0.974-1.157-2.793-1.768-5.261-1.768s-4.287 0.612-5.261 1.768c-0.707 0.84-0.738 1.699-0.739 1.734z\"><\/path>\n<path fill=\"#000000\" d=\"M13 11c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4c0 2.206-1.794 4-4 4zM13 4c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3z\"><\/path>\n<path fill=\"#000000\" d=\"M4.5 18h-3c-0.827 0-1.5-0.673-1.5-1.5 0-0.037 0.008-0.927 0.663-1.8 0.378-0.505 0.894-0.904 1.533-1.188 0.764-0.34 1.708-0.512 2.805-0.512 0.179 0 0.356 0.005 0.527 0.014 0.276 0.015 0.487 0.25 0.473 0.526s-0.25 0.488-0.526 0.473c-0.153-0.008-0.312-0.012-0.473-0.012-3.894 0-3.997 2.379-4 2.503 0.001 0.274 0.225 0.497 0.5 0.497h3c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5z\"><\/path>\n<path fill=\"#000000\" d=\"M5 12c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3zM5 7c-1.103 0-2 0.897-2 2s0.897 2 2 2 2-0.897 2-2c0-1.103-0.897-2-2-2z\"><\/path>\n<\/svg>",
+              "title3": "Online Support 24\/7",
+              "content3": "Technical Support 24\/7",
+              "show_benefit_4": true,
+              "icon4": "fa fa-truck",
+              "text_svg4": "<!--?xml version=\"1.0\" encoding=\"utf-8\"?-->\n<!-- Generated by IcoMoon.io -->\n\n<svg version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"42\" height=\"42\" viewbox=\"0 0 20 20\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n<path fill=\"#000000\" d=\"M18.5 18h-17c-0.827 0-1.5-0.673-1.5-1.5v-13c0-0.827 0.673-1.5 1.5-1.5h17c0.827 0 1.5 0.673 1.5 1.5v13c0 0.827-0.673 1.5-1.5 1.5zM1.5 3c-0.276 0-0.5 0.224-0.5 0.5v13c0 0.276 0.224 0.5 0.5 0.5h17c0.276 0 0.5-0.224 0.5-0.5v-13c0-0.276-0.224-0.5-0.5-0.5h-17z\"><\/path>\n<path fill=\"#000000\" d=\"M9.5 6h-6c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h6c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5z\"><\/path>\n<path fill=\"#000000\" d=\"M9.5 9h-6c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h6c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5z\"><\/path>\n<path fill=\"#000000\" d=\"M9.5 11h-6c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h6c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5z\"><\/path>\n<path fill=\"#000000\" d=\"M9.5 13h-6c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h6c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5z\"><\/path>\n<path fill=\"#000000\" d=\"M8.5 15h-5c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h5c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5z\"><\/path>\n<path fill=\"#000000\" d=\"M17.943 6.544l-0.813-0.591-0.311-0.956h-1.005l-0.813-0.591-0.813 0.591h-1.005l-0.311 0.956-0.813 0.591 0.311 0.956-0.311 0.956 0.813 0.591 0.132 0.406c-0.002 0.016-0.002 0.031-0.002 0.047v5c0 0.202 0.122 0.385 0.309 0.462s0.402 0.035 0.545-0.108l1.146-1.146 1.146 1.146c0.096 0.096 0.223 0.147 0.354 0.146 0.064 0 0.129-0.012 0.191-0.038 0.187-0.077 0.309-0.26 0.309-0.462v-5c0-0.016-0.001-0.032-0.002-0.047l0.132-0.406 0.813-0.591-0.311-0.956 0.311-0.956zM13.233 6.926l0.488-0.355 0.187-0.574h0.604l0.488-0.355 0.488 0.355h0.604l0.187 0.574 0.488 0.355-0.187 0.574 0.187 0.574-0.488 0.355-0.187 0.574h-0.604l-0.488 0.355-0.488-0.355h-0.604l-0.187-0.574-0.488-0.355 0.187-0.574-0.187-0.574zM15.354 12.646c-0.195-0.195-0.512-0.195-0.707 0l-0.646 0.646v-3.29h0.187l0.813 0.591 0.813-0.591h0.187v3.29l-0.646-0.646z\"><\/path>\n<\/svg>",
+              "title4": "Member Discount",
+              "content4": "Upto 40% Discount All Products",
+              "mb": 30
+            }
+          },
+          "015a0b62-3eae-4118-9c80-83745b7f1eab": {
+            "type": "product",
+            "settings": {
+              "title": "Featured product",
+              "product_list": [
+                "proenza-schouler-white-label-24",
+                "proenza-schouler-white-label-23",
+                "proenza-schouler-white-label-25",
+                "origin-lounge-chair"
+              ],
+              "mb": 30
             }
           },
           "973e6bb4-6d62-4f16-9176-ca2be3497750": {
             "type": "promobox",
             "settings": {
-              "title": "Hot deals",
-              "sub_title": "Nuts & dried <span>weekend Promo<\/span>",
-              "content": "Everything You Need",
-              "url": "#"
-            }
-          },
-          "ca6fcdc1-822e-4739-84ff-f48bb4ab492e": {
-            "type": "products",
-            "settings": {
-              "title": "Recent Products",
-              "collection": "accessories",
-              "max_count": 10,
-              "use-slider": true,
-              "slides-To-Scroll": 1,
-              "visible": 1,
-              "widescreen": 1,
-              "desktop": 1,
-              "laptop": 1,
-              "notebook": 1,
-              "tablet": 1,
-              "landscape": 1,
-              "portrait": 1,
-              "mobile": 1,
-              "rows": 3,
-              "autoplay": false,
-              "speed": "300",
-              "autoplay-Speed": "3000",
-              "arrows": false,
-              "fade": false,
-              "center-Mode": false,
-              "adaptive-Height": false,
-              "dots": true,
-              "infinite": false,
-              "padding": 0,
-              "vertical": false,
+              "url": "#",
+              "open_link": "_blank",
+              "image_promobox": "shopify:\/\/shop_images\/img_sidebar.png",
               "use_eq_height": true,
               "image_ratio": "ratio3_4",
-              "cl_bg": "#ffffff",
-              "pd": ""
+              "mb": 30
             }
           }
         },
         "block_order": [
+          "a2265fc2-06b3-43b2-818a-330f652cfdbe",
           "d413021c-808d-4a95-a1b8-f4ab49e66693",
-          "973e6bb4-6d62-4f16-9176-ca2be3497750",
-          "ca6fcdc1-822e-4739-84ff-f48bb4ab492e"
+          "015a0b62-3eae-4118-9c80-83745b7f1eab",
+          "973e6bb4-6d62-4f16-9176-ca2be3497750"
         ],
         "settings": {
           "cl_bg": "rgba(0,0,0,0)",
+          "border": 3,
           "mg": "",
           "pd": "",
           "bd": "",
@@ -2762,18 +2795,32 @@
       "footer1": {
         "type": "footer1",
         "blocks": {
-          "297971d8-0316-476b-b319-8a21c85d2f7b": {
-            "type": "html",
+          "36b84b73-e621-4021-83da-97979e6ac7e2": {
+            "type": "logo-footer",
             "settings": {
-              "title": "Download App",
+              "use_logo_footer": true,
+              "logo_footer": "shopify:\/\/shop_images\/logo-16.png",
+              "logo_max_width": 120,
+              "hotline": "<p class=\"title\" style=\"color:#999999;\">Hotline Free 24\/24:<\/p> <p style=\"font-size:20px;font-weight: 500;color:#fff\" class=\"phone-number\">(+100) 123 456 7890<\/p>",
+              "content": "Add: 1234 Heaven Stress, Beverly Hill, Melbourne, USA.<br>\nEmail: aloshopify@alothemes.com",
+              "text_color": "#999999",
+              "col": "25%"
+            }
+          },
+          "060eaa11-4b2a-443f-be6f-fc3a9b966d23": {
+            "type": "contact_information",
+            "disabled": true,
+            "settings": {
+              "title": "About The Store",
               "cl_heading": "#ffffff",
               "text_size": "small",
               "text_transform": "capitalize",
-              "content": "Morata App is now available on App Store &amp; Google Play. \nGet it now.",
-              "cl_content": "#999999",
-              "img": "shopify:\/\/shop_images\/app.png",
-              "width_img": 385,
-              "use_social": true,
+              "text2": "Our mission statement is to provide the absolute best\ncustomer experience available in the Electronic industry \nwithout exception.",
+              "cl_text": "#999999",
+              "show_phone": true,
+              "text1": "Got Question? Call us 24\/7",
+              "cl_phone": "#fdbe01",
+              "show_email": true,
               "col": "25%"
             }
           },
@@ -2786,7 +2833,7 @@
               "text_transform": "capitalize",
               "menu": "my-account",
               "cl_link": "#999999",
-              "cl_link_hover": "#16bcdc",
+              "cl_link_hover": "#92ac28",
               "col": "16%"
             }
           },
@@ -2799,7 +2846,7 @@
               "text_transform": "capitalize",
               "menu": "customer-service",
               "cl_link": "#999999",
-              "cl_link_hover": "#16bcdc",
+              "cl_link_hover": "#92ac28",
               "col": "16%"
             }
           },
@@ -2812,12 +2859,13 @@
               "text_transform": "capitalize",
               "menu": "help-customer-care",
               "cl_link": "#999999",
-              "cl_link_hover": "#16bcdc",
+              "cl_link_hover": "#92ac28",
               "col": "16%"
             }
           },
           "05da67b0-2406-42df-856c-577b3265c324": {
             "type": "mail",
+            "disabled": true,
             "settings": {
               "center_align": false,
               "title": "Sign Up To Newsletter",
@@ -2826,28 +2874,46 @@
               "text_transform": "capitalize",
               "sub_title": "Join 60.000+ subscribers and get a new discount coupon  on every Saturday.",
               "sub_title2": "By providing your email address, you agree to our Privacy Policy and Terms of Service.",
-              "cl_text": "#999999",
-              "cl_btn": "#16bcdc",
+              "cl_text": "#8eb9e9",
+              "cl_btn": "#fcbe00",
               "use_social": false,
               "col": "25%",
+              "border": 3,
               "mg_b": 0,
               "sm_mg_b": 0
+            }
+          },
+          "297971d8-0316-476b-b319-8a21c85d2f7b": {
+            "type": "html",
+            "disabled": true,
+            "settings": {
+              "title": "Download App",
+              "cl_heading": "#ffffff",
+              "text_size": "small",
+              "text_transform": "capitalize",
+              "content": "Morata App is now available on App Store &amp; Google Play. \nGet it now.",
+              "cl_content": "#999999",
+              "width_img": 385,
+              "use_social": true,
+              "col": "25%"
             }
           }
         },
         "block_order": [
-          "297971d8-0316-476b-b319-8a21c85d2f7b",
+          "36b84b73-e621-4021-83da-97979e6ac7e2",
+          "060eaa11-4b2a-443f-be6f-fc3a9b966d23",
           "76338e37-4d61-40e4-8bf2-402c157154d3",
           "88094249-da27-401b-baf0-75958ab4ebda",
           "f8f2b544-2fef-4fe7-8621-5c0f692b223e",
-          "05da67b0-2406-42df-856c-577b3265c324"
+          "05da67b0-2406-42df-856c-577b3265c324",
+          "297971d8-0316-476b-b319-8a21c85d2f7b"
         ],
         "settings": {
           "full_width": false,
-          "cl_bg_footer": "#1f2024",
-          "cl_line": "#313135",
+          "cl_bg": "#222222",
+          "cl_line": "#393939",
           "pd": "40px,0,60px,0",
-          "pd_mb": "40px,0,40px,0"
+          "pd_mb": "0,0,30px,0"
         }
       },
       "footer2": {
@@ -2988,7 +3054,7 @@
       "main-password-header": {
         "type": "main-password-header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/logo11.png",
+          "logo": "shopify:\/\/shop_images\/logo-5.png",
           "logo_max_width": 170,
           "color_scheme": "accent-2"
         }
@@ -2999,57 +3065,57 @@
           "5993e669-8bcc-4fff-abd9-9c199a63be53": {
             "type": "color",
             "settings": {
-              "title": "grayish red",
-              "color_code": "#8e7f7c"
+              "title": "light grayish orange",
+              "color_code": "#d2af87"
             }
           },
           "e9cb1bb4-eb45-4c97-8724-4b25ce9b30ea": {
             "type": "color",
             "settings": {
-              "title": "Black",
-              "color_code": "#141414"
+              "title": "dark red",
+              "color_code": "#572423"
             }
           },
           "dcb15e6a-9c6e-47ac-9d1a-3aacde9cddf5": {
             "type": "color",
             "settings": {
-              "title": "Dark grayish yellow",
-              "color_code": "#4d4e3e"
+              "title": "light red",
+              "color_code": "#f76f55"
             }
           },
           "2173660d-a474-4b0d-9310-c30d15023510": {
             "type": "color",
             "settings": {
-              "title": "Light grayish orange",
-              "color_code": "#e1dcd8"
+              "title": "pale navy",
+              "color_code": "#d6dae3"
             }
           },
           "2116589d-9179-4053-8159-47577ad5ff80": {
             "type": "color",
             "settings": {
-              "title": "Grayish yellow-green",
-              "color_code": "#8e9585"
+              "title": "dark grayish yellow",
+              "color_code": "#5c5f42"
             }
           },
           "fc5406f3-80d1-46ef-bccb-22018f2311e4": {
             "type": "color",
             "settings": {
-              "title": "Light grayish yellow",
-              "color_code": "#dcdace"
+              "title": "vivid blue",
+              "color_code": "#0c9bd5"
             }
           },
           "b9a680b0-66af-478e-a26f-6c9390ac58bb": {
             "type": "color",
             "settings": {
-              "title": "Dull orange",
-              "color_code": "#a88160"
+              "title": "soft orange",
+              "color_code": "#b6805a"
             }
           },
           "45a02e62-53af-48d4-9474-ea7ad5dd90f1": {
             "type": "color",
             "settings": {
-              "title": "Dark grayish orange",
-              "color_code": "#383735"
+              "title": "dark grayish purple",
+              "color_code": "#302e33"
             }
           },
           "b7079001-96c4-4593-bf8b-7af9dc80c7e3": {
@@ -3062,29 +3128,29 @@
           "f3b5742b-a14e-4272-897b-0e4cd7d9c36d": {
             "type": "color",
             "settings": {
-              "title": "Dark orange",
-              "color_code": "#543a2d"
+              "title": "grayish navy",
+              "color_code": "#5b5e6d"
             }
           },
           "75f78701-77a5-4f30-9368-727753d3dcdf": {
             "type": "color",
             "settings": {
-              "title": "Dark grayish navy",
-              "color_code": "#25262a"
+              "title": "light grayish red",
+              "color_code": "#baa9a1"
             }
           },
           "1b8c583e-f468-4218-ae6e-1653711ee00d": {
             "type": "color",
             "settings": {
-              "title": "Deep orange",
-              "color_code": "#944e1d"
+              "title": "soft orange",
+              "color_code": "#b08260"
             }
           },
           "78e740a4-06aa-42fc-bcb6-55d8bdc8f927": {
             "type": "color",
             "settings": {
-              "title": "Dull red",
-              "color_code": "#743031"
+              "title": "grayish orange",
+              "color_code": "#5e5d5b"
             }
           },
           "3dca664d-6700-48ea-b395-d3ed706685a4": {
@@ -3157,10 +3223,22 @@
       "footer-bottom": {
         "type": "footer-bottom",
         "blocks": {
-          "ad9550a7-5500-4d01-b37d-9689d518bd43": {
-            "type": "policy",
+          "024abc77-3ea5-4b33-965b-47f77bcfcc45": {
+            "type": "copyright",
+            "settings": {
+              "copyright": "<p>Copyright © <a href=\"\/\" title=\"\/\">Morata<\/a>. All Rights Reserved. Powered by <a href=\"#\" title=\"#\">Alothemes<\/a>.<\/p>",
+              "cl_text": "#999999",
+              "cl_link": "#ffffff",
+              "pos_block": "flex-start",
+              "col": "50%",
+              "mb": 0
+            }
+          },
+          "bfb74f7d-6e29-40f9-981f-348230c74bf7": {
+            "type": "menu",
             "disabled": true,
             "settings": {
+              "menu": "",
               "cl_link": "#999999",
               "cl_link_hover": "#ffffff",
               "pos_block": "center",
@@ -3168,60 +3246,127 @@
               "mb": 20
             }
           },
-          "bfb74f7d-6e29-40f9-981f-348230c74bf7": {
-            "type": "menu",
-            "settings": {
-              "menu": "menu-footer",
-              "cl_link": "#999999",
-              "cl_link_hover": "#16bcdc",
-              "pos_block": "center",
-              "col": "100%",
-              "mb": 30
-            }
-          },
-          "a556a61e-2595-483e-9365-487a9c52b0ca": {
-            "type": "payment_img",
+          "688494ee-47e6-4485-bb2e-116b05b70c50": {
+            "type": "payment_svg",
             "settings": {
               "title": "",
               "cl_text": "#888888",
-              "img_payment": "shopify:\/\/shop_images\/payments.png",
-              "width_img": 330,
-              "pos_block": "center",
-              "col": "100%",
-              "mb": 25
+              "svg_custom": "amazon_payments,apple_pay,maestro,master,paypal,shopify_pay,visa",
+              "pos_block": "flex-end",
+              "col": "50%",
+              "mb": 0
             }
           },
-          "024abc77-3ea5-4b33-965b-47f77bcfcc45": {
-            "type": "copyright",
+          "928967f2-ad51-4e0c-b44f-d1b05cbffbb3": {
+            "type": "lang_curr",
+            "disabled": true,
             "settings": {
-              "copyright": "<p>Copyright © <a href=\"\/\" title=\"\/\">Morata<\/a>. All Rights Reserved. Powered by <a href=\"#\" title=\"#\">Alothemes<\/a>.<\/p>",
-              "cl_text": "#999999",
-              "cl_link": "#16bcdc",
+              "header_use_currency": true,
+              "header_use_language": true,
+              "show_flag": true,
+              "cl_link": "#ffffff",
+              "cl_link_hover": "#ffffff",
               "pos_block": "center",
               "col": "100%",
               "mb": 0
             }
+          },
+          "a556a61e-2595-483e-9365-487a9c52b0ca": {
+            "type": "payment_img",
+            "disabled": true,
+            "settings": {
+              "title": "",
+              "cl_text": "#888888",
+              "width_img": 330,
+              "pos_block": "center",
+              "col": "100%",
+              "mb": 20
+            }
           }
         },
         "block_order": [
-          "ad9550a7-5500-4d01-b37d-9689d518bd43",
+          "024abc77-3ea5-4b33-965b-47f77bcfcc45",
           "bfb74f7d-6e29-40f9-981f-348230c74bf7",
-          "a556a61e-2595-483e-9365-487a9c52b0ca",
-          "024abc77-3ea5-4b33-965b-47f77bcfcc45"
+          "688494ee-47e6-4485-bb2e-116b05b70c50",
+          "928967f2-ad51-4e0c-b44f-d1b05cbffbb3",
+          "a556a61e-2595-483e-9365-487a9c52b0ca"
         ],
         "settings": {
           "hidden": false,
           "full_width": false,
-          "cl_bg": "#1f2024",
-          "cl_border": "#36373a",
+          "cl_bg": "#222222",
+          "cl_border": "#393939",
           "pd": "50px,,50px,",
           "pd_mb": "30px,,30px,"
+        }
+      },
+      "footer-top": {
+        "type": "footer-top",
+        "blocks": {
+          "057be3e6-2ed1-450d-8218-ce93b48e4f64": {
+            "type": "social_network",
+            "settings": {
+              "title": "Follow Us",
+              "cl_heading": "#ffffff",
+              "text_size": "small",
+              "text_transform": "none",
+              "content": "<p>We make consolidating, marketing and tracking your social media website easy.<\/p>",
+              "cl_content": "#999999",
+              "use_social": true,
+              "col": "25%"
+            }
+          },
+          "6794a07f-519d-42c0-ae7d-9f8b2d8431b3": {
+            "type": "mail",
+            "settings": {
+              "center_align": false,
+              "title": "Sign Up To Newsletter",
+              "cl_heading": "#ffffff",
+              "text_size": "small",
+              "text_transform": "none",
+              "sub_title": "Join 60.000+ subscribers and get a new discount coupon  on every Saturday.",
+              "sub_title2": "",
+              "cl_text": "#999999",
+              "cl_btn": "#fcbe00",
+              "use_social": false,
+              "col": "33%",
+              "border": 3,
+              "mg_b": 0,
+              "sm_mg_b": 0
+            }
+          },
+          "76dd0999-df76-42ee-889a-8e69edf3322f": {
+            "type": "html",
+            "settings": {
+              "title": "Download App",
+              "cl_heading": "#ffffff",
+              "text_size": "small",
+              "text_transform": "none",
+              "content": "<p>Morata App is now available on App Store &amp; Google Play. <br>Get it now..<\/p>",
+              "cl_content": "#999999",
+              "width_img": 380,
+              "col": "33%"
+            }
+          }
+        },
+        "block_order": [
+          "057be3e6-2ed1-450d-8218-ce93b48e4f64",
+          "6794a07f-519d-42c0-ae7d-9f8b2d8431b3",
+          "76dd0999-df76-42ee-889a-8e69edf3322f"
+        ],
+        "settings": {
+          "hidden": true,
+          "full_width": false,
+          "cl_bg": "#222222",
+          "cl_line": "#393939",
+          "pd": "60px,,60px,",
+          "pd_mb": "30px,,0,"
         }
       },
       "text-runs-popup": {
         "type": "text-runs-popup",
         "blocks": {
-          "text_eWDd77": {
+          "text_abDBHy": {
             "type": "text",
             "settings": {
               "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
@@ -3229,7 +3374,7 @@
               "open_link": "_blank"
             }
           },
-          "text_nACQfK": {
+          "text_4FDHVL": {
             "type": "text",
             "settings": {
               "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
@@ -3237,7 +3382,7 @@
               "open_link": "_blank"
             }
           },
-          "text_TqNw6b": {
+          "text_X6hHbD": {
             "type": "text",
             "settings": {
               "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
@@ -3245,7 +3390,7 @@
               "open_link": "_blank"
             }
           },
-          "text_kCxhyD": {
+          "text_Mhr9ix": {
             "type": "text",
             "settings": {
               "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
@@ -3253,7 +3398,7 @@
               "open_link": "_blank"
             }
           },
-          "text_7AjJxA": {
+          "text_pzGeRi": {
             "type": "text",
             "settings": {
               "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
@@ -3263,11 +3408,11 @@
           }
         },
         "block_order": [
-          "text_eWDd77",
-          "text_nACQfK",
-          "text_TqNw6b",
-          "text_kCxhyD",
-          "text_7AjJxA"
+          "text_abDBHy",
+          "text_4FDHVL",
+          "text_X6hHbD",
+          "text_Mhr9ix",
+          "text_pzGeRi"
         ],
         "settings": {
           "location": "bottom",
@@ -3275,7 +3420,7 @@
           "hidden_mobile": false,
           "width": 630,
           "healing_speed": 10,
-          "cl_bg": "#b3e359",
+          "cl_bg": "#B3E359",
           "cl_text": "#212529"
         }
       }
@@ -3288,33 +3433,6 @@
         "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {
-        }
-      },
-      "13396495102645618393": {
-        "type": "shopify:\/\/apps\/infinite-scroll\/blocks\/app-embed\/a3bc84f2-5d30-48ba-bdd2-bc9edbc709f6",
-        "disabled": false,
-        "settings": {
-          "autoLink": true,
-          "offset": -1,
-          "font_size": 1,
-          "borderSize": 1,
-          "borderRadius": 30,
-          "imageMaxWidth": 100,
-          "circleColor": "#222222",
-          "backgroundButtonLoadmore": "#222222",
-          "borderColor": "#222222",
-          "textLoadmoreColor": "#ffffff",
-          "textLoadingColor": "#121212",
-          "textEndColor": "",
-          "backgroundTextEnd": "",
-          "prevMoreButtonText": "",
-          "loadingText": "Loading ...",
-          "loadMoreButtonText": "Load More",
-          "doneText": "You've reached the end of the item.",
-          "container": "",
-          "item": "",
-          "pagination": "",
-          "custom_css": ""
         }
       }
     }

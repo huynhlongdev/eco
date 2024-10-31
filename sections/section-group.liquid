@@ -2,107 +2,131 @@
   assign sid = section.id 
   assign layout_des = section.settings.layout_des
 %}
-{%- for i in (1..1) -%}
-<section id="laber_{{sid}}">
+<section id="laber_{{sid}}" style="{% if section.settings.custom_width %}--alo-container-width:{{section.settings.container_width}}px;{% endif %}">
+  
   <div class="{%if layout_des%}full-width{% else %}container{%endif%}">
+      <div class="laber_product_section">
+      {% if section.settings.title != blank %}
+        <div class="wrap_title {{ section.settings.text_size }}">
+          <div class="h3 section-title alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</div>  
+        </div>
+        {% endif %}
     <div class="row">
-      	{%- for block in section.blocks -%}         
+      	{%- for block in section.blocks -%}  
+            {% case block.settings.col %}
+              {% when '16%' %}
+                  {%- assign block_width = 'col-lg-2 col-md-2 col-12' -%}
+              {% when '25%' %}
+                  {%- assign block_width = 'col-lg-3 col-md-3 col-12' -%}
+              {% when '33%' %}
+                  {%- assign block_width = 'col-lg-4 col-md-4 col-12' -%}
+              {% when '42%' %}
+                  {%- assign block_width = 'col-lg-5 col-md-5 col-12' -%}
+              {% when '50%' %}
+                  {%- assign block_width = 'col-lg-6 col-md-6 col-12' -%}
+              {% when '58%' %}
+                  {%- assign block_width = 'col-lg-7 col-md-7 col-12' -%}
+              {% when '66%' %}
+                  {%- assign block_width = 'col-lg-8 col-md-8 col-12' -%}
+              {% when '75%' %}
+                  {%- assign block_width = 'col-lg-9 col-md-9 col-12' -%}
+              {% when '100%' %}
+                  {%- assign block_width = 'col-12' -%}
+          {% endcase %}
           {%- case block.type -%}
+            {%- when 'banner' -%}
+            {% assign image = block.settings.bg_coll %}
+            {% assign url = block.settings.link %}
+            {% assign open_link = block.settings.open_link %}
+            {% assign border = block.settings.border %}
+            {% assign hidden_mobile = block.settings.hidden_mobile %} 
+            <div id="bk_{{ block.id }}" class="alo-block-item sm:mb-20 {% if hidden_mobile %}sm:d-none{% endif %} {{ block_width }}" {{ block.shopify_attributes }}>
+                    <div class="banner_static relative h-full" >
+                        <div class="image_static images-card h-full">
+                          {% if image != blank %} 
+                            {% render 'responsive-image', image: image, url:url, open_link:open_link, border: border, image_class: 'w-full h-full' %}
+                          {% else %}
+                            <div class="image-card__img h-full">
+                                {% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}  
+                                {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full object-cover' }}
+                            </div>
+                          {% endif %}
+                        </div>
+                        <div class="banner_text flex  h_{{block.settings.h_position}} v_{{block.settings.v_position}} text_{{block.settings.txt_align}}">
+                          <div class="wrap-content">
+                              {%- if  block.settings.label != blank -%}
+                                <div class="label" style="--color-text:{{ block.settings.cl_label }};--color-background:{{ block.settings.bg_label }};" {{ block.shopify_attributes }} >
+                                  <span>{{block.settings.label}}</span>
+                                </div>
+                              {%- endif -%}
+                              {%- if  block.settings.title != blank -%}
+                                <div class="title" style="--color-text:{{ block.settings.cl_title}};" {{ block.shopify_attributes }} >
+                                  <span>{{block.settings.title}}</span>
+                                </div>
+                              {%- endif -%}
+                              {%- if  block.settings.content != blank -%}
+                                <div class="content" style="--color-text:{{ block.settings.cl_content}};" {{ block.shopify_attributes }} >
+                                  {{ block.settings.content }}
+                                </div>
+                              {%- endif -%}
+                          </div>
+                        </div>
+                    </div>
+            </div>
            {%- when 'collection' -%}
-                {% assign use_banner = block.settings.use_banner %}
                 {% assign arrows =  block.settings.arrows %}
                 {% assign dots =  block.settings.dots %}
-                {% assign padding = block.settings.padding %}
-                {% assign use-slider = block.settings.use-slider %}
-                {% assign rows = block.settings.rows %} 
-                {% assign hidden_mobile = block.settings.hidden_mobile %} 
-              {% case block.settings.col %}
-                    {% when '16%' %}
-                        {%- assign block_width = 'col-lg-2 col-md-12 col-12' -%}
-                    {% when '25%' %}
-                        {%- assign block_width = 'col-lg-3 col-md-12 col-12' -%}
-                    {% when '33%' %}
-                        {%- assign block_width = 'col-lg-4 col-md-12 col-12' -%}
-                    {% when '42%' %}
-                        {%- assign block_width = 'col-lg-5 col-md-12 col-12' -%}
-                    {% when '50%' %}
-                        {%- assign block_width = 'col-lg-6 col-md-12 col-12' -%}
-                    {% when '58%' %}
-                        {%- assign block_width = 'col-lg-7 col-md-12 col-12' -%}
-                    {% when '66%' %}
-                        {%- assign block_width = 'col-lg-8 col-md-12 col-12' -%}
-                    {% when '75%' %}
-                        {%- assign block_width = 'col-lg-9 col-md-12 col-12' -%}
-                    {% when '100%' %}
-                        {%- assign block_width = 'col-12' -%}
-                {% endcase %}
-               <div id="bk_{{ block.id }}" class="alo-block-item {{ block_width }} {% if use_banner %}use_banner{% endif %}" {{ block.shopify_attributes }}>
-                  {%- if block.settings.title != blank %}
-                  <div class="wrap_title {{ block.settings.text_size }}">
-                    <h3 class="section-title">{{ block.settings.title }}</h3>    
-                    {%if block.settings.show_view_all %}
-                      <div class="bn_button viewall text-center"><a href="{{ collections[block.settings.collection].url | default:'/admin/collections' }}">{{'collections.general.view_more' |t}} <i class=" icon-chevron-right"></i></a></div>
-                    {%endif%}
-                  </div>
-                  {%endif%}
-          
-            <div class="content-section flex alo-gap" {% if use_banner %}style="--alo-gap:10px;"{% endif %}>
-                {% if use_banner %}
-                <div class="banner_static alo-width {% if hidden_mobile %}hide-mobile{% endif %}" style="--alo-width:{{ block.settings.w-banner }}px;">
-                    <div class="image_static images-card h-full">
-                      {% assign image = block.settings.img_countdown %}
-                      {% assign url_banner = collections[block.settings.collection].url | default:'/admin/collections' %}
-                      {% if image != blank %} 
-                        {% render 'responsive-image', image: image, image_class: 'w-full h-full',url: url_banner %}
-                      {% else %}
-                        <div class="image-card__img h-full">
-                            {% capture current %}{% cycle 1, 2, 3, 4, 5 %}{% endcapture %}
-                            {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                {% assign rows =  block.settings.rows %}
+                {% assign padding =  block.settings.padding %}
+               <div id="bk_{{ block.id }}" class="alo-block-item {{ block_width }}" {{ block.shopify_attributes }}>
+                <div class="content-section">
+                  <div class="products-arrivals">	
+                      {% include 'grid-slider', settings:block.settings %} 
+                      <div class="content_section slick-carousel">
+                        <div class="grid-slider js_carousel laber-slick-carousel" {{gridSlider}} data-append-Arrows=".arrows_{{block.id}}" data-append-Dots=".dots_{{block.id}}" >  
+                        {%- assign products = collections[block.settings.collection].products -%}
+                        {%- if products  != blank -%}
+                          {%- capture url_cat -%}{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
+                          {%- for product in products limit: block.settings.limit -%}
+                          {% assign pr_hd = product.handle %}
+                            <div data-lazy-product-load class="product-item productLazyload lazyload" data-include="{{url_cat}}/products/{{pr_hd}}/?view=pr_lazy_load"></div>
+                          {%- endfor -%}  
+          				{%- else -%}
+                          {%- for i in (1..block.settings.limit) -%}
+                          {% include 'product_demo' %}
+                          {%- endfor -%}
+                        {%- endif -%}
                         </div>
+                      {%if arrows%}	
+                      <div class="laber_append_arrows arrows_{{block.id}}"></div>	
                       {% endif %}
-                    </div>
-                </div>
-              {% endif %} 
-              <div class="products-arrivals {% if hidden_mobile %}md:w-full{% endif %}  {% if use_banner  %}alo-minus-width{% endif %}" {% if use_banner %}style="--alo-minus-width:{{ block.settings.w-banner }}px;"{% endif %}>	
-                  {% include 'grid-slider', settings:block.settings %} 
-                  <div class="content_section slick-carousel">
-                    <div class="grid-slider js_carousel laber-slick-carousel" {{gridSlider}} data-append-Arrows=".arrows_{{block.id}}" data-append-Dots=".dots_{{block.id}}" >  
-                    {%- assign products = collections[block.settings.collection].products -%}
-                    {%- if products  != blank -%}
-                      {%- capture url_cat -%}{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
-                      {%- for product in products limit: block.settings.limit -%}
-                      {% assign pr_hd = product.handle %}
-                        <div data-lazy-product-load  class="productLazyload lazyload product-item  scroll-trigger" style="--animation-order:{{ index }};"  data-include="{{url_cat}}/products/{{pr_hd}}/?view=pr_lazy_load">
-                        {% include 'product-loading' %} 
                       </div>
-                      {%- endfor -%}  
-      				{%- else -%}
-                      {%- for i in (1..block.settings.limit) -%}
-                      {% include 'product_demo' %}
-                      {%- endfor -%}
-                    {%- endif -%}
-                    </div>
-                  {%if arrows%}	
-                  <div class="laber_append_arrows arrows_{{block.id}}"></div>	
-                  {% endif %}
-                  </div>
-                 {%if dots %}
-                  <div class="laber_append_dots dots_{{block.id}}"></div>
-                {%endif%}  
-               </div>
-          </div>
-               </div>
-            {% if use-slider == false or rows > 1 %}{% style %}#bk_{{ block.id }} .grid-init .alo-item{padding-bottom:{{padding | plus: padding}}px; }{% endstyle %} {% endif %}  
-            {%- render 'block-style' , block: block -%} 
+                     {%if dots %}
+                      <div class="laber_append_dots dots_{{block.id}}"></div>
+                    {%endif%}  
+                   </div>
+              </div>
+            </div> 
+              {% if rows > 1 %}
+                {% style %}
+                  #bk_{{ block.id }} .grid-init .slick-slide div:not(:last-child) .alo-item{padding-bottom:{{padding | plus: padding}}px; }
+                {% endstyle %}
+              {% endif %}
            {%- endcase -%}
            
         {%- endfor -%}
-    </div>
+      </div>
+      {% if section.settings.use-all-product %}
+          <div class="bn_button viewall text-center">
+            <a href="{{section.settings.btn_link}}" target="{{section.settings.open_link}}"
+               {{ section.shopify_attributes }} aria-label="link">{{'collections.general.view_all' |t}} <i class=" icon-chevron-right"></i>
+            </a>
+          </div>
+      {% endif %}
+      </div>
   </div>
 </section>
-
-{%- endfor -%}
-
+{%- render 'section_style' -%}
 {%- schema -%}
   {
     "name": "Section group",
@@ -110,9 +134,107 @@
 	"max_blocks": 6,
     "settings": [   
       {
+      "type": "header",
+      "content": "== Title Settings"
+    },
+      {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "New arrivals"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "small"
+       },
+       {
+          "value": "medium",
+          "label": "Medium"
+       },
+       {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "label": "Text size"
+    },
+    {
+            "type": "select",
+            "id": "text_transform",
+            "default": "none",
+            "options": [
+             {
+                "value": "none",
+                "label": "None"
+             },
+             {
+                "value": "capitalize",
+                "label": "Capitalize"
+             },
+             {
+                "value": "lowercase",
+                "label": "Lowercase"
+             },
+             {
+                "value": "uppercase",
+                "label": "Uppercase"
+              }
+            ],
+            "label": "Text transform:"
+          },
+      {
+      "type": "checkbox",
+      "id": "use-all-product",
+      "label": "All products button",
+      "default": false
+    },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button link",
+        "info": "Note: if you want to display this button then you need to fill button link"
+      }, 
+     {
+        "type": "select",
+        "id": "open_link",
+        "options": [
+          {
+            "value": "_self",
+            "label": "Current window (_self)"
+          },
+         {
+            "value": "_blank",
+            "label": "New window (_blank)"
+          }
+        ],
+        "label": "Open link in",
+        "default": "_blank"
+      },    
+      {
         "type": "header",
         "content": "== Design Options"
-      },     
+      }, 
+      {
+          "type": "checkbox",
+          "id": "custom_width",
+          "label":"Custom width",
+          "default": false
+        },
+        {
+            "type": "range",  
+            "id": "container_width",  
+            "label": "Container width",
+            "min": 1200,
+            "max": 1900,
+            "step": 10,
+            "unit": "px",
+            "default": 1200 
+        },
       {	
       "type": "checkbox",
       "id": "layout_des",
@@ -124,45 +246,45 @@
         "id": "cl_bg",
         "label": "Background color",
         "default": "#fff"
-     	 }
+     	 },
+       {
+      "type": "header",
+      "content": "== Margin",
+"info":"Margin top, margin bottom. If you not use to blank"
+    },
+ 	        {
+      "type": "text",
+      "id": "mg",
+      "label": "Margin",
+      "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+    },
+    {
+      "type": "text",
+      "id": "pd",
+      "label": "Padding",
+      "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+    },
+   {
+      "type": "header",
+      "content": "== Design Mobile Options"
+    },
+    {
+      "type": "text",
+      "id": "mg_mb",
+      "label": "Margin"
+    },
+    {
+      "type": "text",
+      "id": "pd_mb",
+      "label": "Padding"
+    }
     ],
 	"blocks": [
       {
-        "type": "collection",
-        "name": "Featured Products",
+        "type": "banner",
+        "name": "Banner",
+        "limit": 1,
         "settings": [
-         {
-          "type":"text",
-          "id":"title",
-          "label":"Title",
-          "default":"Featured Products"
-          },
-          {
-            "type": "select",
-            "id": "text_size",
-            "default": "medium",
-            "options": [
-              {
-                "value": "small",
-                "label": "small"
-             },
-             {
-                "value": "medium",
-                "label": "Medium"
-             },
-             {
-                "value": "large",
-                "label": "Large"
-              }
-            ],
-            "label": "Text size"
-          },
-          {
-          "type": "checkbox",
-          "id": "use_banner",
-          "label": "Show Banner",
-          "default": true
-          },
           {
           "type": "checkbox",
           "id": "hidden_mobile",
@@ -170,21 +292,197 @@
           "default": true
           },
           {
-              "type": "range",  
-              "id": "w-banner",  
-              "label": "Width banner",
-              "min": 100,
-              "max": 500,
-              "step": 10,
-              "unit": "px",
-              "default": 230 
+        "type": "select",
+        "id": "col",
+        "default": "25%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        },
+          {
+            "type": "range",
+            "id": "border",
+            "min": 0,
+            "max": 30,
+            "step": 1,
+            "unit": "px",
+            "label": "Border",
+            "default": 0
           },
           {
-            "type": "image_picker",
-            "id": "img_countdown",
-            "label": "Image",			
-            "info": "466x386.jpg recommended"
+          "type": "image_picker",
+          "id": "bg_coll",
+          "label": "Background Image"
+          },
+            {
+              "type": "url",
+              "id": "link",
+              "label": "link"
             },
+           {
+              "type": "select",
+              "id": "open_link",
+              "options": [
+                {
+                  "value": "_self",
+                  "label": "Current window (_self)"
+                },
+               {
+                  "value": "_blank",
+                  "label": "New window (_blank)"
+                }
+              ],
+              "label": "Open link in",
+              "default": "_blank"
+            },
+          {
+          "type": "header",
+          "content": "Content"
+        },
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Hot Sale"
+          },
+          {
+              "type": "color",
+              "id": "cl_label",
+              "label": "Color (Label)",
+              "default": "#fff"
+            },
+            {
+              "type": "color",
+              "id": "bg_label",
+              "label": "Background color (Label)",
+              "default": "#111"
+            },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+              "type": "color",
+              "id": "cl_title",
+              "label": "Color (Title)",
+              "default": "#fff"
+            },
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+              "type": "color",
+              "id": "cl_content",
+              "label": "Color (Conten)",
+              "default": "#fff"
+            },
+          {
+        "type": "select",
+        "id": "h_position",
+        "label": "Horizontal Position",
+        "default": "left",
+        "options": [
+            {
+            "value": "left",
+            "label": "Left"
+            },
+            {
+            "value": "center",
+            "label": "Center"
+            },
+            {
+            "value": "right",
+            "label": "Right"
+            }
+          ]
+        },
+        {
+        "type": "select",
+        "id": "v_position",
+        "label": "Vertical Position",
+        "default": "top",
+        "options": [
+            {
+            "value": "top",
+            "label": "Top"
+            },
+            {
+            "value": "middle",
+            "label": "Middle"
+            },
+            {
+            "value": "bottom",
+            "label": "Bottom"
+            }
+          ]
+        },
+		{
+            "type": "select",
+            "id": "txt_align",
+            "label": "Text Align",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "collection",
+        "name": "Collection Products",
+        "limit": 1,
+        "settings": [
+          
           {
            "type": "collection",
            "id": "collection",
@@ -197,7 +495,7 @@
             "max": 20,
             "step": 1,
             "label": "Number of products to show",
-            "default": 3
+            "default": 10
           },
           {
         "type": "header",
@@ -404,12 +702,6 @@
         "label": "Vertical",
         "default": false
     },
-	  {
-        "type": "checkbox",
-        "id": "show_view_all",
-        "label":"Show View all button",
-        "default": false
-      }, 
          {
            "type": "header",
            "content": "== Width settings"
@@ -417,7 +709,7 @@
         {
         "type": "select",
         "id": "col",
-        "default": "100%",
+        "default": "75%",
         "options": [
         {
         "value": "16%",
@@ -457,50 +749,17 @@
         }
         ],
         "label": "Container width:"
-        },
-        {
-        "type": "header",
-        "content": "== Margin",
-		"info":"Margin top, margin bottom. If you not use to blank"
-      },  
-	  	        {
-        "type": "text",
-        "id": "mg",
-        "label": "Margin",
-        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
-      },
-      {
-        "type": "text",
-        "id": "pd",
-        "label": "Padding",
-        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
-      },
-     {
-        "type": "header",
-        "content": "== Design Mobile Options"
-      },
-      {
-        "type": "text",
-        "id": "mg_mb",
-        "label": "Margin"
-      },
-      {
-        "type": "text",
-        "id": "pd_mb",
-        "label": "Padding"
-      }  
+        }
           
         ]
       }
     ],
     "presets": [
       {
-        "name": "Products Collection Column",
+        "name": "Section group",
         "category": "Collections",
 		"blocks": [
-          {"type": "collection"},
-		  {"type": "collection"},
-		  {"type": "collection"},
+          {"type": "banner"},
 		  {"type": "collection"}
         ]
       }

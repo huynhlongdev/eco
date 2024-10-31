@@ -15,9 +15,12 @@
   assign h_mb = section.settings.h_mb
 %}
 
-<section id="laber_{{sid}}" class="{% if use_banner_statick %}use_banner_statick{% endif %}">
-  <div data-wrapper-slidershow class="alo-wrapper-slidershow {{section.settings.layout}}" style="--alo-border-radius:{{section.settings.b_radius}}px;">
-    <div class="wrapper-slidershow" {% if use_banner_statick %}style="--alo-bwidth:{{ section.settings.banner-width }}%;--alo-gap:{{ section.settings.item_gap }}px;"{% endif %}>
+<section id="laber_{{sid}}" class="{% if use_banner_statick %}use_banner_statick{% endif %} {% if settings.vertical_menu_position == '2' %}with_vertical_menu{% endif %}">
+  <div data-wrapper-slidershow class="alo-wrapper-slidershow {{section.settings.layout}}" style="--alo-border-radius:{{section.settings.b_radius}}px; {% if use_banner_statick %}--alo-bwidth:{{ section.settings.banner-width }}%;{% endif %} --alo-gap-slide:{{ section.settings.item_gap }}px;">
+    {% if settings.vertical_menu_position == '2' %}           
+      {%- render 'list-vertical-menu' -%}
+    {% endif %}
+    <div class="wrapper-slidershow" >
       <div class="laberSlidershow">
         {% include 'grid-slider', settings: section.settings %}
         <div
@@ -272,9 +275,7 @@
         </div>
         {% if section.settings.dots %}
           <div class="wrapper-dots ">
-            <div class="container">
               <div class="appendDots"></div>
-            </div>
           </div>
         {% endif %}
       </div>
@@ -576,7 +577,7 @@
          "type": "image_picker",
          "id": "image_1",
          "label": "Image 1",
-         "info": "350px x 200px .jpg recommended"
+         "info": "390px x 200px .jpg recommended"
        },
      {
            "type": "url",
@@ -597,7 +598,7 @@
          "type": "image_picker",
          "id": "image_2",
          "label": "Image 2",
-         "info": "350px x 200px .jpg recommended"
+         "info": "390px x 200px .jpg recommended"
        },
         {
            "type": "url",
@@ -609,46 +610,6 @@
            "type": "textarea",
            "id": "content_2",
            "label": "Content images 2",
-           "default": "<h4>Canyon <br>Star Raider,</h4><p>Headphone & Audio</p>",
-		"info":"Insert <br> to line break"
-         },
-     
-       {
-         "type": "image_picker",
-         "id": "image_3",
-         "label": "Image 3",
-         "info": "350px x 200px .jpg recommended"
-       },
-       {
-           "type": "url",
-           "id": "link_img_3",
-           "label": "Link image 3",
-           "info": "The image becomes clickable."
-         },
-       {
-           "type": "textarea",
-           "id": "content_3",
-           "label": "Content images 3",
-           "default": "<h4>Canyon <br>Star Raider,</h4><p>Headphone & Audio</p>",
-		"info":"Insert <br> to line break"
-         },
-
-     {
-         "type": "image_picker",
-         "id": "image_4",
-         "label": "Image 4",
-         "info": "350px x 200px .jpg recommended"
-       },
-       {
-           "type": "url",
-           "id": "link_img_4",
-           "label": "Link image 4",
-           "info": "The image becomes clickable."
-         },
-       {
-           "type": "textarea",
-           "id": "content_4",
-           "label": "Content images 4",
            "default": "<h4>Canyon <br>Star Raider,</h4><p>Headphone & Audio</p>",
 		"info":"Insert <br> to line break"
          },

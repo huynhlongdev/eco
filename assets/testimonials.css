@@ -40,16 +40,14 @@
 
 }
 .type_testimonials .quotes_wrapper.style1 .quote_content .quote_avatar{
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
 }
 .type_testimonials .quotes_wrapper.style1 .quote_content{
   display: flex;
   flex-direction: column;
-  background: #FFFFFF;
-  border: 1px solid #E5E8EC;
-  border-radius: var(--alo-border-radius);
-  padding: 40px 50px;
+  align-items: center;
+  text-align: center;
 }
 .type_testimonials .quotes_wrapper.style1 .quote_content .quote_author {
   font-weight: 500;

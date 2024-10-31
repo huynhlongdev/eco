@@ -8,12 +8,12 @@
         "v_position": "middle",
         "txt_align": "center",
         "bg": "#ffffff",
-        "cl_border": "#f2f2f6",
+        "cl_border": "#ffffff",
         "b_height": 200,
-        "mg_bottom": 40,
-        "mobile_bg": "#f2f2f6",
+        "mg_bottom": 0,
+        "mobile_bg": "#ffffff",
         "mobile_ht": 100,
-        "mobile_mg_bottom": 15
+        "mobile_mg_bottom": 0
       }
     },
     "main-blog": {
@@ -79,9 +79,9 @@
         "use_eq_height": false,
         "image_ratio": "ratio3_2",
         "pagination_limit_blog": 12,
-        "cl_first": "4",
+        "cl_first": "6",
         "numb_text_first": "25",
-        "cl": "4",
+        "cl": "6",
         "numb_text": "25",
         "cl_bg": "#ffffff",
         "mg_bottom": 100,

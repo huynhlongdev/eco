@@ -3,8 +3,9 @@
 {%- assign assign h_tb = section.settings.h_tb -%}
 {%- assign assign h_mb = section.settings.h_mb -%}
 {% assign show_full_width = section.settings.show_full_width %}
-<section id="laber_{{id}}">
-<div class="container {%if show_full_width%}full-width{%endif%}">
+{% assign sub_collection = collection.metafields.custom.sub_collection %}
+<section id="laber_{{id}}" style="--alo-container-width:{{ section.settings.custom_width }}px;">
+<div class="container{%if show_full_width%} full-width{%endif%}">
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %}">
   <div class="collection-hero__inner page-width">
     <div class="collection-hero__text-wrapper">
@@ -29,8 +30,6 @@
           </div>
         {%- endif -%}
     </div>
-
-
   </div>
 </div>
 </div>
@@ -51,6 +50,16 @@
     "default": false,
     "label": "t:sections.main-collection-banner.settings.show_full_width.label"
     },
+    {  
+        "type": "range",  
+        "id": "custom_width",  
+        "label": "Custom width",
+        "min": 1200,
+        "max": 1800,
+        "step": 10,
+        "unit": "px",
+        "default": 1410 
+    }, 
     {
       "type": "checkbox",
       "id": "show_collection_description",

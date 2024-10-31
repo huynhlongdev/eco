@@ -75,7 +75,6 @@
               {% include 'product-get-label' with product: product %}
             </div>
             {%- endif -%}
-
           {%- if show_button_add_to_wishlist or show_button_add_to_compare or show_button_quick_view -%}
               <div class="product-image__overlay-bottom">
                 <div class="group-button">
@@ -97,6 +96,45 @@
           {%- assign alo-timer = product.metafields.custom.countdown_timer -%}
           {% include 'countdown', timer: alo-timer  %}
         {% endif %}
+        {% if show_button_add_to_cart%}
+          <div class="button-cart-bottom">
+          
+          {% if variants_size == 1 %}  
+            <div class="flex alo-gap" style="--alo-gap:5px;">
+            {% if product.available %}
+             {% if show_quantity_box %}
+              <div data-product-quantity class="js-quantity quantity justify-content-center focus-form">
+                <div class="inner-quantity flex">
+                  
+                  <input data-step="1" data-min="1" data-max="{{ product.variants.first.inventory_quantity }}" class="input-text js_qty focus-form-input" type= "text" size="4" title="Qty" value="1" name="quantity">
+                  <p class="qty-btn">
+                      <a class="js_plus" href="#"><i class="icon-chevron-up"></i></a>
+                      <a class="js_minus" href="#"><i class="icon-chevron-down"></i></a>
+                  </p>
+                </div>
+              </div>
+            {% endif %} 
+            <button type="submit" class="add-to-cart js_add_to_cart_button {%if settings.disable_ajax_cart %}page_{{settings.custom_page_cart}}{%endif%}"  data-pid="{{ product.variants.first.id }}" data-js-product-button-add-to-cart>
+              <div class="laber-loading">
+                  <div class="circle-loadding"><span></span></div>
+              </div>
+              <span class="text">{% if product.selected_or_first_available_variant.inventory_policy =='continue' %}{{ 'products.product.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}</span>
+            </button>
+            {% else %}
+            <a  class="add-to-cart js-btn-sold-out">
+              <span class="text">{{'products.product.sold_out' | t  }}</span></a>
+            {% endif %}
+          </div>
+          {% else %}
+            <a href="{{ url }}" data-pid="{{ current_variant_id }}" class="js_select_options select_options">
+              <div class="laber-loading">
+                <div class="circle-loadding"><span></span></div>
+              </div>
+              <span class="text">{{'products.grid_items.select_options' | t  }}</span>
+            </a>
+          {% endif %} 
+          </div>
+        {% endif %} 
       </div>
       <div class="product-collection__content style_{{style_product}}">  
         
@@ -158,45 +196,6 @@
                 </div>
                 {%- assign enable_select_options_button = true -%}
           {%- endif -%}
-            {% if show_button_add_to_cart%}
-          <div class="button-cart-bottom">
-          
-          {% if variants_size == 1 %}  
-            <div class="flex alo-gap" style="--alo-gap:5px;">
-            {% if product.available %}
-             {% if show_quantity_box %}
-              <div data-product-quantity class="js-quantity quantity justify-content-center focus-form">
-                <div class="inner-quantity flex">
-                  
-                  <input data-step="1" data-min="1" data-max="{{ product.variants.first.inventory_quantity }}" class="input-text js_qty focus-form-input" type= "text" size="4" title="Qty" value="1" name="quantity">
-                  <p class="qty-btn">
-                      <a class="js_plus" href="#"><i class="icon-chevron-up"></i></a>
-                      <a class="js_minus" href="#"><i class="icon-chevron-down"></i></a>
-                  </p>
-                </div>
-              </div>
-            {% endif %} 
-            <button type="submit" class="add-to-cart js_add_to_cart_button {%if settings.disable_ajax_cart %}page_{{settings.custom_page_cart}}{%endif%}"  data-pid="{{ product.variants.first.id }}" data-js-product-button-add-to-cart>
-              <div class="laber-loading">
-                  <div class="circle-loadding"><span></span></div>
-              </div>
-              <span class="text">{% if product.selected_or_first_available_variant.inventory_policy =='continue' %}{{ 'products.product.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}</span>
-            </button>
-            {% else %}
-            <a  class="add-to-cart js-btn-sold-out">
-              <span class="text">{{'products.product.sold_out' | t  }}</span></a>
-            {% endif %}
-          </div>
-          {% else %}
-            <a href="{{ url }}" data-pid="{{ current_variant_id }}" class="js_select_options select_options">
-              <div class="laber-loading">
-                <div class="circle-loadding"><span></span></div>
-              </div>
-              <span class="text">{{'products.grid_items.select_options' | t  }}</span>
-            </a>
-          {% endif %} 
-          </div>
-        {% endif %} 
       </div>
     {% endform %}
   </div>

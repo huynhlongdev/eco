@@ -47,6 +47,7 @@ div[data-wrapper-slidershow] .slick-prev:before{
 div[data-wrapper-slidershow] .content-item .wrap_text {
   width: 100%;
   height: 100%;
+  padding: 0 5%;
 }
 div[data-wrapper-slidershow] .content-item .wrap_text div.caption{
   height: auto !important;
@@ -64,7 +65,7 @@ div[data-wrapper-slidershow] .content-item .wrap_text .wrapper_caption a.buttons
   align-items: center;
   height: 50px;
   line-height: 50px;
-  min-width: 280px;
+  min-width: 200px;
   text-align: center;
   justify-content: center;
   padding: 0 15px;
@@ -184,27 +185,29 @@ div[data-wrapper-slidershow] .wrapper-dots.position_center .slick-dots{
 div[data-wrapper-slidershow] .style1 .appendDots{
 }
 div[data-wrapper-slidershow] .style1 .appendDots .slick-dots li{
-  height: 6px;
-  border-radius: 6px;
-  background: #fff;
-  opacity: 0.2;
-  width: 6px;
-  position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  margin: 0 2.5px;
-  -webkit-transition: all 240ms linear 0ms;
-  -khtml-transition: all 240ms linear 0ms;
-  -moz-transition: all 240ms linear 0ms;
-  -ms-transition: all 240ms linear 0ms;
-  -o-transition: all 240ms linear 0ms;
-  transition: all 240ms linear 0ms;
+    height: 10px;
+    border-radius: 100%;
+    background: var(--color-main);
+    opacity: .2;
+    width: 10px;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin: 0 3px;
+    -webkit-transition: all .24s linear 0ms;
+    -khtml-transition: all .24s linear 0ms;
+    -moz-transition: all .24s linear 0ms;
+    -ms-transition: all .24s linear 0ms;
+    -o-transition: all .24s linear 0ms;
+    transition: all .24s linear 0ms;
+    border: 2px solid transparent;
 }
 div[data-wrapper-slidershow] .style1 .appendDots .slick-dots li:hover,
 div[data-wrapper-slidershow] .style1 .appendDots .slick-dots li.slick-active{
-  background: #fff;
+  background: transparent;
+  border: 2px solid var(--color-secondary);
   opacity: 1;
 }
 div[data-wrapper-slidershow] .style1 .appendDots .slick-dots li button,
@@ -356,15 +359,15 @@ div[data-wrapper-slidershow] .slick-slide.slick-active .laber-slideInRight {
   -webkit-animation-duration: 1.7s;
   animation-duration: 1.7s;
 }
-div[data-wrapper-slidershow]  .image_mobile{
-	display:none;
-}
+div[data-wrapper-slidershow]  .image_mobile,
+.js_carousel:not([class*=initialized]) .content-item .wrap_text ,
 .laberSlidershow .js_carousel .js_image_slide:not(:first-child) {
     display: none;
 }
 .laberSlidershow .js_carousel .js_image_slide.slick-slide, 
 .laberSlidershow .alo-slidershow .js_carousel{
   display:block;
+  opacity:1;
 }
 div[data-wrapper-slidershow] .content-item .alo-video .video-play {
   position: absolute;

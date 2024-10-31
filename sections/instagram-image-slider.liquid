@@ -9,12 +9,11 @@
   assign sett_equal = section.settings.use_eq_height
   assign dots =  section.settings.dots
   assign infinite =  section.settings.infinite
-  assign show_border =  section.settings.show_border
   
   -%}
 
 {%- for i in (1..1) -%}
-<section id="laber_{{sid}}" class="{% if show_border %}alo-border-bottom{% endif %}" style="{% if show_border %}--alo-color-border:{{ section.settings.cl_border}};{% endif %}">
+<section id="laber_{{sid}}" class="">
   <div class="{%if layout == 'full-width' %}{{layout}}{% else %}container{%endif%}" >   
     {% if section.settings.title != blank %}
       <div class="wrap_title {{ section.settings.text_size }}">
@@ -364,19 +363,7 @@
         "id": "cl_bg",
         "label": "Background color",
         "default": "#fff"
-      },  
-     {	
-        "type": "checkbox",
-        "id": "show_border",
-        "label": "Show Border",
-        "default": false 
       },
-     {
-        "type": "color",
-        "id": "cl_border",
-        "label": "Color Border",
-        "default": "#fff"
-      },     
 	{
         "type": "text",
         "id": "mg",

@@ -1370,14 +1370,181 @@
   color: var(--alo-color-hover) !important;
 }
 
-
-
-@media only screen and (max-width: 767px) {
-    .sm\:d-none {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .md\:d-none {
     display: none;
   }
-  .sm\:d-block {
+  .md\:d-block {
     display: block;
+  }
+  .md\:py-5 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .md\:py-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .md\:py-15 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .md\:py-20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .md\:py-25 {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  .md\:py-30 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .md\:py-40 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .md\:py-50 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .md\:py-60 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .md\:py-70 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .md\:py-80 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .md\:py-90 {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  .md\:py-100 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .md\:pt-10 {
+    padding-top: 10px;
+  }
+  .md\:pt-20 {
+    padding-top: 20px;
+  }
+  .md\:pt-30 {
+    padding-top: 30px;
+  }
+  .md\:pt-40 {
+    padding-top: 40px;
+  }
+  .md\:pt-50 {
+    padding-top: 50px;
+  }
+  .md\:pt-60 {
+    padding-top: 60px;
+  }
+  .md\:pt-70 {
+    padding-top: 70px;
+  }
+  .md\:pt-80 {
+    padding-top: 80px;
+  }
+  .md\:pt-90 {
+    padding-top: 90px;
+  }
+  .md\:pt-100 {
+    padding-top: 100px;
+  }
+  .md\:mb-5 {
+    margin-bottom: 5px;
+  }
+  .md\:mb-10 {
+    margin-bottom: 10px;
+  }
+  .md\:mb-15 {
+    margin-bottom: 15px;
+  }
+  .md\:mb-20 {
+    margin-bottom: 20px;
+  }
+  .md\:mb-25 {
+    margin-bottom: 25px;
+  }
+  .md\:mb-30 {
+    margin-bottom: 30px;
+  }
+  .md\:mb-40 {
+    margin-bottom: 40px;
+  }
+  .md\:mb-50 {
+    margin-bottom: 50px;
+  }
+  .md\:mb-60 {
+    margin-bottom: 60px;
+  }
+  .md\:mb-70 {
+    margin-bottom: 70px;
+  }
+  .md\:mb-80 {
+    margin-bottom: 80px;
+  }
+  .md\:mb-90 {
+    margin-bottom: 90px;
+  }
+  .md\:mb-100 {
+    margin-bottom: 100px;
+  }
+  .md\:mt-5 {
+    margin-top: 5px;
+  }
+  .md\:mt-10 {
+    margin-top: 10px;
+  }
+  .md\:mt-15 {
+    margin-top: 15px;
+  }
+  .md\:mt-20 {
+    margin-top: 20px;
+  }
+  .md\:mt-25 {
+    margin-top: 25px;
+  }
+  .md\:mt-30 {
+    margin-top: 30px;
+  }
+  .md\:mt-40 {
+    margin-top: 40px;
+  }
+  .md\:mt-50 {
+    margin-top: 50px;
+  }
+  .md\:mt-60 {
+    margin-top: 60px;
+  }
+  .md\:mt-70 {
+    margin-top: 70px;
+  }
+  .md\:mt-80 {
+    margin-top: 80px;
+  }
+  .md\:mt-90 {
+    margin-top: 90px;
+  }
+  .md\:mt-100 {
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .sm\:d-none {
+    display: none !important;
+  }
+  .sm\:d-block {
+    display: block !important;
   }
   .sm\:py-5 {
     padding-top: 5px;

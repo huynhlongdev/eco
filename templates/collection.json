@@ -3,23 +3,26 @@
     "breadcrumb": {
       "type": "breadcrumb",
       "settings": {
-        "show_title_page": false,
-        "h_position": "left",
+        "show_title_page": true,
+        "cl_title": "#222222",
+        "h_position": "center",
         "v_position": "middle",
-        "txt_align": "left",
+        "txt_align": "center",
+        "bg_breadcrumb_blog": "shopify:\/\/shop_images\/banner_23_2.png",
         "bg": "#ffffff",
         "cl_border": "#f2f2f6",
-        "b_height": 60,
-        "mg_bottom": 40,
-        "mobile_bg": "#ffffff",
-        "mobile_ht": 60,
-        "mobile_mg_bottom": 20
+        "b_height": 350,
+        "mg_bottom": 30,
+        "mobile_bg": "#f2f2f6",
+        "mobile_ht": 100,
+        "mobile_mg_bottom": 30
       }
     },
     "main-collection-banner": {
       "type": "main-collection-banner",
       "settings": {
         "show_full_width": false,
+        "custom_width": 1410,
         "show_collection_description": true,
         "cl_title": "#ffffff",
         "cl_desc": "#ffffff",
@@ -43,7 +46,6 @@
           "type": "collection",
           "settings": {
             "collection": "phones-tablets",
-            "image": "shopify:\/\/shop_images\/products_34_4.jpg",
             "title": "Smartphone"
           }
         },
@@ -51,7 +53,6 @@
           "type": "collection",
           "settings": {
             "collection": "phones-accessories",
-            "image": "shopify:\/\/shop_images\/products_31_1_9617e01f-65e8-464c-8e92-1f17c1002192.jpg",
             "title": "Smartwatch"
           }
         },
@@ -59,7 +60,6 @@
           "type": "collection",
           "settings": {
             "collection": "computers-technologies",
-            "image": "shopify:\/\/shop_images\/products_4_4.jpg",
             "title": "Ipad Pro"
           }
         },
@@ -67,7 +67,6 @@
           "type": "collection",
           "settings": {
             "collection": "phones-accessories",
-            "image": "shopify:\/\/shop_images\/products_23_3.jpg",
             "title": "AirPods"
           }
         },
@@ -75,7 +74,6 @@
           "type": "collection",
           "settings": {
             "collection": "computer-laptop",
-            "image": "shopify:\/\/shop_images\/products_13_1.jpg",
             "title": "Speaker"
           }
         },
@@ -83,7 +81,6 @@
           "type": "collection",
           "settings": {
             "collection": "computers-technologies",
-            "image": "shopify:\/\/shop_images\/products_28_3.jpg",
             "title": "Gamepad"
           }
         },
@@ -91,18 +88,7 @@
           "type": "collection",
           "settings": {
             "collection": "phones-tablets",
-            "image": "shopify:\/\/shop_images\/products_3_6_8b177e91-c23c-478c-837f-141f57a7e41b.jpg",
             "title": "Hard Drives"
-          }
-        },
-        "collection_QjbRtH": {
-          "type": "collection",
-          "disabled": true,
-          "repeater": "{{ collection.metafields.custom.sub_sollection.value }}",
-          "settings": {
-            "collection": "",
-            "image": "{{ block.repeater.image_collection.value }}",
-            "title": "{{ block.repeater.name_collection.value }}"
           }
         }
       },
@@ -113,9 +99,9 @@
         "7b9e49b8-a51b-4f33-9d8a-1d09ee99212d",
         "abad2968-9ce0-4684-a404-4691f689d856",
         "15eb3ecc-1367-44ec-a0a4-c8d2efb55a27",
-        "9caac341-666e-42c4-8b2e-a30b8e063379",
-        "collection_QjbRtH"
+        "9caac341-666e-42c4-8b2e-a30b8e063379"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "text_size": "small",
@@ -173,17 +159,17 @@
           "settings": {
             "title": "Featured product",
             "product_list": [
-              "proenza-schouler-white-label-5",
-              "apple-bluetooth-airpods-max-mgyh3",
-              "proenza-schouler-white-label-24",
-              "proenza-schouler-white-label-23"
+              "cornstalk-dracaena",
+              "devils-ivy",
+              "fiddle-leaf-fig",
+              "rojo-congo-philodendron"
             ]
           }
         },
         "d1f87686-4bdb-47c4-a938-983ce2683a19": {
           "type": "banner_img",
           "settings": {
-            "image_promobox": "shopify:\/\/shop_images\/menu_2.png",
+            "image_promobox": "shopify:\/\/shop_images\/07_UmbrellaTree_4.jpg",
             "url": "shopify:\/\/collections\/womens-cosmetics",
             "use_eq_height": false,
             "image_ratio": "ratio3_4"
@@ -197,20 +183,21 @@
       ],
       "settings": {
         "full-width": false,
+        "custom_width": 1410,
         "cl_bg": "rgba(0,0,0,0)",
-        "cl_border": "#ffffff",
-        "border": 5,
+        "cl_border": "#ebebeb",
+        "border": 3,
         "products_per_page": 20,
-        "grid_list": "5",
+        "grid_list": "3",
         "enable_filtering": true,
         "filter_type": "vertical",
         "filter_right": false,
         "enable_sorting": true,
-        "visible": 5,
-        "widescreen": 5,
-        "desktop": 4,
-        "laptop": 4,
-        "notebook": 3,
+        "visible": 3,
+        "widescreen": 3,
+        "desktop": 3,
+        "laptop": 3,
+        "notebook": 2,
         "tablet": 2,
         "landscape": 2,
         "portrait": 2,

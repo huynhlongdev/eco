@@ -4,6 +4,7 @@
 {% assign show_title_variant = false %}
 {% assign build_variant = "all" %}
 {% assign show_secondary_image = settings.product_collection_show_secondary_image %}
+{%- assign show_countdown_timer = settings.product_collection_show_countdown_timer -%}
 {% assign media_aspect_ratio = settings.product_collection_image_ratio %}
 <div class="product-item">
   <div class="product-collection w-full h-full" data-js-product >
@@ -23,7 +24,7 @@
   -%}
      <input type="hidden" name="id" value="{{ current_variant.id }}" data-js-product-variant-input>   
     <div class="row">
-      <div class="col-lg-5 col-md-6 col-12">
+      <div class="col-lg-6 col-md-6 col-12">
         <div class="product-collection__image product-image js-product-images-navigation js-product-images-hovered-end">
          <div class="card__media"> 
             <div class="media {% if show_secondary_image %} secondary_image_hover{% endif %}">
@@ -66,7 +67,7 @@
           {%- endif -%}
       </div>
       </div>
-      <div class="content-right col-lg-7 col-md-6 col-12">
+      <div class="content-right col-lg-6 col-md-6 col-12">
           <div class="product-collection__content style_{{style_product}}">  
         
         {% if show_collection %}
@@ -108,7 +109,10 @@
             {{ product.metafields.custom.short_description }}
           </div>
         {% endif %}  
-        {{ countdown | strip_newlines | remove:"  "}}
+        {% if show_countdown_timer %}
+          {%- assign alo-timer = product.metafields.custom.countdown_timer -%}
+          {% include 'countdown', timer: alo-timer  %}
+        {% endif %}
         {{ stockBar | strip_newlines | remove:"  "}}
         
         {% if show_button_add_to_cart %}

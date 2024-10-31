@@ -110,18 +110,17 @@
                   {%- case block.type -%}
                       {%- when 'product' -%}
                       {%- assign product = all_products[block.settings.product] %}
-                      {% assign ck_noPr = false -%}
                       {% if product != blank %}
-                            {% include 'product_countdown', product: product stockBar:stockBar %}                
+                            {% include 'product_style', product: product stockBar:stockBar %}                
                       {%- else -%}  
-                            {% include 'product_countdown_demo' %} 
+                            {% include 'product_demo' %} 
                       {%- endif -%}
                   {%- endcase -%}
                 {%- endfor -%}
             
               {%- else -%}
                   {%- for i in (1..10 ) -%}
-                    {% include 'product_countdown_demo' %} 
+                    {% include 'product_demo' %} 
                   {%- endfor -%}   
               {%- endif -%}
           </div>
@@ -139,19 +138,17 @@
     </div>          
   </section>
 {%- render 'section_style' -%} 
-{% assign status_bg = section.settings.status_bg %}
-{% assign sold_bg = section.settings.sold_bg %}
 {%- style -%}
 {% if section.settings.rows > 1 %}  
-#laber_{{sid}} .grid-init .alo-item{
-  padding-bottom:{{padding | plus: padding}}px; 
-} 
+  #laber_{{sid}} .grid-init .alo-item{
+    padding-bottom:{{padding | plus: padding}}px; 
+  } 
 {% endif %}
 {%- endstyle %}
 {%- endfor -%}
 {%- schema -%}
   {
-    "name": "Products countdown",
+    "name": "Products countdown 2",
     "class": "cms_section type_countdown2 product_section products_collection_countdown type_carousel",
 	"max_blocks": 20,
     "settings": [
@@ -162,7 +159,8 @@
       {
         "type": "text",
         "id": "title",
-        "label": "Heading"
+        "label": "Heading",
+        "default":"Top Deals Of The Day"
       },
       {
         "type": "select",
@@ -231,7 +229,7 @@
       
       {
       "type": "header",
-      "content": "== Settings countdown Time"
+      "content": "Settings countdown Time"
       },
       {
       "type": "checkbox",
@@ -491,7 +489,7 @@
     },	
       {
         "type": "header",
-        "content": "== Design Options"
+        "content": "Design Options"
       },   
       {
         "type": "select",
@@ -577,7 +575,7 @@
     ],
     "presets": [
       {
-        "name": "Products countdown",
+        "name": "Products countdown 2",
         "category": "Countdown"		
       }
     ]

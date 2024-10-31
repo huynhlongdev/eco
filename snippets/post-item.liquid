@@ -26,9 +26,9 @@
         {%if section.settings.show-description%}
         <div class="main-info-post">
             {% if article.excerpt.size > 0 %}
-            {{ article.excerpt | strip_html | truncatewords: 12}}         
+            {{ article.excerpt | strip_html | truncatewords: 20}}         
             {% else %}
-            <div class="des"><p>{{ article.content | strip_html | truncatewords: 12}}</p></div>
+            <div class="des"><p>{{ article.content | strip_html | truncatewords: 20}}</p></div>
             {% endif %}   
         </div>
         {%endif%}

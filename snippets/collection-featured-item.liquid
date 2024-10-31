@@ -26,58 +26,21 @@
             </div>
         {%- endif -%}
         <div class="content flex flex-wrap">
-          <div class="col ">
           <div class="collection-name">
-              <a href="{{ url }}" title="{{ block.settings.title | default:collection.title | default:home_t }}" aria-label="link" >{{ block.settings.title | default:collection.title | default:home_t }}</a>
-              {% if num_p_qty and collection != blank %}
-                  <span class="cat_grid_item__count ">
-                      ({{collection.all_products_count}} 
-                      <span>
+              {% if collection != blank and num_p_qty %}
+                  <div class="cat_grid_item__count ">
+                      {{collection.all_products_count}} 
                         {% if collection.all_products_count > 1 %} 
                             {{'homepage.section.items' | t}} 
                         {% else %}
                             {{'homepage.section.item' | t}} 
                         {% endif %}
-                      </span>)
-                    </span>
+                    </div>
                 {% endif %}
+              <a href="{{ url }}" title="{{ block.settings.title | default:collection.title | default:home_t }}" aria-label="link" >{{ block.settings.title | default:collection.title | default:home_t }}</a>
           </div>
-          {% if block.settings.content != blank %}
-              <p>{{ block.settings.content }}</p>
-          {% endif %}
-          </div>
-          {% if block.settings.btn_name != blank %}
-            <div class="btn-collection col-auto">
-              <a href="{{ url }}" title="{{ block.settings.title | default:collection.title | default:home_t }}" aria-label="link" >{{ block.settings.btn_name }}</a>
-            </div>
-          {% endif %}
         </div>
     </div>
-    {% comment %}
-    <div class="cat_grid_item__wrapper">
-      <div class="cat_grid_item__title">
-        {% if block.settings.title %}
-          <a href="url" title="{{ block.settings.title | default:collection.title | default:home_t }}" aria-label="link">
-              {% if num_p_qty and collection != blank %}
-                <span class="cat_grid_item__count ">
-                    {{collection.all_products_count}} 
-                    <span>
-                      {% if collection.all_products_count > 1 %} 
-                          {{'homepage.section.items' | t}} 
-                      {% else %}
-                          {{'homepage.section.item' | t}} 
-                      {% endif %}
-                    </span>
-                  </span>
-              {% endif %}
-              {{ block.settings.title | default:collection.title | default:home_t }}
-              
-         </a>
-        {%endif%} 
-      </div>
-      {% if block.settings.text %}<p>{{ block.settings.text }}</p> {%endif%}
-      </div>
-      {% endcomment %}
   </div>
 </div>
 

@@ -17,7 +17,7 @@
   assign portrait = section.settings.portrait
   assign mobile = section.settings.mobile
   assign padding = section.settings.padding
-
+  assign border = section.settings.br_radius
   assign sett_equal = section.settings.use_eq_height
   assign image_ratio = section.settings.image_ratio
   if sett_equal 
@@ -43,15 +43,7 @@
 {%- for i in (1..1) -%}  
 <section id="laber_{{sid}}" class="wow animate--slide-in ">
   <div class="container {%if layout %}full-width{%endif%}" >   
-    <div class="collection_featured content_section">
-    {% if section.settings.title != blank %}
-      <div class="wrap_title {{ section.settings.text_size }}">
-        <div class="h3 section-title alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</div>  
-        {% if section.settings.all-collection %}
-              <div class="bn_button viewall text-center"><a href="/collections" aria-label="link">{{'sections.collection_list.all_collection' |t}} <i class="icon-chevron-right"></i></a></div>
-          {% endif %}
-      </div>
-    {% endif %}
+    <div class="content_section">
     <div class="collection-list-featured">
     {% include 'grid-slider', settings:section.settings %} 
     <div class="slick-carousel">
@@ -68,12 +60,42 @@
       data-spacing="{{ padding | plus: padding }}"
       data-append-Arrows=".arrows_{{sid}}" 
       data-append-Dots=".dots_{{sid}}"
-      style="--perload-gap: {{ padding | plus: padding }}px"
+      style="--perload-gap: {{ padding | plus: padding }}px;--alo-width:{{ section.settings.width }}px;--alo-border-radius:{{ border }}px;"
       >
           {% assign index = 1 %} 
           {%- for block in section.blocks -%}
       		<article class="product-item alo-loop scroll-trigger" style="--animation-order:{{ index }};"> 	
-              {%- include 'cat-grid-item',block:block,num_p_qty:num_p_qty,aspect_ratio:aspect_ratio,for_i:se_size -%}
+              {%- liquid
+                assign collection = collections[block.settings.collection]
+                assign image = block.settings.image | default:collection.image |default:collection.products[0].featured_image
+                assign home_t = 'homepage.onboarding.collection_title' | t
+                assign url =  collection.url | default:'#' 
+              -%}
+              <div class="item__content">
+                    {%- if image != blank -%}
+                      {% render 'responsive-image', image: image, url:url, aspect_ratio:aspect_ratio, image_class: 'w-full h-full' %}
+                    {%- else -%}
+                      {% if aspect_ratio != blank %}
+                           {%- assign ratio =  1 | divided_by: aspect_ratio | times: 100 -%}
+                        {% else %}
+                            {%- assign ratio = 100 -%}
+                        {% endif %}
+                        <div class="image-card__img overflow-hidden ratio" style="--ratio-percent: {{ ratio }}%;">
+                          {% capture current %}{% cycle 1, 2, 3, 4 %}{% endcapture %}
+                           {{ 'collection-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                        </div>
+                    {%- endif -%}
+                    <div class="collection-name">
+                        <a href="{{ url }}" title="{{ block.settings.title | default:collection.title | default:home_t }}" aria-label="link" >
+                          {{ block.settings.title | default:collection.title | default:home_t }}
+                            {% if num_p_qty and collection != blank %}
+                              <span class="coll_count ">
+                                ({{collection.all_products_count}})
+                              </span>
+                            {% endif %}
+                        </a>
+                    </div>
+              </div>
             </article> 
           {% assign index = index | plus: 1 %}
           {%- endfor -%}
@@ -96,79 +118,30 @@
 
 {%- schema -%}
   {
-    "name": "Collection list slider",
-    "class": "collection_list cms_section type_collection_list_slider",
+    "name": "Menu Collection slider",
+    "class": "menu_collection cms_section type_menu_collection_slider",
     "max_blocks": 20,
     "settings": [
-      {
-        "type": "header",
-        "content": "== Title Settings"
-      },
-	  {
-        "type": "text",
-        "id": "title",
-        "label": "Heading",
-        "default": "Popular Categories"
-      },  
-      {
-        "type": "select",
-        "id": "text_size",
-        "default": "medium",
-        "options": [
-          {
-            "value": "small",
-            "label": "small"
-         },
-         {
-            "value": "medium",
-            "label": "Medium"
-         },
-         {
-            "value": "large",
-            "label": "Large"
-          }
-        ],
-        "label": "Text size"
-      },
-      {
-              "type": "select",
-              "id": "text_transform",
-              "default": "none",
-              "options": [
-               {
-                  "value": "none",
-                  "label": "None"
-               },
-               {
-                  "value": "capitalize",
-                  "label": "Capitalize"
-               },
-               {
-                  "value": "lowercase",
-                  "label": "Lowercase"
-               },
-               {
-                  "value": "uppercase",
-                  "label": "Uppercase"
-                }
-              ],
-              "label": "Text transform:"
-            },   
+      {  
+          "type": "range",  
+          "id": "width",  
+          "label": "Width image",
+          "min": 40,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 50
+      }, 
       {  
         "type": "range",  
-        "id": "border",  
-        "label": "Border",
-        "min": 0,
+        "id": "br_radius",  
+        "label": "Border Radius",  
+        "info": "Border radius",
+        "min": 1,
         "max": 30,
         "step": 1,
         "unit": "px",
-        "default": 0 
-    }, 
-      {
-        "type": "checkbox",
-        "id": "all-collection",
-        "label": "All collection",
-        "default": false
+        "default": 5
       },
       {
         "type": "checkbox",
@@ -176,57 +149,7 @@
         "label": "Show product quantity",
         "default": false
       },
-    {
-        "type": "checkbox",
-        "id": "use_eq_height",
-        "label": "Use equal height images?",
-        "default": false
-      },
-      {
-        "type": "select",
-        "id": "image_ratio",
-        "label": "Aspect Ratio",
-        "default": "ratio3_2",
-        "info": "Aspect Ratio Custom will settings in General panel.",
-        "options": [
-          {
-            "group": "Landscape",
-            "value": "ratio2_1",
-            "label": "2:1"
-          },
-          {
-            "group": "Landscape",
-            "value": "ratio3_2",
-            "label": "3:2"
-          },
-          {
-            "group": "Landscape",
-            "value": "ratio4_3",
-            "label": "4:3"
-          }, 
-          {
-            "group": "Squared",
-            "value": "ratio1_1",
-            "label": "1:1"
-          },
-          {
-            "group": "Portrait",
-            "value": "ratio3_4",
-            "label": "3:4"
-          },
-          {
-            "group": "Portrait",
-            "value": "ratio2_3",
-            "label": "2:3"
-          },
-          {
-            "group": "Portrait",
-            "value": "ratio1_2",
-            "label": "1:2"
-          }
-        ]
-      },
-
+      
 	{
         "type": "header",
         "content": "---- Slider Show Collection ----",
@@ -485,27 +408,16 @@
         "id": "title",
         "label": "Title block (optional)",
         "info": "Note: Leave empty to use 'collection title' title."
-      },
-      {
-        "type": "textarea",
-        "id": "content",
-        "label": "Content",
-        "info": "Note: If you do not want to display it, you can leave it blank"
-      },
-      {
-        "type": "text",
-        "id": "btn_name",
-        "label": "button name",
-        "default":"Shop Now",
-        "info": "Note: If you do not want to display it, you can leave it blank"
       }
       ]
     }],
     "presets": [
       {
-        "name": "Collection list slider",
+        "name": "Menu Collection slider",
         "category": "Collections",
         "blocks": [
+          { "type": "collection" },
+          { "type": "collection" },
           { "type": "collection" },
           { "type": "collection" },
           { "type": "collection" },

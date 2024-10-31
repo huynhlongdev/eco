@@ -92,6 +92,19 @@ assign sid = section.id
                           }
 							
                         }
+                  {% when 'label' %}
+                      .wrapper_caption #b_{{id}}.label span {
+                        color:{{block.settings.cl_txt}};
+                        background-color: {{block.settings.cl_bg}}; 
+                        font-size:{{block.settings.fs_text}}px;
+                        border-radius:{{block.settings.border}}px;
+                        text-transform:{{block.settings.button_transform}};
+                        letter-spacing:{{block.settings.ls_text}}px;
+                        font-weight:{{block.settings.fw_text}};
+                        padding:0 15px;
+                        line-height: 30px;
+                        display:inline-block;
+                      }
 				  {% when 'btn' %}
                         .wrapper_caption #b_{{id}}.buttons{
 							margin:{{block.settings.mg}}; 

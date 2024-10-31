@@ -679,9 +679,10 @@ table td:first-child{
 .alo__terms-conditions p {
   margin:0;
 }
+
 .checkmark {
-  pointer-events: none;
-  cursor: pointer;
+    pointer-events: none;
+    cursor: pointer;
   position: relative;
 }
 .checkmark:after {

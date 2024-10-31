@@ -1,8 +1,7 @@
 <!--Footer-->
-{%- if section.settings.hidden %}{% break %}{% endif -%}
 {%  assign sid = section.id  %}
 {%- assign full_width = section.settings.full_width -%}
-<section id="laber_{{sid}}" style="--color-border:{{ section.settings.cl_border }};">
+<section id="laber_{{sid}}" style="--alo-border-color:{{ section.settings.cl_border }};">
         <div class="{% if full_width %}full-width{% else %}container{% endif %}">
         	<div class="row">
           {%- for block in section.blocks -%}
@@ -27,6 +26,22 @@
                             {%- assign block_width = 'col-12' -%}
                     {% endcase %}
                   {%- case block.type -%}
+                  {%- when 'lang_curr' -%} 
+                  <div class="footer-iteam {{ block_width }} mb-{{ block.settings.mb }}" style="--alo-position:{{ block.settings.pos_block }};" {{ block.shopify_attributes }}> 
+                    <div class="language-currency">
+                      {%if block.settings.header_use_language or block.settings.header_use_currency %}
+                     {% assign showFlag = block.settings.show_flag %}
+                      <ul>
+                        {%if block.settings.header_use_language%}
+                          {% render 'language', showFlag:showFlag %} 
+                        {% endif %}
+                        {%if block.settings.header_use_currency %}
+                          {% render 'currency' %}
+                        {% endif %}  
+                      </ul> 
+                    {% endif %}
+                    </div>
+                  </div>  
                   {%- when 'policy' -%} 
                   <div class="footer-iteam {{ block_width }} mb-{{ block.settings.mb }}" style="--alo-position:{{ block.settings.pos_block }};" {{ block.shopify_attributes }}> 
                    <div class="policies"> 

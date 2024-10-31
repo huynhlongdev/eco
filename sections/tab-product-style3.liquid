@@ -23,11 +23,19 @@
   
   -%}
 {%- for i in (1..1) -%}
-<section id="laber_{{sid}}" class="wow animate--slide-in laber_se_{{sid}}" style="--alo-border-color:{{ section.settings.cl_line }};">
-  <div class="container {%if layout == 'full-width' %}{{layout}}{%endif%}" >
+<section id="laber_{{sid}}" class="wow animate--slide-in laber_se_{{sid}}" style="--alo-border-color:{{ section.settings.cl_line }};--alo-border-radius:{{ settings.image_border_product}}px;">
+  <div class="container {%if layout == 'full-width' %}{{layout}}{%endif%}">
         {% if section.settings.title != blank %}
-        <div class="wrap_title {{ section.settings.text_size }} style_2">
-          <div class="h3 section-title alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</div>  
+        <div class="wrap_title {{ section.settings.text_size }} style2 ">
+           {% if section.settings.sub_title!= blank %}
+    		  <span class="section-subtitle h4 alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.sub_title}}</span>
+		  {% endif %}
+          {% if section.settings.title != blank %}
+    		  <h3 class="section-title h3 alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</h3>  
+		  {% endif %}
+          {% if section.settings.content!= blank %}
+    		  <div class="content">{{section.settings.content}}</div>
+		  {% endif %}
 
           {%- if arr_col.size > 0 -%} 
           <div class="tabcontent tabcontent_style3">
@@ -67,7 +75,7 @@
                   {%capture grid %}padding-0-{{padding}}{%endcapture%}
                   {% include 'grid-slider', settings:section.settings %}
                   {%- for block in arr_col limit: 1 -%}
-                  <div class="grid-slider row js_carousel {% if style_product == 1 %}style_grid{% else %}style_list{% endif %} laber-slick-carousel sorting-collections__products pr_center" data-sorting-collections-items="true" 
+                  <div class="grid-slider row js_carousel {% if style_product == 1 %}style_grid{% else %}style_list{% endif %} sorting-collections__products pr_center" data-sorting-collections-items="true" 
                        data-limit="{{ section.settings.max_count }}"
                        data-grid="{{grid}}"
                        data-append-Arrows=".arrows_{{sid}}" data-append-Dots=".dots_{{sid}}"
@@ -90,12 +98,14 @@
                       {% assign index = 1 %} 
                       {%- for product in products limit: section.settings.max_count -%}
                       {% assign pr_hd = product.handle %}
-                      <div data-lazy-product-load  class="productLazyload lazyload product-item scroll-trigger" style="--animation-order:{{ index }};"  data-include="{{url_cat}}/products/{{pr_hd}}/?view=pr_lazy_load">{% include 'product-loading' %}</div>
+                      <div data-lazy-product-load  class="productLazyload lazyload product-item scroll-trigger" style="--animation-order:{{ index }};"  data-include="{{url_cat}}/products/{{pr_hd}}/?view=pr_lazy_load">
+                          {% include 'product-loading' %} 
+                      </div>
                       {% assign index = index | plus: 1 %}  
                       {%- endfor -%}
                     {%else%}
                       {%- for i in (1..section.settings.max_count) -%}
-                      {% include 'product_demo' %}
+                        {% include 'product_demo' %} 
                       {%- endfor -%} 
                     {%- endif -%}
                   </div>
@@ -151,6 +161,7 @@
         "label": "Heading",
         "default": "New arrivals"
       },
+      
       {
         "type": "select",
         "id": "text_size",

@@ -106,11 +106,12 @@
                         {% endif %}
                       </div>
                    </div>
+                   </div>
                    {% if use-slider == false or rows > 1 %}{% style %}#bk_{{ block.id }} .grid-init .alo-item{padding-bottom:{{padding | plus: padding}}px; }{% endstyle %} {% endif %} 
                    {%- render 'block-style' , block: block -%}   
                    {%- when 'product_countdown' -%}
                      <div id="bk_{{ block.id }}" class="{{ block_width }}">
-                     <div class="alo-product-countdown grid-template-columns h-full alo-border-radius" style="--alo-border-radius:5px; {% if section.settings.show_boder %}border:2px solid {{ section.settings.cl_boder }} {% endif %}"> 
+                     <div class="alo-product-countdown grid-template-columns h-full"> 
                       {% liquid
                       assign show_countdown = section.settings.show_countdown 
                       assign cd_txt = section.settings.cd_txt
@@ -201,7 +202,7 @@
   {
     "name": "Products Countdown Grid",
     "class": "cms_section type_countdown1 product_section products_collection_countdown type_carousel",
-	"max_blocks": 3,
+	"max_blocks": 2,
     "settings": [
       {
         "type": "header",

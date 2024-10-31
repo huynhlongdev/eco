@@ -17,6 +17,7 @@
                  {% if  media.media_type == 'image' %}
                     <div id="main_img_{{media.id }}" data-image-id="{{ media.id }}" data-media_type="{{ media.media_type }}"  class="image full-item alo-border-radius" style="--alo-border-radius:{{ settings.border }}px;">
                       {%- if media.src  -%}
+                        <div class="card__media w-full"><div class="media  w-full"><div class="ratio relative" style="{{ style }}">
                            <img
                               {% if settings.product_info_enable_zoom %} data-style-zoom ="{{settings.type_zoom}}" data-zoom-image="{{ media.src | img_url: '1920x' }}" {% endif %} 
                               srcset="{%- if media.preview_image.width >= 550 -%}{{ media.preview_image | image_url: width: 550 }} 550w,{%- endif -%}
@@ -37,11 +38,18 @@
                               height="{{ media.src.height }}"
                              loading="lazy"
                             > 
+                            </div></div></div>
                       {%- endif -%}
                     </div>
                   {% elsif media.media_type == 'video' %}
                     <div id="main_img_{{media.id}}" data-image-id="{{media.id}}" data-media_type="{{ media.media_type }}" class="video full-item">
                         {{ media | media_tag: image_size: "1048x", autoplay: true, loop: loop, controls: true, preload: "none" }}
+                    </div>
+                  {%elsif media.media_type == 'external_video'%}
+                   <div id="main_img_{{media.id}}" data-image-id="{{media.id}}" data-media_type="{{ media.media_type }}" class="external_video full-item">
+                       <div class="ratio" style="{{ style }}">
+                        {{ media | media_tag }}
+                       </div>
                     </div>
                   {% elsif media.media_type == 'model'%}
                     <div id="main_img_{{media.id}}" data-image-id="{{media.id}}" data-media_type="{{ media.media_type }}" class="model full-item">
@@ -52,12 +60,6 @@
               </div>
               {% if settings.product_info_show_arrows %}<div class="main_appendArrows"></div>{% endif %}
               <div class="zoomContainerAppendTo"></div>
-              {% for media in product.media %} 
-              {%if media.external_id !=blank%}
-              <a class="products-video" data-page-open-popup data-effect="mfp-move-horizontal" href="#products-video"><i class="icon-play-circle"></i> {{ 'products.product.play_video' | t}}</a>
-              {%endif%}
-              {% endfor %}
-        
             </div>
           </div>
                   
@@ -66,36 +68,50 @@
                 {% for media in product.media %}
                   {% if  media.media_type == 'image' %}
                       <div id="thumb_img_{{media.id }}" data-media_type="{{ media.media_type }}" data-thumb-id="{{ media.id }}" data-image="{{ media.src | img_url: 'grande' }}" data-z-image="{{ media.src | img_url: '1920x' }}" class="image thumb_img">
-                        {%- if media.src -%}<div class="lazyload pr_lazy_img" data-bgset="{{ media.src | img_url: '1x1' }}" data-ratio="{{media.aspect_ratio}}" data-sizes="auto" style="padding-top:{{ 1 | divided_by: media.aspect_ratio | times: 100}}%;"></div>{%- endif -%}
+                        <div class="alo-thumb">
+                          <div class="alo-img">
+                            <div class="lazyload pr_lazy_img" data-bgset="{{ media.src | img_url: '1x1' }}" data-ratio="{{media.aspect_ratio}}" data-sizes="auto" style="{{ style }}"></div>
+                          </div>
+                        </div>
                       </div>
                   {%elsif media.media_type == 'video'%}
-                      <div id="thumb_img_{{media.id }}" data-media_type="{{ media.media_type }}" data-thumb-id="{{ media.id }}"  class="video thumb_video">
-                        {%- assign image = media.preview_image -%}
-                        {%- if image -%}
-                            <div class="lazyload pr_lazy_img" data-bgset="{{ image | img_url: '1x1' }}" data-ratio="{{image.aspect_ratio}}" data-sizes="auto" style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;"></div>
+                      <div id="thumb_img_{{media.id }}" data-media_type="{{ media.media_type }}" data-thumb-id="{{ media.id }}"  class="image thumb_img video">
+                        <div class="card__media alo-thumb">
+                          <div class="media alo-img">
+                            <div class="ratio" style="{{ style }}">
+                            {% render 'thumb-img', media: media %}
                             <svg class="w-[16px] h-[16px]" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                                 <path d="M543.9 96c-6.2 0-12.5 1.8-18.2 5.7L416 171.6v-59.8c0-26.4-23.2-47.8-51.8-47.8H51.8C23.2 64 0 85.4 0 111.8v288.4C0 426.6 23.2 448 51.8 448h312.4c28.6 0 51.8-21.4 51.8-47.8v-59.8l109.6 69.9c5.7 4 12.1 5.7 18.2 5.7 16.6 0 32.1-13 32.1-31.5v-257c.1-18.5-15.4-31.5-32-31.5zM384 400.2c0 8.6-9.1 15.8-19.8 15.8H51.8c-10.7 0-19.8-7.2-19.8-15.8V111.8c0-8.6 9.1-15.8 19.8-15.8h312.4c10.7 0 19.8 7.2 19.8 15.8v288.4zm160-15.7l-1.2-1.3L416 302.4v-92.9L544 128v256.5z"></path>
                             </svg>
-                          {%- endif -%}
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                 {%elsif media.media_type == 'model'%}
-                      <div id="thumb_img_{{media.id }}" data-media_type="{{ media.media_type }}" data-thumb-id="{{ media.id }}"  class="model thumb_3d">
-                        <svg class="w-[16px] h-[16px]" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                              <path d="M239.1 6.3l-208 78c-18.7 7-31.1 25-31.1 45v225.1c0 18.2 10.3 34.8 26.5 42.9l208 104c13.5 6.8 29.4 6.8 42.9 0l208-104c16.3-8.1 26.5-24.8 26.5-42.9V129.3c0-20-12.4-37.9-31.1-44.9l-208-78C262 2.2 250 2.2 239.1 6.3zM256 34.2l224 84v.3l-224 97.1-224-97.1v-.3l224-84zM32 153.4l208 90.1v224.7l-208-104V153.4zm240 314.8V243.5l208-90.1v210.9L272 468.2z"></path>
+                {%elsif media.media_type == 'external_video'%}
+                  <div id="thumb_img_{{media.id }}" data-media_type="{{ media.media_type }}" data-thumb-id="{{ media.id }}"  class="image thumb_img external_video">
+                      <div class="card__media alo-thumb">
+                          <div class="media alo-img">
+                            <div class="ratio" style="{{ style }}">
+                            {% render 'thumb-img', media: media %}
+                            <svg class="w-[16px] h-[16px]" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                <path d="M543.9 96c-6.2 0-12.5 1.8-18.2 5.7L416 171.6v-59.8c0-26.4-23.2-47.8-51.8-47.8H51.8C23.2 64 0 85.4 0 111.8v288.4C0 426.6 23.2 448 51.8 448h312.4c28.6 0 51.8-21.4 51.8-47.8v-59.8l109.6 69.9c5.7 4 12.1 5.7 18.2 5.7 16.6 0 32.1-13 32.1-31.5v-257c.1-18.5-15.4-31.5-32-31.5zM384 400.2c0 8.6-9.1 15.8-19.8 15.8H51.8c-10.7 0-19.8-7.2-19.8-15.8V111.8c0-8.6 9.1-15.8 19.8-15.8h312.4c10.7 0 19.8 7.2 19.8 15.8v288.4zm160-15.7l-1.2-1.3L416 302.4v-92.9L544 128v256.5z"></path>
                             </svg>
-                        <img
-                          srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | image_url: width: 288 }} 288w,{% endif %}
-                                  {% if media.preview_image.width >= 576 %}{{ media.preview_image | image_url: width: 576 }} 576w,{% endif %}
-                                  {% if media.preview_image.width >= 550 %}{{ media.preview_image | image_url: width: 550 }} 550w,{% endif %}
-                                  {% if media.preview_image.width >= 1100 %}{{ media.preview_image | image_url: width: 1100 }} 1100w,{% endif %}
-                                  {{ media.preview_image | image_url }} {{ media.preview_image.width }}w"
-                          src="{{ media | image_url: width: 550, height: 550 }}"
-                          sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
-                          loading="lazy"
-                          width="576"
-                          height="{{ 576 | divided_by: media.preview_image.aspect_ratio }}"
-                          alt="{{ media.preview_image.alt | escape }}"
-                        >
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                 {%elsif media.media_type == 'model'%}
+                      <div id="thumb_img_{{media.id }}" data-media_type="{{ media.media_type }}" data-thumb-id="{{ media.id }}"  class="image thumb_img model">
+                        <div class="card__media alo-thumb">
+                          <div class="media alo-img">
+                            <div class="ratio" style="{{ style }}">
+                              {% render 'thumb-img', media: media %}
+                              <svg class="w-[16px] h-[16px]" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                  <path d="M239.1 6.3l-208 78c-18.7 7-31.1 25-31.1 45v225.1c0 18.2 10.3 34.8 26.5 42.9l208 104c13.5 6.8 29.4 6.8 42.9 0l208-104c16.3-8.1 26.5-24.8 26.5-42.9V129.3c0-20-12.4-37.9-31.1-44.9l-208-78C262 2.2 250 2.2 239.1 6.3zM256 34.2l224 84v.3l-224 97.1-224-97.1v-.3l224-84zM32 153.4l208 90.1v224.7l-208-104V153.4zm240 314.8V243.5l208-90.1v210.9L272 468.2z"></path>
+                              </svg>
+                          </div>
+                          </div>
+                        </div>
                       </div>
                 {%endif%}
               {% endfor %}

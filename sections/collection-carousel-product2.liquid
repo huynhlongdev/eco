@@ -28,8 +28,8 @@
 %}
 {%- for i in (1..1) -%}  
 <section id="laber_{{sid}}" style="--alo-border-radius:{{ settings.image_border_product}}px;">
-  <div class="laber_product_section_{{sid}}">
     <div class="{%if layout_des%}full-width{% else %}container{%endif%}">
+    <div class="laber_product_section">
     {% if section.settings.title != blank %}
       <div class="wrap_title {{ section.settings.text_size }}">
         <h3 class="section-title alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</h3>  
@@ -74,9 +74,9 @@
           {% endcase %}
       {%- case block.type -%}
            {%- when 'featured' -%}
-            <div id="bk_{{block.id}}" class="featured-product {% if rows >= 2 %}rows{% endif %} {{ block_width }}">
+            <div id="bk_{{block.id}}" class="featured-product {% if rows >= 2 %}rows{% endif %} {{ block_width }} md:mb-20 sm:mb-20">
                <div class="products-arrivals ">
-                  <div class="section-content">
+                  <div class="section-content ">
                     {% include 'grid-slider', settings:block.settings %} 
                     <div class="content_section slick-carousel">
                       <div class="grid-slider row js_carousel" {{gridSlider}} 
@@ -97,7 +97,7 @@
                         {%- assign product_list = block.settings.product_list %}
                           {% if product_list != blank %}
                             {%- for product in product_list -%}
-                                {% include 'product_countdown', product: product %}
+                                {% include 'product_countdown', product: product , position:"1" %}
                             {% endfor %}
                           {%- else -%}
                             {%- for i in (1..2) -%}
@@ -168,6 +168,12 @@
       {%- endcase -%}  
     {%- endfor -%}
     </div>
+      {% if section.settings.use-all-product %}
+          <div class="bn_button viewall text-center">
+             <a href="{{section.settings.btn_link}}" target="{{section.settings.open_link}}">
+              {{'collections.general.view_all' |t}} <i class="icon-chevron-right"></i></a>
+          </div>
+      {% endif %}
   </div>
   </div>
 </section>
@@ -233,7 +239,35 @@
                 }
               ],
               "label": "Text transform:"
-            },       
+            },    
+      {
+      "type": "checkbox",
+      "id": "use-all-product",
+      "label": "All products button",
+      "default": false
+    },
+     {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button link",
+        "info": "Note: if you want to display this button then you need to fill button link"
+      }, 
+     {
+        "type": "select",
+        "id": "open_link",
+        "options": [
+          {
+            "value": "_self",
+            "label": "Current window (_self)"
+          },
+         {
+            "value": "_blank",
+            "label": "New window (_blank)"
+          }
+        ],
+        "label": "Open link in",
+        "default": "_blank"
+      },     
       {
         "type": "header",
         "content": "== Design Options"

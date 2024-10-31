@@ -8,7 +8,7 @@
 %}
   
 {%- for i in (1..1) -%}  
-<section id="laber_{{sid}}" class="cat_size_{{se_size}} pad-{{ section.settings.pad }}">
+<section id="laber_{{sid}}" class="cat_size_{{se_size}} pad-{{ section.settings.pad }}" style="{% if section.settings.custom_width %}--alo-container-width:{{section.settings.container_width}}px;{% endif %}">
   <div class="container {%if layout == 'full-width' %}{{layout}}{%endif%}" >   
         {% if section.settings.title != blank %}
           <div class="wrap_title {{ section.settings.text_size }}">
@@ -19,42 +19,78 @@
             {%- case se_size -%}
     			{%- when 1 -%}
             		<article class="cate-item col-lg-6 col-md-6 col-12"> 
-                    {%- render 'cat-grid-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
+                    {%- render 'collection-featured-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
                   </article>
                {%- when 2 -%}
             		<article class="cate-item col-lg-6 col-md-6 col-12"> 
-                    {%- render 'cat-grid-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
+                    {%- render 'collection-featured-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
                   </article> 
                   <article class="cate-item col-lg-6 col-md-6 col-12"> 
-                    {%- render 'cat-grid-item',block:se_blocks[1],num_p_qty:num_p_qty,for_i:se_size -%}
+                    {%- render 'collection-featured-item',block:se_blocks[1],num_p_qty:num_p_qty,for_i:se_size -%}
                   </article> 
                 {%- when 3 -%}
             		<article class="cate-item col-lg-4 col-md-4 col-12"> 
-                    {%- render 'cat-grid-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
+                    {%- render 'collection-featured-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
                   </article> 
                   <article class="cate-item col-lg-4 col-md-4 col-12"> 
-                    {%- render 'cat-grid-item',block:se_blocks[1],num_p_qty:num_p_qty,for_i:se_size -%}
+                    {%- render 'collection-featured-item',block:se_blocks[1],num_p_qty:num_p_qty,for_i:se_size -%}
                   </article>
                   <article class="cate-item col-lg-4 col-md-4 col-12"> 
-                    {%- render 'cat-grid-item',block:se_blocks[3],num_p_qty:num_p_qty,for_i:se_size -%}
+                    {%- render 'collection-featured-item',block:se_blocks[3],num_p_qty:num_p_qty,for_i:se_size -%}
                   </article>
                 {%- when 4 -%}
             		<article class="cate-item col-lg-6 col-md-6 col-12"> 
-                    {%- render 'cat-grid-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
+                    {%- render 'collection-featured-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
                     </article> 
                     <article class="cate-item col-lg-6 col-md-6 col-12"> 
                       <div class="row">
                           <div class="col-lg-6 col-md-6 col-12">
-                            {%- render 'cat-grid-item',block:se_blocks[1],num_p_qty:num_p_qty,for_i:se_size -%}
+                            {%- render 'collection-featured-item',block:se_blocks[1],num_p_qty:num_p_qty,for_i:se_size -%}
                           </div>
                           <div class="col-lg-6 col-md-6 col-12">
-                            {%- render 'cat-grid-item',block:se_blocks[2],num_p_qty:num_p_qty,for_i:se_size -%}
+                            {%- render 'collection-featured-item',block:se_blocks[2],num_p_qty:num_p_qty,for_i:se_size -%}
                           </div>
                           <div class="col-12">
-                              {%- render 'cat-grid-item',block:se_blocks[3],num_p_qty:num_p_qty,for_i:se_size -%}
+                              {%- render 'collection-featured-item',block:se_blocks[3],num_p_qty:num_p_qty,for_i:se_size -%}
                           </div>
                       </div>
                     </article>
+              {%- when 5 -%}
+                  <article class="cate-item col-lg-5 col-md-5 col-12"> 
+                    {%- render 'collection-featured-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
+                    </article> 
+                    <article class="cate-item col-lg-7 col-md-7 col-12"> 
+                      <div class="row">
+                          <div class="col-lg-7 col-md-7 col-12">
+                            {%- render 'collection-featured-item',block:se_blocks[1],num_p_qty:num_p_qty,for_i:se_size -%}
+                          </div>
+                          <div class="col-lg-5 col-md-5 col-12">
+                            {%- render 'collection-featured-item',block:se_blocks[2],num_p_qty:num_p_qty,for_i:se_size -%}
+                          </div>
+                          <div class="col-lg-5 col-md-5 col-12">
+                              {%- render 'collection-featured-item',block:se_blocks[3],num_p_qty:num_p_qty,for_i:se_size -%}
+                          </div>
+                          <div class="col-lg-7 col-md-7 col-12">
+                            {%- render 'collection-featured-item',block:se_blocks[4],num_p_qty:num_p_qty,for_i:se_size -%}
+                          </div>
+                      </div>
+                    </article>
+              {%- when 6 -%}
+            <article class="cate-item col-lg-3 col-md-6 col-12"> 
+            {%- render 'collection-featured-item',block:se_blocks[0],num_p_qty:num_p_qty,for_i:se_size -%}
+              {%- render 'collection-featured-item',block:se_blocks[1],num_p_qty:num_p_qty,for_i:se_size -%}
+            </article> 
+            <article class="cate-item col-lg-3 col-md-6 col-12"> 
+            {%- render 'collection-featured-item',block:se_blocks[2],num_p_qty:num_p_qty,for_i:se_size -%}
+              
+            </article> 
+            <article class="cate-item col-lg-3 col-md-6 col-12"> 
+            {%- render 'collection-featured-item',block:se_blocks[3],num_p_qty:num_p_qty,for_i:se_size -%}
+              {%- render 'collection-featured-item',block:se_blocks[4],num_p_qty:num_p_qty,for_i:se_size -%}
+            </article> 
+            <article class="cate-item col-lg-3 col-md-6 col-12"> 
+            {%- render 'collection-featured-item',block:se_blocks[5],num_p_qty:num_p_qty,for_i:se_size -%}
+            </article> 
            {%- endcase -%}
     </div>
   </div>
@@ -67,7 +103,7 @@
   {
     "name": "Collection featured grid",
     "class": "collection_grid cms_section type_collection_grid",
-    "max_blocks": 4,
+    "max_blocks": 6,
     "settings": [
       {
         "type": "header",
@@ -127,10 +163,10 @@
           "type": "range",
           "id": "border",
           "label": "Border",
-          "default": 5,
+          "default": 0,
           "min": 0,
-          "max": 20,
-          "step": 5,
+          "max": 30,
+          "step": 1,
           "unit": "px"
           },
       {
@@ -142,7 +178,23 @@
       {
         "type": "header",
         "content": "== Design Options"
-      },      
+      }, 
+          {
+        "type": "checkbox",
+        "id": "custom_width",
+        "label":"Custom width",
+        "default": false
+      },
+      {
+          "type": "range",  
+          "id": "container_width",  
+          "label": "Container width",
+          "min": 1200,
+          "max": 1900,
+          "step": 10,
+          "unit": "px",
+          "default": 1200 
+      },
       {
         "type": "select",
         "id": "layout",

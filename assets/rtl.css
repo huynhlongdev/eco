@@ -40,8 +40,7 @@ body.rtl {
     padding-right: 0;
 }
 .rtl .header-search .search_header .search_header__submit{
-  border-radius: var(--alo-border-radius);
-  margin-left: 4px;
+  margin-left: 2px;
   margin-right: 0;
 }
 .rtl .header-search .search_header .frm_search_cat{

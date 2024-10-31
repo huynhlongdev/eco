@@ -4,10 +4,11 @@
   assign col_tb = section.settings.col_pr_tb
   assign source = section.settings.source
   assign cl_mb = section.settings.col_pr_mb
+  assign border = section.settings.br_radius
  %}
 {%- for i in (1..1) -%}
   {%- if section.settings.hidden %}{% break %}{% endif -%}
-  <section id="laber_{{sid}}" class="{{ section.settings.style }}" style="--color-border:{{ section.settings.cl_border }};">
+  <section id="laber_{{sid}}" class="type-benefit {{ section.settings.style }}" style="--color-border:{{ section.settings.cl_border }};--alo-border-radius:{{ border }}px;">
       <div class="{{section.settings.layout}}">
           {%- if section.blocks.size > 0 -%}
             <div class="alo-shipping ">
@@ -71,11 +72,21 @@
         "label": "Hidden Section?",
         "default": false
       },
-      
       {
         "type": "header",
         "content": "== General Settings"
       },
+      {  
+        "type": "range",  
+        "id": "br_radius",  
+        "label": "Border Radius",  
+        "info": "Border radius",
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "default": 5
+      },   
       {
         "type": "select",
         "id": "source",
@@ -230,13 +241,7 @@
         "id": "cl_text",
         "label": "Color Text",
         "default": "#fff"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_border",
-        "label": "Show border bottom",
-        "default": false
-      },  
+      }, 
       {
         "type": "color",
         "id": "cl_border",

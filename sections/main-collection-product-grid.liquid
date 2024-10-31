@@ -22,8 +22,7 @@
 {{ 'component-facets.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
-
-<section id="laber_{{sid}}" style="--alo-border-radius:{{ section.settings.border }}px;--color-border:{{ section.settings.cl_border }};">
+<section id="laber_{{sid}}" style="--alo-border-radius:{{ section.settings.border }}px;--color-border:{{ section.settings.cl_border }}; --alo-container-width:{{ section.settings.custom_width }}px;">
   <div
     class=" main-content-grid js_container_cat {%if show_ajax_scroll %}ajax_scroll{%endif%}"
     {% if show_ajax_scroll %}
@@ -342,6 +341,16 @@
       "default": true,
       "label": "Full width"
     },
+    {  
+        "type": "range",  
+        "id": "custom_width",  
+        "label": "Custom width",
+        "min": 1200,
+        "max": 1800,
+        "step": 10,
+        "unit": "px",
+        "default": 1410 
+    }, 
     {
         "type": "color",
         "id": "cl_bg",

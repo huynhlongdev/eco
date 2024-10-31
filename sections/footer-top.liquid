@@ -1,26 +1,32 @@
+{%- if section.settings.hidden %}{% break %}{% endif -%}
 {%  assign sid = section.id  %}
 {%- assign full_width = section.settings.full_width -%}
-
 <section id="laber_{{sid}}" class="wow animate--slide-in" style="--alo-border-color:{{ section.settings.cl_line }};">
-    <div class="main-footer">
-        <div class="{% if full_width %}full-width{% else %}container{% endif %}">
-        	<div class="row">
-                {% render 'footer_1' %}
-            </div>
+      <div class="main-footer">
+          <div class="{% if full_width %}full-width{% else %}container{% endif %}">
+              <div class="row">
+                  {% render 'footer_1' %}
+              </div>
+          </div>
         </div>
-      </div>
 </section>
 {%- render 'section_style' -%} 
 {%- schema -%}
   {
-    "name": "Footer main",
-    "class": "footer-main",
+    "name": "Footer Top",
+    "class": "footer-top",
     "max_blocks": 10,
     "settings": [ 
       
       {
         "type": "header",
         "content": "== Footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "hidden",
+        "label": "Hidden Section?",
+        "default": false
       },
         {
           "type": "checkbox",
@@ -37,7 +43,7 @@
       {
         "type": "color",
         "id": "cl_line",
-        "label": "Color Border",
+        "label": "Color line",
         "default": "#fff"
       },
       
@@ -622,103 +628,6 @@
         }
         ]
       },
-      
-      {
-      "type": "logo-footer",
-      "name": "Logo Footer",
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "use_logo_footer",
-          "label": "Use logo footer",
-          "default": false
-          },
-        {
-        "type": "image_picker",
-        "id": "logo_footer",
-        "label": "Logo image at other footer"
-        },
-        {
-        "type": "range",
-        "id": "logo_max_width",
-        "label":"Custom logo width",
-        "min": 50,
-        "max": 250,
-        "step": 5,
-        "unit": "px",
-        "default": 115
-       },
-        {
-            "type": "textarea",
-            "id": "hotline",
-            "label": "Hotline",
-            "default": "<p class=\"title\">Hotline Free 24/24:</p> <p class=\"phone-number\">(+100) 123 456 7890</p>"
-          },  
-        
-        {
-            "type": "textarea",
-            "id": "content",
-            "label": "Content",
-            "default": "No matter whether you're doing basic repairs and maintenance,<br> modifying your car's street appeal and performance,<br> or adding high-tech lighting..."
-          },  
-        {
-            "type": "color",
-            "id": "text_color",
-            "label": "Color text",
-            "default": "#fff"
-          },
-        
-          {
-            "type": "paragraph",
-            "content": "-----------------------------------------------"
-          },
-          
-          {
-        "type": "select",
-        "id": "col",
-        "default": "33%",
-        "options": [
-        {
-        "value": "16%",
-        "label": "16%"
-        },  
-        {
-        "value": "25%",
-        "label": "25%"
-        },
-        {
-        "value": "33%",
-        "label": "33%"
-        },
-         {
-        "value": "42%",
-        "label": "42%"
-        }, 
-        {
-        "value": "50%",
-        "label": "50%"
-        },
-        {
-        "value": "58%",
-        "label": "58%"
-        }, 
-        {
-        "value": "66%",
-        "label": "66%"
-        },
-        {
-        "value": "75%",
-        "label": "75%"
-        },
-        {
-        "value": "100%",
-        "label": "100%"
-        }
-        ],
-        "label": "Container width:"
-        }
-      ]
-      },  
       {
         "type": "html",
         "name": "HTML",
@@ -807,6 +716,124 @@
              "default": 385
           },
           {
+        "type": "select",
+        "id": "col",
+        "default": "33%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        }
+        ]
+      },
+      {
+        "type": "social_network",
+        "name": "Social network",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Follow Us"
+          },
+          {
+            "type": "color",
+            "id": "cl_heading",
+            "label": "Color Heading",
+            "default": "#fff"
+          },
+          {
+            "type": "select",
+            "id": "text_size",
+            "default": "medium",
+            "options": [
+              {
+                "value": "small",
+                "label": "small"
+             },
+             {
+                "value": "medium",
+                "label": "Medium"
+             },
+             {
+                "value": "large",
+                "label": "Large"
+              }
+            ],
+            "label": "Text size"
+          },
+          {
+            "type": "select",
+            "id": "text_transform",
+            "default": "none",
+            "options": [
+             {
+                "value": "none",
+                "label": "None"
+             },
+             {
+                "value": "capitalize",
+                "label": "Capitalize"
+             },
+             {
+                "value": "lowercase",
+                "label": "Lowercase"
+             },
+             {
+                "value": "uppercase",
+                "label": "Uppercase"
+              }
+            ],
+            "label": "Text transform:"
+          }, 
+          {
+            "type": "html",
+            "id": "content",
+            "label": "Content",
+            "default": "<p>We make consolidating, marketing and tracking your social media website easy.</p>"
+          },
+          {
+            "type": "color",
+            "id": "cl_content",
+            "label": "Color Content",
+            "default": "#fff"
+          },
+          {
           "type": "checkbox",
           "id": "use_social",
           "label": "Display social",
@@ -856,374 +883,6 @@
         ],
         "label": "Container width:"
         }
-        ]
-      },
-      {
-        "type": "image",
-        "name": "Image",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Title images"
-          },
-          {
-            "type": "color",
-            "id": "cl_heading",
-            "label": "Color Heading",
-            "default": "#fff"
-          },
-          {
-            "type": "select",
-            "id": "text_size",
-            "default": "medium",
-            "options": [
-              {
-                "value": "small",
-                "label": "small"
-             },
-             {
-                "value": "medium",
-                "label": "Medium"
-             },
-             {
-                "value": "large",
-                "label": "Large"
-              }
-            ],
-            "label": "Text size"
-          },
-          {
-            "type": "select",
-            "id": "text_transform",
-            "default": "none",
-            "options": [
-             {
-                "value": "none",
-                "label": "None"
-             },
-             {
-                "value": "capitalize",
-                "label": "Capitalize"
-             },
-             {
-                "value": "lowercase",
-                "label": "Lowercase"
-             },
-             {
-                "value": "uppercase",
-                "label": "Uppercase"
-              }
-            ],
-            "label": "Text transform:"
-          }, 
-          {
-          "type": "image_picker",
-          "id": "image",
-          "label": "image"
-          },
-          {
-            "type": "url","id": "url","label": "Link (optional)"
-          },
-          {
-        "type": "select",
-        "id": "col",
-        "default": "33%",
-        "options": [
-        {
-        "value": "16%",
-        "label": "16%"
-        },  
-        {
-        "value": "25%",
-        "label": "25%"
-        },
-        {
-        "value": "33%",
-        "label": "33%"
-        },
-         {
-        "value": "42%",
-        "label": "42%"
-        }, 
-        {
-        "value": "50%",
-        "label": "50%"
-        },
-        {
-        "value": "58%",
-        "label": "58%"
-        }, 
-        {
-        "value": "66%",
-        "label": "66%"
-        },
-        {
-        "value": "75%",
-        "label": "75%"
-        },
-        {
-        "value": "100%",
-        "label": "100%"
-        }
-        ],
-        "label": "Container width:"
-        }
-          
-        ]
-      },
-      {
-        "type": "instagram",
-        "name": "Instagram",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Instagram"
-          },
-          {
-            "type": "color",
-            "id": "cl_heading",
-            "label": "Color Heading",
-            "default": "#fff"
-          },
-          {
-            "type": "select",
-            "id": "text_size",
-            "default": "medium",
-            "options": [
-              {
-                "value": "small",
-                "label": "small"
-             },
-             {
-                "value": "medium",
-                "label": "Medium"
-             },
-             {
-                "value": "large",
-                "label": "Large"
-              }
-            ],
-            "label": "Text size"
-          },
-          {
-            "type": "select",
-            "id": "text_transform",
-            "default": "none",
-            "options": [
-             {
-                "value": "none",
-                "label": "None"
-             },
-             {
-                "value": "capitalize",
-                "label": "Capitalize"
-             },
-             {
-                "value": "lowercase",
-                "label": "Lowercase"
-             },
-             {
-                "value": "uppercase",
-                "label": "Uppercase"
-              }
-            ],
-            "label": "Text transform:"
-          }, 
-          {
-        "type": "checkbox",
-        "id": "use_eq_height",
-        "label": "Use equal height images?",
-        "default": false
-      },
-      {
-        "type": "select",
-        "id": "image_ratio",
-        "label": "Aspect Ratio",
-        "default": "ratio3_2",
-        "info": "Aspect Ratio Custom will settings in General panel.",
-        "options": [
-          {
-            "group": "Landscape",
-            "value": "ratio2_1",
-            "label": "2:1"
-          },
-          {
-            "group": "Landscape",
-            "value": "ratio3_2",
-            "label": "3:2"
-          },
-          {
-            "group": "Landscape",
-            "value": "ratio4_3",
-            "label": "4:3"
-          }, 
-          {
-            "group": "Squared",
-            "value": "ratio1_1",
-            "label": "1:1"
-          },
-          {
-            "group": "Portrait",
-            "value": "ratio3_4",
-            "label": "3:4"
-          },
-          {
-            "group": "Portrait",
-            "value": "ratio2_3",
-            "label": "2:3"
-          },
-          {
-            "group": "Portrait",
-            "value": "ratio1_2",
-            "label": "1:2"
-          }
-        ]
-      },
-          {
-          "type": "image_picker",
-          "id": "image1",
-          "label": "image 1"
-          },
-          {
-            "type": "url","id": "url1","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image2",
-          "label": "image 2"
-          },
-          {
-            "type": "url","id": "url2","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image3",
-          "label": "image 3"
-          },
-          {
-            "type": "url","id": "url3","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image4",
-          "label": "image 4"
-          },
-          {
-            "type": "url","id": "url4","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image5",
-          "label": "image 5"
-          },
-          {
-            "type": "url","id": "url5","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image6",
-          "label": "image 6"
-          },
-          {
-            "type": "url","id": "url6","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image7",
-          "label": "image 7"
-          },
-          {
-            "type": "url","id": "url7","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image8",
-          "label": "image 8"
-          },
-          {
-            "type": "url","id": "url8","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image9",
-          "label": "image 9"
-          },
-          {
-            "type": "url","id": "url9","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image10",
-          "label": "image 10"
-          },
-          {
-            "type": "url","id": "url10","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image11",
-          "label": "image 11"
-          },
-          {
-            "type": "url","id": "url11","label": "Link (optional)"
-          },
-          {
-          "type": "image_picker",
-          "id": "image12",
-          "label": "image 12"
-          },
-          {
-            "type": "url","id": "url12","label": "Link (optional)"
-          },
-          {
-        "type": "select",
-        "id": "col",
-        "default": "33%",
-        "options": [
-        {
-        "value": "16%",
-        "label": "16%"
-        },  
-        {
-        "value": "25%",
-        "label": "25%"
-        },
-        {
-        "value": "33%",
-        "label": "33%"
-        },
-         {
-        "value": "42%",
-        "label": "42%"
-        }, 
-        {
-        "value": "50%",
-        "label": "50%"
-        },
-        {
-        "value": "58%",
-        "label": "58%"
-        }, 
-        {
-        "value": "66%",
-        "label": "66%"
-        },
-        {
-        "value": "75%",
-        "label": "75%"
-        },
-        {
-        "value": "100%",
-        "label": "100%"
-        }
-        ],
-        "label": "Container width:"
-        }
-          
         ]
       }
     ]

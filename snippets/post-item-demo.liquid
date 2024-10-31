@@ -7,7 +7,7 @@
                     {% endif %}
                           <div class="image-card__img image-blog img-demo overflow-hidden ratio" style="--ratio-percent: {{ ratio }}%;">
                             {% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}  
-                            {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                            {{ 'blog-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
                           </div>
                    <div class="post-info">
                      

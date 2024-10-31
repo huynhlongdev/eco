@@ -17,13 +17,40 @@
 {%- assign height_zoom = settings.height_zoom -%}
 {% assign build_variant = 'all' %}
 {% assign mediaDawn = false %}
+{%- liquid
+ assign sett_equal = settings.use_eq_height_product
+  assign image_ratio = settings.image_ratio_product
+  if sett_equal 
+     case image_ratio   
+        when 'ratio2_1'
+            assign aspect_ratio = 2.0
+        when 'ratio3_2'
+            assign aspect_ratio = 1.5
+        when 'ratio4_3'
+            assign aspect_ratio = 1.333
+        when 'ratio1_1'
+            assign aspect_ratio = 1.0
+        when 'ratio3_4'
+            assign aspect_ratio = 0.75
+        when 'ratio2_3'
+            assign aspect_ratio = 0.66667
+        when 'ratio1_2'
+            assign aspect_ratio = 0.5
+     endcase 
+  endif
+  
+-%}
+{%- capture style -%}
+  {% assign ratio = aspect_ratio | default:product.featured_media.aspect_ratio %}
+  --ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;
+{%- endcapture -%}
 <section>
   <div itemscope itemtype="http://schema.org/Product">
     <meta itemprop="name" content="{{ product.title }}">
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
     <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
     <div class="main-content shop-page main-content-detail">
-      <div id="laber_{{sid}}" class="" style="border-radius:{{ section.settings.bd }}px;">
+      <div id="laber_{{sid}}" class="main-product" style="border-radius:{{ section.settings.bd }}px; border:1px solid {{ section.settings.cl_border}} ">
         <div class="content-offset {{ product_page_design }}">
           <div class="js_product_single" id="product-single" data-js-product>
             <script class="data-json-product" type="application/json">
@@ -73,7 +100,7 @@
                     href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}"
                   >
                   {%- assign product_form_id = 'product-form-' | append: section.id -%}
-
+                  
                   {%- form 'product',
                     product,
                     id: product_form_id,
@@ -104,7 +131,7 @@
                             }
                           {% endstyle %}
                         {%- when 'show_reviews' -%}
-                          {% capture same_day_sales_html %}           
+                            {% capture same_day_sales_html %}           
                               <div class="alo_sold-product">
                                 <div class="alo_flash-sold">
                                   {% assign min = block.settings.min_sold %}
@@ -138,22 +165,19 @@
                                 </div>
                               </div>                
                               {% endcapture %}
-                          {% if block.settings['use-reviews'] or block.settings['use-sold-product'] %}
-                            <div class="star-rating">
-                              <!-- Start of Judge.me code -->
-                              <div
-                                style="{{ jm_style }}"
-                                class="jdgm-widget jdgm-preview-badge"
-                                data-id="{{ product.id }}"
-                              >
-                                {{- product.metafields.judgeme.badge -}}
-                              </div>
+                        {% if block.settings. use-reviews or block.settings.use-sold-product %}
+                          <div class="star-rating">
+                            <!-- Start of Judge.me code --> 
+                              <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge'  data-id='{{ product.id }}'>
+                              {{- product.metafields.judgeme.badge -}}
+                              </div>  
                               <!-- End of Judge.me code -->
+                            
 
-                              {% if block.settings['use-sold-product'] %}
-                                {{ same_day_sales_html }}
-                              {% endif %}
-                            </div>
+                            {% if block.settings.use-sold-product %}
+                            {{ same_day_sales_html }}  
+                            {% endif %}
+                          </div>
                           {% endif %}
                         {%- when 'name_category' -%}
                         {%- when 'show_price' -%}
@@ -219,6 +243,7 @@
                             {% assign show_visitors_html = block.settings.show_visitors_html %}
                             {% if show_text_countdown %}{{ text_countdown_html }}{% endif %}
                             {% if show_visitors_html %}{{ visitors_html }}{% endif %}
+                            
                           </div>
                         {%- when 'product_infor' -%}
                           <div class="product_infor">
@@ -275,7 +300,7 @@
                               <div class="product-collection__vendor{% if vendor == blank %} d-none{% endif %}">
                                 <p data-js-product-vendor>
                                   <label class="label">{{ 'products.product.vendor' | t }}:</label>
-                                  <span>{{ product.vendor | link_to_vendor }}</span>
+                                  <span>{{ vendor | link_to_vendor }}</span>
                                 </p>
                               </div>
                             {% endif %}
@@ -321,9 +346,9 @@
                             {% endif %}
                           </div>
                         {%- when 'message' -%}
-                          {% render 'product-properties-message', section: section, block: block %}
+                          {% render 'product-properties-message', section: section block:block %}
                         {%- when 'file' -%}
-                          {% render 'product-properties-file', section: section, block: block %}
+                          {% render 'product-properties-file', section: section block:block %} 
                         {%- when 'product_variants' -%}
                           {% assign show_title_variant = block.settings.show_title %}
                           {% assign variants_type = block.settings.variants_type | plus: 0 %}
@@ -403,15 +428,7 @@
                                       <div class="laber-loading">
                                         <div class="circle-loadding"><span></span></div>
                                       </div>
-                                      <span class="text">
-                                        {%- if product.selected_or_first_available_variant.inventory_policy
-                                            == 'continue'
-                                        -%}
-                                          {{- 'products.product.pre_order' | t -}}
-                                        {%- else -%}
-                                          {{- 'products.product.add_to_cart' | t -}}
-                                        {%- endif -%}
-                                      </span>
+                                      <span class="text">{% if product.selected_or_first_available_variant.inventory_policy =='continue' %}{{ 'products.product.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}</span>
                                       {%- if icon_button_cart != '' -%}
                                         <span class="icon"
                                           ><i class="{{ icon_button_cart }}" aria-hidden="true"></i
@@ -777,7 +794,7 @@
                   {% endform %}
                 </div>
                 {% if stickySidebar %}</div>{% endif %}
-                                       <script type="application/ld+json">
+                <script type="application/ld+json">
                 {
                   "@context": "http://schema.org/",
                   "@type": "Product",
@@ -820,7 +837,7 @@
                     {%- endfor -%}
                   ]
                 }
-              </script>
+              </script>                      
               </div>
               {%- render 'form-contact', text_contac_us: text_contac_us -%}
               {%- if first_3d_model -%}
@@ -829,7 +846,7 @@
                 </script>
                 <script src="{{ 'product-model.js' | asset_url }}" defer></script>
               {%- endif -%}
-             
+              
             </div>
           </div>
         </div>
@@ -838,8 +855,8 @@
   </div>
   {%- render 'section_style' -%}
 </section>
-{% if section.settings['products-before-after'] %}
-  {%- render 'products-before-after' -%}
+{% if section.settings.products-before-after %}        
+{%- render 'products-before-after' -%}
 {% endif %}
 {% schema %}
  {
@@ -862,7 +879,12 @@
            "label": "Background color",
            "default": "#fff"
            },
-
+           {
+           "type": "color",
+           "id": "cl_border",
+           "label": "Border color",
+           "default": "#fff"
+           }, 
            {
            "type": "header",
            "content": "== Setting PC",
@@ -1034,7 +1056,7 @@
             "label": "Sales time",
             "default": "24 hours"
           }
-         ]
+         ] 
        },
 	{
          "type": "show_price",
@@ -1224,16 +1246,16 @@
              "label": "Icon Buttom cart",
 		  "info": "You can use font awesome and font Linearicons"
              },
-        {
-            "type": "range",
-            "id": "border",
-            "label": "Border",
+        {  
+            "type": "range",  
+            "id": "border",  
+            "label": "Border",  
             "min": 0,
             "max": 50,
             "step": 1,
             "unit": "px",
             "default": 1
-        },
+        },   
 		  {
                "type": "checkbox",
                "id": "qt_show_quantity",

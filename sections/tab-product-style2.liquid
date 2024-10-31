@@ -23,15 +23,12 @@
 {%- for i in (1..1) -%}
   <section
     id="laber_{{sid}}"
-    class="wow animate--slide-in" style="--alo-border-color:{{ section.settings.cl_line }};"
+    class="wow animate--slide-in" style="--alo-border-color:{{ section.settings.cl_line }}; --alo-border-radius:{{ settings.image_border_product}}px;"
   >
   <div class="container {%if layout == 'full-width' %}{{layout}}{%endif%}" >
         {% if section.settings.title != blank %}
         <div class="wrap_title {{ section.settings.text_size }}">
         <div class="h3 section-title alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</div>  
-        {% if section.settings.content!= blank %}
-        <div class="content">{{section.settings.content}}</div>
-        {% endif %}
         </div>
         {% endif %}
         {%- if arr_col.size > 0 -%} 
@@ -96,12 +93,12 @@
                       {% assign index = 1 %} 
                       {%- for product in products limit: section.settings.max_count -%}
                       {% assign pr_hd = product.handle %}
-                      <div data-lazy-product-load  class="productLazyload lazyload product-item scroll-trigger" style="--animation-order:{{ index }};"  data-include="{{url_cat}}/products/{{pr_hd}}/?view=pr_lazy_load">{% include 'product-loading' %}</div>
+                      <div data-lazy-product-load  class="productLazyload lazyload product-item post-item scroll-trigger wow animate--slide-in" style="--animation-order:{{ index }};"  data-include="{{url_cat}}/products/{{pr_hd}}/?view=pr_lazy_load">{% include 'product-loading' %} </div>
                       {% assign index = index | plus: 1 %}  
                       {%- endfor -%}
                     {%else%}
                       {%- for i in (1..section.settings.max_count) -%}
-                      {% include 'product_demo' %}
+                        {% include 'product_demo' %} 
                       {%- endfor -%} 
                     {%- endif -%}
                   </div>
@@ -157,12 +154,6 @@
         "id": "title",
         "label": "Heading",
         "default": "New arrivals"
-      },
-      {
-        "type": "textarea",
-        "id": "content",
-        "label": "Content",
-        "default": "Commodo sociosqu venenatis cras dolor sagittis integer luctus maecenas."
       },
       {
         "type": "select",

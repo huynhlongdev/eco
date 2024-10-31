@@ -11,6 +11,8 @@
       <div class="row">
         <div class="announcement-bar">
           {%- for block in section.blocks -%}
+             
+            {% assign hide_mobile = block.settings.hide_mobile %}
             {% assign text_align = block.settings.text_align %}
             {% case block.settings.col %}
                 {% when '16%' %}
@@ -34,7 +36,7 @@
             {% endcase %}
           {%- case block.type -%}
           	{%- when 'contac_header' -%} 
-          		<div class="{{text_align}} {{ block_width }} flex hide-mobile">
+          		<div class="{{text_align}} {{ block_width }} flex {% if hide_mobile %}hide-mobile{%endif%}">
                     <div class="top_contac">
                       <ul>
                         {%- if block.settings.show_phone -%}
@@ -47,7 +49,7 @@
                     </div>
                   </div>
           	{%- when 'message' -%} 
-                  	<div class="wrapper-bar-message {{text_align}} {{ block_width }} flex">
+                  	<div class="wrapper-bar-message {{text_align}} {{ block_width }} flex {% if hide_mobile %}hide-mobile{%endif%}">
                         <p class="announcement-bar__message">
                           {{ block.settings.message_text }} 
                               {%- if  block.settings.text_link != blank -%}
@@ -57,7 +59,7 @@
                         </p>
                       </div>
           	{%- when 'top_header_3' -%} 
-          		<div class="{{text_align}} {{ block_width }} flex hide-mobile">
+          		<div class="{{text_align}} {{ block_width }} flex {% if hide_mobile %}hide-mobile{%endif%}">
                     	{% if block.settings.menu_topbar != blank%}
                     	<ul class="topbar-menu">
                           {% assign handle = block.settings.menu_topbar %}     
@@ -77,7 +79,8 @@
                     	
                     </div>
   {%- when 'lang_curr' -%} 
-          		<div class="{{text_align}} {{ block_width }} flex hide-mobile">
+          		<div class="{{text_align}} {{ block_width }} flex {% if hide_mobile %}hide-mobile{%endif%}">
+                   
                    {%if block.settings.header_use_language or block.settings.header_use_currency %}
                      {% assign showFlag = block.settings.show_flag %}
                       <ul class="menu-language parent-list">
@@ -88,13 +91,21 @@
                           {% render 'currency' %}
                         {% endif %}
                        {%if block.settings.show_phone %}
-                        <li><span>{{ block.settings.text_phone }}</span></li> 
+                        <li class="hide-mobile" style="--color-text:{{ block.settings.cl_phone }}"><span>{{ block.settings.text_phone }}</span></li> 
                        {% endif %}  
                       </ul> 
                     {% endif %}
+                    {% if block.settings.menu_topbar != blank%}
+                    	<ul class="topbar-menu hide-mobile">
+                          {% assign handle = block.settings.menu_topbar %}     
+                          {% for link in linklists[handle].links %}
+                              <li><a href="{{link.url}}"> {{ link.title }} </a></li>
+                          {% endfor %}
+                      </ul>
+                   {%endif%}
                     </div>
           	{%- when 'top_header_4' -%} 	
-          		<div class="{{text_align}} flex {{ block_width }} hide-mobile">
+          		<div class="{{text_align}} flex {{ block_width }} {% if hide_mobile %}hide-mobile{%endif%}">
                     <div class="text-horizontal-running">
                       <p class="flex">
                           {% if block.settings.text1 != blank %}<span><i class="icon-check"></i> {{ block.settings.text1 }}</span>{% endif %}
@@ -220,6 +231,12 @@
           "name": "Top contac header",
           "limit": 1,
           "settings": [
+            {
+            "type": "checkbox",
+            "id": "hide_mobile",
+            "label": "Hide (mobile)",
+            "default": true
+          },
               {
           "type": "checkbox",
           "id": "show_phone",
@@ -300,9 +317,15 @@
         },
 		{
           "type": "message",
-          "name": "Left Header Top",
+          "name": "Custom text",
           "limit": 1,
           "settings": [
+              {
+            "type": "checkbox",
+            "id": "hide_mobile",
+            "label": "Hide (mobile)",
+            "default": true
+          },
               {
                 "type": "text",
                 "id": "message_text",
@@ -420,6 +443,12 @@
           "name": "Menu Top",
           "limit": 1,
           "settings": [
+            {
+            "type": "checkbox",
+            "id": "hide_mobile",
+            "label": "Hide (mobile)",
+            "default": true
+          },
 				{
                 "type": "header",
                 "content": "Top Menu"
@@ -529,7 +558,17 @@
           "name": "Language and currency",
           "limit": 1,
           "settings": [
-
+                {
+            "type": "checkbox",
+            "id": "hide_mobile",
+            "label": "Hide (mobile)",
+            "default": true
+          },
+            {
+                "type": "link_list",
+                "id": "menu_topbar",
+                "label": "Add topbar menu"
+              },
 				{
                 "type": "header",
                 "content": "Currency and Language"
@@ -563,6 +602,12 @@
                 "id": "text_phone",
                 "label": "Phone Number",
                 "default": "Need Help? +001 123 456 789"
+              },
+              {
+                "type": "color",
+                "id": "cl_phone",
+                "label": "Color Phone Number",
+                "default": "#fff"
               },
 				{
                 "type": "select",
@@ -635,6 +680,12 @@
           "name": "Text horizontal running",
           "limit": 1,
           "settings": [
+              {
+            "type": "checkbox",
+            "id": "hide_mobile",
+            "label": "Hide (mobile)",
+            "default": true
+          },
               {
                 "type": "text",
                 "id": "text1",

@@ -27,17 +27,17 @@
 {%- for i in (1..1) -%}
   <section
     id="laber_{{sid}}"
-    class="wow animate--slide-in" style="--alo-border-color:{{ section.settings.cl_line }};"
+    class="wow animate--slide-in" style="--alo-border-color:{{ section.settings.cl_line }};--alo-border-radius:{{ settings.image_border_product}}px;"
   >
     <div class="container {%if layout == 'full-width' %}{{layout}}{%endif%}">
       {%- if arr_col.size > 0 -%}
         <div class="tabcontent tabcontent_style1">
-          <div class="tab-products" data-sorting-collections-control="">
+          <div class="tab-products {{ section.settings.text_size }}" data-sorting-collections-control="" style="--alo-text-transform:{{ section.settings.text_transform }}">
             <div class="display-mobile section_heading">
               <span>{{ 'sections.tab.you_are_in' | t }} </span>
               <div class="js_sr_txt"></div>
             </div>
-            <ul>
+            <ul >
               {% assign index = 1 %}
               {%- for block in arr_col -%}
                 {%- assign coll_name = collections[block.settings.collection].title -%}
@@ -52,9 +52,6 @@
                         {% if coll_name != blank %}{{ coll_name }}{% else %}Tab Title {{ index }}{% endif -%}
                       </span>
                     {% endif %}
-                    <svg viewBox="0 0 350 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 11C73.8412 6.12953 241.819 -1.57852 347 6.55305" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
-                    </svg>
                   </a>
                 </li>
                 {% assign index = index | plus: 1 %}
@@ -99,15 +96,15 @@
                         {% assign pr_hd = product.handle %}
                         <div
                           data-lazy-product-load
-                          class="productLazyload lazyload product-item scroll-trigger "
+                          class="productLazyload lazyload product-item post-item scroll-trigger "
                           style="--animation-order:{{ index }};"
                           data-include="{{url_cat}}/products/{{pr_hd}}/?view=pr_lazy_load"
-                        >{% include 'product-loading' %}</div>
+                        >{% include 'product-loading' %} </div>
                         {% assign index = index | plus: 1 %}
                       {%- endfor -%}
                     {% else %}
                       {%- for i in (1..section.settings.max_count) -%}
-                        {% include 'product_demo' %}
+                          {% include 'product_demo' %}
                       {%- endfor -%}
                     {%- endif -%}
                   </div>
@@ -148,6 +145,50 @@
        "type": "header",
        "content": "== General Settings"
      },
+     {
+      "type": "select",
+      "id": "text_size",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "small"
+       },
+       {
+          "value": "medium",
+          "label": "Medium"
+       },
+       {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "label": "Text size"
+    },
+    {
+            "type": "select",
+            "id": "text_transform",
+            "default": "none",
+            "options": [
+             {
+                "value": "none",
+                "label": "None"
+             },
+             {
+                "value": "capitalize",
+                "label": "Capitalize"
+             },
+             {
+                "value": "lowercase",
+                "label": "Lowercase"
+             },
+             {
+                "value": "uppercase",
+                "label": "Uppercase"
+              }
+            ],
+            "label": "Text transform:"
+          },
      {
        "type": "range",
        "id": "max_count",

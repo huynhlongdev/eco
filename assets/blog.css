@@ -92,8 +92,6 @@
 }
 .post-item .item{
   overflow: hidden;
-  border-radius: var(--alo-border-radius);
-  background: #fff;
   position: relative;
 }
 .post-item .image-blog{
@@ -103,12 +101,12 @@
   background: #FFFFFF;
 }
 .post-item .post-info {
-    overflow: hidden;
-    padding:20px;
+  overflow: hidden;
+  padding-top:20px;
 }
 
 .post-item .post-info .meta-post{
-  margin-bottom: 0;
+  margin-bottom: 10px;
   align-items: center;
   position: relative;
   display: flex;
@@ -173,10 +171,8 @@
   margin: 0;
   margin-bottom: 10px;
 }
-.post-item .post-info .blog{
-  position: absolute;
-  top: 15px;
-  left: 15px;
+.post-item .post-info .blog {
+  margin-bottom:15px;
 }
 .post-item .post-info .blog a{
   font-weight: 400;
@@ -196,9 +192,9 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
 }
 .post-item .post-info .meta-post .item-meta{
 }
@@ -260,14 +256,12 @@
   position: relative;
 }
 .alo-blog-featured .viewall {
-    position: absolute;
-    top: 10px;
-    right: 0;
+  padding-top: 10px;
 }
 
 .alo-blog-featured .viewall a {
     color: var(--color-link);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     line-height: 1;
     text-transform: capitalize;
@@ -1134,8 +1128,9 @@ display: block;
   overflow: hidden;
 }
 .main-content-blog .post-item .post-info{
-	padding:0;
-    padding-top: 20px;
+  padding:0;
+  padding-top: 20px;
+  border: none;
 }
 
 @media (max-width: 1200px) {
@@ -1544,7 +1539,6 @@ color: var(--color-main);
   line-height: 30px;
   font-size: 18px;
   margin-bottom:20px;
-  padding-top:10px;
 }
 
 @media (max-width: 991px) {

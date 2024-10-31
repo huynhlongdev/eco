@@ -49,10 +49,13 @@
     {% if section.settings.title != blank %}
       <div class="wrap_title {{ section.settings.text_size }}">
         <div class="h3 section-title alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</div>  
+        {% if section.settings.use-all-post %}
+          <div class="bn_button viewall"><a href="{{ blog.url | default:'#' }}">{{'blogs.section.view_all' |t}} <i class="icon-chevron-right"></i></a></div>
+        {% endif %}
       </div>
     {% endif %}
     {% include 'grid-slider', settings:section.settings %} 
-    <div class="content_section">
+    <div class="content_section slick-carousel">
     <div class="grid-slider row js_carousel" {{gridSlider}} 
       data-mobile="{{ mobile }}"
       data-portrait="{{ portrait }}"
@@ -84,9 +87,7 @@
               {% endif %}
       </div>
   
-      {% if section.settings.use-all-post %}
-          <div class="bn_button viewall"><a href="{{ blog.url | default:'#' }}">{{'blogs.section.view_all' |t}} <i class="icon-chevron-right"></i></a></div>
-      {% endif %}
+      
     </div>
     </div>
 </section>
@@ -175,7 +176,7 @@
         "id": "br_radius",  
         "label": "Border Radius",  
         "info": "Border radius image",
-        "min": 1,
+        "min": 0,
         "max": 30,
         "step": 1,
         "unit": "px",
@@ -491,14 +492,8 @@
         "label": "Background color",
         "default": "#fff"
       },
-      {
-        "type": "color",
-        "id": "cl_border",
-        "label": "Border color",
-        "default": "#fff"
-      },
       
-	        {
+      {
         "type": "text",
         "id": "mg",
         "label": "Margin",
