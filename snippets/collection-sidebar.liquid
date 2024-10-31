@@ -1,223 +1,231 @@
-{%- liquid
-  assign sort_by = results.sort_by | default: results.default_sort_by
-  assign total_active_values = 0
-  if results.url
-    assign results_url = results.url
-  else
-    assign terms = results.terms | escape
-    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
-  endif
--%}
-<div class="shop-sidebar-inner">
-  <div class="shop-sidebar-wrap filter-sidebar relative">
-    <button class="close-filter-sidebar border-0" type="button">
-      {% render 'icon-close', size: 24 %}
-    </button>
+<!-- Created by Andy 28/08/2017 -->
 
-    {% comment %} {%- endif -%} {% endcomment %}
-    <form class="facets__form" id="FacetFiltersForm">
-      {%- if results.terms -%}
-        <input type="hidden" name="q" value="{{ results.terms | escape }}">
-        <input name="options[prefix]" type="hidden" value="last">
-      {%- endif -%}
+<!-- /snippets/collection-sidebar.liquid -->
 
-      <div id="FacetsWrapperDesktop" class="facets__wrapper">
-        <div class="shop-sidebar sidebar-wedget bg-white shop-collection">
-          <h6 class="title">Categories</h6>
-          <div class=" filter-element" id="collapse">
-            <ul class="scrollbar">
-              {% for c in collections %}
-                {%- if c.products_count >= 1 -%}
-                  <li
-                    {% if collection and collection.handle == c.handle %}
-                      class="active"
-                    {% endif %}
-                  >
-                    {%- if collection and collection.handle == c.handle -%}
-                      <input type="checkbox" checked="checked" name="{{ c.title }}" class="cust-checkbox">
-                    {%- else -%}
-                      <input type="checkbox" class="cust-checkbox" name="{{ c.title }}">
-                    {%- endif -%}
-                    <a href="{{ c.url }}" class="cust-checkbox-label" title="{{ c.title }}">
-                      <span class="filter-name">{{ c.title }}</span>
-                      <span class="count-check">({{ c.products_count }})</span>
-                      <span class="cust-check"></span>
-                    </a>
-                  </li>
-                {%- endif -%}
+
+<div data-filter class="js_filter col-xs-12 col-sm-5 col-md-4 col-lg-3 sidebar">
+  <h4 class="main-title">{{'collections.filters.shop_by' | t}}</h4>
+  
+  {% if settings.enable_use_filter_category%}
+      <div data-filter-ajax class="widget widget-categories">
+        <h5 class="widgettitle">{{settings.filter_category_title}}</h5>
+        {% if linklists.sidebar-category.links.size > 0 %}
+            {% assign index = 0 %}
+            <ul data-list-categories class="list-categories">
+              {% for link in linklists.sidebar-category.links %}
+                  {% assign index = index | plus: 1 %}              
+                  {% capture collection_title %}{{ link.title }}{% endcapture %}
+                  {% if collection_title == 'Home page' %}
+                    {% assign collection_title = 'collections.filters.all_tags' | t %}
+                  {% endif %}
+              
+                  {%- assign is_current_inner_collection = false -%}
+                  {%- if link.object.handle == collection.handle -%}
+                    {%- assign is_current_inner_collection = true -%}
+                    {%- assign has_current_inner_collection = true -%}
+                  {%- endif -%}
+                 
+                {% if is_current_inner_collection %}  
+                  <li data-current class="current">
+                    <input type="radio" id="ct{{index}}"/>
+                    <a data-handle-collection="{{link.object.handle}}" class="js_ajax_filter active" href="{{link.url}}?view=grid_left_sidebar" >
+                      <span class="label-text">{{collection_title}}</span>
+                    </a>                   
+                  </li>   
+              	{% else %}
+              	  <li>
+                    <input type="radio" id="ct{{index}}"/>
+                    <a data-handle-collection="{{link.object.handle}}" class="js_ajax_filter active" href="{{link.url}}?view=grid_left_sidebar" >
+                      <span class="label-text">{{collection_title}}</span>
+                    </a>                    
+                  </li>  
+              	{% endif %}
               {% endfor %}
             </ul>
-          </div>
-        </div>
-
-        {%- liquid
-          assign i = 0
-        -%}
-        {%- for filter in results.filters -%}
-          {% assign i = i | plus: 1 %}
-          {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-          {% case filter.type %}
-            {% when 'list' %}
-              <div
-                class="shop-sidebar sidebar-wedget bg-white disclosure-has-popup facets__disclosure js-filter {{ filter.label | escape | downcase }}"
-                data-index="{{ forloop.index }}"
-              >
-                <h6 class="title">{{ filter.label | escape }}</h6>
-                {% comment %}
-                  <a class="title" data-bs-toggle="collapse"
-                  href="#collapse-{{ i }}">{{ filter.label | escape }}</a>
-                {% endcomment %}
-                <div class="facets-header">
-                  <span class="facets__selected no-js-hidden">
-                    {{- 'collections.filter.filters_selected' | t: count: filter.active_values.size -}}
-                  </span>
-                  <facet-reset>
-                    <a href="{{ filter.url_to_remove }}" class="facets__reset uppercase">
-                      {{- 'collections.filter.filter_reset' | t -}}
-                    </a>
-                  </facet-reset>
-                </div>
-                <div class=" filter-element" id="collapse-{{ i }}">
-                  <ul class="multiple-filters scrollbar">
-                    {%- for value in filter.values -%}
-                      <li class="{{ filter.label | escape | downcase }}">
-                        <label
-                          for="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                          class="cust-checkbox-label {{ filter.label | escape | downcase }} {{ value.label | downcase | replace: " ", "-" }}"
-                          title="{{ value.label | escape }}"
-                        >
-                          <input
-                            type="checkbox"
-                            id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                            name="{{ value.param_name }}"
-                            value="{{ value.value }}"
-                            class="cust-checkbox"
-                            {% if value.active %}
-                              checked
-                            {% endif -%}
-                            {% if value.count == 0 and value.active == false %}
-                              disabled
-                            {% endif %}
-                          >
-                          <span class="filter-name">{{ value.label | escape }}</span>
-                          <span class="count-check">({{ value.count }})</span>
-                          <span class="checkbox"></span>
-                        </label>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                </div>
-              </div>
-
-            {% when 'price_range' %}
-              <div
-                class="shop-sidebar sidebar-wedget bg-white disclosure-has-popup facets__disclosure js-filter"
-                data-index="{{ forloop.index }}"
-              >
-                <h6 class="title">{{ filter.label | escape }}</h6>
-                <div class="facets-header">
-                  {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
-                  <span class="facets__selected no-js-hidden">
-                    {{- 'collections.filter.max_price' | t: price: max_price_amount -}}
-                  </span>
-                  <div>
-                    <a href="{{ filter.url_to_remove }}" class="facets__reset">
-                      {{- 'collections.filter.filter_reset' | t -}}
-                    </a>
-                  </div>
-                </div>
-                <div class="filter-element" id="collapse-{{ i }}">
-                  <price-range class="price-range">
-                    {%- liquid
-                      assign min_value = filter.min_value.value | default: 0.0 | divided_by: 100.0
-                      assign max_value = filter.max_value.value | default: filter.range_max | divided_by: 100.0
-                      assign range_max = filter.range_max | divided_by: 100.0 | ceil
-                      assign lower_bound_progress = min_value | divided_by: range_max | times: 100.0
-                      assign higher_bound_progress = max_value | divided_by: range_max | times: 100.0
-                    -%}
-
-                    <input
-                      class="range-slider"
-                      data-symbol="{{ cart.currency.symbol }}"
-                      type="hidden"
-                      value="0,{{ range_max | ceil }}"
-                      style="display: none;"
-                    >
-
-                    {% comment %} price-range-group group-range {% endcomment %}
-
-                    <div class="price-input-group group-input flex justify-between">
-                      <div class="price-range-input input-prefix">
-                        <span class="input-prefix-value">{{ cart.currency.symbol }}</span>
-                        <label class="input-prefix-label">{{ 'collections.filter.price_filter_from' | t }}</label>
-                        <input
-                          aria-label="{{ 'collections.filter.price_filter_from' | t }}"
-                          class="input-prefix-field"
-                          type="number"
-                          inputmode="numeric"
-                          {% if filter.min_value.value %}
-                            value="{{ min_value | ceil }}"
-                          {% endif %}
-                          name="{{ filter.min_value.param_name }}"
-                          min="0"
-                          max="{{ max_value | ceil }}"
-                          placeholder="0"
-                        >
-                      </div>
-                      <span class="price-range-delimeter">-</span>
-                      <div class="price-range-input input-prefix flex">
-                        <span class="input-prefix-value">{{ cart.currency.symbol }}</span>
-                        <label class="input-prefix-label">{{ 'collections.filter.price_filter_to' | t }}</label>
-                        <input
-                          aria-label="{{ 'collections.filter.price_filter_to' | t }}"
-                          class="input-prefix-field"
-                          type="number"
-                          inputmode="numeric"
-                          {% if filter.max_value.value %}
-                            value="{{ max_value | ceil }}"
-                          {% endif %}
-                          name="{{ filter.max_value.param_name }}"
-                          min="{{ min_value | ceil }}"
-                          max="{{ range_max | ceil }}"
-                          placeholder="{{ range_max | ceil }}"
-                        >
-                      </div>
-                    </div>
-                  </price-range>
-                </div>
-              </div>
-              <script>
-                  window.addEventListener('DOMContentLoaded', function () {
-                    function priceSlider() {
-                      var minPrice = $('input[name="filter.v.price.gte"]').val();
-                      var maxPrice = $('input[name="filter.v.price.lte"]').val();
-
-                      $('.range-slider').jRange({
-                        from: 0,
-                        to: {{ range_max | ceil  }},
-                        step: 1000,
-                        format: '$%s',
-                        width: '100%',
-                        showLabels: false,
-                        isRange: false,
-                        ondragend: function (value) {
-                          var values = value.split(',');
-                          if (minPrice != values[0]) {
-                            $('input[name="filter.v.price.gte"]').val(values[0]).trigger('change');
-                          }
-                          if (maxPrice != values[1]) {
-                            $('input[name="filter.v.price.lte"]').val(values[1]).trigger('change');
-                          }
-                        },
-                      });
-                    }
-
-                    priceSlider();
-                });
-              </script>
-          {% endcase %}
-        {% endfor %}
+        {% else %}
+            <p style="text-align: justify;">Please <b class="note">{{ 'create a link list' | link_to: '/admin/links' }} </b> that contains links to all the collections you wish to Sidebar Category on this page. The title of that link list must be <strong>Sidebar Category</strong>. If you want your collections to be listed alphabetically, reorder them alphabetically on your <b class="note"> {{ 'Navigation page' | link_to: '/admin/links' }}</b>.</p>
+        {% endif %} 
       </div>
-    </form>
+  {% endif %}
+  
+  {% if settings.enable_use_filter_brand %}      
+      <div data-filter-ajax class="widget widget-brand">
+        <h5 class="widgettitle">{{settings.filter_brand_title}}</h5>
+        <ul class="list-categories">
+          {% assign index = 0 %}
+
+          {% for tag in collection.all_vendors %}              
+              {% assign index = index | plus: 1 %}     
+              {% assign count = 0 %}
+              {% for product in collection.products %}
+                  {% if product.vendor == tag %}
+                        {% assign count = count | plus: 1 %}
+                  {% endif %}
+              {% endfor %}
+              {% if current_tags contains tag %}
+                <li class="current">
+                  <input type="checkbox" id="cbr{{index}}">
+                  {{'<span class="label-text current">' | append:tag |append: '</span>' | link_to_remove_tag: tag | replace: 'title=', 'class="js_ajax_filter active" title='}}
+                  {{'<span class="label-text">' | append:tag |append: '</span>' | link_to_add_tag:tag | replace: 'title=', 'class="js_ajax_filter" title='}}
+                </li>                    	
+              {% elsif collection.all_tags contains tag %}
+                <li>
+                  <input type="checkbox" id="cbr{{index}}">
+                  {{'<span class="label-text">' | append:tag |append: '</span>' | link_to_add_tag:tag | replace: 'title=', 'class="js_ajax_filter active" title='}}
+                  {{'<span class="label-text current">' | append:tag |append: '</span>' | link_to_remove_tag: tag | replace: 'title=', 'class="js_ajax_filter" title='}}
+                </li>                     
+              {% endif %}
+          {% endfor %}        
+        </ul>
+      </div>
+  {% endif %}
+  
+  {% if settings.enable_use_filter_price%}
+      <div class="widget widget_filter_price box-has-content">
+        <h3 class="widgettitle">{{ settings.filter_price_title | strip_html }}</h3>
+        <div class="price-filter">
+          <div data-range-price data-label-reasult="price:" data-min="0" data-max="{{settings.collection_max_price | divided_by: 100 | times: 1.25}}" data-unit="$" class="range-price" data-value-min="{{settings.collection_min_price | divided_by: 100}}" data-value-max="{{settings.collection_max_price | divided_by: 100}}"></div>
+          <div data-amount-price class="amount-range-price">Price: <span data-from class="from">{{settings.collection_min_price | money}}</span> - <span data-to class="to">{{settings.collection_max_price | money}}</span></div>
+          <a href="#" class="filter">Filter</a>
+        </div>
+      </div>
+  {% endif %}
+  
+  
+  {% if settings.enable_use_filter_size %}
+      <div id="filter_size" data-filter-ajax class="widget widget_filter_size">
+        <h3 class="widgettitle">{{ settings.filter_size_title | strip_html }}</h3>
+        <ul class="list-size">
+          {% assign list_size = settings.filter_size_name | split: ',' %}
+          {% for size in list_size %}		  
+
+              {% assign custom_tag = size | strip | downcase %}
+              {% assign check = false %}			
+
+              {% for ct in current_tags %}
+                  {% assign ct_down  =   ct | strip  | downcase %}
+
+                  {% if ct_down   ==  custom_tag %}
+                      {% assign check = true %}
+                      {% assign val_ct = ct %}
+                      {% break %}
+                  {% endif %}
+              {% endfor %}
+
+              {% assign val_size = size | strip | downcase %}	
+              {% if check %}
+                  <li class="current">
+                    {{ size | link_to_add_tag: val_size | replace: 'title=', 'class="js_ajax_filter " title=' }}
+                    {{ size | link_to_remove_tag: val_ct | replace: 'title=', 'class="js_ajax_filter active" title=' }}
+                  </li>
+          
+          	  {% else %}                 
+                  <li>
+                    {{ size | link_to_add_tag: val_size | replace: 'title=', 'class="js_ajax_filter active" title=' }}
+                    {{ size | link_to_remove_tag: val_ct | replace: 'title=', 'class="js_ajax_filter " title=' }}
+                  </li>
+              {% endif %}
+          {% endfor %}	     
+          
+         
+        </ul>
+      </div>
+  {% endif %}
+  {% if settings.enable_use_filter_color %}
+      {% assign index = 0 %}
+      <div data-filter-ajax class="widget widget_filter_color box-has-content">
+        <h3 class="widgettitle">{{ settings.filter_color_title | strip_html }}</h3>
+        <ul class="list-color">
+          {% assign list_color = settings.filter_color_name | split: ',' %}
+          {% for color in list_color%}
+              {% assign index = index | plus: 1 %}     
+              {% assign name_color = color | split:':' | first | strip | downcase %}
+              {% assign val_color = color | split:':' | last | strip | downcase %}
+              {% assign custom_tag = name_color | strip | downcase %}
+              {% assign check = false %}
+
+              {% for ct in current_tags %}
+                  {% assign ct_down  =   ct | strip  | downcase %}
+                  {% if ct_down == custom_tag %}
+                      {% assign check = true %}
+                      {% assign tag_color = ct %}	
+                      {% break %}
+                  {% endif %}
+              {% endfor %}
+			  
+          
+          	  {% assign count = 0 %}
+              {% for product in collection.products %}
+                  {% if product.tags contains tag_color %}
+                        {% assign count = count | plus: 1 %}
+                  {% endif %}
+              {% endfor %}
+          
+              {% if check %}          			
+                <li class="current">
+                  <input type="checkbox" id="cbc{{index}}">
+                  {{ '<span class="label-text current">' | append: name_color | append:'<span class="count" style="color: initial;">('| append: count | append:')</span></span>' | link_to_remove_tag: tag_color | replace: 'title=', 'class="js_ajax_filter active" title='}}
+                  {{ '<span class="label-text">' | append: name_color | append:'<span class="count" style="color: initial;">('| append: count | append:')</span></span>' | link_to_add_tag: name_color | replace: 'title=', 'class="js_ajax_filter" title='}}
+                </li>  
+              {% else %} 
+                <li>
+                  <input type="checkbox" id="cbc{{index}}">
+                  {{ '<span class="label-text">' | append: name_color | append:'<span class="count" style="color: initial;">('| append: count | append:')</span></span>' | link_to_add_tag: name_color | replace: 'title=', 'class="js_ajax_filter active" title='}}
+                  {{ '<span class="label-text current">' | append: name_color | append:'<span class="count" style="color: initial;">('| append: count | append:')</span></span>' | link_to_remove_tag: tag_color | replace: 'title=', 'class="js_ajax_filter" title='}}
+                </li>              		       
+              {% endif %}
+          {% endfor %}          
+        </ul>
+      </div>
+  {% endif %}
+  {% if settings.enable_use_new_product %}
+  <div class="widget widget-recent-post">
+    <h5 class="widgettitle">{{settings.filter_title_new_product}}</h5>
+    <ul class="list-recent-posts">
+      
+      {% assign handle = settings.filter_collection_new_product %}
+      {% if handle =='' or handle == blank %}
+      		{% assign handle = 'frontpage' %}
+      {% endif %}
+      
+      {% for product in collections[handle].products limit:settings.filter_collection_new_product_limit %}    
+          {% assign on_sale = false %}
+          {% assign sale_text = 'products.product.on_sale' | t %}
+          {% if product.compare_at_price > product.price %}
+          {% assign on_sale = true %}
+          {% endif %}
+
+          {% assign sold_out = true %}
+          {% assign sold_out_text = 'products.product.sold_out' | t %}
+          {% if product.available %}
+          {% assign sold_out = false %}
+          {% endif %}
+          <li class="product-item">
+            <div class="thumb">
+              <a href="{{ product.url | within: collection }}">
+                <img src="{{ product.featured_image.src | img_url: 'grande' }}" alt="">
+              </a>
+            </div>
+            <div class="info">          
+              <!-- Rate code -->
+              <div class="star-rating">
+                <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+              </div>
+              <!-- End rate-->
+              <a href="{{ product.url | within: collection }}" class="product-name">{{ product.title }}</a>
+              <div class="price">
+                {% if on_sale %}
+                    <span class="del">{{product.compare_at_price | money }}</span>
+                    <span class="ins">{{product.variants[0].price | money }}</span>      
+                {% else %}
+                    <span>{{product.variants[0].price | money }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </li>
+      	{% endfor %}
+    </ul>
   </div>
+  {% endif %}
+  
 </div>

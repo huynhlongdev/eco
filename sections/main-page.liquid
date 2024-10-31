@@ -1,93 +1,92 @@
-{% style %}
-    #shopify-section-{{ section.id }}{
-      {% if section.settings.backgound_image %}
-      background-image: url({{ section.settings.backgound_image | image_url }});
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      {% endif %}
-      {% if section.settings.background_gradient != blank %}
-      background-image: {{section.settings.background_gradient}};
-      {% endif %}
-        padding-top: {{section.settings.padding_top}}px;
-        padding-bottom: {{section.settings.padding_bottom}}px;
-    }
-  #shopify-section-{{ section.id }} h1{
-        font-size: {{section.settings.font_size }}px;
-        font-family: {{ section.settings.heading_font.family }}
-  }
-        .
-{% endstyle %}
-
-<div class="page-title text-{{ section.settings.alignment }}">
-  <div class="container mx-auto">
-    {{ section.settings.heading_font }}
-
-    <h1>{{ section.settings.headline }}</h1>
+{% liquid
+	assign sid = section.id 
+ %}
+<section id="laber_{{sid}}">
+<div class="page-width page-width--narrow">
+  <div class="container">
+    {% if section.settings.show_page%}
+    <h1 class="main-page-title page-title h3">
+      {{ page.title | escape }}
+    </h1>
+    {%endif%}
+    <div class="rte">
+      {{ page.content }}
+    </div>
   </div>
 </div>
-
-{% schema %}
-{
-  "name": "Page Title",
-  "class": "page-title",
-  "settings": [
-    {
-      "type": "header",
-      "content": "demo"
-    },
-    {
-      "type": "textarea",
-      "id": "headline",
-      "label": "Headline",
-      "default": "Typography"
-    },
-    {
-      "type" : "number",
-      "id" : "font_size",
-      "label": "Font size",
-      "default": 48
-     },
-    {
-      "type": "font_picker",
-      "id": "heading_font",
-      "label": "Heading font",
-      "default": "helvetica_n4"
-    },
-    {
-      "type": "text_alignment",
-      "id": "alignment",
-      "label": "Text alignment",
-      "default": "center"
-    },
-    {
-      "type": "range",
-      "label": "Padding top",
-      "id": "padding_top",
-      "default": 120,
-      "min": 0,
-      "max": 300,
-      "step": 5
-    },
-    {
-      "type": "range",
-      "label": "Padding bottom",
-      "id": "padding_bottom",
-      "default": 120,
-      "min": 0,
-      "max": 300,
-      "step": 5
-    },
-    {
-      "type": "image_picker",
-      "id": "backgound_image",
-      "label": "Background Image"
-    },
-    {
-      "type": "color_background",
-      "label": "Background Gradient",
-      "id": "background_gradient"
-    }
-  ]
+</section>
+{%style%}
+body {
+    background-color: {{section.settings.cl_bg}};
 }
+{%endstyle%}
+{%- render 'section_style' -%}
+{% schema %}
+  {
+    "name": "page",
+    "settings": [
+        {
+        "type": "checkbox",
+        "id": "show_page",
+        "label": "show Name page",
+        "default": false
+        }, 
+        {
+        "type": "header",
+        "content": "== setting content"
+        },
+        {
+        "type": "color",
+        "id": "cl_bg",
+        "label": "Background color",
+        "default": "#fff"
+        },
+
+        {
+        "type": "text",
+        "id": "pd_c",
+        "label": "Padding",
+        "info":"Padding top, Padding right, Padding bottom, Padding left. If you not use to blank"
+        },
+        {
+        "type": "header",
+        "content": "== Setting PC",
+        "info":"Margin"
+        },	
+        {
+        "type": "text",
+        "id": "mg",
+        "label": "Margin",
+        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+        },
+        {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+        },
+        {
+        "type": "header",
+        "content": "== Design Mobile Options"
+        },
+        {
+        "type": "text",
+        "id": "mg_mb",
+        "label": "Margin"
+        },
+        {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding"
+        }
+		
+	]
+  }
 {% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
