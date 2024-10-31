@@ -1,10 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "breadcrumb": {
       "type": "breadcrumb",
       "settings": {
         "show_title_page": false,
-        "cl_title": "#222",
         "h_position": "left",
         "v_position": "middle",
         "txt_align": "center",
@@ -20,7 +28,7 @@
     "main": {
       "type": "content-404",
       "settings": {
-        "bg_img_404": "shopify:\/\/shop_images\/404.jpg",
+        "bg_img_404": "shopify://shop_images/404.jpg",
         "title": "Opps! Page not found.",
         "content": "Sorry for the inconvenience. Go to our homepage or check out our latest collections.",
         "cl_bg": "#ffffff",

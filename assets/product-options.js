@@ -279,6 +279,8 @@ if (!customElements.get("product-options")) {
     }
     updatePossibleVariants(data) {
       var self = this;
+
+      console.log('self', self);
       const selectedOptionOneVariants = data.json.variants.filter((variant) => {
         return (
           self.querySelector(
@@ -286,6 +288,8 @@ if (!customElements.get("product-options")) {
           ).value === variant.option1
         );
       });
+
+      console.log('selectedOptionOneVariants', selectedOptionOneVariants);
       function setInputAvailability(elementList, availableValuesList) {
         elementList.forEach((element) => {
           const value = element.matches('select,option,input') ? element.value: element.querySelector('input').value;
