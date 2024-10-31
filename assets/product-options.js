@@ -225,6 +225,7 @@ if (!customElements.get("product-options")) {
           : $product.data("json-product"),
         data = false;
       this.loadJSON($product, json, function (json) {
+        console.log('loadJSON', json);
         var json_images = json.images,
           current_image_id =
             get_image === "by_id" ? +id : +$image.attr("data-image-id"),
