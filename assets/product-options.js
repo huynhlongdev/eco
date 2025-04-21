@@ -218,6 +218,7 @@ if (!customElements.get("product-options")) {
       }
       if (json) {
         if (callback) {
+          console.log('json', JSON.parse(json))
           callback(typeof json == "object" ? json : JSON.parse(json));
         }
       }
