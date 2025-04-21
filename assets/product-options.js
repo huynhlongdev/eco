@@ -192,7 +192,7 @@ if (!customElements.get("product-options")) {
       $body.removeClass("initSwatch");
       if (update_variant) {
         document.body.dispatchEvent(
-          new CustomEvent("afterVariantUpdated", { detail: update_variant })
+          //new CustomEvent("afterVariantUpdated", { detail: update_variant })
         );
       }
     }
@@ -212,7 +212,7 @@ if (!customElements.get("product-options")) {
       }
       if (json) {
         if (callback) {
-          callback(typeof json == "object" ? json : JSON.parse(json));
+          //callback(typeof json == "object" ? json : JSON.parse(json));
         }
       }
     }
