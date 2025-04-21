@@ -323,6 +323,8 @@ var ProductReference = (function Alo($){
               $body.on('afterVariantUpdated', function (event) {
                   var $variant = event.originalEvent.detail;
                   var featuredMedia = $variant.featured_media;
+
+                  console.log('>>>>>slideMain afterVariantUpdated', $variant)
                   if(!$.isEmptyObject(featuredMedia)){
                       var img  = slideMain.find('.js-image-' + featuredMedia.id),
                           idx = img.closest('.slick-slide').data('slick-index');
