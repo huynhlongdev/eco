@@ -673,10 +673,10 @@ if (!customElements.get("product-options")) {
         }
         $gallery.productGallery("switchImageById", image.id);
       }
-      // var media = data.update_variant.featured_media;
-      // if (media && media.hasOwnProperty("id")) {
-      //   $("#thumb_img_" + media.id).trigger("click");
-      // }
+      var media = data.update_variant.featured_media;
+      if (media && media.hasOwnProperty("id")) {
+        $("#thumb_img_" + media.id).trigger("click");
+      }
     }
     updateLinks($product, data) {
       var url =
