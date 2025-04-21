@@ -282,7 +282,9 @@ if (!customElements.get("product-options")) {
           };
         }
 
-        //callback(data);
+        console.log('>>> callback', data )
+
+        callback(data);
       });
     }
     updatePossibleVariants(data) {
