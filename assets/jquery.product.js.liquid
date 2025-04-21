@@ -343,6 +343,9 @@ var ProductReference = (function Alo($){
                 'slidesToShow'    : slideNav.data("slidestoshow"),
                 'responsive'      : responsive
               }, slideNav.data()));
+
+
+            console.log('>>>>', slideNav.data())
               slideNav.slick(slideNav.data());
               var urlParams = new URLSearchParams(window.location.search),
                   variant   = urlParams.get('variant');
