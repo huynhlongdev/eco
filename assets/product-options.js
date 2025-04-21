@@ -651,32 +651,32 @@ if (!customElements.get("product-options")) {
         image;
 
       console.log('>>> updateGallery', data);
-      if (data.update_variant.option1) {
-        $for_option.each(function () {
-          var $this = $(this);
-          $this[
-            $this.attr("data-js-for-option") ===
-            Shopify.handleize(data.update_variant.option1)
-              ? "removeClass"
-              : "addClass"
-          ]("d-none");
-        });
-        if (!$for_option.filter(":not(.d-none)").length) {
-          $for_option.removeClass("d-none");
-        }
-      }
-      if ($gallery.find(".fotorama").length) {
-        if (data.update_variant.featured_media) {
-          image = data.update_variant.featured_media;
-        } else if (data.json.media[0]) {
-          image = data.json.media[0];
-        }
-        $gallery.productGallery("switchImageById", image.id);
-      }
-      var media = data.update_variant.featured_media;
-      if (media && media.hasOwnProperty("id")) {
-        $("#thumb_img_" + media.id).trigger("click");
-      }
+      // if (data.update_variant.option1) {
+      //   $for_option.each(function () {
+      //     var $this = $(this);
+      //     $this[
+      //       $this.attr("data-js-for-option") ===
+      //       Shopify.handleize(data.update_variant.option1)
+      //         ? "removeClass"
+      //         : "addClass"
+      //     ]("d-none");
+      //   });
+      //   if (!$for_option.filter(":not(.d-none)").length) {
+      //     $for_option.removeClass("d-none");
+      //   }
+      // }
+      // if ($gallery.find(".fotorama").length) {
+      //   if (data.update_variant.featured_media) {
+      //     image = data.update_variant.featured_media;
+      //   } else if (data.json.media[0]) {
+      //     image = data.json.media[0];
+      //   }
+      //   $gallery.productGallery("switchImageById", image.id);
+      // }
+      // var media = data.update_variant.featured_media;
+      // if (media && media.hasOwnProperty("id")) {
+      //   $("#thumb_img_" + media.id).trigger("click");
+      // }
     }
     updateLinks($product, data) {
       var url =
