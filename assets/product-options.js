@@ -275,7 +275,7 @@ if (!customElements.get("product-options")) {
           };
         }
 
-        callback(data);
+        //callback(data);
       });
     }
     updatePossibleVariants(data) {
