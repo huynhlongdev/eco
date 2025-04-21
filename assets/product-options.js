@@ -651,20 +651,20 @@ if (!customElements.get("product-options")) {
         image;
 
       console.log('>>> updateGallery', data);
-      // if (data.update_variant.option1) {
-      //   $for_option.each(function () {
-      //     var $this = $(this);
-      //     $this[
-      //       $this.attr("data-js-for-option") ===
-      //       Shopify.handleize(data.update_variant.option1)
-      //         ? "removeClass"
-      //         : "addClass"
-      //     ]("d-none");
-      //   });
-      //   if (!$for_option.filter(":not(.d-none)").length) {
-      //     $for_option.removeClass("d-none");
-      //   }
-      // }
+      if (data.update_variant.option1) {
+        $for_option.each(function () {
+          var $this = $(this);
+          $this[
+            $this.attr("data-js-for-option") ===
+            Shopify.handleize(data.update_variant.option1)
+              ? "removeClass"
+              : "addClass"
+          ]("d-none");
+        });
+        if (!$for_option.filter(":not(.d-none)").length) {
+          $for_option.removeClass("d-none");
+        }
+      }
       // if ($gallery.find(".fotorama").length) {
       //   if (data.update_variant.featured_media) {
       //     image = data.update_variant.featured_media;
