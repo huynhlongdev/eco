@@ -375,19 +375,21 @@ var ProductReference = (function Alo($){
               $body.on('afterVariantUpdated', function (event) {
                   var $variant = event.originalEvent.detail;
                   var featuredMedia = $variant.featured_media;
-                  // if(!$.isEmptyObject(featuredMedia)){
-                  //     var img        = slideNav.find('[data-thumb-id="' + featuredMedia.id + '"]'),
-                  //         idx        = img.closest('.slick-slide').data('slick-index'),
-                  //         slideCount = slideNav.slick('getSlick').slideCount;
-                  //     if(slideCount > slideNav.data('slidesToShow')){
-                  //         if(idx < 0){
-                  //             idx += slideCount;
-                  //         }
-                  //         slideNav.slick('slickGoTo', idx);
-                  //     } else {
-                  //         img.closest('.slick-slide').addClass('slick-current').siblings().removeClass('slick-current');
-                  //     }
-                  // }
+                  if(!$.isEmptyObject(featuredMedia)){
+                      var img        = slideNav.find('[data-thumb-id="' + featuredMedia.id + '"]'),
+                          idx        = img.closest('.slick-slide').data('slick-index'),
+                          slideCount = slideNav.slick('getSlick').slideCount;
+                      if(slideCount > slideNav.data('slidesToShow')){
+                          if(idx < 0){
+                              idx += slideCount;
+                          }
+                        console.log('>>>: >', idx)
+                          slideNav.slick('slickGoTo', idx);
+                      } else {
+                        console.log('>>>: else')
+                          img.closest('.slick-slide').addClass('slick-current').siblings().removeClass('slick-current');
+                      }
+                  }
               });
               slideNav.on('click', '.slick-slide', function () {
                   if(!slideMain.length) return;
