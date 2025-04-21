@@ -66,8 +66,12 @@ if (!customElements.get("product-options")) {
         } else {
           if (json) {
             var variant = self.getVariantById(json, variantId);
+
+            console.log('>>> dispatchEvent afterVariantUpdated', variant)
+
+            
             document.body.dispatchEvent(
-              //new CustomEvent("afterVariantUpdated", { detail: variant })
+              new CustomEvent("afterVariantUpdated", { detail: variant })
             );
           }
         }
