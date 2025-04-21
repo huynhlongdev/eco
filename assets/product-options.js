@@ -168,6 +168,7 @@ if (!customElements.get("product-options")) {
         }
       });
       if (!$body.hasClass("initSwatch")) {
+        console.log('>>>>', initSwatch);
         $this.addClass("active").siblings().removeClass("active");
         if (option.closest(".sticky_variant_content")) {
           $body.addClass("initSwatch");
