@@ -191,8 +191,10 @@ if (!customElements.get("product-options")) {
       }
       $body.removeClass("initSwatch");
       if (update_variant) {
+
+        console.log('>>> dispatchEvent afterVariantUpdated', update_variant)
         document.body.dispatchEvent(
-          //new CustomEvent("afterVariantUpdated", { detail: update_variant })
+          new CustomEvent("afterVariantUpdated", { detail: update_variant })
         );
       }
     }
