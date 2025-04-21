@@ -649,6 +649,8 @@ if (!customElements.get("product-options")) {
       var $gallery = $product.find("[data-js-product-gallery]"),
         $for_option = $gallery.find("[data-js-for-option]"),
         image;
+
+      console.log('>>> updateGallery', data);
       if (data.update_variant.option1) {
         $for_option.each(function () {
           var $this = $(this);
