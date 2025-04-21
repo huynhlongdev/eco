@@ -665,14 +665,14 @@ if (!customElements.get("product-options")) {
           $for_option.removeClass("d-none");
         }
       }
-      // if ($gallery.find(".fotorama").length) {
-      //   if (data.update_variant.featured_media) {
-      //     image = data.update_variant.featured_media;
-      //   } else if (data.json.media[0]) {
-      //     image = data.json.media[0];
-      //   }
-      //   $gallery.productGallery("switchImageById", image.id);
-      // }
+      if ($gallery.find(".fotorama").length) {
+        if (data.update_variant.featured_media) {
+          image = data.update_variant.featured_media;
+        } else if (data.json.media[0]) {
+          image = data.json.media[0];
+        }
+        $gallery.productGallery("switchImageById", image.id);
+      }
       // var media = data.update_variant.featured_media;
       // if (media && media.hasOwnProperty("id")) {
       //   $("#thumb_img_" + media.id).trigger("click");
