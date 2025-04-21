@@ -217,66 +217,66 @@ if (!customElements.get("product-options")) {
       }
     }
     switchByImage($product, get_image, id, callback) {
-      var _ = this,
-        $image = $product.find("[data-js-product-image] [data-image-lazy]"),
-        dataJson = $product.find(".data-json-product"),
-        json = dataJson.length
-          ? JSON.parse(dataJson.html())
-          : $product.data("json-product"),
-        data = false;
-      this.loadJSON($product, json, function (json) {
-        console.log('loadJSON', json);
-        var json_images = json.images,
-          current_image_id =
-            get_image === "by_id" ? +id : +$image.attr("data-image-id"),
-          image_index,
-          update_variant;
-        $.each(json_images, function (i) {
-          if (+this.id === current_image_id) {
-            image_index = i;
-            return false;
-          }
-        });
-        if (image_index || image_index === 0) {
-          if (get_image === "prev" && image_index !== 0) {
-            image_index--;
-          } else if (
-            get_image === "next" &&
-            image_index !== json_images.length - 1
-          ) {
-            image_index++;
-          }
-          $.each(json.variants, function () {
-            if (
-              this.featured_image &&
-              +this.featured_image.id === +json_images[image_index].id
-            ) {
-              update_variant = this;
-              return false;
-            }
-          });
-          if (!update_variant) {
-            update_variant = self.getDefaultVariant(json);
-            update_variant.featured_image = json_images[image_index];
-          }
-          self.updateOptions({
-            update_variant: update_variant,
-            json: json,
-          });
-          self.switchVariant($product, {
-            update_variant: update_variant,
-            json: json,
-          });
-          data = {
-            index: image_index,
-            image: json_images[image_index],
-            is_first: image_index === 0,
-            is_last: image_index === json_images.length - 1,
-          };
-        }
+      // var _ = this,
+      //   $image = $product.find("[data-js-product-image] [data-image-lazy]"),
+      //   dataJson = $product.find(".data-json-product"),
+      //   json = dataJson.length
+      //     ? JSON.parse(dataJson.html())
+      //     : $product.data("json-product"),
+      //   data = false;
+      // this.loadJSON($product, json, function (json) {
+      //   console.log('loadJSON', json);
+      //   var json_images = json.images,
+      //     current_image_id =
+      //       get_image === "by_id" ? +id : +$image.attr("data-image-id"),
+      //     image_index,
+      //     update_variant;
+      //   $.each(json_images, function (i) {
+      //     if (+this.id === current_image_id) {
+      //       image_index = i;
+      //       return false;
+      //     }
+      //   });
+      //   if (image_index || image_index === 0) {
+      //     if (get_image === "prev" && image_index !== 0) {
+      //       image_index--;
+      //     } else if (
+      //       get_image === "next" &&
+      //       image_index !== json_images.length - 1
+      //     ) {
+      //       image_index++;
+      //     }
+      //     $.each(json.variants, function () {
+      //       if (
+      //         this.featured_image &&
+      //         +this.featured_image.id === +json_images[image_index].id
+      //       ) {
+      //         update_variant = this;
+      //         return false;
+      //       }
+      //     });
+      //     if (!update_variant) {
+      //       update_variant = self.getDefaultVariant(json);
+      //       update_variant.featured_image = json_images[image_index];
+      //     }
+      //     self.updateOptions({
+      //       update_variant: update_variant,
+      //       json: json,
+      //     });
+      //     self.switchVariant($product, {
+      //       update_variant: update_variant,
+      //       json: json,
+      //     });
+      //     data = {
+      //       index: image_index,
+      //       image: json_images[image_index],
+      //       is_first: image_index === 0,
+      //       is_last: image_index === json_images.length - 1,
+      //     };
+      //   }
 
-        //callback(data);
-      });
+      //   //callback(data);
+      // });
     }
     updatePossibleVariants(data) {
       var self = this;
