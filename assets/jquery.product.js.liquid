@@ -231,6 +231,11 @@ var ProductReference = (function Alo($){
                 'responsive'    : responsive,
                 'slidesToShow'  : 1
               }, slideMain.data()));
+
+
+
+
+            
               slideMain.on('beforeChange', function(event, slick, currentSlide, nextSlide){
                   var video = $(slick.$slides.get(currentSlide)).find('video');
                   if(video.length) video.get(0).pause();
@@ -348,7 +353,7 @@ var ProductReference = (function Alo($){
             slideNav.data().slidestoshow = 3;
 
 
-            console.log('>>>>', slideNav.data())
+            console.log('>>>>', slideNav.data(), slideNav.data('slidesToShow'))
               slideNav.slick(slideNav.data());
               var urlParams = new URLSearchParams(window.location.search),
                   variant   = urlParams.get('variant');
