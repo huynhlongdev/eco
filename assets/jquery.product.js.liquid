@@ -353,7 +353,7 @@ var ProductReference = (function Alo($){
             slideNav.data().slidestoshow = 3;
 
 
-            console.log('>>>>nav', slideNav.data(), slideNav.data('slidesToShow'))
+            
               slideNav.slick(slideNav.data());
               var urlParams = new URLSearchParams(window.location.search),
                   variant   = urlParams.get('variant');
@@ -384,6 +384,10 @@ var ProductReference = (function Alo($){
                       var img        = slideNav.find('[data-thumb-id="' + featuredMedia.id + '"]'),
                           idx        = img.closest('.slick-slide').data('slick-index'),
                           slideCount = slideNav.slick('getSlick').slideCount;
+
+                    console.log('>>>>nav', slideNav.data(), slideNav.data('slidesToShow'))
+
+                    
                       if(slideCount > slideNav.data('slidesToShow')){
                           if(idx < 0){
                               idx += slideCount;
