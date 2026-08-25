@@ -111,7 +111,7 @@
     </a>
     {% endif %}
     {% liquid 
-        if  type_name=="product" or type_name == "index" or type_name == 'cart'
+        if type_name.product or type_name == "index" or type_name == 'cart'
           section 'cross-sell-popup'  
         endif 
         if type_name == 'product' and settings.sticky_atc and product.available
@@ -159,3 +159,13 @@
 </html>
 {%- endcapture -%}
 {%- render 'minify-code', htmlContent: htmlContent -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: if  type_name=="product" or type_name == "index" or type_name == 'cart'
+  to: if type_name.product or type_name == "index" or type_name == 'cart'
+  position: 5874..5941
+{% endcomment %}
